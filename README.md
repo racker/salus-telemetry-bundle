@@ -5,7 +5,7 @@
 The supporting infrastructure, such as etcd and kafka, can be started by running
 
 ```
-cd dev-support/telemetry-infra
+cd dev/telemetry-infra
 docker-compose up -d
 ```
 

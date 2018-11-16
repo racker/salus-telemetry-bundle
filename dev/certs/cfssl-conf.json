@@ -1,0 +1,20 @@
+{
+  "signing": {
+    "profiles": {
+      "CA": {
+        "usages": [
+          "cert sign"
+        ],
+        "expiry": "720h"
+      },
+      "short": {
+        "usages": ["signing", "key encipherment", "server auth", "client auth"],
+        "expiry": "1s"
+      }
+    },
+    "default": {
+      "usages": ["signing", "key encipherment", "server auth", "client auth"],
+      "expiry": "8760h"
+    }
+  }
+}

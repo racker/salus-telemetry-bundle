@@ -1,0 +1,15 @@
+tls:
+  auth_service:
+    url: http://localhost:8082
+    token_provider: static
+  token_providers:
+    static:
+      headers:
+        - name: "X-Tenant-Id"
+          value: "cccccc"
+        - name: "X-Roles"
+          value: "compute:default"
+ambassador:
+  address: localhost:6565
+lumberjack:
+  bind: localhost:5044

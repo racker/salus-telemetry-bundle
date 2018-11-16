@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- To configure Repose see: http://www.openrepose.org/versions/8.10.0.0/index.html -->
+<system-model xmlns="http://docs.openrepose.org/repose/system-model/v2.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://docs.openrepose.org/repose/system-model/v2.0 http://www.openrepose.org/versions/latest/schemas/system-model.xsd">
+    <repose-cluster id="repose">
+        <nodes>
+            <node id="repose_node1" hostname="localhost" http-port="8080"/>
+        </nodes>
+        <filters>
+            <filter name="header-normalization"/>
+            <filter name="keystone-v2"/>
+            <!-- Leaving option here for authorization filter, but Spring Security can do this -->
+            <!--<filter name="keystone-v2-authorization"/>-->
+        </filters>
+        <services></services>
+        <destinations>
+            <!--<endpoint id="api" protocol="http" hostname="telemetry-api" root-path="/" port="8080" default="true"/>-->
+            <endpoint id="api" protocol="http" hostname="backend" root-path="/" port="8080" default="true"/>
+        </destinations>
+    </repose-cluster>
+</system-model>

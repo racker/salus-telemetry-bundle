@@ -1,0 +1,32 @@
+version: '3.2'
+
+services:
+  telegraf:
+    image: telegraf
+    volumes:
+    - "./telegraf.conf:/etc/telegraf/telegraf.conf:ro"
+    ports:
+    - "8125:8125/udp"
+  logstash:
+    image: docker.elastic.co/logstash/logstash:6.4.1
+    volumes:
+      - "./logstash-pipeline:/usr/share/logstash/pipeline/"
+    environment:
+      - XPACK_MONITORING_ENABLED=false
+      - "LS_JAVA_OPTS=-Xms512m -Xmx512m"
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.0
+    volumes:
+      - es:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.4.1
+    environment:
+      ELASTICSEARCH_URL: http://es:9200
+    ports:
+      - 5601:5601
+
+volumes:
+  es:

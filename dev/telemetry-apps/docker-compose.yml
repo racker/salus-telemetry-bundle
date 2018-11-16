@@ -1,0 +1,56 @@
+version: '3.7'
+
+services:
+  authserv:
+    image: telemetry-auth-service
+    ports:
+      - 8082:8080
+    networks:
+      - infra
+      - default
+    environment:
+      JAVA_TOOL_OPTIONS: -Xmx512m
+      VAULT_URI: http://vault:8200
+      VAULT_AUTHENTICATION: APPROLE
+      VAULT_APP_ROLE_ROLE_ID: ${VAULT_ROLE_ID}
+      VAULT_APP_ROLE_SECRET_ID: ${VAULT_SECRET_ID}
+  ambassador:
+    image: telemetry-ambassador:nonalpine
+    ports:
+      - 6565:6565
+      - 8081:8080
+    networks:
+      - infra
+    environment:
+      JAVA_TOOL_OPTIONS: -Xmx512m
+      VAULT_URI: http://vault:8200
+      VAULT_AUTHENTICATION: APPROLE
+      VAULT_APP_ROLE_ROLE_ID: ${VAULT_ROLE_ID}
+      VAULT_APP_ROLE_SECRET_ID: ${VAULT_SECRET_ID}
+      ETCD_URL: http://etcd:2379
+  api:
+    image: telemetry-api
+    ports:
+      - 8080:8080
+    networks:
+      - infra
+    environment:
+      JAVA_TOOL_OPTIONS: -Xmx512m
+      ETCD_URL: http://etcd:2379
+  repose:
+    image: rackerlabs/repose
+    ports:
+      - 8182:8080
+    networks:
+      - default
+    environment:
+      JAVA_TOOL_OPTIONS: -Xmx512m
+      KEYSTONE_USER: ${KEYSTONE_USER}
+      KEYSTONE_PASSWORD: ${KEYSTONE_PASSWORD}
+    volumes:
+      - ./repose-config:/etc/repose
+
+networks:
+  infra:
+    external: true
+    name: telemetry-infra_default

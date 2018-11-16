@@ -1,0 +1,19 @@
+{
+  "CN": "dev-ambassador",
+  "hosts": [
+    "util0.iad2.prod.cm.k1k.me"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "US",
+      "L": "San Antonio",
+      "O": "Rackspace",
+      "OU": "rmii-dev-ambassador",
+      "ST": "Texas"
+    }
+  ]
+}

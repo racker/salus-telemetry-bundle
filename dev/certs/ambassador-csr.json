@@ -1,0 +1,22 @@
+{
+  "CN": "dev-ambassador",
+  "hosts": [
+    "localhost",
+    "localhost:6565",
+    "127.0.0.1",
+    "127.0.0.1:6565"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "US",
+      "L": "San Antonio",
+      "O": "Rackspace",
+      "OU": "rmii-dev-ambassador",
+      "ST": "Texas"
+    }
+  ]
+}

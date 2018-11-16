@@ -1,0 +1,8 @@
+tls:
+  auth_service:
+    url: http://localhost:8182
+    token_provider: keystone_v2
+ambassador:
+  address: localhost:6565
+lumberjack:
+  bind: localhost:5044

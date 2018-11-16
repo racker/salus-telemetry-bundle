@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<header-normalization xmlns='http://docs.openrepose.org/repose/header-normalization/v1.0'
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://docs.openrepose.org/repose/header-normalization/v1.0 http://www.openrepose.org/versions/latest/schemas/header-normalization-configuration.xsd">
+    <target>
+        <request>
+            <whitelist>
+                <header id="X-Auth-Token"/>
+            </whitelist>
+        </request>
+    </target>
+</header-normalization>

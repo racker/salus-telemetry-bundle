@@ -52,18 +52,18 @@ In the "Maven Projects" tab (usually on right side of IDE window), click the "Ge
 button to generate the protobuf/grpc code located in the `telemetry-protocol` module.
 
 Create an **Ambassador** run configuration 
-1. Locate the file `telemetry-ambassador/src/main/java/com/rackspace/rmii/telemetry/ambassador/TelemetryAmbassadorApplication.java`
+1. Locate the file `apps/ambassador/src/main/java/com/rackspace/rmii/telemetry/ambassador/TelemetryAmbassadorApplication.java`
 2. Right-click the file and choose the "Create" option just below the build and run options
 3. In the "Working Directory" field, enter `dev`
 4. Save the configuration
 
 Create an **API** run configuration
-1. Locate the file `telemetry-api/src/main/java/com/rackspace/rmii/telemetry/api/TelemetryApiApplication.java`
+1. Locate the file `apps/api/src/main/java/com/rackspace/rmii/telemetry/api/TelemetryApiApplication.java`
 2. Right-click the file and choose the "Create" option just below the build and run options
 3. Save the configuration
 
 Create an **AuthService** run configuration
-1. Locate the file `telemetry-auth-service/src/main/java/com/rackspace/rmii/authservice/TelemetryAuthServiceApplication.java`
+1. Locate the file `apps/auth-service/src/main/java/com/rackspace/rmii/authservice/TelemetryAuthServiceApplication.java`
 2. Right-click the file and choose the "Create" option just below the build and run options
 3. Set Active Profile to "dev".
 4. Set the following Override Parameters to the values returned by the setup-vault.sh script:
@@ -118,7 +118,7 @@ dev/telemetry-infra/setup-vault.sh
 ```
 
 **NOTE** If you haven't built the support modules previously, you'll need to run a
-`mvn install` in the top-level `rmii-telemetry-core` directory.
+`mvn install` in the top-level `salus-telemetry-bundle` directory.
 
 ### Running the applications in Docker with Repose/Identity Auth
 
@@ -151,8 +151,6 @@ containers; however, you'll need to declare two more environment variables:
 export ENVOY_KEYSTONE_USERNAME=...
 export ENVOY_KEYSTONE_APIKEY=...
 ```
-
-The values can be obtained from our `secure` repo in the `maas/rackspace-accounts.txt` file, such as "eletest".
 
 ## Recommended IntelliJ Plugins
 

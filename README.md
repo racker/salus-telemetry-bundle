@@ -1,3 +1,8 @@
+## Cloning the git submodules
+```
+git clone --recursive git@github.com:racker/salus-telemetry-bundle.git
+```
+
 ## Running/Developing Locally
 
 ### Infrastructure

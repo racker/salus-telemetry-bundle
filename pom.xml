@@ -29,6 +29,7 @@
     <modules>
         <module>libs/model</module>
         <module>libs/label-management</module>
+        <module>libs/common</module>
 
         <module>apps/ambassador</module>
         <module>apps/api</module>

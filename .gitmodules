@@ -19,3 +19,6 @@
 [submodule "apps/api"]
 	path = apps/api
 	url = git@github.com:racker/salus-telemetry-api.git
+[submodule "libs/common"]
+	path = libs/common
+	url = git@github.com:racker/salus-common.git

@@ -7,6 +7,8 @@ services:
       - 2479:2379
     volumes:
       - etcd:/etcd-data
+    environment:
+      ETCDCTL_API: 3
     command: >
       /usr/local/bin/etcd
       --data-dir=/etcd-data --name node1

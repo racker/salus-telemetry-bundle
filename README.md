@@ -46,6 +46,15 @@ docker exec -it telemetry-infra_kafka_1 \
 
 **NOTE** the use of port 9093 instead of 9092
 
+### Querying etcd
+
+The etcd container includes the `etcdctl` command-line tool and is pre-configured to use the v3
+API. You can perform operations with `etcdctl` via `docker exec`, such as:
+
+```bash
+docker exec -it telemetry-infra_etcd_1 etcdctl get --prefix /
+```
+
 ### Applications
 
 _**NOTE** The following procedure is IntelliJ specific but the process will be similar for other IDEs._

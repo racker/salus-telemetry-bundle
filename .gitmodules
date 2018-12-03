@@ -1,9 +1,6 @@
 [submodule "apps/envoy"]
 	path = apps/envoy
 	url = git@github.com:racker/salus-telemetry-envoy.git
-[submodule "libs/label-management"]
-	path = libs/label-management
-	url = git@github.com:racker/salus-telemetry-label-management.git
 [submodule "apps/auth-service"]
 	path = apps/auth-service
 	url = git@github.com:racker/salus-telemetry-auth-service.git
@@ -22,3 +19,6 @@
 [submodule "libs/common"]
 	path = libs/common
 	url = git@github.com:racker/salus-common.git
+[submodule "libs/etcd-adapter"]
+	path = libs/etcd-adapter
+	url = git@github.com:racker/salus-telemetry-etcd-adapater.git

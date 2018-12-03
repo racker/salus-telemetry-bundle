@@ -28,7 +28,7 @@
 
     <modules>
         <module>libs/model</module>
-        <module>libs/label-management</module>
+        <module>libs/etcd-adapter</module>
         <module>libs/common</module>
 
         <module>apps/ambassador</module>

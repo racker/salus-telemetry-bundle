@@ -21,4 +21,4 @@
 	url = git@github.com:racker/salus-common.git
 [submodule "libs/etcd-adapter"]
 	path = libs/etcd-adapter
-	url = git@github.com:racker/salus-telemetry-etcd-adapater.git
+	url = git@github.com:racker/salus-telemetry-etcd-adapter.git

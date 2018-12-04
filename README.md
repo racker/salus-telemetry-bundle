@@ -2,6 +2,39 @@
 ```
 git clone --recursive git@github.com:racker/salus-telemetry-bundle.git
 ```
+### Pulling in submodule changes
+Running `git submodule update --recursive` in the top level directory will set each submodule to the commit tagged in this repo.
+```
+$ git submodule update --recursive
+Submodule path 'apps/ambassador': checked out '8fd6d17993001a0d5555f88dc1593ba56ff1ca4c'
+Submodule path 'apps/salus-app-base': checked out 'c3b64afad4e2d31c775a7ce40803df1a7dc95630'
+
+$ git submodule status
+ 8fd6d17993001a0d5555f88dc1593ba56ff1ca4c apps/ambassador (8fd6d17)
+ 0d434d08dc31c73918dc5a5b09d11ae503ae6f13 apps/api (heads/master)
+ 7fec0125daaa1d6554a405dab5e761ebfa98df0a apps/auth-service (heads/master)
+ c999f7e314c3e267a8a9a343c60b8d7a23523e2e apps/envoy (0.1.1-39-gc999f7e)
+ c3b64afad4e2d31c775a7ce40803df1a7dc95630 apps/salus-app-base (c3b64af)
+ 419171514ce8dc0d823ffe32431d255cdc684de6 libs/etcd-adapter (heads/master)
+ 8d3b86933450af562dc57c1fc2a9bf7005bf65b3 libs/model (heads/master)
+```
+
+If you wish to update all submodules to the head of their own master branch, you can append `--remote` to that command.
+```
+$ git submodule update --recursive --remote
+...
+...
+
+$ git submodule status
++90b4454c51f1e045a4dd658a1c598ea2b7909391 apps/ambassador (remotes/origin/HEAD)
++af599bedbedab08c2c99e3700a37ab19ded5b649 apps/api (remotes/origin/HEAD)
++08fb8a1686addf8ecfe1ca9e212c4e26f0eac99a apps/auth-service (remotes/origin/HEAD)
+ c999f7e314c3e267a8a9a343c60b8d7a23523e2e apps/envoy (0.2.0)
++c670acff016f58734e0dae7d5de815e173003052 apps/salus-app-base (heads/master)
++35587ab173d6a1d8e55a022233b6c0dcb9a39cda libs/etcd-adapter (remotes/origin/HEAD)
++9b54cba9ca40b560f333ea63c9644c2e18465c46 libs/model (remotes/origin/HEAD)
+```
+
 
 ## Running/Developing Locally
 

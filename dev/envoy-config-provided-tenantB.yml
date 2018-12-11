@@ -1,13 +1,13 @@
 tls:
   provided:
     ca: certs/out/ca.pem
-    cert: certs/out/tenantA.pem
-    key: certs/out/tenantA-key.pem
+    cert: certs/out/tenantB.pem
+    key: certs/out/tenantB-key.pem
 ambassador:
   address: localhost:6565
 ingest:
   Lumberjack:
-    bind: localhost:5044
+    bind: localhost:5045
   telegraf:
     json:
-      bind: localhost:8094
+      bind: localhost:8095

@@ -6,7 +6,7 @@ tls:
 ambassador:
   address: localhost:6565
 ingest:
-  Lumberjack:
+  lumberjack:
     bind: localhost:5045
   telegraf:
     json:

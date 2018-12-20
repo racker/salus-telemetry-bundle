@@ -125,33 +125,10 @@ Launch each of the run configurations by choosing it from the drop down in the t
 and clicking the "Run" or "Debug" button to launch in the respective mode. _I recommend using debug mode in
 most cases since you can add breakpoints on the fly._
 
-### Running applications via Maven
+### Maven usage for applications
 
-You can also run the Ambassador, and API modules via Maven by `cd`ing
-into the respective module and invoking:
-
-```bash
-mvn spring-boot:run
-```
-You also run the Auth service via Maven with this command:
-```bash
-mvn spring-boot:run -Dspring-boot.run.arguments=--spring.profiles.active=dev
-```
-You'll need to set the secret-id and role-id in rmii-telemetry-core/telemetry-auth-service/src/main/resources/application-dev.yml as mentioned above.
-
-The configuration in their `pom.xml` will take care of setting the working directory and
-a debug log level for our code.
-
-### Building local Docker images
-
-When the Maven profile "docker" is activated, the ambassador and api modules will produce
-a Docker image as part of the `package` goal.
-
-In the ambassador, api, and auth-service module directories, run the following to build a docker image:
-
-```bash
-mvn -P docker package
-```
+The [app base README](apps/salus-app-base/README.md) contains information about how to build
+and run the application modules with Maven.
 
 ### Setting up Vault for development usage
 

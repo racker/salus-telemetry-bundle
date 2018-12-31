@@ -30,11 +30,12 @@
         <module>libs/model</module>
         <module>libs/etcd-adapter</module>
         <module>libs/common</module>
+        <module>libs/protocol</module>
 
         <module>apps/ambassador</module>
         <module>apps/api</module>
         <module>apps/auth-service</module>
-        <module>apps/check-config</module>
+        <!--<module>apps/check-config</module>-->
         <module>apps/presence-monitor</module>
     </modules>
 

@@ -25,3 +25,7 @@
 [submodule "presence-monitor"]
 	path = apps/presence-monitor
 	url = git@github.com:racker/salus-telemetry-presence-monitor.git
+[submodule "salus-telemetry-check-config"]
+	path = salus-telemetry-check-config
+	url = git@github.com:racker/salus-telemetry-check-config.git
+	branch = master

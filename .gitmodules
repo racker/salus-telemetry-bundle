@@ -31,3 +31,6 @@
 [submodule "libs/protocol"]
 	path = libs/protocol
 	url = git@github.com:racker/salus-telemetry-protocol.git
+[submodule "apps/resource-management"]
+	path = apps/resource-management
+	url = git@github.com:racker/salus-telemetry-resource-management.git

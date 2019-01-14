@@ -88,6 +88,41 @@ API. You can perform operations with `etcdctl` via `docker exec`, such as:
 docker exec -it telemetry-infra_etcd_1 etcdctl get --prefix /
 ```
 
+### Connecting to MySQL
+
+MySQL can be started within a docker container by running
+```
+docker-compose -f docker-compose-mysql.yml up -d
+```
+
+It will create a database named `default` with username `dev` and password `pass`.
+
+Once running, in addition to connecting services to it, you can connect to the instance and query the database manually:
+
+```
+$ docker ps
+docker CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                               NAMES
+fd12115575bd        mysql:5.7                         "docker-entrypoint.s…"   12 days ago         Up 12 days          0.0.0.0:3306->3306/tcp, 33060/tcp   telemetry-infra_mysql_1
+
+$ docker exec -it fd12115575bd sh
+
+# mysql -u dev -ppass
+
+mysql> use default;
+
+mysql> show tables;
++--------------------+
+| Tables_in_default  |
++--------------------+
+| hibernate_sequence |
+| labels             |
+| resource_labels    |
+| resources          |
++--------------------+
+
+mysql> select * from resources;
+```
+
 ### Applications
 
 _**NOTE** The following procedure is IntelliJ specific but the process will be similar for other IDEs._

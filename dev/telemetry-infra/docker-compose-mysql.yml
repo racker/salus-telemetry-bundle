@@ -9,6 +9,8 @@ services:
       - mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: default
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: pass
       MYSQL_ROOT_PASSWORD: ${MYSQL_INITIAL_PASSWORD:-initialpw}
       MYSQL_ONETIME_PASSWORD: "true"
 

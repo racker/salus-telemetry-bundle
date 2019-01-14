@@ -104,7 +104,7 @@ $ docker ps
 docker CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                               NAMES
 fd12115575bd        mysql:5.7                         "docker-entrypoint.s…"   12 days ago         Up 12 days          0.0.0.0:3306->3306/tcp, 33060/tcp   telemetry-infra_mysql_1
 
-$ docker exec -it fd12115575bd sh
+$ docker exec -it telemetry-infra_mysql_1 sh
 
 # mysql -u dev -ppass
 

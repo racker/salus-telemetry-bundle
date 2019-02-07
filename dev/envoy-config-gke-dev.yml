@@ -1,0 +1,12 @@
+tls:
+  auth_service:
+    url: https://salus-auth-serv.dev.monplat.rackspace.net
+    token_provider: keystone_v2
+ambassador:
+  address: salus-ambassador.dev.monplat.rackspace.net:443
+ingest:
+  lumberjack:
+    bind: localhost:5044
+  telegraf:
+    json:
+      bind: localhost:8094

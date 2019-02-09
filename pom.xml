@@ -37,6 +37,7 @@
         <module>apps/auth-service</module>
         <module>apps/presence-monitor</module>
         <module>apps/resource-management</module>
+        <module>apps/monitor-management</module>
     </modules>
 
 </project>	

@@ -31,3 +31,6 @@
 [submodule "apps/resource-management"]
 	path = apps/resource-management
 	url = git@github.com:racker/salus-telemetry-resource-management.git
+[submodule "apps/monitor-management"]
+	path = apps/monitor-management
+	url = git@github.com:racker/salus-telemetry-monitor-management.git

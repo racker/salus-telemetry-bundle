@@ -19,3 +19,7 @@ gen:
   fields: used,total
   metrics: cpu,memory,filesystem
 ```
+
+The following line chart shows an example of what would be generated from the example config:
+
+![](docs/example-viz.png)

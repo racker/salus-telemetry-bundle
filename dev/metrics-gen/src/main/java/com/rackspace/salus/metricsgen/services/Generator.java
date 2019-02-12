@@ -65,7 +65,7 @@ public class Generator implements SmartLifecycle {
   @Override
   public void start() {
 
-    final int minPerid = (int) ((properties.getEmitRate().toMillis()/1000) * 2);
+    final int minPeriod = (int) ((properties.getEmitRate().toMillis()/1000) * 2);
 
     for (int t = 0; t < properties.getTenants(); t++) {
       final String tenant = String.format("tenant-%02d", t);
@@ -92,7 +92,7 @@ public class Generator implements SmartLifecycle {
                 fieldName,
                 new Field(
                     rand.nextInt(MAX_OFFSET),
-                    Math.max(minPerid, rand.nextInt(MAX_PERIOD)),
+                    Math.max(minPeriod, rand.nextInt(MAX_PERIOD)),
                     rand.nextInt(MAX_AMPLITUDE)
                 )
             );

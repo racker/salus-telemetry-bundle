@@ -1,0 +1,5 @@
+gen:
+  tenants: 2
+  resources-per-tenant: 3
+  fields: used,total
+  metrics: cpu,memory,filesystem

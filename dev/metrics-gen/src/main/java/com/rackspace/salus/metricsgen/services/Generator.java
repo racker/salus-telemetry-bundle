@@ -43,8 +43,7 @@ import org.springframework.stereotype.Service;
 public class Generator implements SmartLifecycle {
 
   private static final int MAX_OFFSET = 10;
-  public static final int MIN_PERIOD = 60;
-  private static final int MAX_PERIOD = 240;
+  private static final int MAX_PERIOD = 120;
   private static final int MAX_AMPLITUDE = 100;
 
   private final MetricsGenProperties properties;

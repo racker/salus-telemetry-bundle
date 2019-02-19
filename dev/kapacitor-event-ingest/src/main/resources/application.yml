@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: kapacitor-event-ingest
+  kafka:
+    consumer:
+      group-id: ${spring.application.name}
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            value:
+              default:
+                type: com.rackspace.salus.kapacitoreventingest.model.KapacitorEvent
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer

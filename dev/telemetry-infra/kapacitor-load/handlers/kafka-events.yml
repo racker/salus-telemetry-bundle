@@ -1,0 +1,6 @@
+id: kafka-events-handler
+topic: events
+kind: kafka
+options:
+  cluster: 'main'
+  topic: 'salus.events.json'

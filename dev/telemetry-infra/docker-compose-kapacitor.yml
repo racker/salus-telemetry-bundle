@@ -1,0 +1,23 @@
+version: '3.2'
+
+services:
+  kapacitor-0:
+    image: kapacitor:${KAPACITOR_VERSION:-1.5.2}
+    ports:
+      - 9192:9092
+    volumes:
+      - ./kapacitor.conf:/etc/kapacitor/kapacitor.conf:ro
+      - ./kapacitor-load:/etc/kapacitor/load/:ro
+      - kapacitor-0:/var/lib/kapacitor
+  kapacitor-1:
+    image: kapacitor:${KAPACITOR_VERSION:-1.5.2}
+    ports:
+      - 9193:9092
+    volumes:
+      - ./kapacitor.conf:/etc/kapacitor/kapacitor.conf:ro
+      - ./kapacitor-load:/etc/kapacitor/load/:ro
+      - kapacitor-1:/var/lib/kapacitor
+
+volumes:
+  kapacitor-0:
+  kapacitor-1:

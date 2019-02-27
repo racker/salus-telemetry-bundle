@@ -17,6 +17,18 @@ services:
       --advertise-client-urls http://localhost:2379
       --listen-client-urls http://0.0.0.0:2379
       --initial-cluster node1=http://etcd:2380
+  mysql:
+    image: mysql:${MYSQL_VERSION:-5.7}
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: default
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: ${MYSQL_INITIAL_PASSWORD:-initialpw}
+      MYSQL_ONETIME_PASSWORD: "true"
 
   zk:
     image: confluentinc/cp-zookeeper:${CP_VERSION:-4.1.2}
@@ -36,6 +48,8 @@ services:
       KAFKA_LOG_RETENTION_HOURS: 1
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: EXTERNAL:PLAINTEXT,INTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      # some loggers are set to TRACE by default...and they're noisy
+      KAFKA_LOG4J_LOGGERS: kafka.controller=INFO,state.change.logger=INFO
     volumes:
       - kafka:/var/lib/kafka/data
     ports:
@@ -53,3 +67,4 @@ volumes:
   etcd:
   zk:
   kafka:
+  mysql:

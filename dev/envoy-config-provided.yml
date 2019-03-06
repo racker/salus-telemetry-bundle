@@ -1,4 +1,6 @@
 resource_id: "development:0"
+labels:
+  environment: localdev
 tls:
   provided:
     ca: certs/out/ca.pem

@@ -23,3 +23,10 @@ gen:
 The following line chart shows an example of what would be generated from the example config:
 
 ![](docs/example-viz.png)
+
+## Ingesting raw metrics into InfluxDB
+
+The [Salus Event Engine Ingest](https://github.com/racker/salus-event-engine-ingest) application
+includes a Spring profile, `metrics-to-influx`, which configures the application to send raw
+metrics to the InfluxDB Docker compose service declared in 
+[docker-compose-influxdb.yml](../telemetry-infra/docker-compose-influxdb.yml)

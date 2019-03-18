@@ -1,0 +1,412 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      },
+      {
+        "datasource": "InfluxDB",
+        "enable": true,
+        "hide": false,
+        "iconColor": "rgba(255, 96, 96, 1)",
+        "limit": 100,
+        "name": "Events",
+        "query": "SELECT message FROM \"autogen\".\"event\" WHERE $timeFilter AND \"account\" = '$tenant' AND \"resourceId\" = '$resource'",
+        "showIn": 0,
+        "tags": [],
+        "type": "tags"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 1,
+  "iteration": 1552944546488,
+  "links": [],
+  "panels": [
+    {
+      "content": "<link href=\"https://fonts.googleapis.com/css?family=Fira+Sans\" rel=\"stylesheet\">\n<div style=\"\">\n<h1 style=\"color: #000000;font-family: 'Fira Sans', sans-serif;font-style: italic;\">\n<img style=\"vertical-align:baseline;\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAA8CAYAAAAgwDn8AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4wMHEgw0FNBNQgAABC1JREFUaN692k1sFVUYxvFfoRWsWASpBT8AEYq0CzUujAuXuiUxLowrExONURd+xuhGV7p1Zdy4wcS4NNGFG2M0LnQDGlssKgVpIeVDiIipIq2LM0Onlzv348yZeZKbzG1uz3n+c+a9533fcwf0oDMrlwPZK0bLWB7tPH5RW3APHsT9GMdW3IihbLyTg30YWIfXMIGlCPMf4JsuxodwH/bj4cz0SMlNG8BcPwA340ns6tM8XMaHHcwP4iE8jUewucdxD3UFKEx0h7CsMTqF2RLze/AyHsfGPsb8Dwf7WYFx4fmL0XGcbjG/Bo/hLeyLGPMipvsBmBQfwDO4VHg/jFfxCjZEjrmA2V4BhiLvUq7pwvUI3sEzWFthzFmc7RXgJtwVOdE/OJxd34B38WwF47kOY3FNp0+sW7m8DdsiJ/oDR4XH73XhzqfQNCGQSjW3crlHf98QrcOcwhN4qducPeqSEFc9DzYh/nn9GTvxthC8KXQav/cKsDYDiNVRvCg+htrpOM72CjCC3ZETLQrx82hC84RV/btXgG24PXKiK0JOExs/ZZrKL0oBCjvmLmyKnGgYOxKbXxRWoDNAQRPCRhaj2J27k87hGIwKWWA3A1UCuKqWhFR8wMrNnhPSCHoA2CAkcU1oUUgPpnAkM3pB2MkHMy9jmFfIq7oBjGF7zcbn8Bk+xSEh/K70+s9tAQoBfKdQyNShP3EA7wtpwXK7D+UlaEnZ2XUF7sb6Gsz/hDfwuZbydLTkH8r+3g1gsgbzX+E5q1PsUoPd1AlgGHsTm/8aTwnpRSXjuTrtA1uEJCyVZvBCSvNtAQrBsiPRHPAX3sSPKc23BShor1BBpdBHwtdkUvPdAFIF8DG8J7RBkprvBLBOtSK+qAMKyVdqlQFsFjaxqprHx/mb1Hf/GoCWLtxYgvG/kNWuz9dg/hqAgvKmahX9KwTuEnzSMMCE6rn8r/i+Jt8dAQalqQG+k+XtdTz7nQA2SdNB+FZJhlk3wK3iu3C5LuCHus2vAih8A+0WeqFVNC9rPNX5+KwCKKhKFy7Xbzhfs/e2AGukCeBp4VipcYCNQiO3ipa1FCtNAmwV34XLdVHoKjQHkKgLl2sBJ6g/gK8CFLQP11Ucc1bonjWiIsCANDXAYaEZ1ThAqi7cVPUh4gBuUb0Ld/XopzGAli5c7El8rjPC6UkjAczqFUjRhTuuvAtYO0CKHXhGdvTTNMD1wgpUVaMBXARI0YVbdfTTNECKLtw52U9qmgrgIsC4+F+N5DqhcPTTNECKHfiIkMg1DrBemgAuPWWpG2CL6l24yxqsAVoBdgp1QBWdl/X9mwxgQg9oUvxv4XLNZ6+223CdUIO4V/ezsm76RWgIP5AxLAjt9LU4WaP/qwBVNSXEwXahrt6fAXzZBEDVIn5JyIGWhY1sCAeF9LxW8/A/hW/Bj2kw/ZYAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDMtMDdUMTc6MTI6NTIrMDE6MDDIefMoAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTAzLTA3VDE3OjEyOjUyKzAxOjAwuSRLlAAAAABJRU5ErkJggg==\" alt=\"\" />\nmonitoring\n</h1>\n<div>",
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "links": [],
+      "mode": "html",
+      "title": "",
+      "type": "text"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "account"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "resourceId"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$measurement$/",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean($field) FROM \"autogen\"./^$measurement$/ WHERE (\"account\" =~ /^$tenant$/ AND \"resourceId\" =~ /^$resource$/) AND $timeFilter GROUP BY time($__interval), \"account\", \"resourceId\" fill(previous)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "/^$field$/"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "account",
+              "operator": "=~",
+              "value": "/^$tenant$/"
+            },
+            {
+              "condition": "AND",
+              "key": "resourceId",
+              "operator": "=~",
+              "value": "/^$resource$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$measurement used",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "InfluxDB",
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 11
+      },
+      "id": 4,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "date"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "groupBy": [],
+          "hide": false,
+          "measurement": "event",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT * FROM \"autogen\".\"event\" WHERE $timeFilter AND \"account\" = '$tenant'",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "message"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "account",
+              "operator": "=",
+              "value": "tenant-01"
+            },
+            {
+              "condition": "AND",
+              "key": "resourceId",
+              "operator": "=",
+              "value": "resource-003"
+            }
+          ]
+        }
+      ],
+      "title": "Events",
+      "transform": "table",
+      "type": "table"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 16,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "text": "cpu",
+          "value": "cpu"
+        },
+        "datasource": "InfluxDB",
+        "definition": "show measurements",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "measurement",
+        "options": [],
+        "query": "show measurements",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "usage_user",
+          "value": "usage_user"
+        },
+        "datasource": "InfluxDB",
+        "definition": "SHOW FIELD KEYS FROM $measurement",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "field",
+        "options": [],
+        "query": "SHOW FIELD KEYS FROM $measurement",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "aaaaaa",
+          "value": "aaaaaa"
+        },
+        "datasource": "InfluxDB",
+        "definition": "SHOW TAG VALUES ON \"salus\" WITH KEY = \"account\"",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "tenant",
+        "options": [],
+        "query": "SHOW TAG VALUES ON \"salus\" WITH KEY = \"account\"",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "isNone": true,
+          "text": "None",
+          "value": ""
+        },
+        "datasource": "InfluxDB",
+        "definition": "SHOW TAG VALUES ON \"salus\" WITH KEY = \"resourceId\" WHERE \"account\" = $tenant",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "resource",
+        "options": [],
+        "query": "SHOW TAG VALUES ON \"salus\" WITH KEY = \"resourceId\" WHERE \"account\" = $tenant",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "Detailed",
+  "uid": "vZWyTBXmz",
+  "version": 16
+}

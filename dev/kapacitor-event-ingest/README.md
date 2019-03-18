@@ -51,3 +51,10 @@ The following is example JSON content produced by the Kapacitor Kakfa event hand
   "recoverable": true
 }
 ```
+
+## Grafana Dashboards
+
+The ingested events can be viewed in Grafana along with the raw metrics by using the following two dashboards, 
+where the second annotates the metrics chart with the events:
+- [Overview Dashboard JSON](grafana-dashboards/Overview.json)
+- [Detailed Dashboard JSON](grafana-dashboards/Detailed.json)

@@ -31,13 +31,17 @@
         <module>libs/etcd-adapter</module>
         <module>libs/common</module>
         <module>libs/protocol</module>
+        <module>libs/event-engine-common</module>
 
+        <module>apps/salus-app-base</module>
         <module>apps/ambassador</module>
         <module>apps/api</module>
         <module>apps/auth-service</module>
         <module>apps/presence-monitor</module>
         <module>apps/resource-management</module>
         <module>apps/monitor-management</module>
+        <module>apps/event-engine-ingest</module>
+        <module>apps/event-engine-management</module>
     </modules>
 
 </project>	

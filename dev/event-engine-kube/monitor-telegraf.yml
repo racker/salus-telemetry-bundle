@@ -1,0 +1,87 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: monitor
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: default
+  name: monitor
+rules:
+  - apiGroups: [""] # "" indicates the core API group
+    resources:
+      - nodes
+      - pods
+      - persistentvolumes
+      - daemonsets.apps
+      - deployments.apps
+      - statefulsets.apps
+      - persistentvolumeclaims
+      - persistentvolumes
+    verbs: ["get", "list"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: monitor-role-binding
+subjects:
+  - kind: ServiceAccount
+    namespace: default
+    name: monitor
+roleRef:
+  kind: ClusterRole
+  name: monitor
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: monitor-telegraf
+  labels:
+    stack: monitor
+data:
+  telegraf.conf: |
+    [[inputs.kube_inventory]]
+      url = "https://kubernetes"
+      insecure_skip_verify = true
+      bearer_token = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+    [[outputs.influxdb]]
+      urls = ["http://monitor-influxdb:8086"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitor-telegraf
+  labels:
+    app: monitor-telegraf
+    stack: monitor
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: monitor-telegraf
+      labels:
+        app: monitor-telegraf
+        stack: monitor
+    spec:
+      serviceAccountName: monitor
+      automountServiceAccountToken: true
+      containers:
+        - name: telegraf
+          image: telegraf:1.10.1
+          volumeMounts:
+            - mountPath: /etc/telegraf
+              name: config
+      volumes:
+        - name: config
+          configMap:
+            name: monitor-telegraf
+            items:
+              - key: telegraf.conf
+                path: telegraf.conf
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: monitor-telegraf

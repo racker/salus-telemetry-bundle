@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: monitor-grafana
+    stack: monitor
+  name: monitor-grafana
+spec:
+  replicas: 1
+  serviceName: monitor-grafana
+  selector:
+    matchLabels:
+      app: monitor-grafana
+  template:
+    metadata:
+      labels:
+        app: monitor-grafana
+        stack: monitor
+    spec:
+      containers:
+        - image: grafana/grafana:6.0.2
+          name: grafana
+          volumeMounts:
+            - mountPath: /var/lib/grafana
+              name: monitor-grafana-data
+  volumeClaimTemplates:
+    - metadata:
+        name: monitor-grafana-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: monitor-grafana
+spec:
+  selector:
+    app: monitor-grafana
+  ports:
+    - port: 3000
+  type: LoadBalancer

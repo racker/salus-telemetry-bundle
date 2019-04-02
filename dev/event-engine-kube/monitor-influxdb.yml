@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: monitor-influxdb
+    stack: monitor
+  name: monitor-influxdb
+spec:
+  replicas: 1
+  serviceName: monitor-influxdb
+  selector:
+    matchLabels:
+      app: monitor-influxdb
+  template:
+    metadata:
+      labels:
+        app: monitor-influxdb
+        stack: monitor
+    spec:
+      containers:
+        - image: influxdb:1.7.5
+          name: influxdb
+          ports:
+            - containerPort: 8086
+          volumeMounts:
+            - mountPath: /var/lib/influxdb
+              name: monitor-influxdb-data
+  volumeClaimTemplates:
+    - metadata:
+        name: monitor-influxdb-data
+        labels:
+          stack: monitor
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Mi 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: monitor-influxdb
+  labels:
+    stack: monitor
+spec:
+  selector:
+    app: monitor-influxdb
+  ports:
+    - port: 8086

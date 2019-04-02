@@ -1,0 +1,83 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kapacitor
+data:
+  kapacitor.conf: |
+    data_dir = "/var/lib/kapacitor"
+    default-retention-policy = "autogen"
+
+    [alert]
+      persist-topics = true
+
+    [http]
+      bind-address = ":9092"
+
+    [[influxdb]]
+      enabled = false
+
+    [logging]
+      file = "STDOUT"
+      level = "INFO"
+
+    [config-override]
+      enabled = true
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: kapacitor
+  name: kapacitor
+spec:
+  replicas: 2
+  serviceName: kapacitor
+  selector:
+    matchLabels:
+      app: kapacitor
+  template:
+    metadata:
+      labels:
+        app: kapacitor
+      annotations:
+        redeploy: "1"
+    spec:
+      containers:
+        - image: kapacitor:1.5.2
+          name: kapacitor
+          ports:
+            - containerPort: 9092
+          volumeMounts:
+            - mountPath: /var/lib/kapacitor
+              name: kapacitor-data
+            - mountPath: /etc/kapacitor
+              name: config
+      volumes:
+        - name: config
+          configMap:
+            name: kapacitor
+            items:
+              - key: kapacitor.conf
+                path: kapacitor.conf
+  volumeClaimTemplates:
+    - metadata:
+        name: kapacitor-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kapacitor
+spec:
+  selector:
+    app: kapacitor
+  ports:
+    - port: 9092
+  type: ClusterIP
+  clusterIP: None

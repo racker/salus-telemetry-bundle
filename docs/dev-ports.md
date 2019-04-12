@@ -21,6 +21,8 @@ Port | Application / Usage
 8084 | _Unused_
 8085 | Resource Management
 8086 | _Reserved for local InfluxDB usage_
-8087 | Event Engine Manage
+8087 | Event Engine Management
+8088 | _Unused_
+8089 | Monitor Management
 8433 | Admin API when running with `ssl` profile activated
 8888 | Admin API

@@ -18,7 +18,7 @@ Port | Application / Usage
 8081 | Ambassador
 8082 | Auth Service
 8083 | Presence Monitor
-8084 | _Unused_
+8084 | Zone Management
 8085 | Resource Management
 8086 | _Reserved for local InfluxDB usage_
 8087 | Event Engine Management

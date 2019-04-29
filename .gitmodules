@@ -43,3 +43,6 @@
 [submodule "libs/event-engine-common"]
 	path = libs/event-engine-common
 	url = git@github.com:racker/salus-event-engine-common.git
+[submodule "dev/salus-tools"]
+    path = dev/salus-tools
+    url = git@github.com:racker/salus-tools.git

@@ -42,6 +42,8 @@
         <module>apps/monitor-management</module>
         <module>apps/event-engine-ingest</module>
         <module>apps/event-engine-management</module>
+
+        <module>tools</module>
     </modules>
 
 </project>	

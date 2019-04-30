@@ -43,6 +43,7 @@
         <module>apps/event-engine-ingest</module>
         <module>apps/event-engine-management</module>
         <module>apps/zone-management</module>
+        <module>tools</module>
     </modules>
 
 </project>	

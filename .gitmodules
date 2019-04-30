@@ -46,9 +46,6 @@
 [submodule "apps/zone-management"]
 	path = apps/zone-management
 	url = git@github.com:racker/salus-telemetry-zone-management.git
-[submodule "tools/salus-tools"]
-    path = tools/
-    url = git@github.com:racker/salus-tools.git
 [submodule "tools"]
 	path = tools
 	url = git@github.com:racker/salus-tools.git

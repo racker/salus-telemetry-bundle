@@ -211,6 +211,33 @@ export ENVOY_KEYSTONE_USERNAME=...
 export ENVOY_KEYSTONE_APIKEY=...
 ```
 
+### Running Event Engine with simulated metrics
+
+The Event Engine applications (`event-engine-ingest` and `event-engine-management`) can be run locally
+along with the entire end-to-end of Salus applications, Ambassador, Envoy, etc; however, for
+development and testing of just the Event Engine piece it is easier just to simulate the
+metrics that would normally  be routed to Kafka/UMB by the Ambassador.
+
+To start with, ensure you have the infrastructure components runnings by bringing up the
+Docker composition `dev/telemetry-infra/docker-compose.yml`. That composition includes two
+instances of Kapacitor.
+
+With the infrastructure running, start the `event-engine-ingest` and `event-engine-management`
+applications both with the Spring `dev` profile activated. That profile will ensure the 
+applications are configured to interact with the two Kapacitor instances in the infrastructure
+composition.
+
+Finally, to simulate some metrics, run the application located in `dev/metrics-gen`. That application
+will randomly pick a set of resources with a set of labels each. Within each resource it will
+randomly come up with a sine wave definition of measurements for each. The logs at startup
+will display the resources and measurements that were randomly defined. The variability and
+number of those can be configured in the `application.yml` of that application. A `small` profile
+is provided as an example of a variation of the application configuration.
+
+As a result, you will be
+able to pick any one of the resource+measurement combinations and configure event scenarios,
+such as rising/falling threshold, based on the periodicity of the chosen measurement.
+
 ## Recommended IntelliJ Plugins
 
 * .env files support (0.7)

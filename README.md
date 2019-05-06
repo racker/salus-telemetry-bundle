@@ -227,8 +227,11 @@ applications both with the Spring `dev` profile activated. That profile will ens
 applications are configured to interact with the two Kapacitor instances in the infrastructure
 composition.
 
-Finally, to simulate some metrics, run the application located in `dev/metrics-gen`. That application
-will randomly pick a set of resources with a set of labels each. Within each resource it will
+Finally, to simulate some metrics, run the application located in `dev/metrics-gen`. For IntelliJ
+to recognize that module, you'll need to right click its `pom.xml` and choose "Add as Maven project".
+With it added to the overall project build, you'll be able to run it as a typical Spring Boot application.
+
+That application will randomly pick a set of resources with a set of labels each. Within each resource it will
 randomly come up with a sine wave definition of measurements for each. The logs at startup
 will display the resources and measurements that were randomly defined. The variability and
 number of those can be configured in the `application.yml` of that application. A `small` profile

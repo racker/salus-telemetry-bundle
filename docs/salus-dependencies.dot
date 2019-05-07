@@ -15,15 +15,16 @@ digraph G {
  saml_auth_proxy [shape="box"]
 
  // Salus modules
- public_api
- admin_api
+ public_api [label="Public API"]
+ admin_api [label="Admin API"]
  pm [label="Presence Monitor"]
  auth [label="Auth Service"]
- ambassador
+ ambassador [label="Ambassador"]
  evm [label="Event Engine Management"]
  evi [label="Event Engine Ingest"]
  rm [label="Resource Management"]
  mm [label="Monitor Management"]
+ zm [label="Zone Management"]
 
  evm -> kapacitor
  evm -> mysql
@@ -44,11 +45,15 @@ digraph G {
  pm -> umb [label="produces"]
  pm -> etcd
 
+ zm -> etcd
+ zm -> umb [label="produces"]
+
  envoy -> ambassador [label="gRPC\nTLS pass-thru"]
  ambassador -> umb
  ambassador -> etcd
  ambassador -> vault
  ambassador -> mm [label="calls"]
+ ambassador -> rm [label="calls"]
 
  envoy -> repose_auth [label="calls"]
  repose_auth -> auth

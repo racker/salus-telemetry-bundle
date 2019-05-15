@@ -35,6 +35,27 @@ $ git submodule status
 +9b54cba9ca40b560f333ea63c9644c2e18465c46 libs/model (remotes/origin/HEAD)
 ```
 
+## Manually creating a new release / version
+
+### Create a PR
+This is the easy part of dealing with submodules.  Typically you want to ensure all submodules are on their master branch and up to date, then it is just a matter of creating a new PR as normal.
+
+Checking out the master branch of all submodules can be done via `git submodule foreach --recursive git checkout master`
+and then you can update to the latest commit via `git submodule foreach --recursive git pull`.
+
+A `git status` will then show something like:
+```
+	modified:   apps/ambassador (new commits)
+	modified:   apps/api (new commits)
+	modified:   apps/auth-service (new commits)
+	modified:   apps/envoy (new commits)
+```
+and you can simply add those to your branch like any other file, add a commit message, and push your branch, followed by creating a PR.
+
+### Create a Release
+Once the PR is merged you can then [create a new release via GitHub](https://github.com/racker/salus-telemetry-bundle/releases/new), enter the new tag version, and fill in the other details with relevant information - see the previous releases for examples.
+
+Publish the release and you are done.
 
 ## Running/Developing Locally
 

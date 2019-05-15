@@ -40,7 +40,10 @@ $ git submodule status
 ### Create a PR
 This is the easy part of dealing with submodules.  Typically you want to ensure all submodules are on their master branch and up to date, then it is just a matter of creating a new PR as normal.
 
-A `git status` will show something like:
+Checking out the master branch of all submodules can be done via `git submodule foreach --recursive git checkout master`
+and then you can update to the latest commit via `git submodule foreach --recursive git pull`.
+
+A `git status` will then show something like:
 ```
 	modified:   apps/ambassador (new commits)
 	modified:   apps/api (new commits)

@@ -1,0 +1,63 @@
+@startuml
+
+Envoy-->Ambassador: re-attach
+note right: with new envoy ID
+
+Ambassador-->UMB: AttachEvent
+UMB-->ResourceMgmt: consume AttachEvent
+
+activate ResourceMgmt
+
+ResourceMgmt->ResourceMgmt: handleEnvoyAttach
+
+alt existing resource
+    opt modified resource
+        ResourceMgmt-->UMB: ResourceEvent
+    end
+
+    ResourceMgmt-->UMB: EnvoyReattachEvent
+
+    note over ResourceMgmt,UMB
+    contains:
+    - tenant ID
+    - resource ID
+    - envoy ID
+    end note
+
+else new resource
+    ResourceMgmt-->UMB: ResourceEvent
+end
+deactivate ResourceMgmt
+
+UMB-->MonitorMgmt: consume EnvoyReattachEvent
+activate MonitorMgmt
+MonitorMgmt->MonitorMgmt: re-assign local monitors
+MonitorMgmt->DB: query local monitors\nassigned to resource
+
+loop for each bound monitor
+    MonitorMgmt->DB: set new envoy ID
+end
+
+MonitorMgmt-->UMB: MonitorBoundEvent
+
+note over MonitorMgmt,UMB
+Contains
+- old envoy ID
+
+Keeps the system consistent just in case a new Envoy is
+"stealing" the resource designation from a still-running
+Envoy.
+end note
+
+MonitorMgmt-->UMB: MonitorBoundEvent
+
+note over MonitorMgmt,UMB
+Contains
+- new envoy ID
+end note
+
+deactivate MonitorMgmt
+
+UMB->Ambassador: consume MonitorBoundEvent
+
+@enduml

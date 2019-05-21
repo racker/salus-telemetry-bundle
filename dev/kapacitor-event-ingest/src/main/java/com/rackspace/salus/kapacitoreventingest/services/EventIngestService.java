@@ -66,7 +66,8 @@ public class EventIngestService {
         ;
 
     final Series series = event.getData().getSeries().get(0);
-    pointBuilder.tag("series", series.getName());
+    final String measurement = series.getName();
+    pointBuilder.tag("measurement", measurement);
     pointBuilder.tag(series.getTags());
 
     for (int c = 0; c < series.getColumns().size(); c++) {
@@ -75,7 +76,7 @@ public class EventIngestService {
         for (int v = 0; v < series.getValues().size(); v++) {
           final Object value = series.getValues().get(v).get(c);
           if (value instanceof Number) {
-            pointBuilder.addField(String.format("%s-%d", valueName, v), ((Number) value));
+            pointBuilder.addField(String.format("%s_%s_%d", measurement, valueName, v), ((Number) value));
           }
         }
       }

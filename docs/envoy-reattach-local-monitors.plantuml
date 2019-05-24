@@ -11,9 +11,7 @@ activate ResourceMgmt
 ResourceMgmt->ResourceMgmt: handleEnvoyAttach
 
 alt existing resource
-    opt modified resource
-        ResourceMgmt-->UMB: ResourceEvent
-    end
+    ResourceMgmt-->UMB: ResourceEvent
 
     note over ResourceMgmt,UMB
     contains:

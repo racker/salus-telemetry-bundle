@@ -15,13 +15,12 @@ alt existing resource
         ResourceMgmt-->UMB: ResourceEvent
     end
 
-    ResourceMgmt-->UMB: EnvoyReattachEvent
-
     note over ResourceMgmt,UMB
     contains:
     - tenant ID
     - resource ID
-    - envoy ID
+    - indication if labels changed
+    - re-attached envoy ID
     end note
 
 else new resource
@@ -29,7 +28,7 @@ else new resource
 end
 deactivate ResourceMgmt
 
-UMB-->MonitorMgmt: consume EnvoyReattachEvent
+UMB-->MonitorMgmt: consume ResourceEvent
 activate MonitorMgmt
 MonitorMgmt->MonitorMgmt: re-assign local monitors
 MonitorMgmt->DB: query local monitors\nassigned to resource

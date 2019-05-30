@@ -5,7 +5,7 @@ component Envoy
 component Ambassador
 component MonitorManagement
 component ResourceManagement
-component ZoneManagement
+component ZoneWatcher
 database MySQL
 database etcd
 component MetricsIngest [
@@ -39,7 +39,7 @@ telegraf == Envoy
 Envoy ==> Ambassador
 Ambassador ==> UMB
 Ambassador ~~ etcd
-ZoneManagement ~~ etcd
+ZoneWatcher ~~ etcd
 UMB ==> EventEngineIngest
 UMB ==> MetricsIngest
 MetricsIngest ==> InfluxDB

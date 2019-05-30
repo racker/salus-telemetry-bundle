@@ -1,5 +1,18 @@
 @startuml
 
+title Sequence Detail for Envoy Re-Attachment
+
+participant Envoy
+participant Ambassador
+participant ResourceMgmt
+
+note over Envoy,ResourceMgmt
+This sequence diagram specifically
+focuses on the re-attachment
+of an Envoy and purposely omits
+other aspects of ResourceEvent usage.
+end note
+
 Envoy-->Ambassador: re-attach
 note right: with new envoy ID
 

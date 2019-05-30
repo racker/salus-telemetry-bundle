@@ -24,7 +24,7 @@ digraph G {
  evi [label="Event Engine Ingest"]
  rm [label="Resource Management"]
  mm [label="Monitor Management"]
- zm [label="Zone Management"]
+ zw [label="Zone Watcher"]
 
  evm -> kapacitor
  evm -> mysql
@@ -45,8 +45,8 @@ digraph G {
  pm -> umb [label="produces"]
  pm -> etcd
 
- zm -> etcd
- zm -> umb [label="produces"]
+ zw -> etcd
+ zw -> umb [label="produces"]
 
  envoy -> ambassador [label="gRPC\nTLS pass-thru"]
  ambassador -> umb

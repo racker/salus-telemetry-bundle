@@ -10,32 +10,30 @@ activate ResourceMgmt
 
 ResourceMgmt->ResourceMgmt: handleEnvoyAttach
 
-alt existing resource
+alt existing resource previously associated with an envoy
     ResourceMgmt-->UMB: ResourceEvent
 
     note over ResourceMgmt,UMB
-    contains:
+    In this case contains at least:
     - tenant ID
     - resource ID
-    - indication if labels changed
     - re-attached envoy ID
     end note
-
-else new resource
-    ResourceMgmt-->UMB: ResourceEvent
 end
 deactivate ResourceMgmt
 
 UMB-->MonitorMgmt: consume ResourceEvent
 activate MonitorMgmt
-MonitorMgmt->MonitorMgmt: re-assign local monitors
-MonitorMgmt->DB: query local monitors\nassigned to resource
+alt inclusion of re-attached envoy ID
+  MonitorMgmt->MonitorMgmt: re-assign local monitors
+  MonitorMgmt->DB: query local monitors\nassigned to resource
 
-loop for each bound monitor
-    MonitorMgmt->DB: set new envoy ID
+  loop for each bound monitor
+      MonitorMgmt->DB: set new envoy ID
+  end
+
+  MonitorMgmt-->UMB: MonitorBoundEvent
 end
-
-MonitorMgmt-->UMB: MonitorBoundEvent
 
 note over MonitorMgmt,UMB
 Contains

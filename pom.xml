@@ -42,7 +42,7 @@
         <module>apps/monitor-management</module>
         <module>apps/event-engine-ingest</module>
         <module>apps/event-engine-management</module>
-        <module>apps/zone-management</module>
+        <module>apps/zone-watcher</module>
         <module>tools</module>
     </modules>
 

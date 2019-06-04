@@ -7,7 +7,7 @@ tls:
     static:
       headers:
         - name: "X-Tenant-Id"
-          value: "cccccc"
+          value: "aaaaaa"
         - name: "X-Roles"
           value: "compute:default"
 ambassador:

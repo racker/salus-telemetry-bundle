@@ -188,35 +188,39 @@ and run the application modules with Maven.
 
 ### Setting up Vault for development usage
 
-The Vault server itself is already included in the Docker composition you would have
-started above.
+The Vault server itself is already included in the Docker "infra" composition.
 
-To setup the secrets and auth engines used by our applications you can run the script:
-
-```bash
-dev/telemetry-infra/setup-vault.sh
-```
-
-**NOTE** If you haven't built the support modules previously, you'll need to run a
-`mvn install` in the top-level `salus-telemetry-bundle` directory.
-
-### Running the applications in Docker with Repose/Identity Auth
-
-First, ensure you have locally built the latest docker images by referring to the section above.
-
-Export the following environment variables (or set them in IntelliJ's Docker Compose run config):
+With that container already running, run the following to setup app-role authentication 
+to be used by the Salus applications:
 
 ```bash
-export VAULT_ROLE_ID=...
-export VAULT_SECRET_ID=...
-export KEYSTONE_USER=...
-export KEYSTONE_PASSWORD=...
+docker exec -it telemetry-infra_vault_1 setup-app-role
 ```
 
-The "VAULT" values will be obtained from the `setup-vault.sh` usage, above.
+### Running the Docker application images
 
-The "KEYSTONE" values can be obtained by looking at the `<identity-service>` block of the
-`/etc/repose/keystone-v2.cfg.xml` on any of the ele API nodes. _NOTE: we need a better place for that_
+**NOTE** When running with Docker for Desktop, you might need to increase the VM
+settings to 4 vCPUs and 8 GiB of memory. Those settings are located in the "Advanced" tab.
+
+The following environment variables will need to be set when running Docker Compose. 
+You can set those without the `export` in a file named `dev/telemetry-apps/.env`, 
+set them in IntelliJ's run config, if running Compose there, or set them via your shell.
+The `.env` approach is best since it works with all the ways of running Compose.
+
+- `IMG_PREFIX`
+- `VAULT_APP_ROLE_ROLE_ID`
+- `VAULT_APP_ROLE_SECRET_ID`
+
+For Google Cloud Builder built images, the `IMG_PREFIX` would be something like the following,
+where `PROJECT_ID` is replaced with GCP project ID.
+
+    gcr.io/PROJECT_ID/
+
+**NOTE** the trailing slash is *required*. Use `gcloud auth configure-docker`,
+[described here](https://cloud.google.com/container-registry/docs/pushing-and-pulling), to 
+configure authentication for pulling those images.
+
+The "VAULT" values are provided during the Vault setup in the previous section.
 
 With those set, execute the following in the `dev/telemetry-apps` directory:
 
@@ -224,13 +228,19 @@ With those set, execute the following in the `dev/telemetry-apps` directory:
 docker-compose up -d
 ```
 
-The Envoy config file `dev/envoy-config-authserv-keystone.yml` can be used with this full set of
-containers; however, you'll need to declare two more environment variables:
+The Envoy config file `dev/envoy-config-authserv.yml` can be used with this set of
+containers.
+
+You can always ensure the latest images are being used by running
 
 ```bash
-export ENVOY_KEYSTONE_USERNAME=...
-export ENVOY_KEYSTONE_APIKEY=...
+docker-compose pull
 ```
+
+The `dev/telemetry-apps` also contains a `check-health.sh` script, which you can run
+to query the actuator health endpoints of the apps. The built-in [healthcheck](https://docs.docker.com/compose/compose-file/#healthcheck)
+couldn't be used since it assumes the use of `curl`, but that is purposely not installed
+in the app containers.
 
 ### Running Event Engine with simulated metrics
 

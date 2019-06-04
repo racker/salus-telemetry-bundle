@@ -2,53 +2,121 @@ version: '3.7'
 
 services:
   authserv:
-    image: telemetry-auth-service
+    image: ${IMG_PREFIX}salus-telemetry-auth-service
     ports:
       - 8082:8080
     networks:
       - infra
-      - default
+    env_file:
+      - common.env
+      - vault.env
     environment:
-      JAVA_TOOL_OPTIONS: -Xmx512m
-      VAULT_URI: http://vault:8200
-      VAULT_AUTHENTICATION: APPROLE
-      VAULT_APP_ROLE_ROLE_ID: ${VAULT_ROLE_ID}
-      VAULT_APP_ROLE_SECRET_ID: ${VAULT_SECRET_ID}
+      # blank value enforces load from .env
+      VAULT_APP_ROLE_ROLE_ID:
+      # blank value enforces load from .env
+      VAULT_APP_ROLE_SECRET_ID:
+  resource-management:
+    image: ${IMG_PREFIX}salus-telemetry-resource-management
+    ports:
+      - 8085:8080
+    networks:
+      - infra
+    env_file:
+      - common.env
+      - jpa.env
+      - kafka.env
+  monitor-management:
+    depends_on:
+      - resource-management
+    image: ${IMG_PREFIX}salus-telemetry-monitor-management
+    ports:
+      - 8089:8080
+    networks:
+      - infra
+    env_file:
+      - common.env
+      - jpa.env
+      - kafka.env
+      - services.env
+      - etcd.env
   ambassador:
-    image: telemetry-ambassador:nonalpine
+    depends_on:
+      - resource-management
+      - monitor-management
+    image: ${IMG_PREFIX}salus-telemetry-ambassador
     ports:
       - 6565:6565
       - 8081:8080
     networks:
       - infra
+    env_file:
+      - common.env
+      - etcd.env
+      - vault.env
+      - kafka.env
+      - services.env
     environment:
-      JAVA_TOOL_OPTIONS: -Xmx512m
-      VAULT_URI: http://vault:8200
-      VAULT_AUTHENTICATION: APPROLE
-      VAULT_APP_ROLE_ROLE_ID: ${VAULT_ROLE_ID}
-      VAULT_APP_ROLE_SECRET_ID: ${VAULT_SECRET_ID}
-      ETCD_URL: http://etcd:2379
-  api:
-    image: telemetry-api
+      # load from .env
+      VAULT_APP_ROLE_ROLE_ID:
+      # load from .env
+      VAULT_APP_ROLE_SECRET_ID:
+      AMBASSADOR_PUBLIC_ZONE_TENANTS: aaaaaa
+      AMBASSADOR_EXTERNAL_NAME: localhost
+      AMBASSADOR_VAULT_PKI_ROLE: telemetry-infra
+  zone-watcher:
+    image: ${IMG_PREFIX}salus-telemetry-zone-management
+    ports:
+      - 8084:8080
+    networks:
+      - infra
+    env_file:
+      - common.env
+      - etcd.env
+      - services.env
+      - kafka.env
+  event-management:
+    image: ${IMG_PREFIX}salus-event-engine-management
+    ports:
+      - 8087:8080
+    networks:
+      - infra
+    command:
+      - --event.discovery.port-strategy.partitions=1
+    env_file:
+      - common.env
+      - jpa.env
+      - kapacitor.env
+  event-ingest:
+    image: ${IMG_PREFIX}salus-event-engine-ingest
+    ports:
+      - 8088:8080
+    networks:
+      - infra
+    command:
+      - --event.discovery.port-strategy.partitions=1
+    env_file:
+      - common.env
+      - kapacitor.env
+      - kafka.env
+  public-api:
+    image: ${IMG_PREFIX}salus-telemetry-api-public
     ports:
       - 8080:8080
     networks:
       - infra
-    environment:
-      JAVA_TOOL_OPTIONS: -Xmx512m
-      ETCD_URL: http://etcd:2379
-  repose:
-    image: rackerlabs/repose
+    env_file:
+      - common.env
+      - etcd.env
+      - services.env
+  admin-api:
+    image: ${IMG_PREFIX}salus-telemetry-api-admin
     ports:
-      - 8182:8080
+      - 8888:8080
     networks:
-      - default
-    environment:
-      JAVA_TOOL_OPTIONS: -Xmx512m
-      KEYSTONE_USER: ${KEYSTONE_USER}
-      KEYSTONE_PASSWORD: ${KEYSTONE_PASSWORD}
-    volumes:
-      - ./repose-config:/etc/repose
+      - infra
+    env_file:
+      - common.env
+      - etcd.env
 
 networks:
   infra:

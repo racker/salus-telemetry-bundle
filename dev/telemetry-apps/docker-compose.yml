@@ -80,8 +80,6 @@ services:
       - 8087:8080
     networks:
       - infra
-    command:
-      - --event.discovery.port-strategy.partitions=1
     env_file:
       - common.env
       - jpa.env
@@ -92,8 +90,6 @@ services:
       - 8088:8080
     networks:
       - infra
-    command:
-      - --event.discovery.port-strategy.partitions=1
     env_file:
       - common.env
       - kapacitor.env

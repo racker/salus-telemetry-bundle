@@ -74,6 +74,17 @@ services:
       - etcd.env
       - services.env
       - kafka.env
+  presence-monitor:
+    image: ${IMG_PREFIX}salus-telemetry-presence-monitor
+    ports:
+      - 8083:8080
+    networks:
+      - infra
+    env_file:
+      - common.env
+      - etcd.env
+      - kafka.env
+      - services.env
   event-management:
     image: ${IMG_PREFIX}salus-event-engine-management
     ports:

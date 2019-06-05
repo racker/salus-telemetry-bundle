@@ -64,7 +64,7 @@ services:
       AMBASSADOR_EXTERNAL_NAME: localhost
       AMBASSADOR_VAULT_PKI_ROLE: telemetry-infra
   zone-watcher:
-    image: ${IMG_PREFIX}salus-telemetry-zone-management
+    image: ${IMG_PREFIX}salus-telemetry-zone-watcher
     ports:
       - 8084:8080
     networks:

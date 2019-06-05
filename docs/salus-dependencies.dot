@@ -44,9 +44,11 @@ digraph G {
 
  pm -> umb [label="produces"]
  pm -> etcd
+ pm -> rm [label="calls"]
 
  zw -> etcd
  zw -> umb [label="produces"]
+ zw -> mm [label="calls"]
 
  envoy -> ambassador [label="gRPC\nTLS pass-thru"]
  ambassador -> umb

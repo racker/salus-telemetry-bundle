@@ -55,11 +55,13 @@ services:
     ports:
       - 9092:9092
   vault:
-    image: vault:0.11.3
+    image: vault:${VAULT_VERSION:-1.1.2}
     cap_add:
       - IPC_LOCK
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_ROOT_TOKEN:-VaultRootToken}
+    volumes:
+      - ./setup-app-role.sh:/usr/local/bin/setup-app-role:ro
     ports:
       - 8200:8200
   kapacitor-0:

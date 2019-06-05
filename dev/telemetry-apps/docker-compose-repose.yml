@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  repose-public:
+    image: rackerlabs/repose
+    ports:
+      - 8181:8080
+    env_file:
+      - common.env
+    environment:
+      KEYSTONE_USER: ${KEYSTONE_USER}
+      KEYSTONE_PASSWORD: ${KEYSTONE_PASSWORD}
+      BACKEND: public-api
+    volumes:
+      - ./repose-config:/etc/repose
+  repose-admin:
+    image: rackerlabs/repose
+    ports:
+      - 8282:8080
+    env_file:
+      - common.env
+    environment:
+      KEYSTONE_USER: ${KEYSTONE_USER}
+      KEYSTONE_PASSWORD: ${KEYSTONE_PASSWORD}
+      BACKEND: admin-api
+    volumes:
+      - ./repose-config:/etc/repose
+
+networks:
+  infra:
+    external: true
+    name: telemetry-infra_default

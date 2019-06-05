@@ -34,8 +34,7 @@
         </filters>
         <services></services>
         <destinations>
-            <!--<endpoint id="api" protocol="http" hostname="telemetry-api" root-path="/" port="8080" default="true"/>-->
-            <endpoint id="authserv" protocol="http" hostname="authserv" root-path="/" port="8080" default="true"/>
+            <endpoint id="{$ BACKEND $}" protocol="http" hostname="{$ BACKEND $}" root-path="/" port="8080" default="true"/>
         </destinations>
     </repose-cluster>
 </system-model>

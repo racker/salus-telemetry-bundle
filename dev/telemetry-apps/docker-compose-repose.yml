@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   repose-public:
-    image: rackerlabs/repose
+    image: rackerlabs/repose:${REPOSE_VERSION:-9.0.0.0}
     ports:
       - 8181:8080
     env_file:
@@ -14,7 +14,7 @@ services:
     volumes:
       - ./repose-config:/etc/repose
   repose-admin:
-    image: rackerlabs/repose
+    image: rackerlabs/repose:${REPOSE_VERSION:-9.0.0.0}
     ports:
       - 8282:8080
     env_file:

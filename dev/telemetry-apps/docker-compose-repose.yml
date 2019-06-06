@@ -4,7 +4,7 @@ services:
   repose-public:
     image: rackerlabs/repose:${REPOSE_VERSION:-9.0.0.0}
     ports:
-      - 8181:8080
+      - 8180:8080
     env_file:
       - common.env
     environment:
@@ -16,7 +16,7 @@ services:
   repose-admin:
     image: rackerlabs/repose:${REPOSE_VERSION:-9.0.0.0}
     ports:
-      - 8282:8080
+      - 8188:8080
     env_file:
       - common.env
     environment:

@@ -242,6 +242,37 @@ to query the actuator health endpoints of the apps. The built-in [healthcheck](h
 couldn't be used since it assumes the use of `curl`, but that is purposely not installed
 in the app containers.
 
+#### Including Repose to replicate deployment-time authentication
+
+Before bringing up the app composition, declare the following two environment variables to enable
+the "secured" Spring profile of the public and admin API services:
+
+```bash
+export ADMIN_API_PROFILES=secured
+export PUBLIC_API_PROFILES=secured
+```
+
+If you had already brought up the composition, you can bring down the `public-api` and `admin-api` services
+and then re-run the `up`.
+
+Before starting the Repose services you will need to declare the Keystone/Identity credentials of 
+a service/user account that is authorized to validate authentication tokens:
+
+```bash
+export KEYSTONE_USER=...
+export KEYSTONE_PASSWORD=...
+```
+
+With that, you can run the following in the `dev/telemetry-apps` directory to start the Repose
+services each for public and admin authentication:
+
+```bash
+docker-compose -f docker-compose-repose.yml up -d 
+```
+
+**NOTE** the use of Repose for admin API authentication is not yet supported by the backend and is
+provided here for development of that capability.
+
 ### Running Event Engine with simulated metrics
 
 The Event Engine applications (`event-engine-ingest` and `event-engine-management`) can be run locally

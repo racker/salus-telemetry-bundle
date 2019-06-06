@@ -115,6 +115,8 @@ services:
       - common.env
       - etcd.env
       - services.env
+    environment:
+      SPRING_PROFILES_ACTIVE: ${PUBLIC_API_PROFILES:-}
   admin-api:
     image: ${IMG_PREFIX}salus-telemetry-api-admin
     ports:
@@ -124,6 +126,8 @@ services:
     env_file:
       - common.env
       - etcd.env
+    environment:
+      SPRING_PROFILES_ACTIVE: ${ADMIN_API_PROFILES:-}
 
 networks:
   infra:

@@ -252,7 +252,7 @@ export ADMIN_API_PROFILES=secured
 export PUBLIC_API_PROFILES=secured
 ```
 
-If you had already brough up the composition, you can bring down the `public-api` and `admin-api` services
+If you had already brought up the composition, you can bring down the `public-api` and `admin-api` services
 and then re-run the `up`.
 
 Before starting the Repose services you will need to declare the Keystone/Identity credentials of 

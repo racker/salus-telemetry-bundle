@@ -270,9 +270,6 @@ services each for public and admin authentication:
 docker-compose -f docker-compose-repose.yml up -d 
 ```
 
-**NOTE** the use of Repose for admin API authentication is not yet supported by the backend and is
-provided here for development of that capability.
-
 ### Running Event Engine with simulated metrics
 
 The Event Engine applications (`event-engine-ingest` and `event-engine-management`) can be run locally

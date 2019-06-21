@@ -7,3 +7,5 @@ ambassador:
   address: localhost:6565
 lumberjack:
   bind: localhost:5044
+agents:
+  dataPath: data-telemetry-envoy

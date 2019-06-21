@@ -15,3 +15,5 @@ ingest:
   telegraf:
     json:
       bind: localhost:8094
+agents:
+  dataPath: data-telemetry-envoy

@@ -112,6 +112,7 @@ services:
     networks:
       - infra
     env_file:
+      - api.env
       - common.env
       - etcd.env
       - services.env
@@ -124,6 +125,7 @@ services:
     networks:
       - infra
     env_file:
+      - api.env
       - common.env
       - etcd.env
     environment:

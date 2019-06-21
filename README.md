@@ -308,7 +308,6 @@ such as rising/falling threshold, based on the periodicity of the chosen measure
 * Docker integration (182.4323.18)
 * Go (182.4129.55.890)
 * [HashiCorp Terraform / HCL language support](https://plugins.jetbrains.com/plugin/7808-hashicorp-terraform--hcl-language-support)
-* JS GraphQL (1.7.2)
 * Kubernetes (182.3588)
 * Lombok Plugin (0.19-LATEST-EAP-SNAPSHOT)
 * Lua (1.0.114)

@@ -25,15 +25,16 @@
   <nodes>
     <node id="repose_node1" hostname="localhost" http-port="8080"/>
   </nodes>
-  <filters>
+  <filters bypass-uri-regex="^/actuator.*">
     <filter name="header-normalization"/>
+    <filter name="header-translation"/>
     <filter name="keystone-v2"/>
+    <filter name="merge-header"/>
     <!-- Leaving option here for authorization filter, but Spring Security can do this -->
     <!--<filter name="keystone-v2-authorization"/>-->
   </filters>
   <services></services>
   <destinations>
-    <endpoint id="{$ BACKEND $}" protocol="http" hostname="{$ BACKEND $}" root-path="/" port="8080"
-      default="true"/>
+      <endpoint id="{$ BACKEND $}" protocol="http" hostname="{$ BACKEND $}" root-path="/" port="8080" default="true"/>
   </destinations>
 </system-model>

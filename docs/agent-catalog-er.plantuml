@@ -1,0 +1,28 @@
+@startuml
+
+entity AgentRelease {
+  *id
+  --
+  *type
+  *version
+}
+
+entity AgentInstallSelector {
+  *id
+  --
+  *tenantId
+  *agentReleaseId
+  *labelSelectors
+}
+
+entity BoundAgentInstall {
+  *tenantId
+  *resourceId
+  *agentInstallSelectorId
+}
+
+AgentInstallSelector }|--|| AgentRelease
+
+BoundAgentInstall }|--|| AgentInstallSelector
+
+@enduml

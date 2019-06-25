@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-06-24T23:16:17.949Z
+__export_date: 2019-06-25T16:20:21.707Z
 __export_source: insomnia.desktop.app:v6.5.4
 resources:
   - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
@@ -1589,8 +1589,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/monitors/{% prompt 'Monitor ID', '', '', '',
-      false %}"
+    url: "{{ api_public  }}/api/monitors/{% prompt 'Monitor ID', '', '', '', false
+      %}"
     _type: request
   - _id: req_ce664bb03fd641088890a6bcc6470f4c
     authentication: {}
@@ -2166,11 +2166,14 @@ resources:
       - id: pair_a00c86ed7bbe48589f4ac58c28819289
         name: Content-Type
         value: application/json
+      - id: pair_aa0d1d90a23e4e629351a8ae86a1024d
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
     isPrivate: false
     metaSortKey: -1561418031953
     method: POST
-    modified: 1561418066152
-    name: Declare release
+    modified: 1561479402678
+    name: Declare release (darwin)
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
     settingDisableRenderRequestBody: false
@@ -2200,16 +2203,57 @@ resources:
     name: ADMIN
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: request_group
+  - _id: req_c71bcdb2114e4972b33cb70519240128
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >
+        {
+          "type": "TELEGRAF",
+          "version": "1.11.0",
+          "labels": {
+            "agent_discovered_os": "linux",
+            "agent_discovered_arch": "amd64"
+          },
+          "url": "https://dl.influxdata.com/telegraf/releases/telegraf-1.11.0-static_linux_amd64.tar.gz",
+          "exe": "telegraf/telegraf"
+        }
+    created: 1561479282269
+    description: ""
+    headers:
+      - id: pair_a00c86ed7bbe48589f4ac58c28819289
+        name: Content-Type
+        value: application/json
+      - id: pair_b4e5c49e38b442fcba8114b6fc84f0f2
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1561417983558
+    method: POST
+    modified: 1561479408678
+    name: Declare release (linux)
+    parameters: []
+    parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/agent-releases"
+    _type: request
   - _id: req_7d79cf86d7cc4d5c988e2bd7dea819c0
     authentication: {}
     body: {}
     created: 1561417838373
     description: ""
-    headers: []
+    headers:
+      - id: pair_8df59d03e774438facec5fad4a9d4112
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
     isPrivate: false
     metaSortKey: -1561417838373
     method: GET
-    modified: 1561417968462
+    modified: 1561479423737
     name: Get Release
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
@@ -2226,11 +2270,14 @@ resources:
     body: {}
     created: 1561417806289
     description: ""
-    headers: []
+    headers:
+      - id: pair_77394b49ad8e4b48a0dd9141c30808ac
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
     isPrivate: false
     metaSortKey: -1561417806289
     method: GET
-    modified: 1561417814314
+    modified: 1561479435868
     name: Get all releases
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
@@ -2462,11 +2509,16 @@ resources:
   - _id: env_5a5d52bd56ce4760af650078de6aa477
     color: null
     created: 1533129475298
-    data: {}
-    dataPropertyOrder: null
+    data:
+      admin_auth_token: ""
+      auth_token: ""
+    dataPropertyOrder:
+      "&":
+        - auth_token
+        - admin_auth_token
     isPrivate: false
     metaSortKey: 1533129475298
-    modified: 1533148539027
+    modified: 1561479538895
     name: New Environment
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: environment
@@ -2505,18 +2557,6 @@ resources:
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar
-  - _id: env_4bff02cb5bbf4303911b9c8a81fa95ac
-    color: null
-    created: 1533148493631
-    data:
-      server: util0.iad2.prod.cm.k1k.me:8686
-    dataPropertyOrder: null
-    isPrivate: false
-    metaSortKey: 0
-    modified: 1543935408163
-    name: util0.iad
-    parentId: env_5a5d52bd56ce4760af650078de6aa477
-    _type: environment
   - _id: env_2953bcf7752f45b6b91078759cd379a2
     color: null
     created: 1533148524042
@@ -2528,18 +2568,6 @@ resources:
     metaSortKey: 1
     modified: 1543935408169
     name: localhost
-    parentId: env_5a5d52bd56ce4760af650078de6aa477
-    _type: environment
-  - _id: env_83900a97b0ca49b7b6d617e22db148cb
-    color: null
-    created: 1543935388025
-    data:
-      api_admin: https://salus-telemetry-admin-local.area51.rax.io:8443
-    dataPropertyOrder: null
-    isPrivate: false
-    metaSortKey: 2
-    modified: 1543935423810
-    name: local admin with saml
     parentId: env_5a5d52bd56ce4760af650078de6aa477
     _type: environment
   - _id: env_c04c93511e7e491fb951db59c2deb6a7
@@ -2554,7 +2582,7 @@ resources:
         - api_public
     isPrivate: false
     metaSortKey: 1560454422588
-    modified: 1560457380894
+    modified: 1561479532421
     name: Prod
     parentId: env_5a5d52bd56ce4760af650078de6aa477
     _type: environment

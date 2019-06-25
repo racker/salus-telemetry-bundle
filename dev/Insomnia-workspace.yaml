@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-06-24T04:50:29.770Z
+__export_date: 2019-06-24T23:16:17.949Z
 __export_source: insomnia.desktop.app:v6.5.4
 resources:
   - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
@@ -968,6 +968,7 @@ resources:
       text: |-
         {
         	"measurement": "mem",
+        	"name": "mem",
         	"taskParameters": {
         		"comparator": ">",
         		"field": "used_percent",
@@ -991,7 +992,7 @@ resources:
     isPrivate: false
     metaSortKey: -1549900063716.5
     method: POST
-    modified: 1561082455382
+    modified: 1561410660951
     name: Create task (mem)
     parameters: []
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
@@ -1009,6 +1010,7 @@ resources:
       text: |-
         {
         	"measurement": "cpu",
+        	"name": "cpu",
         	"taskParameters": {
         		"comparator": ">",
         		"field": "usage_user",
@@ -1035,7 +1037,7 @@ resources:
     isPrivate: false
     metaSortKey: -1549899284793
     method: POST
-    modified: 1561082564647
+    modified: 1561410211353
     name: Create task (cpu)
     parameters: []
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
@@ -1053,6 +1055,7 @@ resources:
       mimeType: application/json
       text: |-
         {
+        	"name": "procstat",
         	"measurement": "procstat_lookup",
         	"taskParameters": {
         		"comparator": "<=",
@@ -1080,7 +1083,7 @@ resources:
     isPrivate: false
     metaSortKey: -1549899284768
     method: POST
-    modified: 1561082717833
+    modified: 1561408369202
     name: Create task (procstat, label)
     parameters: []
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
@@ -1101,7 +1104,7 @@ resources:
     isPrivate: false
     metaSortKey: -1549899284743
     method: DELETE
-    modified: 1561082781420
+    modified: 1561415415452
     name: Delete task
     parameters: []
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
@@ -1577,7 +1580,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552026824782.375
     method: PUT
-    modified: 1561162358515
+    modified: 1561415941867
     name: Update monitor
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1586,8 +1589,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/monitors/{% prompt 'Monitor ID', '', '', 'x', false
-      %}"
+    url: "{{ api_public  }}/api/monitors/{% prompt 'Monitor ID', '', '', '',
+      false %}"
     _type: request
   - _id: req_ce664bb03fd641088890a6bcc6470f4c
     authentication: {}
@@ -1791,6 +1794,7 @@ resources:
       mimeType: application/json
       text: |-
         {
+        	"name": "cpu2",
         	"measurement": "cpu",
         	"taskParameters": {
         		"comparator": ">",
@@ -1821,7 +1825,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1561158074021
+    modified: 1561415992815
     name: Create event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -1874,7 +1878,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551120363119.5
     method: DELETE
-    modified: 1561162573033
+    modified: 1561416036647
     name: Delete event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -1895,7 +1899,7 @@ resources:
     isPrivate: false
     metaSortKey: -1553101476052
     method: GET
-    modified: 1560457636955
+    modified: 1561416068786
     name: Get agent releases
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -1904,7 +1908,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/agentReleases"
+    url: "{{ api_public  }}/api/agent-releases"
     _type: request
   - _id: fld_b073af8590104e8b904c2fda7654403b
     created: 1537893080573
@@ -1936,7 +1940,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349463
     method: POST
-    modified: 1561159120263
+    modified: 1561416078048
     name: Install telegraf on Mac
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -1945,7 +1949,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/agentInstalls"
+    url: "{{ api_public  }}/api/agent-installs"
     _type: request
   - _id: req_424edec546d143e99cf97e73050fa276
     authentication: {}
@@ -1967,7 +1971,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349413
     method: POST
-    modified: 1561159652788
+    modified: 1561416088471
     name: Install filebeat on Linux
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -1976,7 +1980,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/agentInstalls"
+    url: "{{ api_public  }}/api/agent-installs"
     _type: request
   - _id: req_58bd8f171d774346a76211761cda80b4
     authentication: {}
@@ -1998,7 +2002,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349363
     method: POST
-    modified: 1561159705079
+    modified: 1561416096738
     name: Install filebeat on Mac
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -2007,7 +2011,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/agentInstalls"
+    url: "{{ api_public  }}/api/agent-installs"
     _type: request
   - _id: req_a71ad018fe8d4f92b4462c9bd345122c
     authentication: {}
@@ -2018,7 +2022,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349313
     method: GET
-    modified: 1560457662385
+    modified: 1561416105451
     name: Get agent installations
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -2027,7 +2031,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/agentInstalls"
+    url: "{{ api_public  }}/api/agent-installs"
     _type: request
   - _id: req_0de992a88708403c802b6e63828d80cd
     authentication: {}
@@ -2141,6 +2145,102 @@ resources:
     url: "{{ api_public  }}/api/zone-assignment-counts/{% prompt 'Zone Name', '',
       '', '', false %}"
     _type: request
+  - _id: req_20baece24d594b478c829a1eb87b2ca6
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >
+        {
+          "type": "TELEGRAF",
+          "version": "1.11.0",
+          "labels": {
+            "agent_discovered_os": "darwin",
+            "agent_discovered_arch": "amd64"
+          },
+          "url": "https://homebrew.bintray.com/bottles/telegraf-1.11.0.high_sierra.bottle.tar.gz",
+          "exe": "telegraf/1.11.0/bin/telegraf"
+        }
+    created: 1561418031953
+    description: ""
+    headers:
+      - id: pair_a00c86ed7bbe48589f4ac58c28819289
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1561418031953
+    method: POST
+    modified: 1561418066152
+    name: Declare release
+    parameters: []
+    parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/agent-releases"
+    _type: request
+  - _id: fld_3c720d92cec24dd38c65da8bfdae2aa3
+    created: 1561417727553
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561417727553
+    modified: 1561417727553
+    name: Agent Release
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    _type: request_group
+  - _id: fld_5e8273952de24b9f8d2298996f937593
+    created: 1548358712950
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1548358712950
+    modified: 1556918976861
+    name: ADMIN
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    _type: request_group
+  - _id: req_7d79cf86d7cc4d5c988e2bd7dea819c0
+    authentication: {}
+    body: {}
+    created: 1561417838373
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561417838373
+    method: GET
+    modified: 1561417968462
+    name: Get Release
+    parameters: []
+    parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/agent-releases/{% prompt 'Release Id', '', '', '',
+      false %}"
+    _type: request
+  - _id: req_69b358f322b44145a2a7e67ab380f754
+    authentication: {}
+    body: {}
+    created: 1561417806289
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561417806289
+    method: GET
+    modified: 1561417814314
+    name: Get all releases
+    parameters: []
+    parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/agent-releases"
+    _type: request
   - _id: req_99e68d9388a34399992dc00e730ab54c
     authentication: {}
     body:
@@ -2166,16 +2266,6 @@ resources:
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/presence-monitor/partitions"
     _type: request
-  - _id: fld_5e8273952de24b9f8d2298996f937593
-    created: 1548358712950
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1548358712950
-    modified: 1556918976861
-    name: ADMIN
-    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
-    _type: request_group
   - _id: req_fc3d594509b74a48be064b9cc0b902f8
     authentication: {}
     body: {}
@@ -2386,7 +2476,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "7250395464166632"
+        id: "9897307189579985"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -2396,22 +2486,22 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "14172342550001193"
+        id: "4392353199733361"
         key: JSESSIONID
-        lastAccessed: 2019-06-22T01:03:12.885Z
+        lastAccessed: 2019-06-24T22:30:22.457Z
         path: /
-        value: DF90418344D7B555F9EF9101560DED79
+        value: 31C2DFFED4BAB50DFACE417D054252E7
       - creation: 2019-06-17T18:55:28.560Z
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "29964904554376615"
+        id: "5837464469250402"
         key: JSESSIONID
         lastAccessed: 2019-06-19T19:38:59.458Z
         path: /
         value: 401C7882EFEFC5E29F981C6161A8839A
     created: 1533129475302
-    modified: 1561165392885
+    modified: 1561415422457
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar

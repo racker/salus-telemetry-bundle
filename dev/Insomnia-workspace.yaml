@@ -1,0 +1,2560 @@
+_type: export
+__export_format: 4
+__export_date: 2019-06-24T23:16:17.949Z
+__export_source: insomnia.desktop.app:v6.5.4
+resources:
+  - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
+    authentication: {}
+    body: {}
+    created: 1560454258976
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1560454258976
+    method: GET
+    modified: 1561055442429
+    name: Get partitions
+    parameters: []
+    parentId: fld_bfc09e4c437f408f8b8c2e7c1d6341a5
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8888/api/presence-monitor/partitions
+    _type: request
+  - _id: fld_bfc09e4c437f408f8b8c2e7c1d6341a5
+    created: 1560372746491
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1560372746491
+    modified: 1560372746491
+    name: Presence Monitor
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
+  - _id: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    created: 1556918906417
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1556918906417
+    modified: 1556918906417
+    name: DIRECT
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    _type: request_group
+  - _id: wrk_ac0b38d28c244065bf230518f9dd3e75
+    created: 1533129475292
+    description: ""
+    modified: 1543593177069
+    name: Salus Telemetry
+    parentId: null
+    _type: workspace
+  - _id: req_7340906f7f6f4ae185293f5611a50621
+    authentication: {}
+    body: {}
+    created: 1557167583098
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1557167583098
+    method: GET
+    modified: 1561063024546
+    name: Get resource by id
+    parameters: []
+    parentId: fld_b07a28e982c446ca93a8a25c01d86a74
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8085/api/tenant/aaaaaa/resources/test
+    _type: request
+  - _id: fld_b07a28e982c446ca93a8a25c01d86a74
+    created: 1555354305869
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273960
+    modified: 1556918992577
+    name: Resource Management
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
+  - _id: req_c776cff9544c42f88dad0f71cb10e319
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: ""
+    created: 1557161809848
+    description: ""
+    headers:
+      - id: pair_38f50e5000fa40bba73cf693f5e556c9
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1557161809848
+    method: GET
+    modified: 1561063404453
+    name: Get resources by labels
+    parameters:
+      - id: pair_972790157c6a41d08986dbe744d79030
+        name: pingable
+        value: "true"
+    parentId: fld_b07a28e982c446ca93a8a25c01d86a74
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8085/api/tenant/aaaaaa/resourceLabels
+    _type: request
+  - _id: req_2493bc18d29142f8a365a9fd3f5b7af6
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labels": {
+            "pingable": "true"
+          },
+          "metadata": {
+            "ping_ip": "127.0.0.1",
+            "primary_mount": "/"
+          },
+          "presenceMonitoringEnabled": true,
+          "region": null
+        }
+    created: 1555354520107
+    description: ""
+    headers:
+      - id: pair_91e0337588a84127828e40653f32c51b
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360347496
+    method: PUT
+    modified: 1561063477176
+    name: Update resource (envoy's)
+    parameters: []
+    parentId: fld_b07a28e982c446ca93a8a25c01d86a74
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8085/api/tenant/aaaaaa/resources/test
+    _type: request
+  - _id: req_18a9a92233e94334b94e2c4f595e6394
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "resourceId": "test",
+          "labels": {
+            "pingable": "true"
+          },
+          "metadata": {
+            "ping_ip": "localhost"
+          },
+          "presenceMonitoringEnabled": true,
+          "region": null
+        }
+    created: 1555360347446
+    description: ""
+    headers:
+      - id: pair_b688709dd39f4070b74e91536c62b4f0
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360347446
+    method: POST
+    modified: 1560226758694
+    name: Create testing resource
+    parameters: []
+    parentId: fld_b07a28e982c446ca93a8a25c01d86a74
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8085/api/tenant/aaaaaa/resources
+    _type: request
+  - _id: req_a117fbf4b3f749ed948f9b16fffd23ff
+    authentication: {}
+    body: {}
+    created: 1555354316216
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1555354316216
+    method: GET
+    modified: 1560279337061
+    name: Get tenant resources
+    parameters: []
+    parentId: fld_b07a28e982c446ca93a8a25c01d86a74
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8085/api/tenant/aaaaaa/resources
+    _type: request
+  - _id: req_55ef2b6690b44dfb905afa9acaa5bfa2
+    authentication: {}
+    body: {}
+    created: 1556918622874
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1555354316166
+    method: GET
+    modified: 1556918642056
+    name: Get request mappings
+    parameters: []
+    parentId: fld_b07a28e982c446ca93a8a25c01d86a74
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8085/actuator
+    _type: request
+  - _id: req_9648dbfbfb734699afd384f00b29a8bb
+    authentication: {}
+    body: {}
+    created: 1556287160986
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1555354316116
+    method: DELETE
+    modified: 1561064747900
+    name: Delete resource
+    parameters: []
+    parentId: fld_b07a28e982c446ca93a8a25c01d86a74
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8085/api/tenant/aaaaaa/resources/test
+    _type: request
+  - _id: req_6196f1184f20408ab3bf0e3515d8e1d3
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"pingable": "true"
+        }
+    created: 1560226958159
+    description: ""
+    headers:
+      - id: pair_93165dffdb6f4ea0881ddf359fa725c8
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1560226958159
+    method: GET
+    modified: 1561066478745
+    name: Get monitors by label
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitor-labels?size=2&page=0
+    _type: request
+  - _id: fld_2cd444041994485fa243cdab9f615271
+    created: 1555360442773
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273935
+    modified: 1559051459143
+    name: Monitor/zone management
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
+  - _id: req_1e58c53f43c7440d8e8b4aa712d2ba10
+    authentication: {}
+    body: {}
+    created: 1559139894780
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1559139894780
+    method: GET
+    modified: 1559250849470
+    name: Private zone assignment counts
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/{% prompt 'Tenant ID', '', 'aaaaaa', '',
+      false %}/zone-assignment-counts/{% prompt 'Zone ID', '', '', '', false %}
+    _type: request
+  - _id: req_6ab953706ba64bf58f73dcf660d886b2
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "dev"
+        }
+    created: 1557776143644
+    description: ""
+    headers:
+      - id: pair_4e5e7a811d5c4921854c977a019fa426
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1557776143645
+    method: POST
+    modified: 1557929784482
+    name: Create private dev zone
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/{% prompt 'Tenant ID', '', 'aaaaaa', '',
+      false %}/zones
+    _type: request
+  - _id: req_659023410eb64be19fb79e294fb7b1e5
+    authentication: {}
+    body: {}
+    created: 1558643069094
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1557474183403.625
+    method: DELETE
+    modified: 1558643085676
+    name: Delete private dev zone
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/{% prompt 'Tenant ID', '', 'aaaaaa', '',
+      false %}/zones/dev
+    _type: request
+  - _id: req_d1ff51844e384183a765308e41e14f39
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "public/us_central_1",
+          "sourceIpAddresses": ["127.0.0.1/32"],
+          "provider": "Rackspace",
+          "providerRegion": "DFW3"
+        }
+    created: 1557943161277
+    description: ""
+    headers:
+      - id: pair_4e5e7a811d5c4921854c977a019fa426
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1557172223162.25
+    method: POST
+    modified: 1557945915100
+    name: Create public zone (central)
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/admin/zones
+    _type: request
+  - _id: req_5b2603d61c584b05bc24b0a4b2dc35e1
+    authentication: {}
+    body: {}
+    created: 1557929903341
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1556568302679.5
+    method: GET
+    modified: 1560266840862
+    name: Get tenant zones
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/{% prompt 'Tenant ID', '', 'aaaaaa', '',
+      false %}/zones?sort=pollerTimeout,asc
+    _type: request
+  - _id: req_14223ed2c09e4d19b3e13e17fb7b1aa2
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "pingable": "true"
+          },
+          "details": {
+            "type": "remote",
+            "monitoringZones": ["dev"],
+            "plugin": {
+              "type": "ping",
+              "urls": ["${resource.metadata.ping_ip}"]
+            }
+          }
+        }
+    created: 1555360461714
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360461714
+    method: POST
+    modified: 1557776354908
+    name: Create ping (remote) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors
+    _type: request
+  - _id: req_6aee41be94de4516bdc20756f29ac879
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_environment": "localdev"
+          }
+        }
+    created: 1557323458336
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360454572.25
+    method: PUT
+    modified: 1557330920542
+    name: Modify selector of ping (remote) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors/{% response 'body',
+      'req_14223ed2c09e4d19b3e13e17fb7b1aa2', '$.id' %}
+    _type: request
+  - _id: req_fb3d9242db5442edb7823fb75383f4c1
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "details": {
+            "type": "remote",
+            "monitoringZones": ["dev"],
+            "plugin": {
+              "type": "ping",
+              "urls": ["${resource.labels.agent_discovered_hostname}"]
+            }
+          }
+        }
+    created: 1557323744513
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360451001.375
+    method: PUT
+    modified: 1557776462016
+    name: Modify details of ping (remote) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors/{% response 'body',
+      'req_14223ed2c09e4d19b3e13e17fb7b1aa2', '$.id' %}
+    _type: request
+  - _id: req_543497279df447288a87d35de2d126c5
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "alt"
+        }
+    created: 1557776526071
+    description: ""
+    headers:
+      - id: pair_4e5e7a811d5c4921854c977a019fa426
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360450108.6562
+    method: POST
+    modified: 1557776539068
+    name: Create alt private dev zone
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/{% prompt 'Tenant ID', '', '', '', false
+      %}/zones
+    _type: request
+  - _id: req_285282efa63b41ae94103f5538306a6b
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "details": {
+            "type": "remote",
+            "monitoringZones": ["alt"],
+            "plugin": {
+              "type": "ping",
+              "urls": ["${resource.labels.agent_discovered_hostname}"]
+            }
+          }
+        }
+    created: 1557334242122
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360449215.9375
+    method: PUT
+    modified: 1557776556228
+    name: Modify zones of ping (remote) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors/{% response 'body',
+      'req_14223ed2c09e4d19b3e13e17fb7b1aa2', '$.id' %}
+    _type: request
+  - _id: req_5706bbde1596435e886ead9e4bb23669
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          },
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "mem"
+            }
+          }
+        }
+    created: 1556917877595
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360447430.5
+    method: POST
+    modified: 1557863589717
+    name: Create mem (local) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors
+    _type: request
+  - _id: req_ab1e03a9295146a9a8ef6716009221d2
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_environment": "localdev"
+          },
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "cpu",
+              "percpu": false,
+              "totalcpu": true
+            }
+          }
+        }
+    created: 1558358789054
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360443859.625
+    method: POST
+    modified: 1558358854856
+    name: Create cpu (local) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors
+    _type: request
+  - _id: req_f6d6c2bd148040aca7f141ed81272a03
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_environment": "localdev"
+          },
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "procstat",
+              "pattern": "java.*IdleWebServerApplication"
+            }
+          }
+        }
+    created: 1557863559279
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360440288.75
+    method: POST
+    modified: 1557946956138
+    name: Create procstat (local) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors
+    _type: request
+  - _id: req_6e0b9f057aac41ef962fa950139f90f0
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_environment": "localdev"
+          },
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "disk",
+              "mountPoints": ["${resource.metadata.primary_mount}"]
+            }
+          }
+        }
+    created: 1558471564117
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360436717.875
+    method: POST
+    modified: 1558472420637
+    name: Create disk (local) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors
+    _type: request
+  - _id: req_aef343eb6916447ca8507fe2d0617d38
+    authentication: {}
+    body: {}
+    created: 1556717149427
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1555360433147
+    method: GET
+    modified: 1560280708085
+    name: Get tenant monitors
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors?size=2000&page=0
+    _type: request
+  - _id: req_cd95b24220764c3b91a4b5eb79c42c93
+    authentication: {}
+    body: {}
+    created: 1556717032392
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1555360404580
+    method: GET
+    modified: 1560226843549
+    name: Get tenant bound monitors
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/bound-monitors?size=1&page=1
+    _type: request
+  - _id: req_f6d7a333dad54af885d22c15bdd00614
+    authentication: {}
+    body: {}
+    created: 1557423282549
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1555360404530
+    method: DELETE
+    modified: 1561157976812
+    name: Delete monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors/{% prompt 'Monitor ID',
+      '', '', '', false %}
+    _type: request
+  - _id: req_f9411ec3a96542af9b196f207dfaa14e
+    authentication: {}
+    body: {}
+    created: 1549911747569
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1549911747569
+    method: GET
+    modified: 1550504942793
+    name: Get kapa config
+    parameters: []
+    parentId: fld_66513c85dd5244388779193115b11203
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:9193/kapacitor/v1/config/kafka
+    _type: request
+  - _id: fld_66513c85dd5244388779193115b11203
+    created: 1550504934895
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1550504934895
+    modified: 1550504934895
+    name: kapacitor direct
+    parentId: fld_a3c445b8e50f4c5c96d289de93c41764
+    _type: request_group
+  - _id: fld_a3c445b8e50f4c5c96d289de93c41764
+    created: 1549899273910
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273910
+    modified: 1556918919033
+    name: Event Engine
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
+  - _id: req_600c2ffc3e5e445cb15ec624f44b98dc
+    authentication: {}
+    body: {}
+    created: 1550010540760
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1549911747519
+    method: GET
+    modified: 1561081103695
+    name: Get kapa alerts
+    parameters: []
+    parentId: fld_66513c85dd5244388779193115b11203
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:9193/kapacitor/v1/alerts/topics
+    _type: request
+  - _id: req_dc4568e28dd241f6a2d2e73ee9c245e8
+    authentication: {}
+    body: {}
+    created: 1557247046470
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1549911747456.5
+    method: GET
+    modified: 1561080862106
+    name: Get kapa tasks (9192)
+    parameters: []
+    parentId: fld_66513c85dd5244388779193115b11203
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:9192/kapacitor/v1/tasks
+    _type: request
+  - _id: req_b4e330eb6ac3477d90b079cbcac6eb4f
+    authentication: {}
+    body: {}
+    created: 1549918555046
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1549911747450.25
+    method: GET
+    modified: 1557247313712
+    name: Get kapa tasks (9193)
+    parameters: []
+    parentId: fld_66513c85dd5244388779193115b11203
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:9193/kapacitor/v1/tasks
+    _type: request
+  - _id: req_1734cb4fc78c4be080a3b5eb32255fd7
+    authentication: {}
+    body: {}
+    created: 1557247016760
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1549911747431.5
+    method: DELETE
+    modified: 1557247026816
+    name: Delete task (9192)
+    parameters: []
+    parentId: fld_66513c85dd5244388779193115b11203
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:9192/kapacitor/v1/tasks/{% prompt 'Task ID', '', '', '', false %}
+    _type: request
+  - _id: req_1d5ac62f09714026b83aac9cdd62be68
+    authentication: {}
+    body: {}
+    created: 1557246987715
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1549911747425.25
+    method: DELETE
+    modified: 1557247315197
+    name: Delete task (9193)
+    parameters: []
+    parentId: fld_66513c85dd5244388779193115b11203
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:9193/kapacitor/v1/tasks/{% prompt 'Task ID', '', '', '', false %}
+    _type: request
+  - _id: req_f23f361d9dd24d82965a8f97d93aa567
+    authentication: {}
+    body: {}
+    created: 1549920622630
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1549911747419
+    method: GET
+    modified: 1561081369844
+    name: Get Kafka event handler
+    parameters: []
+    parentId: fld_66513c85dd5244388779193115b11203
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:9193/kapacitor/v1/alerts/topics/events/handlers/kafka-events-handler
+    _type: request
+  - _id: req_4656452e8ae145cd95016ede948466fb
+    authentication: {}
+    body: {}
+    created: 1549937761915
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1549900842640
+    method: GET
+    modified: 1561082190610
+    name: Get tasks
+    parameters: []
+    parentId: fld_a3c445b8e50f4c5c96d289de93c41764
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8087/api/tenant/{% prompt 'Tenant', '', '', 'tenantId', false
+      %}/tasks
+    _type: request
+  - _id: req_e1dddbff79d745709156903ba3c5301b
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"measurement": "mem",
+        	"name": "mem",
+        	"taskParameters": {
+        		"comparator": ">",
+        		"field": "used_percent",
+        		"threshold": 75,
+        		"info": {
+        			"consecutiveCount": 2,
+        			"expression": {
+        				"field": "free",
+        				"threshold": 3000,
+        				"comparator": "<"
+        			}
+        		}
+        	}
+        }
+    created: 1558359214893
+    description: ""
+    headers:
+      - id: pair_0d10845d604943b6856f85560742c746
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1549900063716.5
+    method: POST
+    modified: 1561410660951
+    name: Create task (mem)
+    parameters: []
+    parentId: fld_a3c445b8e50f4c5c96d289de93c41764
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8087/api/tenant/{% prompt 'Tenant', '', '', '', false %}/tasks
+    _type: request
+  - _id: req_d7c8de823d2342ddb2c610a4c94ccc19
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"measurement": "cpu",
+        	"name": "cpu",
+        	"taskParameters": {
+        		"comparator": ">",
+        		"field": "usage_user",
+        		"threshold": 30,
+        		"labelSelector": {
+        			"agent_environment": "localdev"
+        		},
+        		"critical": {
+        			"consecutiveCount": 2,
+        			"expression": {
+        				"field": "total_cpu",
+        				"threshold": 3,
+        				"comparator": "<"
+        			}
+        		}
+        	}
+        }
+    created: 1549899284793
+    description: ""
+    headers:
+      - id: pair_0d10845d604943b6856f85560742c746
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1549899284793
+    method: POST
+    modified: 1561410211353
+    name: Create task (cpu)
+    parameters: []
+    parentId: fld_a3c445b8e50f4c5c96d289de93c41764
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8087/api/tenant/{% prompt 'Tenant', '', '', 'tenantId', false
+      %}/tasks
+    _type: request
+  - _id: req_73430c66b40a4da68957dc5b68669348
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "procstat",
+        	"measurement": "procstat_lookup",
+        	"taskParameters": {
+        		"comparator": "<=",
+        		"field": "pid_count",
+        		"threshold": 0,
+        		"labelSelector": {
+        			"pattern": "java.*IdleWebServerApplication"
+        		},
+        		"critical": {
+        			"consecutiveCount": 2,
+        			"expression": {
+        				"field": "pid_count",
+        				"threshold": 3,
+        				"comparator": "<"
+        			}
+        		}
+        	}
+        }
+    created: 1557930393381
+    description: ""
+    headers:
+      - id: pair_0d10845d604943b6856f85560742c746
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1549899284768
+    method: POST
+    modified: 1561408369202
+    name: Create task (procstat, label)
+    parameters: []
+    parentId: fld_a3c445b8e50f4c5c96d289de93c41764
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8087/api/tenant/{% prompt 'Tenant', '', 'aaaaaa', '', false
+      %}/tasks
+    _type: request
+  - _id: req_4f1de6d84e814b22a8f6ac7f57d9b37b
+    authentication: {}
+    body: {}
+    created: 1549938842836
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1549899284743
+    method: DELETE
+    modified: 1561415415452
+    name: Delete task
+    parameters: []
+    parentId: fld_a3c445b8e50f4c5c96d289de93c41764
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8087/api/tenant/{% prompt 'Tenant', '', '', 'tenantId', false
+      %}/tasks/{% prompt 'Event Task ID', '', '', '', false %}
+    _type: request
+  - _id: req_c50458135916499bb533e92e9a6238bf
+    authentication: {}
+    body: {}
+    created: 1545409456636
+    description: ""
+    headers:
+      - id: pair_f1f0b76e89c34bb7bb5768fc68fab0b1
+        name: X-Tenant-Id
+        value: "1941164"
+      - id: pair_264f81f0456f43bca2a7b878798f9891
+        name: X-ROLES
+        value: compute:default
+    isPrivate: false
+    metaSortKey: -1545409456636
+    method: GET
+    modified: 1561165676118
+    name: Envoy Auth
+    parameters: []
+    parentId: fld_8bba40876eb444faad3fedd9b5d5c7b9
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8082/auth/cert
+    _type: request
+  - _id: fld_8bba40876eb444faad3fedd9b5d5c7b9
+    created: 1538495671067
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273860
+    modified: 1556918938220
+    name: Dev
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
+  - _id: req_c87f0de386ce41b780ecc95a940bdd6b
+    authentication: {}
+    body: {}
+    created: 1542205926430
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1542205926430
+    method: GET
+    modified: 1561085347255
+    name: Ambassador messages
+    parameters: []
+    parentId: fld_7ef768e2fdcf4b048a1fe71e4735ea19
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8081/actuator/metrics/messages
+    _type: request
+  - _id: fld_7ef768e2fdcf4b048a1fe71e4735ea19
+    created: 1542205906693
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1535401177845
+    modified: 1542206885013
+    name: Metrics
+    parentId: fld_8bba40876eb444faad3fedd9b5d5c7b9
+    _type: request_group
+  - _id: req_f28636745a5f439795e32b29384a1083
+    authentication: {}
+    body: {}
+    created: 1542206042569
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1541602940589.5
+    method: GET
+    modified: 1561085469950
+    name: Ambassador messages (app)
+    parameters:
+      - id: pair_1b1ef18fa4ed43709b85c96ba871b014
+        multiline: false
+        name: tag
+        type: text
+        value: app:salus-telemetry-ambassador
+    parentId: fld_7ef768e2fdcf4b048a1fe71e4735ea19
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8081/actuator/metrics/messages
+    _type: request
+  - _id: req_96db5fd02e1649448008d4bc5af6e8c1
+    authentication: {}
+    body: {}
+    created: 1542206070641
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1541301447669.25
+    method: GET
+    modified: 1561085498279
+    name: Ambassador messages (postMetrics)
+    parameters:
+      - id: pair_b2b3f259d3fb43548dec213d3667dc81
+        name: tag
+        value: operation:postMetric
+    parentId: fld_7ef768e2fdcf4b048a1fe71e4735ea19
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8081/actuator/metrics/messages
+    _type: request
+  - _id: req_fefb058b99354a288156ffa9ff173e18
+    authentication: {}
+    body: {}
+    created: 1542216069480
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1541301447619.25
+    method: GET
+    modified: 1542225284478
+    name: Ambassador health
+    parameters: []
+    parentId: fld_7ef768e2fdcf4b048a1fe71e4735ea19
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8081/actuator/health
+    _type: request
+  - _id: req_59a74520e46d47a086afa0d5f27ffecb
+    authentication: {}
+    body: {}
+    created: 1558058638797
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1558058638797
+    method: GET
+    modified: 1561142230052
+    name: Get public zone
+    parameters: []
+    parentId: fld_2e441e237d204e19a497bec0f751e4f1
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/admin/zones/public/test
+    _type: request
+  - _id: fld_2e441e237d204e19a497bec0f751e4f1
+    created: 1557421849795
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273810
+    modified: 1557421880854
+    name: Zone Management
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
+  - _id: req_03e4492fd33841a9be7e627e9c17e6fb
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "public/test",
+        	"pollerTimeout": 90,
+        	"provider": "RS",
+        	"providerRegion": "dfw",
+        	"sourceIpAddresses": ["127.0.0.1/27"]
+        }
+    created: 1557959267943
+    description: ""
+    headers:
+      - id: pair_4271cc6d206c43f18a4b6a74715d224a
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1557959267943
+    method: POST
+    modified: 1561142216524
+    name: Create public zone
+    parameters: []
+    parentId: fld_2e441e237d204e19a497bec0f751e4f1
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/admin/zones
+    _type: request
+  - _id: req_e963cca39e6a4c5a9f6e6383db883b9a
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"providerRegion": "te1st",
+        	"pollerTimeout": 31
+        }
+    created: 1557863191969
+    description: ""
+    headers:
+      - id: pair_06462d41d5a9480da558fa5dc4b69705
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1557863191969
+    method: PUT
+    modified: 1559342280038
+    name: Update zone
+    parameters: []
+    parentId: fld_2e441e237d204e19a497bec0f751e4f1
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/zones/dev
+    _type: request
+  - _id: req_46937d98d6414dac997839b5c5286dd8
+    authentication: {}
+    body: {}
+    created: 1557422265669
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1557422265669
+    method: DELETE
+    modified: 1557428797514
+    name: Delete zone
+    parameters: []
+    parentId: fld_2e441e237d204e19a497bec0f751e4f1
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/zones/dev
+    _type: request
+  - _id: req_22dc5ad7a30b42929e0d1702f82e450d
+    authentication: {}
+    body: {}
+    created: 1557422077491
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1557422077491
+    method: GET
+    modified: 1559078167032
+    name: Get zone for tenant
+    parameters: []
+    parentId: fld_2e441e237d204e19a497bec0f751e4f1
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/zones/dev
+    _type: request
+  - _id: req_88965123ba9c490eb35325f2ede2e559
+    authentication: {}
+    body: {}
+    created: 1557422019030
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1557422019030
+    method: GET
+    modified: 1561142101463
+    name: Get zones for tenant
+    parameters: []
+    parentId: fld_2e441e237d204e19a497bec0f751e4f1
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/zones?size=4&page=0
+    _type: request
+  - _id: req_ad8dc35975df4bd0867e15ed98aff40b
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "dev",
+        	"pollerTimeout": 90
+        }
+    created: 1557421888362
+    description: ""
+    headers:
+      - id: pair_95536888b2e94118beec162b6026b89c
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1557421888362
+    method: POST
+    modified: 1561142260017
+    name: Create Zone
+    parameters: []
+    parentId: fld_2e441e237d204e19a497bec0f751e4f1
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/zones
+    _type: request
+  - _id: req_31d66942ae2a48f2b83c091be52718da
+    authentication: {}
+    body: {}
+    created: 1560549351041
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1560549351041
+    method: GET
+    modified: 1560796036516
+    name: Health
+    parameters: []
+    parentId: fld_3373074209bc49199beb8e5967f1ae4a
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/actuator"
+    _type: request
+  - _id: fld_3373074209bc49199beb8e5967f1ae4a
+    created: 1556918901480
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1556918901480
+    modified: 1556918901480
+    name: PUBLIC
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    _type: request_group
+  - _id: req_388b2c4a4aeb4b9988aa26417b4213ef
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "env": "ahhhh"
+          },
+          "details": {
+            "type": "remote",
+            "monitoringZones": ["dev"],
+            "plugin": {
+              "type": "ping",
+              "urls": ["192.168.0.1"]
+            }
+          }
+        }
+    created: 1560958323373
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: ""
+    isPrivate: false
+    metaSortKey: -1560958323373
+    method: POST
+    modified: 1561143568242
+    name: Create Ping
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/monitors"
+    _type: request
+  - _id: fld_52f2a23df31449f6935c3be8b1a99796
+    created: 1552575315822
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1552638807215
+    modified: 1556919007811
+    name: Monitors
+    parentId: fld_3373074209bc49199beb8e5967f1ae4a
+    _type: request_group
+  - _id: req_45121a7c3e4b4475add793f0069e596e
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "env": "ahhhh"
+          },
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "cpu",
+              "percpu": false,
+              "totalcpu": true
+            }
+          }
+        }
+    created: 1552575315840
+    description: ""
+    headers:
+      - id: pair_3c750e7c1e3a496988bfa0de00b5b857
+        name: Content-Type
+        value: application/json
+      - id: pair_9697409d4ed949118e21d9cf342ca17d
+        name: x-auth-token
+        value: ""
+    isPrivate: false
+    metaSortKey: -1552328978670
+    method: POST
+    modified: 1560982866096
+    name: Create monitor
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/monitors"
+    _type: request
+  - _id: req_2c8f05653c934cf0a85d6526154cbd95
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "testing1",
+          "labelSelector": {
+            "agent_discovered_os": "DARWIN"
+          },
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "cpu",
+              "percpu": false,
+              "totalcpu": true
+            }
+          }
+        }
+    created: 1552596712697
+    description: ""
+    headers:
+      - id: pair_3c750e7c1e3a496988bfa0de00b5b857
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1552026824782.375
+    method: PUT
+    modified: 1561415941867
+    name: Update monitor
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/monitors/{% prompt 'Monitor ID', '', '', '',
+      false %}"
+    _type: request
+  - _id: req_ce664bb03fd641088890a6bcc6470f4c
+    authentication: {}
+    body: {}
+    created: 1552575315851
+    description: ""
+    headers:
+      - id: pair_e8a689561cde4ea18565b6db82932418
+        name: x-auth-token
+        value: ""
+    isPrivate: false
+    metaSortKey: -1551724670894.75
+    method: GET
+    modified: 1560982862404
+    name: Get all monitors
+    parameters:
+      - disabled: true
+        id: pair_ae98a8f078be4ca6a30851c919aaa5a1
+        name: size
+        value: "1"
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/monitors"
+    _type: request
+  - _id: req_e6c07cfdbeb04c91bf2cc2995887de25
+    authentication: {}
+    body: {}
+    created: 1552575315845
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1551120363119.5
+    method: DELETE
+    modified: 1561152851598
+    name: Delete monitor
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/monitors/{% prompt 'Monitor ID', '', '',
+      false,      false %}"
+    _type: request
+  - _id: req_1e3562f16c534becb8d765f5a68c67b2
+    authentication: {}
+    body: {}
+    created: 1556729679032
+    description: ""
+    headers:
+      - id: pair_e97560155b8a4cbd9459892ef719f652
+        name: x-auth-token
+        value: ""
+    isPrivate: false
+    metaSortKey: -1551120363069.5
+    method: GET
+    modified: 1560982859421
+    name: Get bound monitors
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/bound-monitors"
+    _type: request
+  - _id: req_714bac3a6790412eb532e36d2de1e737
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "resourceId": "jjb-test",
+          "presenceMonitoringEnabled": false,
+          "labels": {
+            "env": "ahhhh"
+        	}
+        }
+    created: 1552328978670
+    description: ""
+    headers:
+      - id: pair_3c750e7c1e3a496988bfa0de00b5b857
+        name: Content-Type
+        value: application/json
+      - id: pair_ce35caa3383e4b13a278f1a9efa8ba2f
+        name: x-auth-token
+        value: ""
+    isPrivate: false
+    metaSortKey: -1552328978670
+    method: POST
+    modified: 1560982837976
+    name: Create resource
+    parameters: []
+    parentId: fld_0a6a98b5c25d42b2a28631f09356c466
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/resources"
+    _type: request
+  - _id: fld_0a6a98b5c25d42b2a28631f09356c466
+    created: 1552328968587
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1552638807165
+    modified: 1556919014269
+    name: Resources
+    parentId: fld_3373074209bc49199beb8e5967f1ae4a
+    _type: request_group
+  - _id: req_1480e6feddf44046ae92d6ddc0d6151b
+    authentication: {}
+    body: {}
+    created: 1552486220172
+    description: ""
+    headers:
+      - id: pair_dd7dc66e10f04314a98dbdc365d64518
+        name: x-auth-token
+        value: ""
+      - id: pair_6ef013b138984ea7a2a65452f469ad19
+        name: ""
+        value: ""
+    isPrivate: false
+    metaSortKey: -1551724670894.75
+    method: GET
+    modified: 1560982834893
+    name: Get all resources
+    parameters:
+      - disabled: true
+        id: pair_82a565d9f14c42b287c1f221467d3011
+        name: size
+        value: "2"
+      - disabled: true
+        id: pair_5ecd577314434e14917bf313953295c1
+        name: page
+        value: "1"
+    parentId: fld_0a6a98b5c25d42b2a28631f09356c466
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/resources"
+    _type: request
+  - _id: req_8cb39d8dec0c4dda9bfaeccb329839d5
+    authentication: {}
+    body: {}
+    created: 1552486588574
+    description: ""
+    headers:
+      - id: pair_25e07a7481ad44a2bbcb2ea3de45ae7d
+        name: x-auth-token
+        value: ""
+    isPrivate: false
+    metaSortKey: -1551422517007.125
+    method: GET
+    modified: 1560982840740
+    name: Get resources by label
+    parameters:
+      - id: pair_5064221dc81d4a03ba80402f8ab7367b
+        name: env
+        value: ahhhh
+    parentId: fld_0a6a98b5c25d42b2a28631f09356c466
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/resourcesByLabel"
+    _type: request
+  - _id: req_095d7117448940218ceec966f4049f14
+    authentication: {}
+    body: {}
+    created: 1552485569152
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1551120363119.5
+    method: DELETE
+    modified: 1561153321750
+    name: Delete resource
+    parameters: []
+    parentId: fld_0a6a98b5c25d42b2a28631f09356c466
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/resources/jjb-test"
+    _type: request
+  - _id: req_ff8e3b0f818e4ed8a5c8936292084b96
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "cpu2",
+        	"measurement": "cpu",
+        	"taskParameters": {
+        		"comparator": ">",
+        		"field": "usage_user",
+        		"threshold": 30,
+        		"labelSelector": {
+        			"agent_environment": "localdev"
+        		},
+        		"critical": {
+        			"consecutiveCount": 2,
+        			"expression": {
+        				"field": "total_cpu",
+        				"threshold": 3,
+        				"comparator": "<"
+        			}
+        		}
+        	}
+        }
+    created: 1552841089420
+    description: ""
+    headers:
+      - id: pair_3c750e7c1e3a496988bfa0de00b5b857
+        name: Content-Type
+        value: application/json
+      - id: pair_27dad0f76af84b4eb0750f541377d606
+        name: Accept
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1552328978670
+    method: POST
+    modified: 1561415992815
+    name: Create event task
+    parameters: []
+    parentId: fld_906f0421bdb54818a4abb19bd58a8d21
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/event-tasks"
+    _type: request
+  - _id: fld_906f0421bdb54818a4abb19bd58a8d21
+    created: 1552841089415
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1552638807115
+    modified: 1556919020174
+    name: Event tasks
+    parentId: fld_3373074209bc49199beb8e5967f1ae4a
+    _type: request_group
+  - _id: req_6c922104397b40abaf6e624d4f7516a5
+    authentication: {}
+    body: {}
+    created: 1552841089425
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1551724670894.75
+    method: GET
+    modified: 1561158113314
+    name: Get all event tasks
+    parameters:
+      - id: pair_ae98a8f078be4ca6a30851c919aaa5a1
+        name: size
+        value: "1"
+    parentId: fld_906f0421bdb54818a4abb19bd58a8d21
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/event-tasks"
+    _type: request
+  - _id: req_92fe7c03ce20411d8a69644239f6d26b
+    authentication: {}
+    body: {}
+    created: 1552841089423
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1551120363119.5
+    method: DELETE
+    modified: 1561416036647
+    name: Delete event task
+    parameters: []
+    parentId: fld_906f0421bdb54818a4abb19bd58a8d21
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/event-tasks/{% prompt 'Task Id', '', '', '', false
+      %}"
+    _type: request
+  - _id: req_a0da3e16e8da4cd3954bd9ea13259f25
+    authentication: {}
+    body: {}
+    created: 1553101476052
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1553101476052
+    method: GET
+    modified: 1561416068786
+    name: Get agent releases
+    parameters: []
+    parentId: fld_b073af8590104e8b904c2fda7654403b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/agent-releases"
+    _type: request
+  - _id: fld_b073af8590104e8b904c2fda7654403b
+    created: 1537893080573
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1552638807065
+    modified: 1556919032427
+    name: Agents
+    parentId: fld_3373074209bc49199beb8e5967f1ae4a
+    _type: request_group
+  - _id: req_a0a42d95a1544c6b9888a97e7662b6ae
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"agentReleaseId": "{% response 'body', 'req_a0da3e16e8da4cd3954bd9ea13259f25', '$[0].id', 'never' %}",
+        	"labelSelector": {
+        		"agent_discovered_os": "darwin"
+        	}
+        }
+    created: 1538672493222
+    description: ""
+    headers:
+      - id: pair_704c3720ead145c28e7fb8adcb5f0a11
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1536529349463
+    method: POST
+    modified: 1561416078048
+    name: Install telegraf on Mac
+    parameters: []
+    parentId: fld_b073af8590104e8b904c2fda7654403b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/agent-installs"
+    _type: request
+  - _id: req_424edec546d143e99cf97e73050fa276
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >2
+                {
+                	"agentReleaseId": "{% response 'body', 'req_a0da3e16e8da4cd3954bd9ea13259f25', '$[0].id', 'never' %}",
+                	"labelSelector": {
+                		"agent_discovered_os": "LINUX"
+                	}
+                }
+    created: 1533130197703
+    description: ""
+    headers:
+      - id: pair_704c3720ead145c28e7fb8adcb5f0a11
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1536529349413
+    method: POST
+    modified: 1561416088471
+    name: Install filebeat on Linux
+    parameters: []
+    parentId: fld_b073af8590104e8b904c2fda7654403b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/agent-installs"
+    _type: request
+  - _id: req_58bd8f171d774346a76211761cda80b4
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >2
+                {
+                	"agentReleaseId": "{% response 'body', 'req_a0da3e16e8da4cd3954bd9ea13259f25', '$[0].id', 'never' %}",
+                	"labelSelector": {
+                		"agent_discovered_os": "darwin"
+                	}
+                }
+    created: 1533129475318
+    description: ""
+    headers:
+      - id: pair_704c3720ead145c28e7fb8adcb5f0a11
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1536529349363
+    method: POST
+    modified: 1561416096738
+    name: Install filebeat on Mac
+    parameters: []
+    parentId: fld_b073af8590104e8b904c2fda7654403b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/agent-installs"
+    _type: request
+  - _id: req_a71ad018fe8d4f92b4462c9bd345122c
+    authentication: {}
+    body: {}
+    created: 1559055656207
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1536529349313
+    method: GET
+    modified: 1561416105451
+    name: Get agent installations
+    parameters: []
+    parentId: fld_b073af8590104e8b904c2fda7654403b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/agent-installs"
+    _type: request
+  - _id: req_0de992a88708403c802b6e63828d80cd
+    authentication: {}
+    body: {}
+    created: 1559665906618
+    description: ""
+    headers:
+      - id: pair_ef011548cef147a2af2af7db9b8bff17
+        name: x-auth-token
+        value: ""
+    isPrivate: false
+    metaSortKey: -1559665906618
+    method: GET
+    modified: 1560982847038
+    name: Get zones
+    parameters: []
+    parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/zones"
+    _type: request
+  - _id: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
+    created: 1559311403559
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1552638807015
+    modified: 1559312337941
+    name: Zones
+    parentId: fld_3373074209bc49199beb8e5967f1ae4a
+    _type: request_group
+  - _id: req_1f8425184cdc49be8162c73a989c94d1
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "jjbuchan_test"
+        }
+    created: 1559665817901
+    description: ""
+    headers:
+      - disabled: false
+        id: pair_5252cd42dc1041b2942e69149890b334
+        name: Content-Type
+        value: application/json
+      - disabled: false
+        id: pair_3023139566ed4afbb764de91671607e3
+        name: x-auth-token
+        value: ""
+      - disabled: true
+        id: pair_ba9563e6e4ce4e5c90f2b90d1ce7860d
+        name: accept
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1559665817901
+    method: POST
+    modified: 1560982850166
+    name: Create zone
+    parameters: []
+    parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/zones"
+    _type: request
+  - _id: req_51e7462f7510485487cc303dde2c067e
+    authentication: {}
+    body: {}
+    created: 1559311500837
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1559311500837
+    method: POST
+    modified: 1560457688169
+    name: Rebalance zone
+    parameters: []
+    parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/rebalance-zone/{% prompt 'Zone Name', '', '', '',
+      false %}"
+    _type: request
+  - _id: req_11af92d80ec642a2bc9cbe6b2e097ead
+    authentication: {}
+    body: {}
+    created: 1559311421853
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1559311421853
+    method: GET
+    modified: 1560457693855
+    name: Get assignment counts
+    parameters: []
+    parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/zone-assignment-counts/{% prompt 'Zone Name', '',
+      '', '', false %}"
+    _type: request
+  - _id: req_20baece24d594b478c829a1eb87b2ca6
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >
+        {
+          "type": "TELEGRAF",
+          "version": "1.11.0",
+          "labels": {
+            "agent_discovered_os": "darwin",
+            "agent_discovered_arch": "amd64"
+          },
+          "url": "https://homebrew.bintray.com/bottles/telegraf-1.11.0.high_sierra.bottle.tar.gz",
+          "exe": "telegraf/1.11.0/bin/telegraf"
+        }
+    created: 1561418031953
+    description: ""
+    headers:
+      - id: pair_a00c86ed7bbe48589f4ac58c28819289
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1561418031953
+    method: POST
+    modified: 1561418066152
+    name: Declare release
+    parameters: []
+    parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/agent-releases"
+    _type: request
+  - _id: fld_3c720d92cec24dd38c65da8bfdae2aa3
+    created: 1561417727553
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561417727553
+    modified: 1561417727553
+    name: Agent Release
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    _type: request_group
+  - _id: fld_5e8273952de24b9f8d2298996f937593
+    created: 1548358712950
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1548358712950
+    modified: 1556918976861
+    name: ADMIN
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    _type: request_group
+  - _id: req_7d79cf86d7cc4d5c988e2bd7dea819c0
+    authentication: {}
+    body: {}
+    created: 1561417838373
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561417838373
+    method: GET
+    modified: 1561417968462
+    name: Get Release
+    parameters: []
+    parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/agent-releases/{% prompt 'Release Id', '', '', '',
+      false %}"
+    _type: request
+  - _id: req_69b358f322b44145a2a7e67ab380f754
+    authentication: {}
+    body: {}
+    created: 1561417806289
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561417806289
+    method: GET
+    modified: 1561417814314
+    name: Get all releases
+    parameters: []
+    parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/agent-releases"
+    _type: request
+  - _id: req_99e68d9388a34399992dc00e730ab54c
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: "8"
+    created: 1560285580667
+    description: ""
+    headers:
+      - id: pair_4d878951fdd74432b32a3818b80009fd
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1560285580667
+    method: PUT
+    modified: 1560465690504
+    name: Update presence monitor partitions
+    parameters: []
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/presence-monitor/partitions"
+    _type: request
+  - _id: req_fc3d594509b74a48be064b9cc0b902f8
+    authentication: {}
+    body: {}
+    created: 1560285547621
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1560285547621
+    method: GET
+    modified: 1560457718960
+    name: Get presence monitor partitions
+    parameters: []
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/presence-monitor/partitions"
+    _type: request
+  - _id: req_6ab36f8d41a849caab6a9db33d0e540b
+    authentication: {}
+    body: {}
+    created: 1559944358254
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1559665906618
+    method: GET
+    modified: 1560457728160
+    name: Get public zones
+    parameters: []
+    parentId: fld_27cdcc072284442896025676cae969ea
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/zones?sort=pollerTimeout,desc"
+    _type: request
+  - _id: fld_27cdcc072284442896025676cae969ea
+    created: 1559944358240
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1559944276729
+    modified: 1559944368519
+    name: Zones
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    _type: request_group
+  - _id: req_0019b7f13ec6474aa71c3c31dc217f81
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "public/de3v",
+        	"provider": "RS",
+        	"providerRegion": "Laptop",
+        	"sourceIpAddresses": ["127.0.0.1/27"],
+        	"pollerTimeout": 567
+        }
+    created: 1559944358252
+    description: ""
+    headers:
+      - id: pair_5252cd42dc1041b2942e69149890b334
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1559665817901
+    method: POST
+    modified: 1561159855782
+    name: Create public zone
+    parameters: []
+    parentId: fld_27cdcc072284442896025676cae969ea
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/zones"
+    _type: request
+  - _id: req_aedfdff7b8d84e448cc5ea210784706b
+    authentication: {}
+    body: {}
+    created: 1559944358251
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1559311500837
+    method: POST
+    modified: 1561160283951
+    name: Rebalance public zone
+    parameters: []
+    parentId: fld_27cdcc072284442896025676cae969ea
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/rebalance-zone/public/de3v"
+    _type: request
+  - _id: req_52fa13e58457450dbe3e2ac106adcab2
+    authentication: {}
+    body: {}
+    created: 1559944358248
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1559311421853
+    method: GET
+    modified: 1561160297383
+    name: Get public assignment counts
+    parameters: []
+    parentId: fld_27cdcc072284442896025676cae969ea
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/zone-assignment-counts/public/de3v"
+    _type: request
+  - _id: req_db91308eeeb640acb3c39c9205ad4889
+    authentication: {}
+    body: {}
+    created: 1559944276679
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1559944276704
+    method: POST
+    modified: 1561160313860
+    name: Rebalance Public Zone
+    parameters: []
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/rebalance-zone/public/de3v"
+    _type: request
+  - _id: req_396a66ed6cbf41dcaed971cd4b1b42d7
+    authentication: {}
+    body: {}
+    created: 1559937012436
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1559937012436
+    method: GET
+    modified: 1561160358715
+    name: Get Public Zone by ID
+    parameters: []
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/zones/public/de3v"
+    _type: request
+  - _id: req_99350d7ae0444dd9baa97ff5a4e5c2b3
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "public/de3v",
+        	"provider": "RS",
+        	"providerRegion": "Laptop",
+        	"sourceIpAddresses": ["127.0.0.1/27"]
+        }
+    created: 1559936065867
+    description: ""
+    headers:
+      - id: pair_0175f971c471490da0dfbba36564777d
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1559936065868
+    method: POST
+    modified: 1561160342532
+    name: Create Public Zone
+    parameters: []
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/zones"
+    _type: request
+  - _id: env_5a5d52bd56ce4760af650078de6aa477
+    color: null
+    created: 1533129475298
+    data: {}
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1533129475298
+    modified: 1533148539027
+    name: New Environment
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    _type: environment
+  - _id: jar_acd5d53ae0c14f0b97e856cb1914d5da
+    cookies:
+      - creation: 2018-12-04T14:57:24.792Z
+        domain: sts.rackspace.com
+        hostOnly: true
+        httpOnly: true
+        id: "9897307189579985"
+        key: JSESSIONID
+        lastAccessed: 2018-12-04T14:58:53.296Z
+        path: /
+        secure: true
+        value: 0BC0323B13805D74C0579769C5BCEB5A
+      - creation: 2018-12-04T16:01:03.234Z
+        domain: localhost
+        hostOnly: true
+        httpOnly: true
+        id: "4392353199733361"
+        key: JSESSIONID
+        lastAccessed: 2019-06-24T22:30:22.457Z
+        path: /
+        value: 31C2DFFED4BAB50DFACE417D054252E7
+      - creation: 2019-06-17T18:55:28.560Z
+        domain: salus-api.dev.monplat.rackspace.net
+        hostOnly: true
+        httpOnly: true
+        id: "5837464469250402"
+        key: JSESSIONID
+        lastAccessed: 2019-06-19T19:38:59.458Z
+        path: /
+        value: 401C7882EFEFC5E29F981C6161A8839A
+    created: 1533129475302
+    modified: 1561415422457
+    name: Default Jar
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    _type: cookie_jar
+  - _id: env_4bff02cb5bbf4303911b9c8a81fa95ac
+    color: null
+    created: 1533148493631
+    data:
+      server: util0.iad2.prod.cm.k1k.me:8686
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 0
+    modified: 1543935408163
+    name: util0.iad
+    parentId: env_5a5d52bd56ce4760af650078de6aa477
+    _type: environment
+  - _id: env_2953bcf7752f45b6b91078759cd379a2
+    color: null
+    created: 1533148524042
+    data:
+      api_admin: localhost:8888
+      api_public: localhost:8080
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1
+    modified: 1543935408169
+    name: localhost
+    parentId: env_5a5d52bd56ce4760af650078de6aa477
+    _type: environment
+  - _id: env_83900a97b0ca49b7b6d617e22db148cb
+    color: null
+    created: 1543935388025
+    data:
+      api_admin: https://salus-telemetry-admin-local.area51.rax.io:8443
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 2
+    modified: 1543935423810
+    name: local admin with saml
+    parentId: env_5a5d52bd56ce4760af650078de6aa477
+    _type: environment
+  - _id: env_c04c93511e7e491fb951db59c2deb6a7
+    color: null
+    created: 1560454422588
+    data:
+      api_admin: http://salus-api-admin.dev.monplat.rackspace.net
+      api_public: http://salus-api.dev.monplat.rackspace.net
+    dataPropertyOrder:
+      "&":
+        - api_admin
+        - api_public
+    isPrivate: false
+    metaSortKey: 1560454422588
+    modified: 1560457380894
+    name: Prod
+    parentId: env_5a5d52bd56ce4760af650078de6aa477
+    _type: environment

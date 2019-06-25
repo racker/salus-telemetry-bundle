@@ -1,0 +1,13 @@
+@startuml
+
+[-> ResourceMgmt : resource labels changed
+[-> AgentSoftwareMgmt : agent installed
+[-> Ambassador : envoy attached
+
+
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml

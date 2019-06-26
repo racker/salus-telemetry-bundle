@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-06-25T16:20:21.707Z
+__export_date: 2019-06-26T19:50:22.106Z
 __export_source: insomnia.desktop.app:v6.5.4
 resources:
   - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
@@ -1486,11 +1486,11 @@ resources:
         value: application/json
       - id: pair_2b4e9faa95894bd085838db18d3d08e7
         name: x-auth-token
-        value: ""
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1560958323373
     method: POST
-    modified: 1561143568242
+    modified: 1561577713037
     name: Create Ping
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1537,11 +1537,11 @@ resources:
         value: application/json
       - id: pair_9697409d4ed949118e21d9cf342ca17d
         name: x-auth-token
-        value: ""
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1560982866096
+    modified: 1561577715342
     name: Create monitor
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1577,10 +1577,13 @@ resources:
       - id: pair_3c750e7c1e3a496988bfa0de00b5b857
         name: Content-Type
         value: application/json
+      - id: pair_b40f24a0df3d43fa8b1ea3d24e11b74e
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1552026824782.375
     method: PUT
-    modified: 1561415941867
+    modified: 1561577721563
     name: Update monitor
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1600,11 +1603,14 @@ resources:
     headers:
       - id: pair_e8a689561cde4ea18565b6db82932418
         name: x-auth-token
+        value: "{{ auth_token  }}"
+      - id: pair_32e9eb29f5ed488bb0e5e1c93c82cb5b
+        name: ""
         value: ""
     isPrivate: false
     metaSortKey: -1551724670894.75
     method: GET
-    modified: 1560982862404
+    modified: 1561577724171
     name: Get all monitors
     parameters:
       - disabled: true
@@ -1624,11 +1630,14 @@ resources:
     body: {}
     created: 1552575315845
     description: ""
-    headers: []
+    headers:
+      - id: pair_abc71262e07f4b7caa17b183c2ba818f
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1551120363119.5
     method: DELETE
-    modified: 1561152851598
+    modified: 1561577730199
     name: Delete monitor
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1648,11 +1657,11 @@ resources:
     headers:
       - id: pair_e97560155b8a4cbd9459892ef719f652
         name: x-auth-token
-        value: ""
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1551120363069.5
     method: GET
-    modified: 1560982859421
+    modified: 1561577733130
     name: Get bound monitors
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1683,11 +1692,11 @@ resources:
         value: application/json
       - id: pair_ce35caa3383e4b13a278f1a9efa8ba2f
         name: x-auth-token
-        value: ""
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1560982837976
+    modified: 1561577735373
     name: Create resource
     parameters: []
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
@@ -1716,14 +1725,14 @@ resources:
     headers:
       - id: pair_dd7dc66e10f04314a98dbdc365d64518
         name: x-auth-token
-        value: ""
+        value: "{{ auth_token  }}"
       - id: pair_6ef013b138984ea7a2a65452f469ad19
         name: ""
         value: ""
     isPrivate: false
     metaSortKey: -1551724670894.75
     method: GET
-    modified: 1560982834893
+    modified: 1561577738766
     name: Get all resources
     parameters:
       - disabled: true
@@ -1750,11 +1759,11 @@ resources:
     headers:
       - id: pair_25e07a7481ad44a2bbcb2ea3de45ae7d
         name: x-auth-token
-        value: ""
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1551422517007.125
     method: GET
-    modified: 1560982840740
+    modified: 1561577740651
     name: Get resources by label
     parameters:
       - id: pair_5064221dc81d4a03ba80402f8ab7367b
@@ -1773,11 +1782,14 @@ resources:
     body: {}
     created: 1552485569152
     description: ""
-    headers: []
+    headers:
+      - id: pair_7feb725da60949abbd52a09cb5f5415e
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1551120363119.5
     method: DELETE
-    modified: 1561153321750
+    modified: 1561577745940
     name: Delete resource
     parameters: []
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
@@ -1822,10 +1834,13 @@ resources:
       - id: pair_27dad0f76af84b4eb0750f541377d606
         name: Accept
         value: application/json
+      - id: pair_82ec06718c4c437194db4474fcac54f2
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1561415992815
+    modified: 1561577754579
     name: Create event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -1851,11 +1866,14 @@ resources:
     body: {}
     created: 1552841089425
     description: ""
-    headers: []
+    headers:
+      - id: pair_cc2cccd084fe449f81d54975933472bf
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1551724670894.75
     method: GET
-    modified: 1561158113314
+    modified: 1561577758980
     name: Get all event tasks
     parameters:
       - id: pair_ae98a8f078be4ca6a30851c919aaa5a1
@@ -1874,11 +1892,14 @@ resources:
     body: {}
     created: 1552841089423
     description: ""
-    headers: []
+    headers:
+      - id: pair_24d91be39fc94791a799a13bd7962921
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1551120363119.5
     method: DELETE
-    modified: 1561416036647
+    modified: 1561577763620
     name: Delete event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -2041,11 +2062,11 @@ resources:
     headers:
       - id: pair_ef011548cef147a2af2af7db9b8bff17
         name: x-auth-token
-        value: ""
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1559665906618
     method: GET
-    modified: 1560982847038
+    modified: 1561577767348
     name: Get zones
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -2084,7 +2105,7 @@ resources:
       - disabled: false
         id: pair_3023139566ed4afbb764de91671607e3
         name: x-auth-token
-        value: ""
+        value: "{{ auth_token  }}"
       - disabled: true
         id: pair_ba9563e6e4ce4e5c90f2b90d1ce7860d
         name: accept
@@ -2092,7 +2113,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665817901
     method: POST
-    modified: 1560982850166
+    modified: 1561577769467
     name: Create zone
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -2108,11 +2129,14 @@ resources:
     body: {}
     created: 1559311500837
     description: ""
-    headers: []
+    headers:
+      - id: pair_86f2af3f244548779b3c57ba93a385f6
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1559311500837
     method: POST
-    modified: 1560457688169
+    modified: 1561577773971
     name: Rebalance zone
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -2129,11 +2153,14 @@ resources:
     body: {}
     created: 1559311421853
     description: ""
-    headers: []
+    headers:
+      - id: pair_e2b728bf18984d6da57e762a273f8acf
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1559311421853
     method: GET
-    modified: 1560457693855
+    modified: 1561577779875
     name: Get assignment counts
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -2172,7 +2199,7 @@ resources:
     isPrivate: false
     metaSortKey: -1561418031953
     method: POST
-    modified: 1561479402678
+    modified: 1561556547024
     name: Declare release (darwin)
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
@@ -2518,7 +2545,7 @@ resources:
         - admin_auth_token
     isPrivate: false
     metaSortKey: 1533129475298
-    modified: 1561479538895
+    modified: 1561577696030
     name: New Environment
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: environment

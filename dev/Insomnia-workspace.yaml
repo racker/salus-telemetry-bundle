@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-06-26T19:50:22.106Z
+__export_date: 2019-06-27T13:32:57.642Z
 __export_source: insomnia.desktop.app:v6.5.4
 resources:
   - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
@@ -1511,6 +1511,45 @@ resources:
     name: Monitors
     parentId: fld_3373074209bc49199beb8e5967f1ae4a
     _type: request_group
+  - _id: req_46e3a88ab1064b9fbef61010a7abde9f
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "linux"
+          },
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "cpu"
+            }
+          }
+        }
+    created: 1561580077047
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1560753837207
+    method: POST
+    modified: 1561583376757
+    name: Create local monitor (cpu)
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/api/monitors"
+    _type: request
   - _id: req_45121a7c3e4b4475add793f0069e596e
     authentication: {}
     body:
@@ -1916,11 +1955,14 @@ resources:
     body: {}
     created: 1553101476052
     description: ""
-    headers: []
+    headers:
+      - id: pair_c7b38711f4c24ab09c5f30cd39887835
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1553101476052
     method: GET
-    modified: 1561416068786
+    modified: 1561579489213
     name: Get agent releases
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -1945,9 +1987,9 @@ resources:
     authentication: {}
     body:
       mimeType: application/json
-      text: >-
+      text: |-
         {
-        	"agentReleaseId": "{% response 'body', 'req_a0da3e16e8da4cd3954bd9ea13259f25', '$[0].id', 'never' %}",
+        	"agentReleaseId": "{% prompt 'Agent release ID', '', '', '', false %}",
         	"labelSelector": {
         		"agent_discovered_os": "darwin"
         	}
@@ -1958,10 +2000,13 @@ resources:
       - id: pair_704c3720ead145c28e7fb8adcb5f0a11
         name: Content-Type
         value: application/json
+      - id: pair_167824b0db65459995e707a7938b9505
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1536529349463
     method: POST
-    modified: 1561416078048
+    modified: 1561639719151
     name: Install telegraf on Mac
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -1978,9 +2023,9 @@ resources:
       mimeType: application/json
       text: >2
                 {
-                	"agentReleaseId": "{% response 'body', 'req_a0da3e16e8da4cd3954bd9ea13259f25', '$[0].id', 'never' %}",
+                	"agentReleaseId": "{% prompt 'Agent release ID', '', '', '', false %}",
                 	"labelSelector": {
-                		"agent_discovered_os": "LINUX"
+                		"agent_discovered_os": "linux"
                 	}
                 }
     created: 1533130197703
@@ -1989,11 +2034,14 @@ resources:
       - id: pair_704c3720ead145c28e7fb8adcb5f0a11
         name: Content-Type
         value: application/json
+      - id: pair_5ea452dd4f8f4335aee536ff2d12da60
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1536529349413
     method: POST
-    modified: 1561416088471
-    name: Install filebeat on Linux
+    modified: 1561579956611
+    name: Install agent on Linux
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
     settingDisableRenderRequestBody: false
@@ -2023,8 +2071,8 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349363
     method: POST
-    modified: 1561416096738
-    name: Install filebeat on Mac
+    modified: 1561579666317
+    name: Install agent on Mac
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
     settingDisableRenderRequestBody: false
@@ -2243,7 +2291,7 @@ resources:
             "agent_discovered_arch": "amd64"
           },
           "url": "https://dl.influxdata.com/telegraf/releases/telegraf-1.11.0-static_linux_amd64.tar.gz",
-          "exe": "telegraf/telegraf"
+          "exe": "./telegraf/telegraf"
         }
     created: 1561479282269
     description: ""
@@ -2257,7 +2305,7 @@ resources:
     isPrivate: false
     metaSortKey: -1561417983558
     method: POST
-    modified: 1561479408678
+    modified: 1561579912902
     name: Declare release (linux)
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
@@ -2555,7 +2603,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "9897307189579985"
+        id: "39674552993962586"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -2565,7 +2613,7 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "4392353199733361"
+        id: "33007549603662345"
         key: JSESSIONID
         lastAccessed: 2019-06-24T22:30:22.457Z
         path: /
@@ -2574,13 +2622,22 @@ resources:
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "5837464469250402"
+        id: "12118663594960633"
         key: JSESSIONID
-        lastAccessed: 2019-06-19T19:38:59.458Z
+        lastAccessed: 2019-06-27T12:48:59.063Z
         path: /
-        value: 401C7882EFEFC5E29F981C6161A8839A
+        value: 40DF97EEB655A23FEFD5FCCB0B0CE1A2
+      - creation: 2019-06-26T20:02:47.012Z
+        domain: salus-api-admin.dev.monplat.rackspace.net
+        hostOnly: true
+        httpOnly: true
+        id: "591566641591007"
+        key: JSESSIONID
+        lastAccessed: 2019-06-27T12:36:14.757Z
+        path: /
+        value: 59DC7B263CE6D9689A272DC2DF8D97CA
     created: 1533129475302
-    modified: 1561415422457
+    modified: 1561639739063
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar

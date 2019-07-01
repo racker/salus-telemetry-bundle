@@ -52,3 +52,6 @@
 [submodule "libs/test"]
 	path = libs/test
 	url = git@github.com:racker/salus-test.git
+[submodule "docs"]
+	path = docs
+	url = git@github.com:racker/salus-docs.git

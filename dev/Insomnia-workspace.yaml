@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-06-27T13:32:57.642Z
+__export_date: 2019-07-01T20:11:14.297Z
 __export_source: insomnia.desktop.app:v6.5.4
 resources:
   - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
@@ -2413,11 +2413,14 @@ resources:
     body: {}
     created: 1559944358254
     description: ""
-    headers: []
+    headers:
+      - id: pair_1c4d30f7153b4ba8a9839c76f1fc658c
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
     isPrivate: false
     metaSortKey: -1559665906618
     method: GET
-    modified: 1560457728160
+    modified: 1562011780366
     name: Get public zones
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2426,7 +2429,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_admin  }}/api/zones?sort=pollerTimeout,desc"
+    url: "{{ api_admin  }}/api/zones"
     _type: request
   - _id: fld_27cdcc072284442896025676cae969ea
     created: 1559944358240
@@ -2438,17 +2441,71 @@ resources:
     name: Zones
     parentId: fld_5e8273952de24b9f8d2298996f937593
     _type: request_group
+  - _id: req_396a66ed6cbf41dcaed971cd4b1b42d7
+    authentication: {}
+    body: {}
+    created: 1559937012436
+    description: ""
+    headers:
+      - id: pair_991b7835e63649ae94217f4da31f6668
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1559665862259.5
+    method: GET
+    modified: 1562007421350
+    name: Get Public Zone by ID
+    parameters: []
+    parentId: fld_27cdcc072284442896025676cae969ea
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/zones/public/public/us-central-1"
+    _type: request
+  - _id: req_f4d71f03f7a7475caaa06b81c4c2371e
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"provider": "Rackspace"
+        }
+    created: 1562011794252
+    description: ""
+    headers:
+      - id: pair_85677e0a823d438ca196c71941b50495
+        name: Content-Type
+        value: application/json
+      - id: pair_7f3162b786c545f1aaf9a22dd07c00b5
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1559665840080.25
+    method: PUT
+    modified: 1562011841355
+    name: Update public zone
+    parameters: []
+    parentId: fld_27cdcc072284442896025676cae969ea
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/zones/public/us_central_1"
+    _type: request
   - _id: req_0019b7f13ec6474aa71c3c31dc217f81
     authentication: {}
     body:
       mimeType: application/json
       text: |-
         {
-          "name": "public/de3v",
-        	"provider": "RS",
-        	"providerRegion": "Laptop",
+          "name": "public/asia_east_1",
+        	"provider": "Rackspace",
+        	"providerRegion": "HKG1",
         	"sourceIpAddresses": ["127.0.0.1/27"],
-        	"pollerTimeout": 567
+        	"pollerTimeout": 300
         }
     created: 1559944358252
     description: ""
@@ -2456,10 +2513,13 @@ resources:
       - id: pair_5252cd42dc1041b2942e69149890b334
         name: Content-Type
         value: application/json
+      - id: pair_03582ee0e4154be4bd9b9e0bb1413a46
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
     isPrivate: false
     metaSortKey: -1559665817901
     method: POST
-    modified: 1561159855782
+    modified: 1562011760490
     name: Create public zone
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2475,11 +2535,14 @@ resources:
     body: {}
     created: 1559944358251
     description: ""
-    headers: []
+    headers:
+      - id: pair_90f44a8e973f46ad8e3f8d78beb835e8
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
     isPrivate: false
     metaSortKey: -1559311500837
     method: POST
-    modified: 1561160283951
+    modified: 1562007198797
     name: Rebalance public zone
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2495,11 +2558,14 @@ resources:
     body: {}
     created: 1559944358248
     description: ""
-    headers: []
+    headers:
+      - id: pair_4b4da04ea6f94a7f8d3a50fc8a1b8cd6
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
     isPrivate: false
     metaSortKey: -1559311421853
     method: GET
-    modified: 1561160297383
+    modified: 1562007205869
     name: Get public assignment counts
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2509,77 +2575,6 @@ resources:
     settingSendCookies: true
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/zone-assignment-counts/public/de3v"
-    _type: request
-  - _id: req_db91308eeeb640acb3c39c9205ad4889
-    authentication: {}
-    body: {}
-    created: 1559944276679
-    description: ""
-    headers: []
-    isPrivate: false
-    metaSortKey: -1559944276704
-    method: POST
-    modified: 1561160313860
-    name: Rebalance Public Zone
-    parameters: []
-    parentId: fld_5e8273952de24b9f8d2298996f937593
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingSendCookies: true
-    settingStoreCookies: true
-    url: "{{ api_admin  }}/api/rebalance-zone/public/de3v"
-    _type: request
-  - _id: req_396a66ed6cbf41dcaed971cd4b1b42d7
-    authentication: {}
-    body: {}
-    created: 1559937012436
-    description: ""
-    headers: []
-    isPrivate: false
-    metaSortKey: -1559937012436
-    method: GET
-    modified: 1561160358715
-    name: Get Public Zone by ID
-    parameters: []
-    parentId: fld_5e8273952de24b9f8d2298996f937593
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingSendCookies: true
-    settingStoreCookies: true
-    url: "{{ api_admin  }}/api/zones/public/de3v"
-    _type: request
-  - _id: req_99350d7ae0444dd9baa97ff5a4e5c2b3
-    authentication: {}
-    body:
-      mimeType: application/json
-      text: |-
-        {
-          "name": "public/de3v",
-        	"provider": "RS",
-        	"providerRegion": "Laptop",
-        	"sourceIpAddresses": ["127.0.0.1/27"]
-        }
-    created: 1559936065867
-    description: ""
-    headers:
-      - id: pair_0175f971c471490da0dfbba36564777d
-        name: Content-Type
-        value: application/json
-    isPrivate: false
-    metaSortKey: -1559936065868
-    method: POST
-    modified: 1561160342532
-    name: Create Public Zone
-    parameters: []
-    parentId: fld_5e8273952de24b9f8d2298996f937593
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingSendCookies: true
-    settingStoreCookies: true
-    url: "{{ api_admin  }}/api/zones"
     _type: request
   - _id: env_5a5d52bd56ce4760af650078de6aa477
     color: null
@@ -2593,7 +2588,7 @@ resources:
         - admin_auth_token
     isPrivate: false
     metaSortKey: 1533129475298
-    modified: 1561577696030
+    modified: 1562007159532
     name: New Environment
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: environment
@@ -2603,7 +2598,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "39674552993962586"
+        id: "12993056270807268"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -2613,7 +2608,7 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "33007549603662345"
+        id: "9397609026132219"
         key: JSESSIONID
         lastAccessed: 2019-06-24T22:30:22.457Z
         path: /
@@ -2622,7 +2617,7 @@ resources:
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "12118663594960633"
+        id: "8221921933341974"
         key: JSESSIONID
         lastAccessed: 2019-06-27T12:48:59.063Z
         path: /
@@ -2631,13 +2626,13 @@ resources:
         domain: salus-api-admin.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "591566641591007"
+        id: "371630133073644"
         key: JSESSIONID
-        lastAccessed: 2019-06-27T12:36:14.757Z
+        lastAccessed: 2019-07-01T19:58:44.603Z
         path: /
-        value: 59DC7B263CE6D9689A272DC2DF8D97CA
+        value: F484C117918DE3FE0B4B8C57F0DCE9F6
     created: 1533129475302
-    modified: 1561639739063
+    modified: 1562011124604
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar

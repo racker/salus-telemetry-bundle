@@ -55,3 +55,6 @@
 [submodule "docs"]
 	path = docs
 	url = git@github.com:racker/salus-docs.git
+[submodule "apps/agent-catalog-management"]
+	path = apps/agent-catalog-management
+	url = git@github.com:racker/salus-telemetry-agent-catalog-management.git

@@ -39,10 +39,24 @@ services:
       - kafka.env
       - services.env
       - etcd.env
+  agent-catalog-management:
+    depends_on:
+      - resource-management
+    image: ${IMG_PREFIX}salus-telemetry-agent-catalog-management
+    ports:
+      - 8090:8080
+    networks:
+      - infra
+    env_file:
+      - common.env
+      - jpa.env
+      - kafka.env
+      - services.env
   ambassador:
     depends_on:
       - resource-management
       - monitor-management
+      - agent-catalog-management
     image: ${IMG_PREFIX}salus-telemetry-ambassador
     ports:
       - 6565:6565

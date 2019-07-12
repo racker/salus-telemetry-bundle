@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-07-09T15:39:13.649Z
+__export_date: 2019-07-12T15:24:06.584Z
 __export_source: insomnia.desktop.app:v6.5.4
 resources:
   - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
@@ -94,7 +94,7 @@ resources:
     isPrivate: false
     metaSortKey: -1557161809848
     method: GET
-    modified: 1561063404453
+    modified: 1562944267194
     name: Get resources by labels
     parameters:
       - id: pair_972790157c6a41d08986dbe744d79030
@@ -106,7 +106,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: http://localhost:8085/api/tenant/aaaaaa/resourceLabels
+    url: http://localhost:8085/api/tenant/aaaaaa/resources-by-label?pingable=true
     _type: request
   - _id: req_2493bc18d29142f8a365a9fd3f5b7af6
     authentication: {}
@@ -1471,7 +1471,7 @@ resources:
     isPrivate: false
     metaSortKey: -1560549351041
     method: GET
-    modified: 1560796036516
+    modified: 1562944313063
     name: Health
     parameters: []
     parentId: fld_3373074209bc49199beb8e5967f1ae4a
@@ -1480,7 +1480,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/actuator"
+    url: "{{ api_public  }}/actuator/health"
     _type: request
   - _id: fld_3373074209bc49199beb8e5967f1ae4a
     created: 1556918901480
@@ -1522,7 +1522,7 @@ resources:
     isPrivate: false
     metaSortKey: -1560958323373
     method: POST
-    modified: 1561577713037
+    modified: 1562944466640
     name: Create Ping
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1531,7 +1531,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
     _type: request
   - _id: fld_52f2a23df31449f6935c3be8b1a99796
     created: 1552575315822
@@ -1571,7 +1572,7 @@ resources:
     isPrivate: false
     metaSortKey: -1560753837207
     method: POST
-    modified: 1561583376757
+    modified: 1562944470848
     name: Create local monitor (cpu)
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1580,7 +1581,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
     _type: request
   - _id: req_45121a7c3e4b4475add793f0069e596e
     authentication: {}
@@ -1588,15 +1590,15 @@ resources:
       mimeType: application/json
       text: |-
         {
+        	"name": "Network Stats",
           "labelSelector": {
-            "env": "ahhhh"
+        		"agent_discovered_os": "linux"
           },
           "details": {
             "type": "local",
             "plugin": {
-              "type": "cpu",
-              "percpu": false,
-              "totalcpu": true
+              "type": "net",
+        			"ignoreProtocolStats": true
             }
           }
         }
@@ -1612,7 +1614,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1561577715342
+    modified: 1562944476023
     name: Create monitor
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1621,7 +1623,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
     _type: request
   - _id: req_2c8f05653c934cf0a85d6526154cbd95
     authentication: {}
@@ -1629,18 +1632,7 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "name": "testing1",
-          "labelSelector": {
-            "agent_discovered_os": "DARWIN"
-          },
-          "details": {
-            "type": "local",
-            "plugin": {
-              "type": "cpu",
-              "percpu": false,
-              "totalcpu": true
-            }
-          }
+          "name": "Memory"
         }
     created: 1552596712697
     description: ""
@@ -1654,7 +1646,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552026824782.375
     method: PUT
-    modified: 1561577721563
+    modified: 1562944482015
     name: Update monitor
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1663,8 +1655,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/monitors/{% prompt 'Monitor ID', '', '', '', false
-      %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors/{% prompt 'Monitor ID', '', '', '', false %}"
     _type: request
   - _id: req_ce664bb03fd641088890a6bcc6470f4c
     authentication: {}
@@ -1681,7 +1673,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551724670894.75
     method: GET
-    modified: 1561577724171
+    modified: 1562944494353
     name: Get all monitors
     parameters:
       - disabled: true
@@ -1694,7 +1686,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
     _type: request
   - _id: req_e6c07cfdbeb04c91bf2cc2995887de25
     authentication: {}
@@ -1708,7 +1701,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551120363119.5
     method: DELETE
-    modified: 1561577730199
+    modified: 1562944498822
     name: Delete monitor
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1717,8 +1710,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/monitors/{% prompt 'Monitor ID', '', '',
-      false,      false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors/{% prompt 'Monitor ID', '', '', false,      false %}"
     _type: request
   - _id: req_1e3562f16c534becb8d765f5a68c67b2
     authentication: {}
@@ -1732,7 +1725,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551120363069.5
     method: GET
-    modified: 1561577733130
+    modified: 1562944502486
     name: Get bound monitors
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -1741,7 +1734,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/bound-monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/bound-monitors"
     _type: request
   - _id: req_714bac3a6790412eb532e36d2de1e737
     authentication: {}
@@ -1767,7 +1761,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1561577735373
+    modified: 1562944506070
     name: Create resource
     parameters: []
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
@@ -1776,7 +1770,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/resources"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/resources"
     _type: request
   - _id: fld_0a6a98b5c25d42b2a28631f09356c466
     created: 1552328968587
@@ -1803,7 +1798,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551724670894.75
     method: GET
-    modified: 1561577738766
+    modified: 1562944445297
     name: Get all resources
     parameters:
       - disabled: true
@@ -1820,7 +1815,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/resources"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/resources"
     _type: request
   - _id: req_8cb39d8dec0c4dda9bfaeccb329839d5
     authentication: {}
@@ -1834,7 +1830,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551422517007.125
     method: GET
-    modified: 1561577740651
+    modified: 1562944521123
     name: Get resources by label
     parameters:
       - id: pair_5064221dc81d4a03ba80402f8ab7367b
@@ -1846,7 +1842,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/resourcesByLabel"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/resources-by-label"
     _type: request
   - _id: req_095d7117448940218ceec966f4049f14
     authentication: {}
@@ -1860,7 +1857,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551120363119.5
     method: DELETE
-    modified: 1561577745940
+    modified: 1562944562758
     name: Delete resource
     parameters: []
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
@@ -1869,7 +1866,9 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/resources/jjb-test"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/resources/{% prompt 'deletedResourceId', 'Deleted Resource Id',
+      '', '', false %}"
     _type: request
   - _id: req_ff8e3b0f818e4ed8a5c8936292084b96
     authentication: {}
@@ -1911,7 +1910,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1561577754579
+    modified: 1562944584913
     name: Create event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -1920,7 +1919,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/event-tasks"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/event-tasks"
     _type: request
   - _id: fld_906f0421bdb54818a4abb19bd58a8d21
     created: 1552841089415
@@ -1944,7 +1944,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551724670894.75
     method: GET
-    modified: 1561577758980
+    modified: 1562944589129
     name: Get all event tasks
     parameters:
       - id: pair_ae98a8f078be4ca6a30851c919aaa5a1
@@ -1956,7 +1956,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/event-tasks"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/event-tasks"
     _type: request
   - _id: req_92fe7c03ce20411d8a69644239f6d26b
     authentication: {}
@@ -1970,7 +1971,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551120363119.5
     method: DELETE
-    modified: 1561577763620
+    modified: 1562944592832
     name: Delete event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -1979,8 +1980,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/event-tasks/{% prompt 'Task Id', '', '', '', false
-      %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/event-tasks/{% prompt 'Task Id', '', '', '', false %}"
     _type: request
   - _id: req_a0da3e16e8da4cd3954bd9ea13259f25
     authentication: {}
@@ -1994,7 +1995,7 @@ resources:
     isPrivate: false
     metaSortKey: -1553101476052
     method: GET
-    modified: 1561579489213
+    modified: 1562944599119
     name: Get agent releases
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -2003,7 +2004,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/agent-releases"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/agent-releases"
     _type: request
   - _id: fld_b073af8590104e8b904c2fda7654403b
     created: 1537893080573
@@ -2015,6 +2017,41 @@ resources:
     name: Agents
     parentId: fld_3373074209bc49199beb8e5967f1ae4a
     _type: request_group
+  - _id: req_a0a42d95a1544c6b9888a97e7662b6ae
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"agentReleaseId": "{% prompt 'Agent release ID', '', '', '', false %}",
+        	"labelSelector": {
+        		"agent_discovered_os": "darwin"
+        	}
+        }
+    created: 1538672493222
+    description: ""
+    headers:
+      - id: pair_704c3720ead145c28e7fb8adcb5f0a11
+        name: Content-Type
+        value: application/json
+      - id: pair_167824b0db65459995e707a7938b9505
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1536529349463
+    method: POST
+    modified: 1562944602640
+    name: Install telegraf on Mac
+    parameters: []
+    parentId: fld_b073af8590104e8b904c2fda7654403b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/agent-installs"
+    _type: request
   - _id: req_424edec546d143e99cf97e73050fa276
     authentication: {}
     body:
@@ -2038,7 +2075,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349413
     method: POST
-    modified: 1561579956611
+    modified: 1562944606553
     name: Install agent on Linux
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -2047,7 +2084,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/agent-installs"
     _type: request
   - _id: req_58bd8f171d774346a76211761cda80b4
     authentication: {}
@@ -2069,7 +2107,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349363
     method: POST
-    modified: 1561579666317
+    modified: 1562944610931
     name: Install agent on Mac
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -2078,7 +2116,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/agent-installs"
     _type: request
   - _id: req_a71ad018fe8d4f92b4462c9bd345122c
     authentication: {}
@@ -2089,7 +2128,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349313
     method: GET
-    modified: 1561416105451
+    modified: 1562944615185
     name: Get agent installations
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -2098,7 +2137,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/agent-installs"
     _type: request
   - _id: req_0de992a88708403c802b6e63828d80cd
     authentication: {}
@@ -2112,7 +2152,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665906618
     method: GET
-    modified: 1561577767348
+    modified: 1562944620172
     name: Get zones
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -2121,7 +2161,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/zones"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/zones"
     _type: request
   - _id: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
     created: 1559311403559
@@ -2159,7 +2200,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665817901
     method: POST
-    modified: 1561577769467
+    modified: 1562944623672
     name: Create zone
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -2168,7 +2209,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/zones"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/zones"
     _type: request
   - _id: req_51e7462f7510485487cc303dde2c067e
     authentication: {}
@@ -2182,7 +2224,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559311500837
     method: POST
-    modified: 1561577773971
+    modified: 1562944627934
     name: Rebalance zone
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -2191,8 +2233,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/rebalance-zone/{% prompt 'Zone Name', '', '', '',
-      false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/rebalance-zone/{% prompt 'Zone Name', '', '', '', false %}"
     _type: request
   - _id: req_11af92d80ec642a2bc9cbe6b2e097ead
     authentication: {}
@@ -2206,7 +2248,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559311421853
     method: GET
-    modified: 1561577779875
+    modified: 1562944631955
     name: Get assignment counts
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -2215,8 +2257,9 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/api/zone-assignment-counts/{% prompt 'Zone Name', '',
-      '', '', false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/zone-assignment-counts/{% prompt 'Zone Name', '', '', '', false
+      %}"
     _type: request
   - _id: req_20baece24d594b478c829a1eb87b2ca6
     authentication: {}
@@ -2245,7 +2288,7 @@ resources:
     isPrivate: false
     metaSortKey: -1561418031953
     method: POST
-    modified: 1561556547024
+    modified: 1562944729977
     name: Declare release (darwin)
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
@@ -2303,7 +2346,7 @@ resources:
     isPrivate: false
     metaSortKey: -1561417983558
     method: POST
-    modified: 1561579912902
+    modified: 1562944740114
     name: Declare release (linux)
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
@@ -2326,7 +2369,7 @@ resources:
     isPrivate: false
     metaSortKey: -1561417838373
     method: GET
-    modified: 1561479423737
+    modified: 1562944745578
     name: Get Release
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
@@ -2350,7 +2393,7 @@ resources:
     isPrivate: false
     metaSortKey: -1561417806289
     method: GET
-    modified: 1561479435868
+    modified: 1562944750970
     name: Get all releases
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
@@ -2375,7 +2418,7 @@ resources:
     isPrivate: false
     metaSortKey: -1560285580667
     method: PUT
-    modified: 1560465690504
+    modified: 1562944755883
     name: Update presence monitor partitions
     parameters: []
     parentId: fld_5e8273952de24b9f8d2298996f937593
@@ -2395,7 +2438,7 @@ resources:
     isPrivate: false
     metaSortKey: -1560285547621
     method: GET
-    modified: 1560457718960
+    modified: 1562944762803
     name: Get presence monitor partitions
     parameters: []
     parentId: fld_5e8273952de24b9f8d2298996f937593
@@ -2418,7 +2461,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665906618
     method: GET
-    modified: 1562011780366
+    modified: 1562944768095
     name: Get public zones
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2451,7 +2494,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665862259.5
     method: GET
-    modified: 1562007421350
+    modified: 1562944772521
     name: Get Public Zone by ID
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2482,7 +2525,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665840080.25
     method: PUT
-    modified: 1562011841355
+    modified: 1562944776833
     name: Update public zone
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2517,7 +2560,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665817901
     method: POST
-    modified: 1562011760490
+    modified: 1562944780951
     name: Create public zone
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2540,7 +2583,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559311500837
     method: POST
-    modified: 1562007198797
+    modified: 1562944784682
     name: Rebalance public zone
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2563,7 +2606,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559311421853
     method: GET
-    modified: 1562007205869
+    modified: 1562944789769
     name: Get public assignment counts
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -2572,7 +2615,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_admin  }}/api/zone-assignment-counts/public/de3v"
+    url: "{{ api_admin  }}/api/zone-assignment-counts/public/australia_east_1"
     _type: request
   - _id: env_5a5d52bd56ce4760af650078de6aa477
     color: null
@@ -2586,7 +2629,7 @@ resources:
         - admin_auth_token
     isPrivate: false
     metaSortKey: 1533129475298
-    modified: 1562007159532
+    modified: 1562945007797
     name: New Environment
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: environment
@@ -2596,7 +2639,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "12993056270807268"
+        id: "7601146128752543"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -2606,7 +2649,7 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "9397609026132219"
+        id: "4778193964577322"
         key: JSESSIONID
         lastAccessed: 2019-06-24T22:30:22.457Z
         path: /
@@ -2615,22 +2658,30 @@ resources:
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "8221921933341974"
+        id: "6127993031365122"
         key: JSESSIONID
-        lastAccessed: 2019-06-27T12:48:59.063Z
+        lastAccessed: 2019-07-01T21:00:35.436Z
         path: /
-        value: 40DF97EEB655A23FEFD5FCCB0B0CE1A2
+        value: 15DA049D8C93CE312D1B796FEE08C52B
       - creation: 2019-06-26T20:02:47.012Z
         domain: salus-api-admin.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "371630133073644"
+        id: "5322698834083681"
         key: JSESSIONID
-        lastAccessed: 2019-07-01T19:58:44.603Z
+        lastAccessed: 2019-07-01T20:58:38.368Z
         path: /
-        value: F484C117918DE3FE0B4B8C57F0DCE9F6
+        value: EC837BF269A17316C219084B99B908EF
+      - creation: 2019-07-11T22:59:08.595Z
+        domain: localhost
+        hostOnly: true
+        id: "5191658104412524"
+        key: JSESSIONID
+        lastAccessed: 2019-07-12T14:48:56.692Z
+        path: /v1.0
+        value: node02j8tcmeo1izdi4pk9dfef8a10.node0
     created: 1533129475302
-    modified: 1562011124604
+    modified: 1562942936692
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar
@@ -2639,11 +2690,14 @@ resources:
     created: 1533148524042
     data:
       api_admin: localhost:8888
-      api_public: localhost:8080
-    dataPropertyOrder: null
+      api_public: localhost:8080/v1.0
+    dataPropertyOrder:
+      "&":
+        - api_admin
+        - api_public
     isPrivate: false
     metaSortKey: 1
-    modified: 1543935408169
+    modified: 1562885366229
     name: localhost
     parentId: env_5a5d52bd56ce4760af650078de6aa477
     _type: environment
@@ -2652,14 +2706,14 @@ resources:
     created: 1560454422588
     data:
       api_admin: http://salus-api-admin.dev.monplat.rackspace.net
-      api_public: http://salus-api.dev.monplat.rackspace.net
+      api_public: http://salus-api.dev.monplat.rackspace.net/v1.0
     dataPropertyOrder:
       "&":
         - api_admin
         - api_public
     isPrivate: false
     metaSortKey: 1560454422588
-    modified: 1561479532421
+    modified: 1562885359937
     name: Prod
     parentId: env_5a5d52bd56ce4760af650078de6aa477
     _type: environment

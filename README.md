@@ -244,17 +244,6 @@ in the app containers.
 
 #### Including Repose to replicate deployment-time authentication
 
-Before bringing up the app composition, declare the following two environment variables to enable
-the "secured" Spring profile of the public and admin API services:
-
-```bash
-export ADMIN_API_PROFILES=secured
-export PUBLIC_API_PROFILES=secured
-```
-
-If you had already brought up the composition, you can bring down the `public-api` and `admin-api` services
-and then re-run the `up`.
-
 Before starting the Repose services you will need to declare the Keystone/Identity credentials of 
 a service/user account that is authorized to validate authentication tokens:
 

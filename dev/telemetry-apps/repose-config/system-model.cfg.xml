@@ -28,10 +28,10 @@
   <filters bypass-uri-regex="^/actuator.*">
     <filter name="header-normalization"/>
     <filter name="header-translation"/>
+    <filter name="url-extractor-to-header"/>
     <filter name="keystone-v2"/>
+    <filter name="keystone-v2-authorization"/>
     <filter name="merge-header"/>
-    <!-- Leaving option here for authorization filter, but Spring Security can do this -->
-    <!--<filter name="keystone-v2-authorization"/>-->
   </filters>
   <services></services>
   <destinations>

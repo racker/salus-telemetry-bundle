@@ -1430,6 +1430,38 @@ resources:
     settingStoreCookies: true
     url: http://localhost:8089/api/tenant/aaaaaa/zones
     _type: request
+  - _id: req_15d67faa9009409c9b5ba9ee88f75311
+    authentication: {}
+    body: {}
+    created: 1562683528266
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1562683528266
+    method: GET
+    modified: 1562683644818
+    name: Get bound agent install
+    parameters: []
+    parentId: fld_e85261b0c1fb4c63bb0cf7db1ea9dfd2
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8090/api/admin/bound-agent-installs/{% prompt 'Tenant
+      ID', '', '', 'tenantId', false %}/{% prompt 'Resource ID', '', '', '',
+      false %}/{% prompt 'Agent type', 'TELEGRAF | FILEBEAT', '', '', false %}
+    _type: request
+  - _id: fld_e85261b0c1fb4c63bb0cf7db1ea9dfd2
+    created: 1562683513892
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273760
+    modified: 1562686734245
+    name: Agent Catalog Management
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
   - _id: req_31d66942ae2a48f2b83c091be52718da
     authentication: {}
     body: {}
@@ -2061,7 +2093,7 @@ resources:
       mimeType: application/json
       text: >2
                 {
-                	"agentReleaseId": "{% response 'body', 'req_a0da3e16e8da4cd3954bd9ea13259f25', '$[0].id', 'never' %}",
+                	"agentReleaseId": "{% prompt 'Agent release ID', '', '', '', false %}",
                 	"labelSelector": {
                 		"agent_discovered_os": "darwin"
                 	}

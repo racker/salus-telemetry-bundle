@@ -10,6 +10,8 @@
             set-roles-in-header="true"
     />
 
+    <tenant-handling send-all-tenant-ids="true"/>
+
     <cache>
         <timeouts variability="15">
             <token>600</token>

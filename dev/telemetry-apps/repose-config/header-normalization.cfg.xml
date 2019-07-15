@@ -24,6 +24,7 @@
 						<header id="X-Subject-Token"/>
 						<header id="X-Subject-Name"/>
 						<header id="X-Subject-ID"/>
+						<header id="Requested-Tenant-Id"/>
 					</blacklist>
 				</target>
     </header-filters>

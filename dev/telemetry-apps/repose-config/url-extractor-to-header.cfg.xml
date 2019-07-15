@@ -1,0 +1,3 @@
+<url-extractor-to-header xmlns="http://docs.openrepose.org/repose/url-extractor-to-header/v1.0">
+    <extraction header="Requested-Tenant-Id" url-regex="/v1\.0/tenant/(\d+|[a-zA-Z]+:\d+)/.*"/>
+</url-extractor-to-header>

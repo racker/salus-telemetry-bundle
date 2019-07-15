@@ -10,7 +10,8 @@ services:
     environment:
       KEYSTONE_USER: ${KEYSTONE_USER}
       KEYSTONE_PASSWORD: ${KEYSTONE_PASSWORD}
-      BACKEND: public-api
+      BACKEND_HOST: public-api
+      BACKEND_PORT: 8080
     volumes:
       - ./repose-config:/etc/repose
     networks:
@@ -24,7 +25,8 @@ services:
     environment:
       KEYSTONE_USER: ${KEYSTONE_USER}
       KEYSTONE_PASSWORD: ${KEYSTONE_PASSWORD}
-      BACKEND: admin-api
+      BACKEND_HOST: admin-api
+      BACKEND_PORT: 8080
     volumes:
       - ./repose-config:/etc/repose
     networks:

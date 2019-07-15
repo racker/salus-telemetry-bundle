@@ -25,7 +25,7 @@
   <nodes>
     <node id="repose_node1" hostname="localhost" http-port="8080"/>
   </nodes>
-  <filters bypass-uri-regex="^/actuator.*">
+  <filters bypass-uri-regex="^/v1\.0/actuator.*">
     <filter name="header-normalization"/>
     <filter name="header-translation"/>
     <filter name="url-extractor-to-header"/>
@@ -35,6 +35,6 @@
   </filters>
   <services></services>
   <destinations>
-      <endpoint id="{$ BACKEND $}" protocol="http" hostname="{$ BACKEND $}" root-path="/" port="8080" default="true"/>
+    <endpoint id="{$ BACKEND_HOST $}" protocol="http" hostname="{$ BACKEND_HOST $}" root-path="/" port="{$ BACKEND_PORT $}" default="true"/>
   </destinations>
 </system-model>

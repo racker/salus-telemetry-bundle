@@ -18,3 +18,6 @@ make out/ambassador.pem
 make out/tenantA.pem
 make out/tenantB.pem
 ```
+
+After updating those files, you should also copy them into the `src/test/resources/certs` directory
+of the [salus-telemetry-ambassador](https://github.com/racker/salus-telemetry-ambassador) module.

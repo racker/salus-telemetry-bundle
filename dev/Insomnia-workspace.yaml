@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-07-12T15:24:06.584Z
+__export_date: 2019-07-22T20:11:32.767Z
 __export_source: insomnia.desktop.app:v6.5.4
 resources:
   - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
@@ -1584,6 +1584,47 @@ resources:
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
       false %}/monitors"
     _type: request
+  - _id: req_934340a540e543f78707a5842ea86d8c
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "linux"
+          },
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "disk",
+              "ignoreFs": ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
+            }
+          }
+        }
+    created: 1561645783783
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1560651594124
+    method: POST
+    modified: 1563826173212
+    name: Create local monitor (disk)
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
+    _type: request
   - _id: req_45121a7c3e4b4475add793f0069e596e
     authentication: {}
     body:
@@ -1879,18 +1920,15 @@ resources:
         	"name": "cpu2",
         	"measurement": "cpu",
         	"taskParameters": {
-        		"comparator": ">",
-        		"field": "usage_user",
-        		"threshold": 30,
         		"labelSelector": {
         			"agent_environment": "localdev"
         		},
         		"critical": {
         			"consecutiveCount": 2,
         			"expression": {
-        				"field": "total_cpu",
-        				"threshold": 3,
-        				"comparator": "<"
+        				"field": "usage_user",
+        				"threshold": 10,
+        				"comparator": ">"
         			}
         		}
         	}
@@ -1910,7 +1948,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1562944584913
+    modified: 1563825950966
     name: Create event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -1919,8 +1957,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/event-tasks"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa',
+      'tenantId', false %}/event-tasks"
     _type: request
   - _id: fld_906f0421bdb54818a4abb19bd58a8d21
     created: 1552841089415
@@ -1941,10 +1979,13 @@ resources:
       - id: pair_cc2cccd084fe449f81d54975933472bf
         name: x-auth-token
         value: "{{ auth_token  }}"
+      - id: pair_31f5e365fd914439818fbd4ec5906cb9
+        name: Accept
+        value: application/json
     isPrivate: false
     metaSortKey: -1551724670894.75
     method: GET
-    modified: 1562944589129
+    modified: 1563825973819
     name: Get all event tasks
     parameters:
       - id: pair_ae98a8f078be4ca6a30851c919aaa5a1
@@ -1956,8 +1997,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/event-tasks"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa',
+      'tenantId', false %}/event-tasks"
     _type: request
   - _id: req_92fe7c03ce20411d8a69644239f6d26b
     authentication: {}
@@ -1971,7 +2012,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551120363119.5
     method: DELETE
-    modified: 1562944592832
+    modified: 1563825993570
     name: Delete event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -1980,8 +2021,9 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/event-tasks/{% prompt 'Task Id', '', '', '', false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa',
+      'tenantId', false %}/event-tasks/{% prompt 'Task Id', '', '', '', false
+      %}"
     _type: request
   - _id: req_a0da3e16e8da4cd3954bd9ea13259f25
     authentication: {}
@@ -2139,6 +2181,28 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
       false %}/agent-installs"
+    _type: request
+  - _id: req_59edf223a275414887b2bda27a3d9b56
+    authentication: {}
+    body: {}
+    created: 1562782036825
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1536529349163
+    method: DELETE
+    modified: 1563826273628
+    name: Delete agent install
+    parameters: []
+    parentId: fld_b073af8590104e8b904c2fda7654403b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/agent-installs/{% prompt 'Agent install ID', '', '', '', false
+      %}"
     _type: request
   - _id: req_0de992a88708403c802b6e63828d80cd
     authentication: {}

@@ -23,7 +23,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@ConfigurationProperties("gen")
+@ConfigurationProperties("salus.gen")
 @Component
 @Data
 public class MetricsGenProperties {

@@ -25,5 +25,6 @@ Port | Application / Usage
 8088 | Event Engine Ingest
 8089 | Monitor Management
 8090 | Agent Catalog Management
+8091 | Policy Management
 8433 | Admin API when running with `ssl` profile activated
 8888 | Admin API

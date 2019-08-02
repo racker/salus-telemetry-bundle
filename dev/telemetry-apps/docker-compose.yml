@@ -39,6 +39,17 @@ services:
       - kafka.env
       - services.env
       - etcd.env
+  policy-management:
+    image: ${IMG_PREFIX}salus-telemetry-policy-management
+    ports:
+      - 8091:8080
+    networks:
+      - infra
+    env_file:
+      - common.env
+      - jpa.env
+      - kafka.env
+      - services.env
   agent-catalog-management:
     depends_on:
       - resource-management

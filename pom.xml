@@ -43,6 +43,7 @@
         <module>apps/event-engine-management</module>
         <module>apps/zone-watcher</module>
         <module>apps/agent-catalog-management</module>
+        <module>apps/policy-management</module>
         <module>tools</module>
     </modules>
 

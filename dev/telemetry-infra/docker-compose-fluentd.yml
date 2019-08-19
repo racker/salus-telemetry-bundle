@@ -1,0 +1,12 @@
+version: "3.4"
+
+services:
+  fluentd:
+    image: fluentd
+    volumes:
+      - fluentd:/fluentd/log
+    ports:
+      - 24224:24224
+      - 24224:24224/udp
+volumes:
+  fluentd: {}

@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2019-07-22T20:11:32.767Z
-__export_source: insomnia.desktop.app:v6.5.4
+__export_date: 2019-08-19T19:15:13.101Z
+__export_source: insomnia.desktop.app:v6.6.2
 resources:
   - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
     authentication: {}
@@ -780,6 +780,51 @@ resources:
     url: http://localhost:8089/api/tenant/aaaaaa/monitors/{% prompt 'Monitor ID',
       '', '', '', false %}
     _type: request
+  - _id: req_872b76e7e3684e939adc64afd9ac0b4e
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "resourceId": "{% prompt 'Resource ID', '', 'development:0', '', false, true %}",
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "cpu"
+            }
+          }
+        }
+    created: 1566236692691
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1563231843254.5
+    method: POST
+    modified: 1566241926279
+    name: Test local monitor given resource
+    parameters: []
+    parentId: fld_5f92cca3cbdf44189e1ee614d0036b0f
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/{% prompt 'Tenant', '', '', 'tenantId',
+      false, true %}/test-monitor
+    _type: request
+  - _id: fld_5f92cca3cbdf44189e1ee614d0036b0f
+    created: 1566236728350
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1555360404480
+    modified: 1566236741282
+    name: Test-Monitor
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    _type: request_group
   - _id: req_f9411ec3a96542af9b196f207dfaa14e
     authentication: {}
     body: {}

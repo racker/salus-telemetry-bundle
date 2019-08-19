@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-08-19T19:15:13.101Z
+__export_date: 2019-08-19T19:51:18.013Z
 __export_source: insomnia.desktop.app:v6.6.2
 resources:
   - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
@@ -1822,6 +1822,41 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
       false %}/bound-monitors"
+    _type: request
+  - _id: req_1f7f0f664a704588bc91fe7218b67c41
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "resourceId": "{% prompt 'Resource ID', '', 'development:0', '', false, true %}",
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "cpu"
+            }
+          }
+        }
+    created: 1566243839402
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1551120363019.5
+    method: POST
+    modified: 1566243865952
+    name: Test local monitor given resource
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant', '', '', 'tenantId', false,
+      true %}/test-monitor"
     _type: request
   - _id: req_714bac3a6790412eb532e36d2de1e737
     authentication: {}

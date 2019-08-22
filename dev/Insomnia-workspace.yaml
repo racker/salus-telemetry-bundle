@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-08-20T21:28:41.980Z
+__export_date: 2019-08-22T17:09:59.026Z
 __export_source: insomnia.desktop.app:v6.6.0
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -133,7 +133,7 @@ resources:
     isPrivate: false
     metaSortKey: -1565779718668.6875
     method: POST
-    modified: 1566336028000
+    modified: 1566486749973
     name: Create Monitor Policy
     parameters: []
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
@@ -420,7 +420,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555472938893
     method: POST
-    modified: 1566336044811
+    modified: 1566408996872
     name: Create testing resource
     parameters: []
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
@@ -597,16 +597,17 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "name": "ssh",
+          "name": "ping",
           "labelSelector": {
-            "os": "linux"
+            "os": "linux",
+            "agent_discovered_os": "darwin"
           },
           "details": {
             "type": "remote",
-            "monitoringZones": ["public/test"],
+            "monitoringZones": ["public/us_central_1"],
             "plugin": {
-              "type": "x509_cert",
-              "sources": ["${resource.metadata.ping_ip}"]
+              "type": "ping",
+              "urls": ["${resource.metadata.ping_ip}"]
             }
           }
         }
@@ -619,7 +620,7 @@ resources:
     isPrivate: false
     metaSortKey: -1566022219255
     method: POST
-    modified: 1566335741895
+    modified: 1566491026649
     name: Create Remote Policy Monitor
     parameters: []
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
@@ -638,7 +639,8 @@ resources:
         {
           "name": "cpu",
           "labelSelector": {
-            "agent_environment": "localdev"
+            "os": "linux",
+            "agent_discovered_os": "darwin"
           },
           "details": {
             "type": "local",
@@ -658,7 +660,7 @@ resources:
     isPrivate: false
     metaSortKey: -1566022219242.5
     method: POST
-    modified: 1566318234537
+    modified: 1566486638879
     name: Create Local Policy Monitor
     parameters: []
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
@@ -675,18 +677,7 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "name": "cpu2",
-          "labelSelector": {
-            "agent_environment": "localdev"
-          },
-          "details": {
-            "type": "local",
-            "plugin": {
-              "type": "cpu",
-              "percpu": false,
-              "totalcpu": true
-            }
-          }
+          "labelSelectorMethod": "OR"
         }
     created: 1565728827717
     description: ""
@@ -697,7 +688,7 @@ resources:
     isPrivate: false
     metaSortKey: -1566022219230
     method: PUT
-    modified: 1566319165378
+    modified: 1566487011102
     name: Update Policy Monitor
     parameters: []
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
@@ -739,7 +730,7 @@ resources:
     isPrivate: false
     metaSortKey: -1563269766284
     method: GET
-    modified: 1566336076970
+    modified: 1566412373125
     name: Get tenant monitors
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -748,7 +739,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: http://localhost:8089/api/tenant/aaaaaa/monitors?size=2000&page=0
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors
     _type: request
   - _id: req_cd95b24220764c3b91a4b5eb79c42c93
     authentication: {}
@@ -759,7 +750,7 @@ resources:
     isPrivate: false
     metaSortKey: -1561748362221.5
     method: GET
-    modified: 1566336079290
+    modified: 1566412366924
     name: Get tenant bound monitors
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -768,7 +759,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: http://localhost:8089/api/tenant/aaaaaa/bound-monitors?size=1&page=1
+    url: http://localhost:8089/api/tenant/aaaaaa/bound-monitors
     _type: request
   - _id: req_6196f1184f20408ab3bf0e3515d8e1d3
     authentication: {}
@@ -960,7 +951,7 @@ resources:
       text: |-
         {
           "labelSelector": {
-            "agent_environment": "localdev"
+            "agent_discovered_os": "darwin"
           },
           "details": {
             "type": "local",
@@ -980,7 +971,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555360443859.625
     method: POST
-    modified: 1558358854856
+    modified: 1566409138454
     name: Create cpu (local) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -2393,41 +2384,6 @@ resources:
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
       false %}/resources-by-label"
     _type: request
-  - _id: req_1f7f0f664a704588bc91fe7218b67c41
-    authentication: {}
-    body:
-      mimeType: application/json
-      text: >-
-        {
-          "resourceId": "{% prompt 'Resource ID', '', 'development:0', '', false, true %}",
-          "details": {
-            "type": "local",
-            "plugin": {
-              "type": "cpu"
-            }
-          }
-        }
-    created: 1566243839402
-    description: ""
-    headers:
-      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
-        name: Content-Type
-        value: application/json
-    isPrivate: false
-    metaSortKey: -1551120363019.5
-    method: POST
-    modified: 1566243865952
-    name: Test local monitor given resource
-    parameters: []
-    parentId: fld_52f2a23df31449f6935c3be8b1a99796
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingSendCookies: true
-    settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant', '', '', 'tenantId', false,
-      true %}/test-monitor"
-    _type: request
   - _id: req_714bac3a6790412eb532e36d2de1e737
     authentication: {}
     body:
@@ -2966,14 +2922,24 @@ resources:
     _type: request
   - _id: req_5e4ea56c46e34af6a93c4c6aba1a8d28
     authentication: {}
-    body: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "scope": "GLOBAL",
+          "name": "PING",
+          "monitorId": ""
+        }
     created: 1566325792481
     description: ""
-    headers: []
+    headers:
+      - id: pair_10d1789f8dd444d5a69effcc16a402ce
+        name: Content-Type
+        value: application/json
     isPrivate: false
     metaSortKey: -1566325813666.75
     method: POST
-    modified: 1566325871654
+    modified: 1566412048600
     name: Create Policy
     parameters: []
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
@@ -3048,14 +3014,35 @@ resources:
     _type: request
   - _id: req_940e890523ee4ca2ab6507bc0c47b580
     authentication: {}
-    body: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "ping",
+          "labelSelector": {
+            "os": "linux",
+            "agent_discovered_os": "darwin"
+          },
+          "labelSelectorMethod": "OR",
+          "details": {
+            "type": "remote",
+            "monitoringZones": ["public/us_central_1"],
+            "plugin": {
+              "type": "ping",
+              "urls": ["${resource.metadata.ping_ip}"]
+            }
+          }
+        }
     created: 1566325769377
     description: ""
-    headers: []
+    headers:
+      - id: pair_f46f45236d2741b49b28c53ca6d1d4f2
+        name: Content-Type
+        value: application/json
     isPrivate: false
     metaSortKey: -1566325780327.75
     method: POST
-    modified: 1566325916490
+    modified: 1566491667112
     name: Create Monitor
     parameters: []
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
@@ -3068,14 +3055,22 @@ resources:
     _type: request
   - _id: req_e71960dbcf9946649cfacf6f40707034
     authentication: {}
-    body: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "updated"
+        }
     created: 1566325774736
     description: ""
-    headers: []
+    headers:
+      - id: pair_fdb0561bff9f4daf94dba9e6f3e8e6ec
+        name: Content-Type
+        value: application/json
     isPrivate: false
     metaSortKey: -1566325774736
     method: PUT
-    modified: 1566325948089
+    modified: 1566492661848
     name: Update Monitor
     parameters: []
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
@@ -3528,13 +3523,15 @@ resources:
     data:
       api_admin: localhost:8888
       api_public: localhost:8080/v1.0
+      policy_mgmt: localhost:8091
     dataPropertyOrder:
       "&":
         - api_admin
         - api_public
+        - policy_mgmt
     isPrivate: false
     metaSortKey: 1
-    modified: 1562885366229
+    modified: 1566411920262
     name: localhost
     parentId: env_5a5d52bd56ce4760af650078de6aa477
     _type: environment

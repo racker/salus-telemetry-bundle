@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2019-08-22T17:09:59.026Z
-__export_source: insomnia.desktop.app:v6.6.0
+__export_date: 2019-08-22T17:17:38.795Z
+__export_source: insomnia.desktop.app:v6.6.2
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -247,17 +247,25 @@ resources:
     url: http://{{ policy_mgmt  }}/api/public/account/{% prompt 'Tenant ID',
       'tenantId', 'aaaaaa', '', false, true %}
     _type: request
-  - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
+  - _id: req_108bfc4dddce42fba82a448e641efd3e
     authentication: {}
-    body: {}
-    created: 1560454258976
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "count": 4
+        }
+    created: 1566487199137
     description: ""
-    headers: []
+    headers:
+      - id: pair_823b37384bdd4a45971988bed9bc948d
+        name: Content-Type
+        value: application/json
     isPrivate: false
-    metaSortKey: -1560454258976
-    method: GET
-    modified: 1561055442429
-    name: Get partitions
+    metaSortKey: -1566487199137
+    method: PUT
+    modified: 1566490908465
+    name: Change partitions
     parameters: []
     parentId: fld_bfc09e4c437f408f8b8c2e7c1d6341a5
     settingDisableRenderRequestBody: false
@@ -265,7 +273,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: http://localhost:8888/api/presence-monitor/partitions
+    url: http://localhost:8083/api/admin/presence-monitor/partitions
     _type: request
   - _id: fld_bfc09e4c437f408f8b8c2e7c1d6341a5
     created: 1560372746491
@@ -277,6 +285,26 @@ resources:
     name: Presence Monitor
     parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
     _type: request_group
+  - _id: req_efa1e3ebbe1f494b9a772b22bf119a33
+    authentication: {}
+    body: {}
+    created: 1560454258976
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1560454258976
+    method: GET
+    modified: 1566487146179
+    name: Get partitions
+    parameters: []
+    parentId: fld_bfc09e4c437f408f8b8c2e7c1d6341a5
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8083/api/admin/presence-monitor/partitions
+    _type: request
   - _id: req_7340906f7f6f4ae185293f5611a50621
     authentication: {}
     body: {}

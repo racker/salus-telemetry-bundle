@@ -6,7 +6,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgres-volume:/var/lib/postgresql/data
   sqlserver:
     image: microsoft/mssql-server-linux:2017-latest
     environment:
@@ -15,7 +15,7 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - sqlvolume:/var/opt/mssql
+      - sqlserver-volume:/var/opt/mssql
 volumes:
-  sqlvolume:
-  postgres:
+  sqlserver-volume:
+  postgres-volume:

@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-08-22T17:17:38.795Z
+__export_date: 2019-09-18T23:29:56.465Z
 __export_source: insomnia.desktop.app:v6.6.2
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -2197,6 +2197,261 @@ resources:
     method: POST
     modified: 1563826173212
     name: Create local monitor (disk)
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
+    _type: request
+  - _id: req_20f4815ecac848d2aecb93f222c553e3
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          },
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "mysql",
+              "servers": ["dev:pass@tcp(127.0.0.1:3306)/"]
+            }
+          }
+        }
+    created: 1567814264991
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1560600472582.5
+    method: POST
+    modified: 1568402173203
+    name: Create local mysql
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
+    _type: request
+  - _id: req_9a32cc404b84432abd8be6868f31e964
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          },
+        	"interval": "PT30S",
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "postgresql",
+              "address": "host=localhost user=postgres password=mysecretpassword sslmode=disable"
+            }
+          }
+        }
+    created: 1568304603349
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1560587692197.125
+    method: POST
+    modified: 1568682367787
+    name: Create local postgres
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
+    _type: request
+  - _id: req_db7ef2a210254efbb61e17a89e4a0ecb
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          },
+        		"interval": "PT30S",
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "sqlserver",
+        "servers":["Server=127.0.0.1;Port=1433;User Id=SA;Password=ABCabc01;app name=telegraf;log=1;encrypt=true;certificate=/usr/local/etc/openssl/certs/2426398e;hostNameInCertificate=mssql.contoso.com"]
+            }
+          }
+        }
+    created: 1568317062623
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1560581302004.4375
+    method: POST
+    modified: 1568757561466
+    name: Create local sqlserver
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
+    _type: request
+  - _id: req_7c624489cab344e9ae843223a515a701
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          },
+        	"interval": "PT30S",
+          "details": {
+            "type": "remote",
+        		"monitoringZones": ["dev"],
+            "plugin": {
+              "type": "mysql",
+              "servers": ["dev:pass@tcp(127.0.0.1:3306)/"]
+            }
+          }
+        }
+    created: 1567814890065
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1560574911811.75
+    method: POST
+    modified: 1568682345767
+    name: Create remote mysql
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
+    _type: request
+  - _id: req_5b7a9a8ba3ca412baaaa225c92dfe561
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          },
+        	"interval": "PT30S",
+
+          "details": {
+            "type": "remote",
+        		"monitoringZones": ["dev"],
+            "plugin": {
+              "type": "postgresql",
+              "address": "host=localhost user=postgres password=mysecretpassword sslmode=disable"
+            }
+          }
+        }
+    created: 1568304639053
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1560562131426.375
+    method: POST
+    modified: 1568418919720
+    name: Create remote postgres
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/monitors"
+    _type: request
+  - _id: req_c97b79a2d79c4b55b8f5910676d31c9c
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          },
+        		"interval": "PT30S",
+          "details": {
+            "type": "remote",
+        		"monitoringZones": ["dev"],
+            "plugin": {
+              "type": "sqlserver",
+        "servers":["Server=127.0.0.1;Port=1433;User Id=SA;Password=ABCabc01;app name=telegraf;log=1;"]
+            }
+          }
+        }
+    created: 1568317184547
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1560555741233.6875
+    method: POST
+    modified: 1568418974059
+    name: Create remote sqlserver
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false

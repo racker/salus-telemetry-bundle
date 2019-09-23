@@ -1,0 +1,21 @@
+version: '3.2'
+
+services:
+  postgres:
+    image: "postgres:11"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+  sqlserver:
+    image: microsoft/mssql-server-linux:2017-latest
+    environment:
+      - SA_PASSWORD=ABCabc01
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-volume:/var/opt/mssql
+volumes:
+  sqlserver-volume:
+  postgres-volume:

@@ -1244,7 +1244,7 @@ resources:
             "type": "local",
             "plugin": {
               "type": "disk",
-              "mountPoints": ["${rackspace.metadata.primary_mount}"]
+              "mountPoints": ["${resource.metadata.primary_mount}"]
             }
           }
         }

@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2019-09-18T23:29:56.465Z
+__export_date: 2019-10-07T15:59:43.629Z
 __export_source: insomnia.desktop.app:v6.6.2
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -164,6 +164,142 @@ resources:
     settingStoreCookies: true
     url: http://{{ policy_mgmt  }}/api/admin/policy/monitors/{% prompt 'Monitor
       Policy Id', 'policyId', '', '', false, false %}
+    _type: request
+  - _id: req_eeda52ec03e94f838cf8eb28b23d6fff
+    authentication: {}
+    body: {}
+    created: 1568830919962
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1568830919962
+    method: GET
+    modified: 1568830926831
+    name: Get all metadata policies
+    parameters: []
+    parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ policy_mgmt  }}/api/admin/policy/metadata/monitor"
+    _type: request
+  - _id: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
+    created: 1567560642822
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1565742372413.4375
+    modified: 1567560761406
+    name: Metadata Policies
+    parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
+    _type: request_group
+  - _id: req_e4c1c28e5b44427c98d8bf96c2dbb188
+    authentication: {}
+    body: {}
+    created: 1567561570834
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1567561570834
+    method: GET
+    modified: 1567797682620
+    name: Get effective policy for tenant and monitor type
+    parameters: []
+    parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ policy_mgmt  }}/api/admin/policy/metadata/monitor/effective/{% prompt
+      'Tenant Id', 'tenantId', 'aaaaaa', '', false, true %}/{% prompt 'Target
+      Class Name', 'className', 'Monitor', '', false, true %}/{% prompt 'Monitor
+      Type', 'monitorType', 'mem', '', false, true %}"
+    _type: request
+  - _id: req_6c2a431427c0423d9f3a25cd4f253b15
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "scope": "GLOBAL",
+          "subscope": null,
+          "targetClassName": "Monitor",
+          "valueType": "DURATION",
+          "key": "interval",
+          "value": "90"
+        }
+    created: 1567560651232
+    description: ""
+    headers:
+      - id: pair_ae2092bb938c40998b29d4d8e2c43134
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1567560651232
+    method: POST
+    modified: 1568830988915
+    name: Create Policy
+    parameters: []
+    parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ policy_mgmt  }}/api/admin/policy/metadata/monitor"
+    _type: request
+  - _id: req_2ba7b9ab9c82472798594fc7a976e87b
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "value": "72"
+        }
+    created: 1568062267884
+    description: ""
+    headers:
+      - id: pair_75ff9be2626b446887e42d7358146c82
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1567560651207
+    method: PUT
+    modified: 1569342087059
+    name: Update Policy
+    parameters: []
+    parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ policy_mgmt  }}/api/admin/policy/metadata/monitor/{% prompt 'Policy
+      Id', 'policyId', '', '', false, false %}"
+    _type: request
+  - _id: req_d2059c4aa9634caf81397860d7033110
+    authentication: {}
+    body: {}
+    created: 1567634983327
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1567560651182
+    method: DELETE
+    modified: 1568062377040
+    name: Delete Policy
+    parameters: []
+    parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ policy_mgmt  }}/api/admin/policy/metadata/monitor/{% prompt 'Policy
+      Id', 'policyId', '', '', false, false %}"
     _type: request
   - _id: req_5b6ea78ad3ca460f8351d166c494ad76
     authentication: {}
@@ -448,7 +584,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555472938893
     method: POST
-    modified: 1566408996872
+    modified: 1568831054174
     name: Create testing resource
     parameters: []
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
@@ -553,7 +689,7 @@ resources:
     environment: {}
     environmentPropertyOrder: null
     metaSortKey: -1549899273935
-    modified: 1566336433141
+    modified: 1567560738189
     name: Monitor Management
     parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
     _type: request_group
@@ -728,6 +864,53 @@ resources:
     url: http://localhost:8089/api/admin/policy-monitors/{% prompt 'Policy Monitor
       Id', 'monitorId', '', '', false, true %}
     _type: request
+  - _id: req_4a7df9859b0745229a14dd8a6d73c8de
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": null,
+          "labelSelector": {
+            "pingable": "true"
+          },
+          "labelSelectorMethod": "AND",
+          "resourceId": null,
+          "interval": "PT1M0S",
+          "details": {
+            "type": "remote",
+            "monitoringZones": [
+                "dev"
+            ],
+            "plugin": {
+              "type": "ping",
+              "urls": [
+                "${resource.metadata.ping_ip}"
+              ],
+              "count": 1
+            }
+          }
+        }
+    created: 1568045477868
+    description: ""
+    headers:
+      - id: pair_8438b62268474888bc61402a2c954fa8
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1566022219205
+    method: PUT
+    modified: 1570463368829
+    name: Update Policy Metadata Monitor
+    parameters: []
+    parentId: fld_7b08fb62d9514da78b462d31edfa8241
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors/e7bc277c-cc4b-4555-b71a-8ab5b19578d9
+    _type: request
   - _id: req_a23accf7a88446c9a34579699f6e8f7f
     authentication: {}
     body: {}
@@ -758,7 +941,7 @@ resources:
     isPrivate: false
     metaSortKey: -1563269766284
     method: GET
-    modified: 1566412373125
+    modified: 1568831550257
     name: Get tenant monitors
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -907,6 +1090,7 @@ resources:
           "labelSelector": {
             "pingable": "true"
           },
+          "interval": "121",
           "details": {
             "type": "remote",
             "monitoringZones": ["dev"],
@@ -925,7 +1109,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555360461714
     method: POST
-    modified: 1557776354908
+    modified: 1568834843651
     name: Create ping (remote) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -943,7 +1127,7 @@ resources:
       text: |-
         {
           "labelSelector": {
-            "agent_discovered_os": "darwin"
+            "pingable": "true"
           },
           "details": {
             "type": "local",
@@ -961,7 +1145,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555360447430.5
     method: POST
-    modified: 1557863589717
+    modified: 1570050757958
     name: Create mem (local) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -1060,7 +1244,7 @@ resources:
             "type": "local",
             "plugin": {
               "type": "disk",
-              "mountPoints": ["${resource.metadata.primary_mount}"]
+              "mountPoints": ["${rackspace.metadata.primary_mount}"]
             }
           }
         }
@@ -1073,7 +1257,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555360436717.875
     method: POST
-    modified: 1558472420637
+    modified: 1567536431438
     name: Create disk (local) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -1115,6 +1299,35 @@ resources:
     url: http://localhost:8089/api/tenant/aaaaaa/monitors/{% response 'body',
       'req_14223ed2c09e4d19b3e13e17fb7b1aa2', '$.id' %}
     _type: request
+  - _id: req_b9dc0976b4854e1f84bdd3469fe57b7f
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "interval": "PT3M12S"
+        }
+    created: 1567807202247
+    description: ""
+    headers:
+      - id: pair_5d055b959aa7440ab1c9d3184b9df4b1
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360433700.2617
+    method: PUT
+    modified: 1567807466851
+    name: Modify interval of monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/tenant/aaaaaa/monitors/{% response 'body',
+      'req_14223ed2c09e4d19b3e13e17fb7b1aa2', '$.id' %}
+    _type: request
   - _id: req_fb3d9242db5442edb7823fb75383f4c1
     authentication: {}
     body:
@@ -1139,7 +1352,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555360432694.3906
     method: PUT
-    modified: 1566336090057
+    modified: 1568045458589
     name: Modify details of ping (remote) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -2175,6 +2388,8 @@ resources:
           "labelSelector": {
             "agent_discovered_os": "linux"
           },
+          "labelSelectorMethod": "OR",
+          "interval": 60,
           "details": {
             "type": "local",
             "plugin": {
@@ -2195,7 +2410,7 @@ resources:
     isPrivate: false
     metaSortKey: -1560651594124
     method: POST
-    modified: 1563826173212
+    modified: 1569437026419
     name: Create local monitor (disk)
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796

@@ -2891,7 +2891,7 @@ resources:
     settingSendCookies: true
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/resources/{% prompt 'deletedResourceId', 'Deleted Resource Id',
+      false %}/resources/{% prompt 'resourceId', 'Resource Id',
       '', '', false %}"
     _type: request
   - _id: fld_0a6a98b5c25d42b2a28631f09356c466

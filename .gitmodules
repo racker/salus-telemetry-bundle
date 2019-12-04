@@ -61,3 +61,6 @@
 [submodule "apps/policy-management"]
 	path = apps/policy-management
 	url = git@github.com:racker/salus-policy-management.git
+[submodule "apps/oracle-agent"]
+	path = apps/oracle-agent
+	url = https://github.com/racker/salus-oracle-agent

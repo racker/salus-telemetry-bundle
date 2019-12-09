@@ -2,11 +2,9 @@ version: "3.4"
 
 services:
   fluentd:
-    image: fluentd
+    image: quay.io/fluentd_elasticsearch/fluentd:v2.7.0
     volumes:
-      - fluentd:/fluentd/log
+      - ./fluentd.conf:/etc/fluent/config.d/fluentd.conf
     ports:
       - 24224:24224
       - 24224:24224/udp
-volumes:
-  fluentd: {}

@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2019-10-08T20:08:02.703Z
-__export_source: insomnia.desktop.app:v6.6.2
+__export_date: 2019-12-12T17:06:40.171Z
+__export_source: insomnia.desktop.app:v7.0.2
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -2158,6 +2158,188 @@ resources:
     url: http://localhost:8089/api/tenant/{% prompt 'Tenant ID', '', 'aaaaaa', '',
       false %}/zones/dev
     _type: request
+  - _id: req_23fbd8e9864c4969a33053a3e68dae65
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+              "type": "TELEGRAF",
+              "version": "1.11.0",
+              "labels": {
+                "agent_discovered_arch": "amd64",
+                "agent_discovered_os": "darwin"
+              },
+              "url": "https://homebrew.bintray.com/bottles/telegraf-1.11.0.high_sierra.bottle.tar.gz",
+              "exe": "telegraf/1.11.0/bin/telegraf"
+            }
+    created: 1576170096309
+    description: ""
+    headers:
+      - id: pair_f97af985a8914802acb31bc27502c44f
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1576161884730
+    method: POST
+    modified: 1576170124427
+    name: Declare agent release
+    parameters: []
+    parentId: fld_0b33f3344f4a42579271e5653f5b1c15
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8090/api/admin/agent-releases
+    _type: request
+  - _id: fld_0b33f3344f4a42579271e5653f5b1c15
+    created: 1576162108019
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1576162108019
+    modified: 1576162108019
+    name: Releases
+    parentId: fld_e85261b0c1fb4c63bb0cf7db1ea9dfd2
+    _type: request_group
+  - _id: fld_e85261b0c1fb4c63bb0cf7db1ea9dfd2
+    created: 1562683513892
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273760
+    modified: 1562686734245
+    name: Agent Catalog Management
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
+  - _id: req_a8fb18cb8bee40fbbe05f5ca6bc98d30
+    authentication: {}
+    body: {}
+    created: 1576161884678
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1576161884680
+    method: GET
+    modified: 1576162118832
+    name: Get agent releases
+    parameters: []
+    parentId: fld_0b33f3344f4a42579271e5653f5b1c15
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8090/api/admin/agent-releases
+    _type: request
+  - _id: req_94ecb281e42d40be93152cd801854b0d
+    authentication: {}
+    body: {}
+    created: 1576168344408
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1571324541908.5
+    method: DELETE
+    modified: 1576168369745
+    name: Delete agent release
+    parameters: []
+    parentId: fld_0b33f3344f4a42579271e5653f5b1c15
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8090/api/admin/agent-releases/{% prompt 'Release ID', '',
+      '', '', false, true %}
+    _type: request
+  - _id: req_3bc4f4524fc14104800460d213ea20d1
+    authentication: {}
+    body: {}
+    created: 1576162006727
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1562683528216
+    method: GET
+    modified: 1576162125320
+    name: Get agent installs
+    parameters: []
+    parentId: fld_db36ff0def4846b2ac4103947d49c35f
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8090/api/tenant/{% prompt 'Tenant', '', '', '', false,
+      true %}/agent-installs
+    _type: request
+  - _id: fld_db36ff0def4846b2ac4103947d49c35f
+    created: 1576162112960
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1576161996349.5
+    modified: 1576162115512
+    name: Installs
+    parentId: fld_e85261b0c1fb4c63bb0cf7db1ea9dfd2
+    _type: request_group
+  - _id: req_733cbe7b51e94cf38cf4043b35ff45dd
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "agentReleaseId": "{% prompt 'Agent release ID', '', '', '', false, true %}",
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          },
+          "labelSelectorMethod": "AND"
+        }
+    created: 1576162099050
+    description: ""
+    headers:
+      - id: pair_502a902080c34265b6b7479090c28df2
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1562683528166
+    method: POST
+    modified: 1576162224379
+    name: Declare agent install
+    parameters: []
+    parentId: fld_db36ff0def4846b2ac4103947d49c35f
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8090/api/tenant/{% prompt 'Tenant', '', '', '', false,
+      true %}/agent-installs
+    _type: request
+  - _id: req_5132e1abd3b844ffaf79f6b5949a429d
+    authentication: {}
+    body: {}
+    created: 1576162265526
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1562683528141
+    method: DELETE
+    modified: 1576162297787
+    name: Delete agent install
+    parameters: []
+    parentId: fld_db36ff0def4846b2ac4103947d49c35f
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8090/api/tenant/{% prompt 'Tenant', '', '', '', false,
+      true %}/agent-installs/{% prompt 'Agent install ID', '', '', '', false,
+      true %}
+    _type: request
   - _id: req_15d67faa9009409c9b5ba9ee88f75311
     authentication: {}
     body: {}
@@ -2180,16 +2362,6 @@ resources:
       ID', '', '', 'tenantId', false %}/{% prompt 'Resource ID', '', '', '',
       false %}/{% prompt 'Agent type', 'TELEGRAF | FILEBEAT', '', '', false %}
     _type: request
-  - _id: fld_e85261b0c1fb4c63bb0cf7db1ea9dfd2
-    created: 1562683513892
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1549899273760
-    modified: 1562686734245
-    name: Agent Catalog Management
-    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
-    _type: request_group
   - _id: req_31d66942ae2a48f2b83c091be52718da
     authentication: {}
     body: {}

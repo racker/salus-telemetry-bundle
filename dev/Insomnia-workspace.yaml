@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2019-12-12T17:06:40.171Z
-__export_source: insomnia.desktop.app:v7.0.2
+__export_date: 2020-01-13T23:31:17.676Z
+__export_source: insomnia.desktop.app:v7.0.6
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -18,6 +18,7 @@ resources:
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -65,6 +66,7 @@ resources:
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -86,6 +88,7 @@ resources:
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -107,6 +110,7 @@ resources:
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -139,6 +143,7 @@ resources:
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -159,6 +164,7 @@ resources:
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -180,6 +186,7 @@ resources:
     parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -210,6 +217,7 @@ resources:
     parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -246,6 +254,7 @@ resources:
     parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -274,6 +283,7 @@ resources:
     parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -295,6 +305,7 @@ resources:
     parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -316,6 +327,7 @@ resources:
     parentId: fld_97014ca57b5342d993a1bd3c923bd2a1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -356,6 +368,7 @@ resources:
     parentId: fld_97014ca57b5342d993a1bd3c923bd2a1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -377,6 +390,7 @@ resources:
     parentId: fld_97014ca57b5342d993a1bd3c923bd2a1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -406,6 +420,7 @@ resources:
     parentId: fld_bfc09e4c437f408f8b8c2e7c1d6341a5
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -436,6 +451,7 @@ resources:
     parentId: fld_bfc09e4c437f408f8b8c2e7c1d6341a5
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -456,6 +472,7 @@ resources:
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -494,6 +511,7 @@ resources:
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -514,6 +532,7 @@ resources:
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -534,6 +553,7 @@ resources:
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -554,6 +574,7 @@ resources:
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -590,6 +611,7 @@ resources:
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -626,6 +648,7 @@ resources:
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -646,6 +669,7 @@ resources:
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -666,6 +690,7 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -708,6 +733,7 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -729,6 +755,7 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -749,6 +776,7 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -766,12 +794,13 @@ resources:
             "os": "linux",
             "agent_discovered_os": "darwin"
           },
+          "interval": 60,
           "details": {
             "type": "remote",
             "monitoringZones": ["public/us_central_1"],
             "plugin": {
               "type": "ping",
-              "urls": ["${resource.metadata.ping_ip}"]
+              "target": "${resource.metadata.ping_ip}"
             }
           }
         }
@@ -784,12 +813,13 @@ resources:
     isPrivate: false
     metaSortKey: -1566022219255
     method: POST
-    modified: 1570479314643
+    modified: 1578957727488
     name: Create Remote Policy Monitor
     parameters: []
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -806,6 +836,7 @@ resources:
             "os": "linux",
             "agent_discovered_os": "darwin"
           },
+          "interval": 60,
           "details": {
             "type": "local",
             "plugin": {
@@ -824,12 +855,13 @@ resources:
     isPrivate: false
     metaSortKey: -1566022219242.5
     method: POST
-    modified: 1570479317602
+    modified: 1578957740592
     name: Create Local Policy Monitor
     parameters: []
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -858,60 +890,12 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
     url: "{{ monitor_mgmt  }}/api/admin/policy-monitors/{% prompt 'Policy Monitor
       Id', 'monitorId', '', '', false, true %}"
-    _type: request
-  - _id: req_4a7df9859b0745229a14dd8a6d73c8de
-    authentication: {}
-    body:
-      mimeType: application/json
-      text: |-
-        {
-          "name": null,
-          "labelSelector": {
-            "pingable": "true"
-          },
-          "labelSelectorMethod": "AND",
-          "resourceId": null,
-          "interval": "PT1M0S",
-          "details": {
-            "type": "remote",
-            "monitoringZones": [
-              "dev"
-            ],
-            "plugin": {
-              "type": "ping",
-              "urls": [
-                "${resource.metadata.ping_ip}"
-              ],
-              "count": 1
-            }
-          }
-        }
-    created: 1568045477868
-    description: ""
-    headers:
-      - id: pair_8438b62268474888bc61402a2c954fa8
-        name: Content-Type
-        value: application/json
-    isPrivate: false
-    metaSortKey: -1566022219205
-    method: PUT
-    modified: 1570479323067
-    name: Update Policy Metadata Monitor
-    parameters: []
-    parentId: fld_7b08fb62d9514da78b462d31edfa8241
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingSendCookies: true
-    settingStoreCookies: true
-    url: "{{
-      monitor_mgmt  }}/api/tenant/aaaaaa/monitors/e7bc277c-cc4b-4555-b71a-8ab5b\
-      19578d9"
     _type: request
   - _id: req_a23accf7a88446c9a34579699f6e8f7f
     authentication: {}
@@ -928,6 +912,7 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -949,6 +934,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -969,6 +955,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -997,6 +984,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1017,6 +1005,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1046,6 +1035,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1078,6 +1068,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1092,13 +1083,13 @@ resources:
           "labelSelector": {
             "pingable": "true"
           },
-          "interval": "121",
+          "interval": 121,
           "details": {
             "type": "remote",
             "monitoringZones": ["dev"],
             "plugin": {
               "type": "ping",
-              "urls": ["${resource.metadata.ping_ip}"]
+              "target": "${resource.metadata.ping_ip}"
             }
           }
         }
@@ -1111,12 +1102,13 @@ resources:
     isPrivate: false
     metaSortKey: -1555360461714
     method: POST
-    modified: 1570479263711
+    modified: 1578957955940
     name: Create ping (remote) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1153,6 +1145,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1191,6 +1184,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1228,6 +1222,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1246,7 +1241,7 @@ resources:
             "type": "local",
             "plugin": {
               "type": "disk",
-              "mountPoints": ["${resource.metadata.primary_mount}"]
+              "mount": "${resource.metadata.primary_mount}"
             }
           }
         }
@@ -1259,12 +1254,13 @@ resources:
     isPrivate: false
     metaSortKey: -1555360436717.875
     method: POST
-    modified: 1570479275679
+    modified: 1578957980693
     name: Create disk (local) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1295,6 +1291,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1324,6 +1321,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1341,7 +1339,7 @@ resources:
             "monitoringZones": ["dev"],
             "plugin": {
               "type": "ping",
-              "urls": ["${resource.labels.agent_discovered_hostname}"]
+              "target": "${resource.labels.agent_discovered_hostname}"
             }
           }
         }
@@ -1354,12 +1352,13 @@ resources:
     isPrivate: false
     metaSortKey: -1555360432694.3906
     method: PUT
-    modified: 1570479284591
+    modified: 1578957996974
     name: Modify details of ping (remote) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1377,7 +1376,7 @@ resources:
             "monitoringZones": ["alt"],
             "plugin": {
               "type": "ping",
-              "urls": ["${resource.labels.agent_discovered_hostname}"]
+              "target": "${resource.labels.agent_discovered_hostname}"
             }
           }
         }
@@ -1390,12 +1389,13 @@ resources:
     isPrivate: false
     metaSortKey: -1555360428670.9062
     method: PUT
-    modified: 1570479287517
+    modified: 1578958004117
     name: Modify zones of ping (remote) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1434,6 +1434,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1456,6 +1457,7 @@ resources:
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1491,6 +1493,7 @@ resources:
     parentId: fld_5f92cca3cbdf44189e1ee614d0036b0f
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1522,6 +1525,7 @@ resources:
     parentId: fld_66513c85dd5244388779193115b11203
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1562,6 +1566,7 @@ resources:
     parentId: fld_66513c85dd5244388779193115b11203
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1582,6 +1587,7 @@ resources:
     parentId: fld_66513c85dd5244388779193115b11203
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1602,6 +1608,7 @@ resources:
     parentId: fld_66513c85dd5244388779193115b11203
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1622,6 +1629,7 @@ resources:
     parentId: fld_66513c85dd5244388779193115b11203
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1642,6 +1650,7 @@ resources:
     parentId: fld_66513c85dd5244388779193115b11203
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1662,6 +1671,7 @@ resources:
     parentId: fld_66513c85dd5244388779193115b11203
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1682,6 +1692,7 @@ resources:
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1725,6 +1736,7 @@ resources:
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1770,6 +1782,7 @@ resources:
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1816,6 +1829,7 @@ resources:
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1837,6 +1851,7 @@ resources:
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1864,6 +1879,7 @@ resources:
     parentId: fld_8bba40876eb444faad3fedd9b5d5c7b9
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1894,6 +1910,7 @@ resources:
     parentId: fld_7ef768e2fdcf4b048a1fe71e4735ea19
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1929,6 +1946,7 @@ resources:
     parentId: fld_7ef768e2fdcf4b048a1fe71e4735ea19
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1952,6 +1970,7 @@ resources:
     parentId: fld_7ef768e2fdcf4b048a1fe71e4735ea19
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1972,6 +1991,7 @@ resources:
     parentId: fld_7ef768e2fdcf4b048a1fe71e4735ea19
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -1992,6 +2012,7 @@ resources:
     parentId: fld_2e441e237d204e19a497bec0f751e4f1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2022,6 +2043,7 @@ resources:
     parentId: fld_2e441e237d204e19a497bec0f751e4f1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2042,6 +2064,7 @@ resources:
     parentId: fld_2e441e237d204e19a497bec0f751e4f1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2053,7 +2076,7 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"name": "public/test",
+            "name": "public/us_central_1",
         	"pollerTimeout": 90,
         	"provider": "RS",
         	"providerRegion": "dfw",
@@ -2068,12 +2091,13 @@ resources:
     isPrivate: false
     metaSortKey: -1557959267943
     method: POST
-    modified: 1561142216524
+    modified: 1578957618621
     name: Create public zone
     parameters: []
     parentId: fld_2e441e237d204e19a497bec0f751e4f1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2103,6 +2127,7 @@ resources:
     parentId: fld_2e441e237d204e19a497bec0f751e4f1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2132,6 +2157,7 @@ resources:
     parentId: fld_2e441e237d204e19a497bec0f751e4f1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2152,6 +2178,7 @@ resources:
     parentId: fld_2e441e237d204e19a497bec0f751e4f1
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2188,6 +2215,7 @@ resources:
     parentId: fld_0b33f3344f4a42579271e5653f5b1c15
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2228,6 +2256,7 @@ resources:
     parentId: fld_0b33f3344f4a42579271e5653f5b1c15
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2248,6 +2277,7 @@ resources:
     parentId: fld_0b33f3344f4a42579271e5653f5b1c15
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2269,6 +2299,7 @@ resources:
     parentId: fld_db36ff0def4846b2ac4103947d49c35f
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2312,6 +2343,7 @@ resources:
     parentId: fld_db36ff0def4846b2ac4103947d49c35f
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2333,6 +2365,7 @@ resources:
     parentId: fld_db36ff0def4846b2ac4103947d49c35f
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2355,6 +2388,7 @@ resources:
     parentId: fld_e85261b0c1fb4c63bb0cf7db1ea9dfd2
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2377,6 +2411,7 @@ resources:
     parentId: fld_3373074209bc49199beb8e5967f1ae4a
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2407,6 +2442,7 @@ resources:
     parentId: fld_6fefb5ee22c547a59db209a07638355d
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2449,6 +2485,7 @@ resources:
     parentId: fld_6fefb5ee22c547a59db209a07638355d
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2470,6 +2507,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2501,6 +2539,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2525,6 +2564,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2545,7 +2585,7 @@ resources:
             "monitoringZones": ["dev"],
             "plugin": {
               "type": "ping",
-              "urls": ["192.168.0.1"]
+              "target": "192.168.0.1"
             }
           }
         }
@@ -2561,12 +2601,13 @@ resources:
     isPrivate: false
     metaSortKey: -1560958323373
     method: POST
-    modified: 1562944466640
+    modified: 1578958038395
     name: Create Ping
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2607,6 +2648,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2617,7 +2659,7 @@ resources:
     authentication: {}
     body:
       mimeType: application/json
-      text: >-
+      text: |-
         {
           "labelSelector": {
             "agent_discovered_os": "linux"
@@ -2628,7 +2670,7 @@ resources:
             "type": "local",
             "plugin": {
               "type": "disk",
-              "ignoreFs": ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
+              "mount": "/tmpfs"
             }
           }
         }
@@ -2644,12 +2686,13 @@ resources:
     isPrivate: false
     metaSortKey: -1560651594124
     method: POST
-    modified: 1569437026419
+    modified: 1578958115482
     name: Create local monitor (disk)
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2691,6 +2734,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2733,6 +2777,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2775,6 +2820,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2818,6 +2864,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2862,6 +2909,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2905,6 +2953,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2947,6 +2996,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -2982,6 +3032,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3014,6 +3065,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3038,6 +3090,7 @@ resources:
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3059,12 +3112,13 @@ resources:
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/resources/{% prompt 'resourceId', 'Resource Id',
-      '', '', false %}"
+      false %}/resources/{% prompt 'resourceId', 'Resource Id', '', '', false
+      %}"
     _type: request
   - _id: fld_0a6a98b5c25d42b2a28631f09356c466
     created: 1552328968587
@@ -3105,6 +3159,7 @@ resources:
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3132,6 +3187,7 @@ resources:
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3168,6 +3224,7 @@ resources:
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3192,6 +3249,7 @@ resources:
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3214,6 +3272,7 @@ resources:
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3255,6 +3314,7 @@ resources:
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3304,6 +3364,7 @@ resources:
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3328,6 +3389,7 @@ resources:
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3353,6 +3415,7 @@ resources:
     parentId: fld_b073af8590104e8b904c2fda7654403b
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3384,6 +3447,7 @@ resources:
     parentId: fld_b073af8590104e8b904c2fda7654403b
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3419,6 +3483,7 @@ resources:
     parentId: fld_b073af8590104e8b904c2fda7654403b
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3454,6 +3519,7 @@ resources:
     parentId: fld_b073af8590104e8b904c2fda7654403b
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3486,6 +3552,7 @@ resources:
     parentId: fld_b073af8590104e8b904c2fda7654403b
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3507,6 +3574,7 @@ resources:
     parentId: fld_b073af8590104e8b904c2fda7654403b
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3532,6 +3600,7 @@ resources:
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3566,6 +3635,7 @@ resources:
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3605,6 +3675,7 @@ resources:
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3629,6 +3700,7 @@ resources:
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3650,6 +3722,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3691,6 +3764,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3721,6 +3795,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3741,6 +3816,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3762,6 +3838,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3783,6 +3860,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3799,13 +3877,14 @@ resources:
             "os": "linux",
             "agent_discovered_os": "darwin"
           },
+          "interval": 120,
           "labelSelectorMethod": "OR",
           "details": {
             "type": "remote",
             "monitoringZones": ["public/us_central_1"],
             "plugin": {
               "type": "ping",
-              "urls": ["${resource.metadata.ping_ip}"]
+              "target": "${resource.metadata.ping_ip}"
             }
           }
         }
@@ -3818,12 +3897,13 @@ resources:
     isPrivate: false
     metaSortKey: -1566325780327.75
     method: POST
-    modified: 1566491667112
+    modified: 1578958236351
     name: Create Monitor
     parameters: []
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3852,6 +3932,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3873,6 +3954,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3912,6 +3994,7 @@ resources:
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3960,6 +4043,7 @@ resources:
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -3983,6 +4067,7 @@ resources:
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -4007,6 +4092,7 @@ resources:
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -4032,6 +4118,7 @@ resources:
     parentId: fld_5e8273952de24b9f8d2298996f937593
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -4052,6 +4139,7 @@ resources:
     parentId: fld_5e8273952de24b9f8d2298996f937593
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -4075,6 +4163,7 @@ resources:
     parentId: fld_27cdcc072284442896025676cae969ea
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -4108,6 +4197,7 @@ resources:
     parentId: fld_27cdcc072284442896025676cae969ea
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -4139,6 +4229,7 @@ resources:
     parentId: fld_27cdcc072284442896025676cae969ea
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -4174,6 +4265,7 @@ resources:
     parentId: fld_27cdcc072284442896025676cae969ea
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -4197,6 +4289,7 @@ resources:
     parentId: fld_27cdcc072284442896025676cae969ea
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
@@ -4220,6 +4313,7 @@ resources:
     parentId: fld_27cdcc072284442896025676cae969ea
     settingDisableRenderRequestBody: false
     settingEncodeUrl: true
+    settingFollowRedirects: global
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true

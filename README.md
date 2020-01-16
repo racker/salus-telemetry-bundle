@@ -144,42 +144,61 @@ mysql> show tables;
 mysql> select * from resources;
 ```
 
+### Pre-loading monitor translations, etc
+
+Some integration points in the system, especially telegraf's usage of rendered monitor content, assume certain database content is present. In the deployed clusters, the data-loader is integrated with Github webhooks; however, for local development, a fresh database volume needs to be pre-loaded manually using the data-loader. That can be done at any time using the following:
+
+```
+cd tools/data-loader
+go run ./... --debug --admin-url http://localhost:8888 \
+  load-from-git https://github.com/Rackspace-Segment-Support/salus-data-loader-content.git
+```
+
 ### Applications
 
-_**NOTE** The following procedure is IntelliJ specific but the process will be similar for other IDEs._
+> The following procedure is IntelliJ specific but the process will be similar for other IDEs.
 
 To open the project in IntelliJ, use the "open" option from the intro window, (or the File->Open dropdown).  Do not use either "Create New Project" or "Import Project" options, as those will misconfigure the project.  Open the root directory of this project, (the same one this readme is located in.)
 
-
 In the "Maven Projects" tab (usually on right side of IDE window), click the "Generate Sources and Update Folders"
-button to generate the protobuf/grpc code located in the `telemetry-protocol` module.
+button to generate the protobuf/grpc code that located in the `libs/protocol` module. That button is shown here:
 
-Create an **Ambassador** run configuration 
-1. Locate the file `apps/ambassador/src/main/java/com/rackspace/rmii/telemetry/ambassador/TelemetryAmbassadorApplication.java`
-2. Right-click the file and choose the "Create" option just below the build and run options
-3. In the "Working Directory" field, enter `dev`
-4. Save the configuration
+![](img/maven-generate-sources.png)
 
-Create an **API** run configuration
-1. Locate the file `apps/api/src/main/java/com/rackspace/rmii/telemetry/api/TelemetryApiApplication.java`
-2. Right-click the file and choose the "Create" option just below the build and run options
-3. Save the configuration
+IntelliJ, as of at least 2019.3, will auto-create run configurations for each of our Spring Boot applications under the `app` directory; however, you will need to add `dev` to the active Spring profiles as shown here:
 
-Create an **AuthService** run configuration
-1. Locate the file `apps/auth-service/src/main/java/com/rackspace/rmii/authservice/TelemetryAuthServiceApplication.java`
-2. Right-click the file and choose the "Create" option just below the build and run options
-3. Set Active Profile to "dev".
-4. Set the following Override Parameters to the values returned by the setup-vault.sh script:
+![](img/active-profiles-dev.png)
+
+The run configuration for `apps/auth-service` needs the following "Override Parameters" set to the values returned by the [setup-app-role.sh script](#setting-up-vault-for-development-usage):
 ```
   vault.app-role.role-id
   vault.app-role.secret-id
 ```
 
-5. Save the configuration
+For example:
+![](img/auth-service-props.png)
+
+Go based modules, such as `apps/envoy`, may not be auto-detected as modules initially. If that's the case, then open the Project Structure configuration and perform an "Import Module" operation as shown here:
+
+![](img/import-module.png)
+
+With that, when opening any of the *.go files within those modules, you should be prompted to setup the GOROOT, such as:
+
+![](img/prompt-setup-goroot.png)
+
+If not, you can manually enable Go support for modules in the project preferences as shown here:
+
+![](img/configure-goroot.png)
+
+Finally, IntelliJ should auto-enable support for Go modules; however, if it doesn't you can set (or check) that setting also in the project preferences, as shown here:
+
+![](img/enable-go-modules.png)
 
 Launch each of the run configurations by choosing it from the drop down in the top-right of the IDE window
-and clicking the "Run" or "Debug" button to launch in the respective mode. _I recommend using debug mode in
-most cases since you can add breakpoints on the fly._
+and clicking the "Run" or "Debug" button to launch in the respective mode. It is recommended you use debug mode in
+most cases since you can add breakpoints on the fly:
+
+![](img/debug-mode.png)
 
 ### Maven usage for applications
 

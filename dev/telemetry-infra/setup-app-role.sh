@@ -31,12 +31,12 @@ vault auth enable approle >> /tmp/setup-app-role.log
 vault write auth/approle/role/auth-service policies=pki_allocator >> /tmp/setup-app-role.log
 
 echo "
-Use the following for VAULT_APP_ROLE_ROLE_ID"
+Use the following for VAULT_APP_ROLE_ROLE_ID (or vault.app-role.role-id property)"
 # Read back the role-id
 vault read auth/approle/role/auth-service/role-id | tee -a /tmp/setup-app-role.log | grep role_id |awk '{print $2}'
 
 echo "
-Use the following for VAULT_APP_ROLE_SECRET_ID"
+Use the following for VAULT_APP_ROLE_SECRET_ID (or vault.app-role.secret-id property)"
 # ...and generate a secret_id
 vault write -f auth/approle/role/auth-service/secret-id | tee -a /tmp/setup-app-role.log | grep "secret_id " |awk '{print $2}'
 

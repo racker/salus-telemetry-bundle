@@ -161,7 +161,7 @@ go run ./... --debug --admin-url http://localhost:8888 \
 To open the project in IntelliJ, use the "open" option from the intro window, (or the File->Open dropdown).  Do not use either "Create New Project" or "Import Project" options, as those will misconfigure the project.  Open the root directory of this project, (the same one this readme is located in.)
 
 In the "Maven Projects" tab (usually on right side of IDE window), click the "Generate Sources and Update Folders"
-button to generate the protobuf/grpc code that located in the `libs/protocol` module. That button is shown here:
+button to generate the protobuf/grpc code that is located in the `libs/protocol` module. That button is shown here:
 
 ![](img/maven-generate-sources.png)
 

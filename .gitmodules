@@ -67,3 +67,6 @@
 [submodule "apps/packages-agent"]
 	path = apps/packages-agent
 	url = https://github.com/racker/salus-packages-agent.git
+[submodule "config/data-loader-content"]
+	path = config/data-loader-content
+	url = https://github.com/Rackspace-Segment-Support/salus-data-loader-content.git

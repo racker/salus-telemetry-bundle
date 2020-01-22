@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-01-13T23:31:17.676Z
+__export_date: 2020-01-22T16:28:09.475Z
 __export_source: insomnia.desktop.app:v7.0.6
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -675,6 +675,63 @@ resources:
     settingStoreCookies: true
     url: localhost:8085/api/tenant/aaaaaa/resources/test
     _type: request
+  - _id: req_849e877ee42242f68c0c63914e159815
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "agentType": "TELEGRAF",
+          "monitorType": "dns",
+          "name": "create-domain-list",
+          "description": "Converts a single value to the list required by telegraf",
+          "translatorSpec": {
+            "type": "scalarToArray",
+            "from": "domain",
+            "to": "domains"
+          }
+        }
+    created: 1579205359384
+    description: ""
+    headers:
+      - id: pair_73fc433997e843d99b2f1172790c4cc2
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1579205359384
+    method: POST
+    modified: 1579205405380
+    name: Create monitor translation
+    parameters: []
+    parentId: fld_78557b0d792e4a949ef9317dc730e498
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8089/api/admin/monitor-translations
+    _type: request
+  - _id: fld_78557b0d792e4a949ef9317dc730e498
+    created: 1579205341439
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1579205341439
+    modified: 1579205341439
+    name: Monitor Translations
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    _type: request_group
+  - _id: fld_2cd444041994485fa243cdab9f615271
+    created: 1555360442773
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273935
+    modified: 1567560738189
+    name: Monitor Management
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
   - _id: req_88c42ac959534f19be7d580a779a9cd6
     authentication: {}
     body: {}
@@ -707,16 +764,6 @@ resources:
     modified: 1566312574409
     name: Policy Requests
     parentId: fld_2cd444041994485fa243cdab9f615271
-    _type: request_group
-  - _id: fld_2cd444041994485fa243cdab9f615271
-    created: 1555360442773
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1549899273935
-    modified: 1567560738189
-    name: Monitor Management
-    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
     _type: request_group
   - _id: req_9af134fa2ff04334a35faf36ba8641d6
     authentication: {}
@@ -1114,6 +1161,47 @@ resources:
     settingStoreCookies: true
     url: "{{ monitor_mgmt  }}/api/tenant/aaaaaa/monitors"
     _type: request
+  - _id: req_3264b1f76a654f79a32a0915e9604ba1
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          },
+          "interval": 121,
+          "details": {
+            "type": "remote",
+            "monitoringZones": ["dev"],
+            "plugin": {
+              "type": "net_response",
+              "host": "localhost",
+              "port": 8080
+            }
+          }
+        }
+    created: 1579210803274
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360454572.25
+    method: POST
+    modified: 1579210864335
+    name: Create net_response (remote) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ monitor_mgmt  }}/api/tenant/aaaaaa/monitors"
+    _type: request
   - _id: req_5706bbde1596435e886ead9e4bb23669
     authentication: {}
     body:
@@ -1157,9 +1245,7 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "labelSelector": {
-            "agent_discovered_os": "darwin"
-          },
+          "labelSelector": {},
           "details": {
             "type": "local",
             "plugin": {
@@ -1178,7 +1264,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555360443859.625
     method: POST
-    modified: 1570479269301
+    modified: 1579642965994
     name: Create cpu (local) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -1199,11 +1285,11 @@ resources:
           "labelSelector": {
             "agent_environment": "localdev"
           },
+          "interval": 60,
           "details": {
             "type": "local",
             "plugin": {
-              "type": "procstat",
-              "pattern": "java.*IdleWebServerApplication"
+              "type": "procstat"
             }
           }
         }
@@ -1216,7 +1302,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555360440288.75
     method: POST
-    modified: 1570479272027
+    modified: 1579210790775
     name: Create procstat (local) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -1256,6 +1342,46 @@ resources:
     method: POST
     modified: 1578957980693
     name: Create disk (local) monitor
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ monitor_mgmt  }}/api/tenant/aaaaaa/monitors"
+    _type: request
+  - _id: req_fb269e7593c74ecbbeae64f2d438f012
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "agent_environment": "localdev"
+          },
+          "interval": 10,
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "packages",
+              "include-debian": true,
+              "fail-when-not-supported": true
+            }
+          }
+        }
+    created: 1579642281905
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1555360435712.004
+    method: POST
+    modified: 1579644803601
+    name: Create packages (local) monitor
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
@@ -1510,6 +1636,43 @@ resources:
     name: Test-Monitor
     parentId: fld_2cd444041994485fa243cdab9f615271
     _type: request_group
+  - _id: req_82275d5771aa47bdad434863a1ea937e
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "resourceId": "{% prompt 'Resource ID', '', 'development:0', '', false, true %}",
+          "details": {
+            "type": "local",
+            "plugin": {
+              "type": "packages",
+              "include-debian": true
+            }
+          }
+        }
+    created: 1579646022987
+    description: ""
+    headers:
+      - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1562957685760.25
+    method: POST
+    modified: 1579646031642
+    name: Test packages monitor given resource
+    parameters: []
+    parentId: fld_5f92cca3cbdf44189e1ee614d0036b0f
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ monitor_mgmt  }}/api/tenant/{% prompt 'Tenant', '', '', 'tenantId',
+      false, true %}/test-monitor"
+    _type: request
   - _id: req_f9411ec3a96542af9b196f207dfaa14e
     authentication: {}
     body: {}
@@ -2241,6 +2404,42 @@ resources:
     name: Agent Catalog Management
     parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
     _type: request_group
+  - _id: req_3d5c13c8e4454e2e968d93e0ae0a54ee
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "type": "PACKAGES",
+          "exe": "salus-packages-agent",
+          "labels": {
+            "agent_discovered_arch": "amd64",
+            "agent_discovered_os": "darwin"
+          },
+          "version": "0.1.0",
+          "url": "https://github.com/racker/salus-packages-agent/releases/download/v0.1.0/salus-packages-agent_0.1.0_Darwin_x86_64.tar.gz"
+        }
+    created: 1579642142514
+    description: ""
+    headers:
+      - id: pair_f97af985a8914802acb31bc27502c44f
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1576161884705
+    method: POST
+    modified: 1579642161546
+    name: Declare agent release (packages)
+    parameters: []
+    parentId: fld_0b33f3344f4a42579271e5653f5b1c15
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8090/api/admin/agent-releases
+    _type: request
   - _id: req_a8fb18cb8bee40fbbe05f5ca6bc98d30
     authentication: {}
     body: {}
@@ -3707,6 +3906,63 @@ resources:
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
       false %}/rebalance-zone/{% prompt 'Zone Name', '', '', '', false %}"
     _type: request
+  - _id: req_1722c11f078b45ed99f9f4acb3a492f8
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "agentType": "TELEGRAF",
+          "monitorType": "dns",
+          "name": "create-domain-list",
+          "description": "Converts a single value to the list required by telegraf",
+          "translatorSpec": {
+            "type": "scalarToArray",
+            "from": "domain",
+            "to": "domains"
+          }
+        }
+    created: 1579205516860
+    description: ""
+    headers:
+      - id: pair_4143952d89574b28a572d52a7bea3f58
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1552638807090
+    method: POST
+    modified: 1579205562942
+    name: Create monitor translation
+    parameters: []
+    parentId: fld_701d6efdf0e040bcba1f050d995da1ed
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/monitor-translations"
+    _type: request
+  - _id: fld_701d6efdf0e040bcba1f050d995da1ed
+    created: 1579205503966
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1579205503966
+    modified: 1579205503966
+    name: Monitor Translations
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    _type: request_group
+  - _id: fld_5e8273952de24b9f8d2298996f937593
+    created: 1548358712950
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1548358712950
+    modified: 1556918976861
+    name: ADMIN
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    _type: request_group
   - _id: req_1c199d6a35544a3d8c625e20780e1901
     authentication: {}
     body: {}
@@ -3738,16 +3994,6 @@ resources:
     modified: 1566325753148
     name: Policy Monitors
     parentId: fld_5e8273952de24b9f8d2298996f937593
-    _type: request_group
-  - _id: fld_5e8273952de24b9f8d2298996f937593
-    created: 1548358712950
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1548358712950
-    modified: 1556918976861
-    name: ADMIN
-    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: request_group
   - _id: req_1dcecf8f7d5d4e27bfc9ea32adbd8804
     authentication: {}

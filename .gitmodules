@@ -64,3 +64,6 @@
 [submodule "apps/oracle-agent"]
 	path = apps/oracle-agent
 	url = https://github.com/racker/salus-oracle-agent
+[submodule "apps/packages-agent"]
+	path = apps/packages-agent
+	url = https://github.com/racker/salus-packages-agent.git

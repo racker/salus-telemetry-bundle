@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-01-22T16:28:09.475Z
+__export_date: 2020-01-24T18:27:15.259Z
 __export_source: insomnia.desktop.app:v7.0.6
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -1533,15 +1533,10 @@ resources:
     body:
       mimeType: application/json
       text: |-
-        {
-          "interval": null,
-          "details": {
-            "monitoringZones": null,
-            "plugin": {
-              "count": null
-            }
-          }
-        }
+        [
+          { "op": "replace", "path": "/interval", "value": 40 },
+          { "op": "replace", "path": "/details/plugin/timeout", "value": 90 }
+        ]
     created: 1570479174228
     description: ""
     headers:
@@ -1554,8 +1549,8 @@ resources:
     isPrivate: false
     metaSortKey: -1555360416600.4531
     method: PATCH
-    modified: 1570562052224
-    name: Reset Ping Monitor Defaults
+    modified: 1579814840778
+    name: Update some fields directly without full payload
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
     settingDisableRenderRequestBody: false
@@ -1564,9 +1559,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ monitor_mgmt  }}/api/tenant/aaaaaa/monitors/{% response 'body',
-      'req_aef343eb6916447ca8507fe2d0617d38', 'b64::JC5jb250ZW50WzBdLmlk::46b',
-      'never' %}"
+    url: "{{ monitor_mgmt  }}/api/tenant/aaaaaa/monitors/{% prompt 'Monitor ID',
+      'monitorId', '', '', false, true %}"
     _type: request
   - _id: req_f6d7a333dad54af885d22c15bdd00614
     authentication: {}
@@ -2621,8 +2615,8 @@ resources:
     description: ""
     environment: {}
     environmentPropertyOrder: null
-    metaSortKey: -1556918901480
-    modified: 1556918901480
+    metaSortKey: -1552638809683.5
+    modified: 1579810737197
     name: PUBLIC
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: request_group
@@ -2728,7 +2722,7 @@ resources:
     isPrivate: false
     metaSortKey: -1563640488638
     method: GET
-    modified: 1566336194069
+    modified: 1579795670525
     name: Get all monitors
     parameters:
       - disabled: true
@@ -2742,8 +2736,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/monitors"
     _type: request
   - _id: req_1e3562f16c534becb8d765f5a68c67b2
     authentication: {}
@@ -2757,7 +2751,7 @@ resources:
     isPrivate: false
     metaSortKey: -1562299406005.5
     method: GET
-    modified: 1566336196426
+    modified: 1579814889560
     name: Get bound monitors
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -2767,8 +2761,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/bound-monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/bound-monitors"
     _type: request
   - _id: req_388b2c4a4aeb4b9988aa26417b4213ef
     authentication: {}
@@ -2812,6 +2806,51 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
       false %}/monitors"
+    _type: request
+  - _id: req_0ac44373720e45cf9e49a800310526a9
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "labelSelector": {
+            "env": "ahhhh"
+          },
+          "interval": 60,
+          "details": {
+            "type": "remote",
+            "monitoringZones": ["public/us_central_1"],
+            "plugin": {
+              "type": "net_response",
+              "host": "192.168.0.1",
+               "port": 6397
+            }
+          }
+        }
+    created: 1579795697615
+    description: ""
+    headers:
+      - id: pair_8e3f6476dd8741d0a36d1a84ee942ce1
+        name: Content-Type
+        value: application/json
+      - id: pair_2b4e9faa95894bd085838db18d3d08e7
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1560856080290
+    method: POST
+    modified: 1579815052479
+    name: Create net_response
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/monitors"
     _type: request
   - _id: req_46e3a88ab1064b9fbef61010a7abde9f
     authentication: {}
@@ -3238,6 +3277,40 @@ resources:
     url: "{{ api_public  }}/tenant/{% prompt 'Tenant', '', '', 'tenantId', false,
       true %}/test-monitor"
     _type: request
+  - _id: req_2261ab5a77ff4eaf8fbb4db077f1f628
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        [
+          { "op": "replace", "path": "/details/plugin/timeout", "value": 40 }
+        ]
+    created: 1579810701766
+    description: ""
+    headers:
+      - id: pair_af6c3ee817db4eca9fca513196570a6d
+        name: Content-Type
+        value: application/json-patch+json
+      - id: pair_7278aaef4a7b46e58b241f2873c2cf95
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1552102363254.2812
+    method: PATCH
+    modified: 1579890129452
+    name: Patch Monitor Timeout
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
+      false, true %}/monitors/{% prompt 'Monitor ID', 'monitorId', '', '',
+      false, true %}"
+    _type: request
   - _id: req_2c8f05653c934cf0a85d6526154cbd95
     authentication: {}
     body:
@@ -3258,7 +3331,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552026824782.375
     method: PUT
-    modified: 1562944482015
+    modified: 1579806366405
     name: Update monitor
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -3268,8 +3341,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors/{% prompt 'Monitor ID', '', '', '', false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/monitors/{% prompt 'Monitor ID', '', '', '', false %}"
     _type: request
   - _id: req_e6c07cfdbeb04c91bf2cc2995887de25
     authentication: {}
@@ -3344,7 +3417,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552328978770
     method: GET
-    modified: 1566336207491
+    modified: 1579798420875
     name: Get all resources
     parameters:
       - disabled: true
@@ -3362,8 +3435,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/resources"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/resources"
     _type: request
   - _id: req_8cb39d8dec0c4dda9bfaeccb329839d5
     authentication: {}
@@ -3608,7 +3681,7 @@ resources:
     isPrivate: false
     metaSortKey: -1553101476052
     method: GET
-    modified: 1562944599119
+    modified: 1579795261929
     name: Get agent releases
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -3618,8 +3691,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/agent-releases"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/agent-releases"
     _type: request
   - _id: fld_b073af8590104e8b904c2fda7654403b
     created: 1537893080573
@@ -3636,11 +3709,15 @@ resources:
     body: {}
     created: 1559055656207
     description: ""
-    headers: []
+    headers:
+      - description: ""
+        id: pair_d2e7b9727cea47dabe4df3098ece550b
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1544815412757.5
     method: GET
-    modified: 1566336274251
+    modified: 1579798397752
     name: Get agent installations
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -3650,8 +3727,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/agent-installs"
     _type: request
   - _id: req_a0a42d95a1544c6b9888a97e7662b6ae
     authentication: {}
@@ -3659,10 +3736,11 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"agentReleaseId": "{% prompt 'Agent release ID', '', '', '', false %}",
-        	"labelSelector": {
-        		"agent_discovered_os": "darwin"
-        	}
+          "agentReleaseId": "{% prompt 'Agent release ID', '', '', '', false %}",
+          "labelSelectorMethod": "AND",
+          "labelSelector": {
+            "agent_discovered_os": "darwin"
+          }
         }
     created: 1538672493222
     description: ""
@@ -3676,7 +3754,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349463
     method: POST
-    modified: 1562944602640
+    modified: 1579805749977
     name: Install telegraf on Mac
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -3686,8 +3764,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/agent-installs"
     _type: request
   - _id: req_424edec546d143e99cf97e73050fa276
     authentication: {}
@@ -3696,6 +3774,7 @@ resources:
       text: >2
                 {
                 	"agentReleaseId": "{% prompt 'Agent release ID', '', '', '', false %}",
+                    "labelSelectorMethod": "AND",
                 	"labelSelector": {
                 		"agent_discovered_os": "linux"
                 	}
@@ -3712,7 +3791,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349413
     method: POST
-    modified: 1562944606553
+    modified: 1579805705347
     name: Install agent on Linux
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -3722,8 +3801,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/agent-installs"
     _type: request
   - _id: req_58bd8f171d774346a76211761cda80b4
     authentication: {}
@@ -3745,7 +3824,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349363
     method: POST
-    modified: 1562944610931
+    modified: 1579798365008
     name: Install agent on Mac
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -3755,8 +3834,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/agent-installs"
     _type: request
   - _id: req_59edf223a275414887b2bda27a3d9b56
     authentication: {}
@@ -3767,7 +3846,7 @@ resources:
     isPrivate: false
     metaSortKey: -1536529349163
     method: DELETE
-    modified: 1563826273628
+    modified: 1579798370013
     name: Delete agent install
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -3777,9 +3856,9 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/agent-installs/{% prompt 'Agent install ID', '', '', '', false
-      %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/agent-installs/{% prompt 'Agent install ID', '', '', '',
+      false %}"
     _type: request
   - _id: req_0de992a88708403c802b6e63828d80cd
     authentication: {}
@@ -3793,7 +3872,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665906618
     method: GET
-    modified: 1562944620172
+    modified: 1579794951983
     name: Get zones
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -3803,8 +3882,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/zones"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/zones"
     _type: request
   - _id: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
     created: 1559311403559
@@ -3828,7 +3907,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665862259.5
     method: GET
-    modified: 1566336279061
+    modified: 1579794965752
     name: Get assignment counts
     parameters: []
     parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
@@ -3838,9 +3917,9 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/zone-assignment-counts/{% prompt 'Zone Name', '', '', '', false
-      %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/zone-assignment-counts/{% prompt 'Zone Name', '', '', '',
+      false %}"
     _type: request
   - _id: req_1f8425184cdc49be8162c73a989c94d1
     authentication: {}
@@ -4263,12 +4342,12 @@ resources:
       text: >
         {
           "type": "TELEGRAF",
-          "version": "1.11.0",
+          "version": "1.13.2",
           "labels": {
             "agent_discovered_os": "linux",
             "agent_discovered_arch": "amd64"
           },
-          "url": "https://dl.influxdata.com/telegraf/releases/telegraf-1.11.0-static_linux_amd64.tar.gz",
+          "url": "https://dl.influxdata.com/telegraf/releases/telegraf-1.13.2-static_linux_amd64.tar.gz",
           "exe": "./telegraf/telegraf"
         }
     created: 1561479282269
@@ -4283,7 +4362,7 @@ resources:
     isPrivate: false
     metaSortKey: -1561417983558
     method: POST
-    modified: 1562944740114
+    modified: 1579798592159
     name: Declare release (linux)
     parameters: []
     parentId: fld_3c720d92cec24dd38c65da8bfdae2aa3
@@ -4577,7 +4656,7 @@ resources:
         - admin_auth_token
     isPrivate: false
     metaSortKey: 1533129475298
-    modified: 1562945007797
+    modified: 1579806232436
     name: New Environment
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: environment
@@ -4587,7 +4666,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "7601146128752543"
+        id: "8095001701583513"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -4597,7 +4676,7 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "4778193964577322"
+        id: "9122971658047749"
         key: JSESSIONID
         lastAccessed: 2019-06-24T22:30:22.457Z
         path: /
@@ -4606,7 +4685,7 @@ resources:
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "6127993031365122"
+        id: "5530250590884216"
         key: JSESSIONID
         lastAccessed: 2019-07-01T21:00:35.436Z
         path: /
@@ -4615,7 +4694,7 @@ resources:
         domain: salus-api-admin.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "5322698834083681"
+        id: "17251778782221394"
         key: JSESSIONID
         lastAccessed: 2019-07-01T20:58:38.368Z
         path: /
@@ -4623,13 +4702,45 @@ resources:
       - creation: 2019-07-11T22:59:08.595Z
         domain: localhost
         hostOnly: true
-        id: "5191658104412524"
+        id: "8896320212604332"
         key: JSESSIONID
         lastAccessed: 2019-07-12T14:48:56.692Z
         path: /v1.0
         value: node02j8tcmeo1izdi4pk9dfef8a10.node0
+      - creation: 2020-01-23T15:55:43.915Z
+        domain: salus-api.staging.monplat.rackspace.net
+        hostOnly: true
+        id: "7164325720579383"
+        key: JSESSIONID
+        lastAccessed: 2020-01-23T16:01:08.267Z
+        path: /v1.0
+        value: node01cq42cp2v5z054wuk6ekynbl92.node0
+      - creation: 2020-01-23T16:06:34.734Z
+        domain: salus-api.dev.monplat.rackspace.net
+        hostOnly: true
+        id: "6570542824062979"
+        key: JSESSIONID
+        lastAccessed: 2020-01-23T16:06:34.734Z
+        path: /v1.0
+        value: node0ddm9382voae01rneywn9fihnk582.node0
+      - creation: 2020-01-23T16:06:41.395Z
+        domain: salus-api.prod.monplat.rackspace.net
+        hostOnly: true
+        id: "6449815751676955"
+        key: JSESSIONID
+        lastAccessed: 2020-01-23T21:32:53.095Z
+        path: /v1.0
+        value: node0lsnqpa2re5073w2nf6koe58t10.node0
+      - creation: 2020-01-23T16:55:32.522Z
+        domain: salus-api-admin.prod.monplat.rackspace.net
+        hostOnly: true
+        id: "8520127175512759"
+        key: JSESSIONID
+        lastAccessed: 2020-01-23T16:56:38.072Z
+        path: /
+        value: node015wqs788p90oo18b1ijpks4vnh0.node0
     created: 1533129475302
-    modified: 1562942936692
+    modified: 1579815173096
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar
@@ -4648,8 +4759,8 @@ resources:
         - policy_mgmt
         - monitor_mgmt
     isPrivate: false
-    metaSortKey: 1
-    modified: 1570479221219
+    metaSortKey: 0
+    modified: 1579793802313
     name: localhost
     parentId: env_5a5d52bd56ce4760af650078de6aa477
     _type: environment
@@ -4657,15 +4768,15 @@ resources:
     color: null
     created: 1560454422588
     data:
-      api_admin: http://salus-api-admin.dev.monplat.rackspace.net
-      api_public: http://salus-api.dev.monplat.rackspace.net/v1.0
+      api_admin: http://salus-api-admin.prod.monplat.rackspace.net
+      api_public: http://salus-api.prod.monplat.rackspace.net/v1.0
     dataPropertyOrder:
       "&":
         - api_admin
         - api_public
     isPrivate: false
-    metaSortKey: 1560454422588
-    modified: 1562885359937
+    metaSortKey: 4
+    modified: 1579793846058
     name: Prod
     parentId: env_5a5d52bd56ce4760af650078de6aa477
     _type: environment
@@ -4680,8 +4791,40 @@ resources:
         - api_admin
         - api_public
     isPrivate: false
-    metaSortKey: 1562947513222
-    modified: 1562947581182
+    metaSortKey: 1
+    modified: 1579793802316
     name: Local Repose
+    parentId: env_5a5d52bd56ce4760af650078de6aa477
+    _type: environment
+  - _id: env_1bb3dfeeb24044dcbbaca539dedcb708
+    color: null
+    created: 1579793774330
+    data:
+      api_admin: http://salus-api-admin.staging.monplat.rackspace.net
+      api_public: http://salus-api.staging.monplat.rackspace.net/v1.0
+    dataPropertyOrder:
+      "&":
+        - api_admin
+        - api_public
+    isPrivate: false
+    metaSortKey: 3
+    modified: 1579794844319
+    name: Staging
+    parentId: env_5a5d52bd56ce4760af650078de6aa477
+    _type: environment
+  - _id: env_f75bdd7719de42ba936a0d03c7acd83d
+    color: null
+    created: 1579793796376
+    data:
+      api_admin: http://salus-api-admin.dev.monplat.rackspace.net
+      api_public: http://salus-api.dev.monplat.rackspace.net/v1.0
+    dataPropertyOrder:
+      "&":
+        - api_admin
+        - api_public
+    isPrivate: false
+    metaSortKey: 2
+    modified: 1579794832434
+    name: Dev
     parentId: env_5a5d52bd56ce4760af650078de6aa477
     _type: environment

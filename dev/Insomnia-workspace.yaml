@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-01-24T18:27:15.259Z
+__export_date: 2020-01-27T19:55:42.095Z
 __export_source: insomnia.desktop.app:v7.0.6
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -3538,7 +3538,7 @@ resources:
     isPrivate: false
     metaSortKey: -1570564835806
     method: GET
-    modified: 1570565000875
+    modified: 1580154632458
     name: Get event task by id
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -3548,9 +3548,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa',
-      'tenantId', false %}/event-tasks/{% prompt 'Task Id', '', '', '', false
-      %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant Id', 'tenantId', '', '',
+      false, true %}/event-tasks/{% prompt 'Task Id', '', '', '', false %}"
     _type: request
   - _id: fld_906f0421bdb54818a4abb19bd58a8d21
     created: 1552841089415
@@ -3577,7 +3576,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552328978720
     method: GET
-    modified: 1566336271102
+    modified: 1580154714757
     name: Get all event tasks
     parameters:
       - id: pair_ae98a8f078be4ca6a30851c919aaa5a1
@@ -3590,8 +3589,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa',
-      'tenantId', false %}/event-tasks"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
+      false, true %}/event-tasks"
     _type: request
   - _id: req_ff8e3b0f818e4ed8a5c8936292084b96
     authentication: {}
@@ -3630,7 +3629,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1563825950966
+    modified: 1580154728406
     name: Create event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -3640,8 +3639,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa',
-      'tenantId', false %}/event-tasks"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
+      false, true %}/event-tasks"
     _type: request
   - _id: req_92fe7c03ce20411d8a69644239f6d26b
     authentication: {}
@@ -3655,7 +3654,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551120363119.5
     method: DELETE
-    modified: 1563825993570
+    modified: 1580154689340
     name: Delete event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -3665,9 +3664,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa',
-      'tenantId', false %}/event-tasks/{% prompt 'Task Id', '', '', '', false
-      %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant Id', 'tenantId', '', '',
+      false, true %}/event-tasks/{% prompt 'Task Id', '', '', '', false %}"
     _type: request
   - _id: req_a0da3e16e8da4cd3954bd9ea13259f25
     authentication: {}
@@ -3734,7 +3732,7 @@ resources:
     authentication: {}
     body:
       mimeType: application/json
-      text: |-
+      text: >-
         {
           "agentReleaseId": "{% prompt 'Agent release ID', '', '', '', false %}",
           "labelSelectorMethod": "AND",
@@ -4656,7 +4654,7 @@ resources:
         - admin_auth_token
     isPrivate: false
     metaSortKey: 1533129475298
-    modified: 1579806232436
+    modified: 1579893980491
     name: New Environment
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: environment
@@ -4666,7 +4664,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "8095001701583513"
+        id: "38670799137204837"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -4676,7 +4674,7 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "9122971658047749"
+        id: "06655581668905075"
         key: JSESSIONID
         lastAccessed: 2019-06-24T22:30:22.457Z
         path: /
@@ -4685,7 +4683,7 @@ resources:
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "5530250590884216"
+        id: "3930744259557297"
         key: JSESSIONID
         lastAccessed: 2019-07-01T21:00:35.436Z
         path: /
@@ -4694,7 +4692,7 @@ resources:
         domain: salus-api-admin.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "17251778782221394"
+        id: "79052346216538"
         key: JSESSIONID
         lastAccessed: 2019-07-01T20:58:38.368Z
         path: /
@@ -4702,7 +4700,7 @@ resources:
       - creation: 2019-07-11T22:59:08.595Z
         domain: localhost
         hostOnly: true
-        id: "8896320212604332"
+        id: "49852253659819645"
         key: JSESSIONID
         lastAccessed: 2019-07-12T14:48:56.692Z
         path: /v1.0
@@ -4710,7 +4708,7 @@ resources:
       - creation: 2020-01-23T15:55:43.915Z
         domain: salus-api.staging.monplat.rackspace.net
         hostOnly: true
-        id: "7164325720579383"
+        id: "6803751049489877"
         key: JSESSIONID
         lastAccessed: 2020-01-23T16:01:08.267Z
         path: /v1.0
@@ -4718,7 +4716,7 @@ resources:
       - creation: 2020-01-23T16:06:34.734Z
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
-        id: "6570542824062979"
+        id: "9523233490321863"
         key: JSESSIONID
         lastAccessed: 2020-01-23T16:06:34.734Z
         path: /v1.0
@@ -4726,21 +4724,21 @@ resources:
       - creation: 2020-01-23T16:06:41.395Z
         domain: salus-api.prod.monplat.rackspace.net
         hostOnly: true
-        id: "6449815751676955"
+        id: "4820172989575495"
         key: JSESSIONID
-        lastAccessed: 2020-01-23T21:32:53.095Z
+        lastAccessed: 2020-01-24T21:24:22.279Z
         path: /v1.0
-        value: node0lsnqpa2re5073w2nf6koe58t10.node0
+        value: node0n0cf6sxyslspzknshrupcls813.node0
       - creation: 2020-01-23T16:55:32.522Z
         domain: salus-api-admin.prod.monplat.rackspace.net
         hostOnly: true
-        id: "8520127175512759"
+        id: "9610398336061607"
         key: JSESSIONID
         lastAccessed: 2020-01-23T16:56:38.072Z
         path: /
         value: node015wqs788p90oo18b1ijpks4vnh0.node0
     created: 1533129475302
-    modified: 1579815173096
+    modified: 1579901062279
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar

@@ -1,2 +1,7 @@
 server:
   port: 0
+spring:
+  kafka:
+    listener:
+      # this will allow for to start consumer of a particular topic before the producer
+      missing-topics-fatal: false

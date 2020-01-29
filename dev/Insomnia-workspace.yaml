@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-01-27T19:55:42.095Z
+__export_date: 2020-01-29T20:12:53.771Z
 __export_source: insomnia.desktop.app:v7.0.6
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -178,9 +178,9 @@ resources:
     description: ""
     headers: []
     isPrivate: false
-    metaSortKey: -1568830919962
+    metaSortKey: -1580315793218
     method: GET
-    modified: 1568830926831
+    modified: 1580315925645
     name: Get all metadata policies
     parameters: []
     parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
@@ -198,10 +198,54 @@ resources:
     environment: {}
     environmentPropertyOrder: null
     metaSortKey: -1565742372413.4375
-    modified: 1567560761406
-    name: Metadata Policies
+    modified: 1580315892566
+    name: Monitor Metadata Policies
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
     _type: request_group
+  - _id: req_6c667bb4529c408c911ea5e776c67f6e
+    authentication: {}
+    body: {}
+    created: 1580315793168
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1580315793168
+    method: GET
+    modified: 1580315921623
+    name: Get metadata policy
+    parameters: []
+    parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ policy_mgmt  }}/api/admin/policy/metadata/monitor/{% prompt 'Metadata
+      Policy Id', 'Id', '', '', false, true %}"
+    _type: request
+  - _id: req_b8abc55d75f541d89c21b9ddc880ab0b
+    authentication: {}
+    body: {}
+    created: 1580315967188
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1573938682001
+    method: GET
+    modified: 1580316394080
+    name: Get effective metadata policy by tenant
+    parameters: []
+    parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ policy_mgmt  }}/api/admin/policy/metadata/monitor/effective/{% prompt
+      'Tenant Id', 'tenantId', 'aaaaaa', '', false, true %}"
+    _type: request
   - _id: req_e4c1c28e5b44427c98d8bf96c2dbb188
     authentication: {}
     body: {}
@@ -211,7 +255,7 @@ resources:
     isPrivate: false
     metaSortKey: -1567561570834
     method: GET
-    modified: 1567797682620
+    modified: 1580315915777
     name: Get effective policy for tenant and monitor type
     parameters: []
     parentId: fld_5f7e60e6dcce47e78fbedf777bfe6ae0
@@ -4283,6 +4327,191 @@ resources:
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/policy-monitors/{% prompt 'Policy Monitor Id',
       'policyMonitorId', '', '', false, false %}"
+    _type: request
+  - _id: req_bbd43a3f97f94541af81323aeb301260
+    authentication: {}
+    body: {}
+    created: 1580316432059
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1580315793218
+    method: GET
+    modified: 1580328453120
+    name: Get all metadata policies
+    parameters: []
+    parentId: fld_eb600b387c26452d9deb62946fdef63d
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/policy/metadata/monitor"
+    _type: request
+  - _id: fld_eb600b387c26452d9deb62946fdef63d
+    created: 1580316432048
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1563871740350.5
+    modified: 1580316439702
+    name: Monitor Metadata Policies
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    _type: request_group
+  - _id: req_272c1d0bc530414285a8f79d225f72dc
+    authentication: {}
+    body: {}
+    created: 1580316432060
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1580315793168
+    method: GET
+    modified: 1580328460978
+    name: Get metadata policy
+    parameters: []
+    parentId: fld_eb600b387c26452d9deb62946fdef63d
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/policy/metadata/monitor/{% prompt 'Metadata Policy
+      Id', 'Id', '', '', false, true %}"
+    _type: request
+  - _id: req_640037c0b4414798879309b1144d07fe
+    authentication: {}
+    body: {}
+    created: 1580316432062
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1573938682001
+    method: GET
+    modified: 1580328464328
+    name: Get effective metadata policy by tenant
+    parameters: []
+    parentId: fld_eb600b387c26452d9deb62946fdef63d
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/policy/metadata/monitor/effective/{% prompt 'Tenant
+      Id', 'tenantId', 'aaaaaa', '', false, true %}"
+    _type: request
+  - _id: req_8afb6e7fa3bb4fc8a2a00dace61fe7be
+    authentication: {}
+    body: {}
+    created: 1580316432056
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1567561570834
+    method: GET
+    modified: 1580328467223
+    name: Get effective policy for tenant and monitor type
+    parameters: []
+    parentId: fld_eb600b387c26452d9deb62946fdef63d
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/policy/metadata/monitor/effective/{% prompt 'Tenant
+      Id', 'tenantId', 'aaaaaa', '', false, true %}/{% prompt 'Target Class
+      Name', 'className', 'Monitor', '', false, true %}/{% prompt 'Monitor
+      Type', 'monitorType', 'mem', '', false, true %}"
+    _type: request
+  - _id: req_0fa69e356a0d45559a4eb20adaf94848
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "scope": "GLOBAL",
+          "subscope": null,
+          "targetClassName": "Monitor",
+          "valueType": "DURATION",
+          "key": "interval",
+          "value": "90"
+        }
+    created: 1580316432054
+    description: ""
+    headers:
+      - id: pair_ae2092bb938c40998b29d4d8e2c43134
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1567560651232
+    method: POST
+    modified: 1580328546558
+    name: Create Policy
+    parameters: []
+    parentId: fld_eb600b387c26452d9deb62946fdef63d
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/policy/metadata/monitor"
+    _type: request
+  - _id: req_85a59f0d9f3241a3baf52117fa240412
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "value": "72"
+        }
+    created: 1580316432058
+    description: ""
+    headers:
+      - id: pair_75ff9be2626b446887e42d7358146c82
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1567560651207
+    method: PUT
+    modified: 1580328474024
+    name: Update Policy
+    parameters: []
+    parentId: fld_eb600b387c26452d9deb62946fdef63d
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/policy/metadata/monitor/{% prompt 'Policy Id',
+      'policyId', '', '', false, false %}"
+    _type: request
+  - _id: req_5ecb49a9ea3f4f51af69827c7ab6db7d
+    authentication: {}
+    body: {}
+    created: 1580316432057
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1567560651182
+    method: DELETE
+    modified: 1580328477535
+    name: Delete Policy
+    parameters: []
+    parentId: fld_eb600b387c26452d9deb62946fdef63d
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/policy/metadata/monitor/{% prompt 'Policy Id',
+      'policyId', '', '', false, false %}"
     _type: request
   - _id: req_20baece24d594b478c829a1eb87b2ca6
     authentication: {}

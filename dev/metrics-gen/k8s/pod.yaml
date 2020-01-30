@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: salus-metrics-gen
+  labels:
+    app: salus-metrics-gen
+spec:
+  containers:
+    - name: salus-metrics-gen
+      image: salus-metrics-gen
+      env:
+        - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+          valueFrom:
+            configMapKeyRef:
+              key: bootstrap-servers
+              name: salus-kafka
+        - name: SALUS_GEN_TENANTS
+          value: "CHANGE THIS VALUE"
+  restartPolicy: Always

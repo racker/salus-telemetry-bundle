@@ -15,5 +15,6 @@ spec:
               key: bootstrap-servers
               name: salus-kafka
         - name: SALUS_GEN_TENANTS
-          value: "CHANGE THIS VALUE"
+          # Comma separated list of tenant IDs to use
+          value: "CONFIGURE TENANTS HERE"
   restartPolicy: Always

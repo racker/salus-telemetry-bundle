@@ -69,8 +69,7 @@ public class Generator implements SmartLifecycle {
     for (String tenant : properties.getTenants()) {
 
       for (int r = 0; r < properties.getResourcesPerTenant(); r++) {
-        final String resourceId = String.format("resource-%03d",
-            r + properties.getResourcesPerTenant());
+        final String resourceId = String.format("resource-%03d", r);
 
         final Resource resource = new Resource()
             .setTenant(tenant)

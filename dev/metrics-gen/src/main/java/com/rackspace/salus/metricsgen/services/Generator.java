@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Rackspace US, Inc.
+ * Copyright 2020 Rackspace US, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,12 +66,10 @@ public class Generator implements SmartLifecycle {
 
     final int minPeriod = (int) ((properties.getEmitRate().toMillis()/1000) * 2);
 
-    for (int t = 0; t < properties.getTenants(); t++) {
-      final String tenant = String.format("tenant-%02d", t);
+    for (String tenant : properties.getTenants()) {
 
       for (int r = 0; r < properties.getResourcesPerTenant(); r++) {
-        final String resourceId = String.format("resource-%03d",
-            r + t*properties.getResourcesPerTenant());
+        final String resourceId = String.format("resource-%03d", r);
 
         final Resource resource = new Resource()
             .setTenant(tenant)
@@ -135,7 +133,7 @@ public class Generator implements SmartLifecycle {
 
       resource.getMetrics().forEach((metricName, metricSpec) -> {
         final ExternalMetric metric = ExternalMetric.newBuilder()
-            .setAccountType(AccountType.UNKNOWN)
+            .setAccountType(AccountType.RCN)
             .setAccount(resource.getTenant())
             .setMonitoringSystem(MonitoringSystem.SALUS)
             .setCollectionName(metricName)

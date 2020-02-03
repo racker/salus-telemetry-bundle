@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Rackspace US, Inc.
+ * Copyright 2020 Rackspace US, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package com.rackspace.salus.metricsgen.config;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -28,15 +29,15 @@ import org.springframework.stereotype.Component;
 @Data
 public class MetricsGenProperties {
 
-  int tenants = 5;
+  List<String> tenants = List.of("tenant-00","tenant-01","tenant-02","tenant-03","tenant-04");
 
   int resourcesPerTenant = 20;
 
   Duration emitRate = Duration.ofSeconds(10);
 
-  String[] metrics = new String[]{"cpu", "memory", "disk"};
+  List<String> metrics = List.of("cpu", "memory", "disk");
 
-  String[] fields = new String[]{"free", "used", "current"};
+  List<String> fields = List.of("free", "used", "current");
 
   Map<String, String[]> labels = defaultLabels();
 

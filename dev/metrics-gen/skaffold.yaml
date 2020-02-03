@@ -1,0 +1,10 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: salus-metrics-gen
+build:
+  artifacts:
+    - image: salus-metrics-gen
+      jib: {}
+deploy:
+  kubectl: {}

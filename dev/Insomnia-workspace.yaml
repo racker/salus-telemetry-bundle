@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-01-31T14:46:12.927Z
+__export_date: 2020-02-05T20:02:56.271Z
 __export_source: insomnia.desktop.app:v7.0.6
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -624,6 +624,28 @@ resources:
     settingStoreCookies: true
     url: localhost:8085/api/admin/tenants
     _type: request
+  - _id: req_feaaaccd14eb4554b6386110f3f7f7bc
+    authentication: {}
+    body: {}
+    created: 1580927858012
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1555529234591.5
+    method: GET
+    modified: 1580928072798
+    name: Get metadata keys
+    parameters: []
+    parentId: fld_b07a28e982c446ca93a8a25c01d86a74
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8085/api/tenant/{% prompt 'tenantId', 'Tenant Id', '',
+      '', false, true %}/resource-metadata-keys
+    _type: request
   - _id: req_18a9a92233e94334b94e2c4f595e6394
     authentication: {}
     body:
@@ -649,7 +671,7 @@ resources:
     isPrivate: false
     metaSortKey: -1555472938893
     method: POST
-    modified: 1568831054174
+    modified: 1580928059636
     name: Create testing resource
     parameters: []
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
@@ -659,7 +681,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: localhost:8085/api/tenant/aaaaaa/resources
+    url: localhost:8085/api/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/resources
     _type: request
   - _id: req_2493bc18d29142f8a365a9fd3f5b7af6
     authentication: {}
@@ -2712,11 +2735,15 @@ resources:
     body: {}
     created: 1566322663350
     description: ""
-    headers: []
+    headers:
+      - description: ""
+        id: pair_2242633dfd704ccc84f4fcacb9c9f52a
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1566322663350
     method: GET
-    modified: 1566322675379
+    modified: 1580500561736
     name: Get Policy Monitors
     parameters: []
     parentId: fld_6fefb5ee22c547a59db209a07638355d
@@ -2807,6 +2834,31 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
       false, true %}/bound-monitors"
+    _type: request
+  - _id: req_fcbe7745bd3a409ba570bda1c6df1e17
+    authentication: {}
+    body: {}
+    created: 1580932902526
+    description: ""
+    headers:
+      - id: pair_e97560155b8a4cbd9459892ef719f652
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1562023884113.5
+    method: GET
+    modified: 1580932909130
+    name: Get all label selectors
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/monitor-label-selectors"
     _type: request
   - _id: req_388b2c4a4aeb4b9988aa26417b4213ef
     authentication: {}
@@ -2924,7 +2976,7 @@ resources:
     isPrivate: false
     metaSortKey: -1560753837207
     method: POST
-    modified: 1562944470848
+    modified: 1580501579414
     name: Create local monitor (cpu)
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -3305,10 +3357,14 @@ resources:
       - id: pair_5e0b8bc427a545648bcb0fe4eb982a98
         name: Content-Type
         value: application/json
+      - description: ""
+        id: pair_164dc468525e4cf08a25ece1ae561d1a
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1552177901726.1875
     method: POST
-    modified: 1566336199397
+    modified: 1580499535478
     name: Test local monitor given resource
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -3318,8 +3374,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant', '', '', 'tenantId', false,
-      true %}/test-monitor"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant', '', '', '', false, true
+      %}/test-monitor"
     _type: request
   - _id: req_2261ab5a77ff4eaf8fbb4db077f1f628
     authentication: {}
@@ -3509,6 +3565,58 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
       false %}/resources-by-label"
+    _type: request
+  - _id: req_0bf451e67e3540f382cad90292616ea6
+    authentication: {}
+    body: {}
+    created: 1580932854361
+    description: ""
+    headers:
+      - description: ""
+        id: pair_998b5785d5c647b083e43be9bedf77a3
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1552328978682.5
+    method: GET
+    modified: 1580932861620
+    name: Get all resource labels
+    parameters: []
+    parentId: fld_0a6a98b5c25d42b2a28631f09356c466
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/resource-labels"
+    _type: request
+  - _id: req_5349e0b79a5b48978753d191f332a524
+    authentication: {}
+    body: {}
+    created: 1580926711553
+    description: ""
+    headers:
+      - description: ""
+        id: pair_998b5785d5c647b083e43be9bedf77a3
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1552328978676.25
+    method: GET
+    modified: 1580932934417
+    name: Get metadata keys
+    parameters: []
+    parentId: fld_0a6a98b5c25d42b2a28631f09356c466
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/resource-metadata-keys"
     _type: request
   - _id: req_714bac3a6790412eb532e36d2de1e737
     authentication: {}
@@ -3863,10 +3971,14 @@ resources:
       - id: pair_704c3720ead145c28e7fb8adcb5f0a11
         name: Content-Type
         value: application/json
+      - description: ""
+        id: pair_074d8a4095584155a63bfb82b5d04a44
+        name: x-auth-token
+        value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1536529349363
     method: POST
-    modified: 1579798365008
+    modified: 1580500177013
     name: Install agent on Mac
     parameters: []
     parentId: fld_b073af8590104e8b904c2fda7654403b
@@ -4947,7 +5059,7 @@ resources:
         - admin_auth_token
     isPrivate: false
     metaSortKey: 1533129475298
-    modified: 1580481431134
+    modified: 1580926465773
     name: New Environment
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: environment
@@ -4957,7 +5069,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "04895553624990878"
+        id: "28609461049136775"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -4967,7 +5079,7 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "2893168168582405"
+        id: "7895373847995504"
         key: JSESSIONID
         lastAccessed: 2019-06-24T22:30:22.457Z
         path: /
@@ -4976,7 +5088,7 @@ resources:
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "8170355041667134"
+        id: "25422313763052307"
         key: JSESSIONID
         lastAccessed: 2019-07-01T21:00:35.436Z
         path: /
@@ -4984,15 +5096,15 @@ resources:
       - creation: 2019-06-26T20:02:47.012Z
         domain: salus-api-admin.dev.monplat.rackspace.net
         hostOnly: true
-        id: "5479209502208162"
+        id: "6768024278981846"
         key: JSESSIONID
-        lastAccessed: 2020-01-31T14:43:57.141Z
+        lastAccessed: 2020-02-04T14:35:23.894Z
         path: /
-        value: node01mbfdc3mbeyfxw7xqlcvdc8v714.node0
+        value: node0w1uj8pm37h0e18aqd4ih92x2r2.node0
       - creation: 2019-07-11T22:59:08.595Z
         domain: localhost
         hostOnly: true
-        id: "8800576744657118"
+        id: "45345469285397777"
         key: JSESSIONID
         lastAccessed: 2019-07-12T14:48:56.692Z
         path: /v1.0
@@ -5000,7 +5112,7 @@ resources:
       - creation: 2020-01-23T15:55:43.915Z
         domain: salus-api.staging.monplat.rackspace.net
         hostOnly: true
-        id: "8306218958039757"
+        id: "7684340689507463"
         key: JSESSIONID
         lastAccessed: 2020-01-23T16:01:08.267Z
         path: /v1.0
@@ -5008,15 +5120,15 @@ resources:
       - creation: 2020-01-23T16:06:34.734Z
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
-        id: "49344021651294634"
+        id: "171266516284581"
         key: JSESSIONID
-        lastAccessed: 2020-01-23T16:06:34.734Z
+        lastAccessed: 2020-02-05T20:02:02.296Z
         path: /v1.0
-        value: node0ddm9382voae01rneywn9fihnk582.node0
+        value: node0151xrzlw25v691vs94fqmw3cm71.node0
       - creation: 2020-01-23T16:06:41.395Z
         domain: salus-api.prod.monplat.rackspace.net
         hostOnly: true
-        id: "8751731864848473"
+        id: "4223344339878614"
         key: JSESSIONID
         lastAccessed: 2020-01-24T21:24:22.279Z
         path: /v1.0
@@ -5024,13 +5136,13 @@ resources:
       - creation: 2020-01-23T16:55:32.522Z
         domain: salus-api-admin.prod.monplat.rackspace.net
         hostOnly: true
-        id: "8697066923479606"
+        id: "4046325896072367"
         key: JSESSIONID
         lastAccessed: 2020-01-23T16:56:38.072Z
         path: /
         value: node015wqs788p90oo18b1ijpks4vnh0.node0
     created: 1533129475302
-    modified: 1580481837141
+    modified: 1580932922296
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar

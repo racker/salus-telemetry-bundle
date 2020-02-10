@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-02-05T20:02:56.271Z
+__export_date: 2020-02-10T20:11:47.918Z
 __export_source: insomnia.desktop.app:v7.0.6
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -1125,6 +1125,28 @@ resources:
     settingStoreCookies: true
     url: "{{ monitor_mgmt  }}/api/tenant/{% prompt 'Tenant ID', '', 'aaaaaa', '',
       false %}/zone-assignment-counts/{% prompt 'Zone ID', '', '', '', false %}"
+    _type: request
+  - _id: req_ba46c21b8087447a996657cbf7bc5c4c
+    authentication: {}
+    body: {}
+    created: 1581358736631
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1558599266788.5
+    method: GET
+    modified: 1581358744902
+    name: Get monitor plugins schema
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ monitor_mgmt  }}/api/tenant/{% prompt 'Tenant ID', '', 'aaaaaa', '',
+      false %}/monitor-plugins-schema"
     _type: request
   - _id: req_6ab953706ba64bf58f73dcf660d886b2
     authentication: {}
@@ -2859,6 +2881,31 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
       false, true %}/monitor-label-selectors"
+    _type: request
+  - _id: req_f3b9e4fd80c94a479f039369d52358c5
+    authentication: {}
+    body: {}
+    created: 1581365298374
+    description: ""
+    headers:
+      - id: pair_e97560155b8a4cbd9459892ef719f652
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1561886123167.5
+    method: GET
+    modified: 1581365301712
+    name: Get monitor plugins schema
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/monitor-plugins-schema"
     _type: request
   - _id: req_388b2c4a4aeb4b9988aa26417b4213ef
     authentication: {}

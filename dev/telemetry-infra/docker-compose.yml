@@ -55,7 +55,7 @@ services:
     ports:
       - 9092:9092
   vault:
-    image: vault:${VAULT_VERSION:-1.1.2}
+    image: vault:${VAULT_VERSION:-1.3.2}
     cap_add:
       - IPC_LOCK
     environment:

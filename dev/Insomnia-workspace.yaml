@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-02-11T17:21:03.596Z
+__export_date: 2020-02-11T18:12:40.435Z
 __export_source: insomnia.desktop.app:v7.0.6
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -1135,7 +1135,7 @@ resources:
     isPrivate: false
     metaSortKey: -1558599266788.5
     method: GET
-    modified: 1581435822617
+    modified: 1581444652328
     name: Get monitor plugins schema
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -1145,7 +1145,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ monitor_mgmt  }}/schema/monitor/plugins"
+    url: "{{ monitor_mgmt  }}/schema/monitor-plugins"
     _type: request
   - _id: req_6ab953706ba64bf58f73dcf660d886b2
     authentication: {}
@@ -2933,7 +2933,7 @@ resources:
     isPrivate: false
     metaSortKey: -1561886123167.5
     method: GET
-    modified: 1581436090128
+    modified: 1581444687411
     name: Get monitor plugins schema
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -2943,7 +2943,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/schema/monitor/plugins"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/schema/monitor-plugins"
     _type: request
   - _id: req_388b2c4a4aeb4b9988aa26417b4213ef
     authentication: {}
@@ -5166,9 +5167,9 @@ resources:
         httpOnly: true
         id: "2000555934130852"
         key: JSESSIONID
-        lastAccessed: 2019-06-24T22:30:22.457Z
+        lastAccessed: 2020-02-10T21:36:23.806Z
         path: /
-        value: 31C2DFFED4BAB50DFACE417D054252E7
+        value: 2B75A794373A484B4245EB5DD9E001D5
       - creation: 2019-06-17T18:55:28.560Z
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true

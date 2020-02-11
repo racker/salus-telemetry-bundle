@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-02-10T20:11:47.918Z
+__export_date: 2020-02-11T17:21:03.596Z
 __export_source: insomnia.desktop.app:v7.0.6
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -1135,7 +1135,7 @@ resources:
     isPrivate: false
     metaSortKey: -1558599266788.5
     method: GET
-    modified: 1581358744902
+    modified: 1581435822617
     name: Get monitor plugins schema
     parameters: []
     parentId: fld_2cd444041994485fa243cdab9f615271
@@ -1145,8 +1145,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ monitor_mgmt  }}/api/tenant/{% prompt 'Tenant ID', '', 'aaaaaa', '',
-      false %}/monitor-plugins-schema"
+    url: "{{ monitor_mgmt  }}/schema/monitor/plugins"
     _type: request
   - _id: req_6ab953706ba64bf58f73dcf660d886b2
     authentication: {}
@@ -2678,6 +2677,45 @@ resources:
       ID', '', '', 'tenantId', false %}/{% prompt 'Resource ID', '', '', '',
       false %}/{% prompt 'Agent type', 'TELEGRAF | FILEBEAT', '', '', false %}
     _type: request
+  - _id: req_6298c3ef98d24454933705e38959ec76
+    authentication: {}
+    body: {}
+    created: 1581370484714
+    description: ""
+    headers:
+      - description: ""
+        id: pair_53987447e0394654b99d364fcabc33ed
+        name: x-tenant-id
+        value: "{% prompt 'Tenant ID', '', '', '', false, true %}"
+      - description: ""
+        id: pair_d80069f774714bda8a780fab8ed1cd7e
+        name: x-roles
+        value: compute:default
+    isPrivate: false
+    metaSortKey: -1581370484714
+    method: GET
+    modified: 1581372330239
+    name: Get client cert
+    parameters: []
+    parentId: fld_c37ddeb77da342779422d18fb9d22a4c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8082/auth/cert
+    _type: request
+  - _id: fld_c37ddeb77da342779422d18fb9d22a4c
+    created: 1581370469189
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273710
+    modified: 1581441646180
+    name: Auth Service
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
   - _id: req_31d66942ae2a48f2b83c091be52718da
     authentication: {}
     body: {}
@@ -2888,13 +2926,14 @@ resources:
     created: 1581365298374
     description: ""
     headers:
-      - id: pair_e97560155b8a4cbd9459892ef719f652
+      - disabled: true
+        id: pair_e97560155b8a4cbd9459892ef719f652
         name: x-auth-token
         value: "{{ auth_token  }}"
     isPrivate: false
     metaSortKey: -1561886123167.5
     method: GET
-    modified: 1581365301712
+    modified: 1581436090128
     name: Get monitor plugins schema
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -2904,8 +2943,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/monitor-plugins-schema"
+    url: "{{ api_public  }}/schema/monitor/plugins"
     _type: request
   - _id: req_388b2c4a4aeb4b9988aa26417b4213ef
     authentication: {}
@@ -5116,7 +5154,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "28609461049136775"
+        id: "33072617800937665"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -5126,7 +5164,7 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "7895373847995504"
+        id: "2000555934130852"
         key: JSESSIONID
         lastAccessed: 2019-06-24T22:30:22.457Z
         path: /
@@ -5135,7 +5173,7 @@ resources:
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "25422313763052307"
+        id: "7696175083867698"
         key: JSESSIONID
         lastAccessed: 2019-07-01T21:00:35.436Z
         path: /
@@ -5143,7 +5181,7 @@ resources:
       - creation: 2019-06-26T20:02:47.012Z
         domain: salus-api-admin.dev.monplat.rackspace.net
         hostOnly: true
-        id: "6768024278981846"
+        id: "14483776472821663"
         key: JSESSIONID
         lastAccessed: 2020-02-04T14:35:23.894Z
         path: /
@@ -5151,7 +5189,7 @@ resources:
       - creation: 2019-07-11T22:59:08.595Z
         domain: localhost
         hostOnly: true
-        id: "45345469285397777"
+        id: "7959583445271781"
         key: JSESSIONID
         lastAccessed: 2019-07-12T14:48:56.692Z
         path: /v1.0
@@ -5159,7 +5197,7 @@ resources:
       - creation: 2020-01-23T15:55:43.915Z
         domain: salus-api.staging.monplat.rackspace.net
         hostOnly: true
-        id: "7684340689507463"
+        id: "43899729202443716"
         key: JSESSIONID
         lastAccessed: 2020-01-23T16:01:08.267Z
         path: /v1.0
@@ -5167,7 +5205,7 @@ resources:
       - creation: 2020-01-23T16:06:34.734Z
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
-        id: "171266516284581"
+        id: "7665525499992338"
         key: JSESSIONID
         lastAccessed: 2020-02-05T20:02:02.296Z
         path: /v1.0
@@ -5175,7 +5213,7 @@ resources:
       - creation: 2020-01-23T16:06:41.395Z
         domain: salus-api.prod.monplat.rackspace.net
         hostOnly: true
-        id: "4223344339878614"
+        id: "3202233287143561"
         key: JSESSIONID
         lastAccessed: 2020-01-24T21:24:22.279Z
         path: /v1.0
@@ -5183,13 +5221,13 @@ resources:
       - creation: 2020-01-23T16:55:32.522Z
         domain: salus-api-admin.prod.monplat.rackspace.net
         hostOnly: true
-        id: "4046325896072367"
+        id: "9522161608859048"
         key: JSESSIONID
         lastAccessed: 2020-01-23T16:56:38.072Z
         path: /
         value: node015wqs788p90oo18b1ijpks4vnh0.node0
     created: 1533129475302
-    modified: 1580932922296
+    modified: 1581370583807
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar

@@ -48,4 +48,5 @@ vault write pki/root/generate/internal \
 
 vault write pki/roles/telemetry-infra \
     allow_any_name=true \
+    enforce_hostnames=false \
     max_ttl=72h >> /tmp/setup-app-role.log

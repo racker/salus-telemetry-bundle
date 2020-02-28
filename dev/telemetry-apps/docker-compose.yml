@@ -17,6 +17,8 @@ services:
       VAULT_APP_ROLE_SECRET_ID:
   resource-management:
     image: ${IMG_PREFIX}salus-telemetry-resource-management
+    volumes:
+      - ./application-properties/application-common.yml:/application.yml
     ports:
       - 8085:8080
     networks:
@@ -29,6 +31,8 @@ services:
     depends_on:
       - resource-management
     image: ${IMG_PREFIX}salus-telemetry-monitor-management
+    volumes:
+      - ./application-properties/application-common.yml:/application.yml
     ports:
       - 8089:8080
     networks:
@@ -41,6 +45,8 @@ services:
       - etcd.env
   policy-management:
     image: ${IMG_PREFIX}salus-telemetry-policy-management
+    volumes:
+      - ./application-properties/application-common.yml:/application.yml
     ports:
       - 8091:8080
     networks:
@@ -54,6 +60,8 @@ services:
     depends_on:
       - resource-management
     image: ${IMG_PREFIX}salus-telemetry-agent-catalog-management
+    volumes:
+      - ./application-properties/application-common.yml:/application.yml
     ports:
       - 8090:8080
     networks:
@@ -69,6 +77,8 @@ services:
       - monitor-management
       - agent-catalog-management
     image: ${IMG_PREFIX}salus-telemetry-ambassador
+    volumes:
+      - ./application-properties/application-common.yml:/application.yml
     ports:
       - 6565:6565
       - 8081:8080
@@ -90,6 +100,8 @@ services:
       AMBASSADOR_VAULT_PKI_ROLE: telemetry-infra
   zone-watcher:
     image: ${IMG_PREFIX}salus-telemetry-zone-watcher
+    volumes:
+      - ./application-properties/application-common.yml:/application.yml
     ports:
       - 8084:8080
     networks:
@@ -101,6 +113,8 @@ services:
       - kafka.env
   presence-monitor:
     image: ${IMG_PREFIX}salus-telemetry-presence-monitor
+    volumes:
+      - ./application-properties/application-common.yml:/application.yml
     ports:
       - 8083:8080
     networks:
@@ -112,6 +126,8 @@ services:
       - services.env
   event-management:
     image: ${IMG_PREFIX}salus-event-engine-management
+    volumes:
+      - ./application-properties/application-common.yml:/application.yml
     ports:
       - 8087:8080
     networks:
@@ -122,6 +138,8 @@ services:
       - kapacitor.env
   event-ingest:
     image: ${IMG_PREFIX}salus-event-engine-ingest
+    volumes:
+      - ./application-properties/application-common.yml:/application.yml
     ports:
       - 8088:8080
     networks:
@@ -132,12 +150,13 @@ services:
       - kafka.env
   public-api:
     image: ${IMG_PREFIX}salus-telemetry-api-public
+    volumes:
+      - ./application-properties/application-api.yml:/application.yml
     ports:
       - 8080:8080
     networks:
       - infra
     env_file:
-      - api.env
       - common.env
       - etcd.env
       - services.env
@@ -145,12 +164,13 @@ services:
       SPRING_PROFILES_ACTIVE: ${PUBLIC_API_PROFILES:-}
   admin-api:
     image: ${IMG_PREFIX}salus-telemetry-api-admin
+    volumes:
+      - ./application-properties/application-api.yml:/application.yml
     ports:
       - 8888:8080
     networks:
       - infra
     env_file:
-      - api.env
       - common.env
       - etcd.env
     environment:

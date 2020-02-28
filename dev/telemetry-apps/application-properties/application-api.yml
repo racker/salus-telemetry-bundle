@@ -1,0 +1,6 @@
+salus:
+  api:
+    admin:
+      roles: ["MONITORING_SERVICE_ADMIN"]
+    public:
+      roles: ["COMPUTE_DEFAULT", "MONITORING_SERVICE_ADMIN", "IDENTITY_USER_ADMIN", "IDENTITY_DEFAULT"]

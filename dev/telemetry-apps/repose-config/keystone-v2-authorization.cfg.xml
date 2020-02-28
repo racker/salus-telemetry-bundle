@@ -3,6 +3,9 @@
                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                            xsi:schemaLocation="http://docs.openrepose.org/repose/keystone-v2/v1.0 http://www.openrepose.org/versions/latest/schemas/keystone-v2-authorization.xsd">
 
+    <pre-authorized-roles>
+        <role>monitoring:service-admin</role>
+    </pre-authorized-roles>
     <tenant-handling>
         <validate-tenant>
             <header-extraction-name>Requested-Tenant-Id</header-extraction-name>

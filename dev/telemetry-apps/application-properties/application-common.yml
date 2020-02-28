@@ -1,0 +1,21 @@
+salus:
+  common:
+    roles:
+      role-to-view:
+        ROLE_IDENTITY_USER_ADMIN: PUBLIC
+        ROLE_OBSERVER: PUBLIC
+        ROLE_CREATOR: PUBLIC
+        ROLE_ADMIN: PUBLIC
+        ROLE_HYBRIDROLE: PUBLIC
+        ROLE_MONITORING_INTERMEDIARY: PUBLIC
+        ROLE_ACCOUNT_ADMIN: PUBLIC
+        ROLE_ADMIN_PRODUCT: PUBLIC
+        ROLE_EDIT_PRODUCT: PUBLIC
+        ROLE_VIEW_PRODUCT: PUBLIC
+        ROLE_RACKER: INTERNAL
+        ROLE_MONITORING_SERVICE_ADMIN: ADMIN
+spring:
+  kafka:
+    listener:
+      # this will allow for us to start consumer of a particular topic before the producer
+      missing-topics-fatal: false

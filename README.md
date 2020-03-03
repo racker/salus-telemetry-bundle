@@ -243,7 +243,7 @@ configure authentication for pulling those images.
 
 The "VAULT" values are provided during the Vault setup in the previous section.
 
-With those set, you should first pull in the latest images:
+With those set, you should first pull in the latest images by executing the following in the `dev/telemetry-apps` directory:
 
 ```bash
 docker-compose pull
@@ -251,13 +251,13 @@ docker-compose pull
 
 If you already had older images in `docker images` for these application, it is a good idea to remove those.
 
-Next, execute the following in the `dev/telemetry-apps` directory:
+Next, run:
 
 ```bash
 docker-compose up -d
 ```
 
-Running `docker-compose events` afterwards can help you see what is going on and if any failures occur.
+Running `docker-compose events` afterwards can help you see what is going on and if any failures occur.  Occasionally kafka can fail to start which leads to app failures.
 
 The Envoy config file `dev/envoy-config-authserv.yml` can be used with this set of
 containers.

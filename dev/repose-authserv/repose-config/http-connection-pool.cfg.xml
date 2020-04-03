@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright 2020 Rackspace US, Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<http-connection-pools xmlns="http://docs.openrepose.org/repose/http-connection-pool/v1.0"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="http://docs.openrepose.org/repose/http-connection-pool/v1.0 http://www.openrepose.org/versions/latest/schemas/http-connection-pool.xsd">
+
+    <!-- Configuration for the default pool. Any users of the service will by default, retrieve HTTP connections
+        using this default pool configuration. Connections to the origin service will also be made using the default
+        pool.
+    -->
+    <pool id="default"
+          default="true"
+          http.conn-manager.max-total="400"
+          http.conn-manager.max-per-route="200"
+          http.socket.timeout="30000"
+          http.socket.buffer-size="8192"
+          http.connection.timeout="30000"
+          http.connection.max-line-length="8192"
+          http.connection.max-header-count="100"
+          http.tcp.nodelay="true"
+          keepalive.timeout="0"/>
+
+    <!-- Configuration for a custom pool that overrides specific default settings -->
+    <pool id="myservicepool" default="false" http.tcp.nodelay="false"/>
+
+    <!-- Configuration for a custom pool that uses all default values -->
+    <pool id="alldefaultspool" default="false"/>
+
+</http-connection-pools>

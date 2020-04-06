@@ -9,6 +9,7 @@ services:
       - infra
     env_file:
       - common.env
+      - jpa.env
       - vault.env
     environment:
       # blank value enforces load from .env

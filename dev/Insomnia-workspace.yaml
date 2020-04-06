@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2020-02-11T18:12:40.435Z
-__export_source: insomnia.desktop.app:v7.0.6
+__export_date: 2020-04-01T16:15:37.280Z
+__export_source: insomnia.desktop.app:v7.1.1
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -1146,6 +1146,27 @@ resources:
     settingSendCookies: true
     settingStoreCookies: true
     url: "{{ monitor_mgmt  }}/schema/monitor-plugins"
+    _type: request
+  - _id: req_aa1b86c06ec84c318b22898170210025
+    authentication: {}
+    body: {}
+    created: 1584555722647
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1558328952792.75
+    method: GET
+    modified: 1584555727015
+    name: Get monitor schema
+    parameters: []
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ monitor_mgmt  }}/schema/monitors"
     _type: request
   - _id: req_6ab953706ba64bf58f73dcf660d886b2
     authentication: {}
@@ -2677,6 +2698,46 @@ resources:
       ID', '', '', 'tenantId', false %}/{% prompt 'Resource ID', '', '', '',
       false %}/{% prompt 'Agent type', 'TELEGRAF | FILEBEAT', '', '', false %}
     _type: request
+  - _id: req_3f90cdea1bab41868f8be78f4733359b
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "description": "Dev testing"
+        }
+    created: 1585687105665
+    description: ""
+    headers:
+      - id: pair_4bc0785d8abc4bf59f4e19441a90de91
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1585687105665
+    method: POST
+    modified: 1585687520155
+    name: Allocate token
+    parameters: []
+    parentId: fld_c37ddeb77da342779422d18fb9d22a4c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:8082/api/tenant/{% prompt 'Tenant Id', 'tenantId',
+      'aaaaaa', '', false, true %}/envoy-tokens
+    _type: request
+  - _id: fld_c37ddeb77da342779422d18fb9d22a4c
+    created: 1581370469189
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1549899273710
+    modified: 1581441646180
+    name: Auth Service
+    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
+    _type: request_group
   - _id: req_6298c3ef98d24454933705e38959ec76
     authentication: {}
     body: {}
@@ -2706,16 +2767,6 @@ resources:
     settingStoreCookies: true
     url: http://localhost:8082/auth/cert
     _type: request
-  - _id: fld_c37ddeb77da342779422d18fb9d22a4c
-    created: 1581370469189
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1549899273710
-    modified: 1581441646180
-    name: Auth Service
-    parentId: fld_29c5e645f6ff48138fd40edc4b73c9e5
-    _type: request_group
   - _id: req_31d66942ae2a48f2b83c091be52718da
     authentication: {}
     body: {}
@@ -2945,6 +2996,32 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
       false %}/schema/monitor-plugins"
+    _type: request
+  - _id: req_42f47e1a4e1645bdbbedb5891ef140ab
+    authentication: {}
+    body: {}
+    created: 1584641473686
+    description: ""
+    headers:
+      - disabled: true
+        id: pair_e97560155b8a4cbd9459892ef719f652
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1561817242694.5
+    method: GET
+    modified: 1584641479950
+    name: Get monitors schema
+    parameters: []
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
+      false %}/schema/monitors"
     _type: request
   - _id: req_388b2c4a4aeb4b9988aa26417b4213ef
     authentication: {}
@@ -4224,6 +4301,180 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
       false %}/rebalance-zone/{% prompt 'Zone Name', '', '', '', false %}"
+    _type: request
+  - _id: req_bc344ee5b97e4ebca705453b2c5e5443
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"description": "A token for dev testing"
+        }
+    created: 1585757349750
+    description: ""
+    headers:
+      - id: pair_3c750e7c1e3a496988bfa0de00b5b857
+        name: Content-Type
+        value: application/json
+      - id: pair_27dad0f76af84b4eb0750f541377d606
+        name: Accept
+        value: application/json
+      - id: pair_82ec06718c4c437194db4474fcac54f2
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1552638806915
+    method: POST
+    modified: 1585757385371
+    name: Allocate token
+    parameters: []
+    parentId: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
+      false, true %}/envoy-tokens"
+    _type: request
+  - _id: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
+    created: 1585757326415
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1552638806965
+    modified: 1585757332146
+    name: Envoy Tokens
+    parentId: fld_3373074209bc49199beb8e5967f1ae4a
+    _type: request_group
+  - _id: req_0f972c32caeb4136976c266374c5a804
+    authentication: {}
+    body: {}
+    created: 1585757425289
+    description: ""
+    headers:
+      - id: pair_27dad0f76af84b4eb0750f541377d606
+        name: Accept
+        value: application/json
+      - id: pair_82ec06718c4c437194db4474fcac54f2
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1552483892842.5
+    method: GET
+    modified: 1585757590638
+    name: Get tokens
+    parameters:
+      - description: ""
+        id: pair_41ab90cb34604349a008874d50e11e25
+        name: page
+        value: "0"
+      - description: ""
+        id: pair_0b43480d1bc14f75a6780e6fc95da08c
+        name: size
+        value: "5"
+    parentId: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
+      false, true %}/envoy-tokens"
+    _type: request
+  - _id: req_c315f1c45c68465083afbf18c291656b
+    authentication: {}
+    body: {}
+    created: 1585757482758
+    description: ""
+    headers:
+      - id: pair_27dad0f76af84b4eb0750f541377d606
+        name: Accept
+        value: application/json
+      - id: pair_82ec06718c4c437194db4474fcac54f2
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1552406435806.25
+    method: GET
+    modified: 1585757493600
+    name: Get specific token
+    parameters: []
+    parentId: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
+      false, true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
+    _type: request
+  - _id: req_17d2a1eeff4e4dfda262e46a3bcf5edf
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "description": "{% prompt 'Description', '', '', '', false, true %}"
+        }
+    created: 1585757525927
+    description: ""
+    headers:
+      - id: pair_27dad0f76af84b4eb0750f541377d606
+        name: Accept
+        value: application/json
+      - id: pair_82ec06718c4c437194db4474fcac54f2
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+      - id: pair_70ad9cab8b0342599a029226fd07c77f
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1552367707288.125
+    method: PUT
+    modified: 1585757552465
+    name: Update token
+    parameters: []
+    parentId: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
+      false, true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
+    _type: request
+  - _id: req_c66c0968bae5465c8a7cfcb02da762ea
+    authentication: {}
+    body: {}
+    created: 1585757611482
+    description: ""
+    headers:
+      - id: pair_27dad0f76af84b4eb0750f541377d606
+        name: Accept
+        value: application/json
+      - id: pair_82ec06718c4c437194db4474fcac54f2
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1552367707238.125
+    method: DELETE
+    modified: 1585757618140
+    name: Delete token
+    parameters: []
+    parentId: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
+      false, true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
     _type: request
   - _id: req_1722c11f078b45ed99f9f4acb3a492f8
     authentication: {}

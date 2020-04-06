@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright 2020 Rackspace US, Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!-- To configure Repose see: http://www.openrepose.org/versions/8.10.0.0/index.html -->
+<repose-container xmlns='http://docs.openrepose.org/repose/container/v2.0'
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://docs.openrepose.org/repose/container/v2.0 http://www.openrepose.org/versions/latest/schemas/container-configuration.xsd">
+    <deployment-config http-port="8080">
+        <deployment-directory auto-clean="false">/var/repose</deployment-directory>
+        <artifact-directory check-interval="60000">/usr/share/repose/filters</artifact-directory>
+        <logging-configuration href="file:///etc/repose/log4j2.xml"/>
+    </deployment-config>
+</repose-container>

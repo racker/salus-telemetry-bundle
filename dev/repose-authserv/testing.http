@@ -1,0 +1,20 @@
+### Syntax help is at https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html
+
+### get cert for tenant, assumes devtoken profile is active
+GET localhost:8180/v1.0/cert
+Authorization: Bearer aaaaaa
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+### try path disallowed by repose
+GET localhost:8180/api/tenant/aaaaaa/envoy-tokens
+
+> {%
+client.test("Request blocked as expected", function() {
+  client.assert(response.status === 502, "Response status is not 502");
+});
+%}

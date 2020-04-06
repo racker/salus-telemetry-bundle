@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  repose:
+    image: rackerlabs/repose:${REPOSE_VERSION:-9.0.0.0}
+    ports:
+      - 8180:8080
+    volumes:
+      - ./repose-config:/etc/repose

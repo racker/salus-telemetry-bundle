@@ -4,6 +4,7 @@ services:
   repose:
     image: rackerlabs/repose:${REPOSE_VERSION:-9.0.1.0}
     environment:
+      # use special hostname to route to auth service running in IntelliJ
       BACKEND_HOST: ${BACKEND_HOST:-host.docker.internal}
       BACKEND_PORT: ${BACKEND_PORT:-8082}
     ports:

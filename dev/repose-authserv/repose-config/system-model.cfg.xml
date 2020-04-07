@@ -24,6 +24,16 @@
     <node id="repose_node1" hostname="localhost" http-port="8080"/>
   </nodes>
   <filters>
+    <filter name="scripting" configuration="scripting-200.cfg.xml" uri-regex="/healthcheck"/>
+    <filter name="scripting" configuration="scripting-404.cfg.xml">
+      <!-- respond with 404 to anything that's NOT the  -->
+      <not> <!-- criteria within must be same as destination-router below -->
+        <and>
+          <methods value="GET"/>
+          <uri regex="/v1.0/cert"/>
+        </and>
+      </not>
+    </filter>
     <filter name="destination-router" configuration="destination-router-cert.cfg.xml">
       <and>
         <methods value="GET"/>
@@ -33,7 +43,7 @@
   </filters>
   <destinations>
     <!-- use special hostname to route to auth service running in IntelliJ -->
-    <endpoint id="cert" protocol="http" hostname="host.docker.internal" root-path="/" port="8082"/>
+    <endpoint id="cert" protocol="http" hostname="{$ BACKEND_HOST $}" root-path="/" port="{$ BACKEND_PORT $}"/>
     <endpoint id="blackhole" default="true"/>
   </destinations>
 </system-model>

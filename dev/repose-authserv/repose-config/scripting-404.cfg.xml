@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   ~ Copyright 2020 Rackspace US, Inc.
   ~
@@ -14,10 +16,7 @@
   ~ limitations under the License.
   -->
 
-<destination-router xmlns="http://docs.openrepose.org/repose/destination-router/v1.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://docs.openrepose.org/repose/destination-router/v1.0 http://www.openrepose.org/versions/9.1.0.0/schemas/destination-router-configuration.xsd">
-
-  <target id="cert"/>
-
-</destination-router>
+<scripting xmlns="http://docs.openrepose.org/repose/scripting/v1.0"
+           language="python">
+response.setStatus(404)
+</scripting>

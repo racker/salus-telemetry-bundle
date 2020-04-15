@@ -3,6 +3,15 @@
                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                            xsi:schemaLocation="http://docs.openrepose.org/repose/keystone-v2/v1.0 http://www.openrepose.org/versions/latest/schemas/keystone-v2-authorization.xsd">
 
+    <!--
+        validate-tenant will be skipped for service-admin users.
+        For other requests it will compare the tenant received from token validation to the
+        Requested-Tenant-Id header, which was populated by the url-extractor-to-header
+        filter, and only let the request proceed if the tenant is found.
+        If the Requested-Tenant-Id is valid, the X-Tenant-Id header will be populated with
+        the same value.
+        If validation fails it will return: 401 Resource not found for validate token request
+    -->
     <pre-authorized-roles>
         <role>monitoring:service-admin</role>
     </pre-authorized-roles>

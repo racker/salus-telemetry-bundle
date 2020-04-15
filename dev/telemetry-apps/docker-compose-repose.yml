@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   repose-public:
-    image: rackerlabs/repose:${REPOSE_VERSION:-9.0.0.0}
+    image: rackerlabs/repose:${REPOSE_VERSION:-9.0.1.0}
     ports:
       - 8180:8080
     env_file:
@@ -13,7 +13,7 @@ services:
       BACKEND_HOST: public-api
       BACKEND_PORT: 8080
     volumes:
-      - ./repose-config:/etc/repose
+      - ../repose-api-public/repose-config:/etc/repose
     networks:
       - infra
   repose-admin:
@@ -28,7 +28,7 @@ services:
       BACKEND_HOST: admin-api
       BACKEND_PORT: 8080
     volumes:
-      - ./repose-config:/etc/repose
+      - ../repose-api-admin/repose-config:/etc/repose
     networks:
       - infra
 

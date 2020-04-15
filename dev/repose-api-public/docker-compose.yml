@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  repose:
+    image: rackerlabs/repose:${REPOSE_VERSION:-9.0.1.0}
+    environment:
+      # use special hostname to route to auth service running in IntelliJ
+      BACKEND_HOST: ${BACKEND_HOST:-host.docker.internal}
+      BACKEND_PORT: ${BACKEND_PORT:-8080}
+      KEYSTONE_USER: ${KEYSTONE_USER}
+      KEYSTONE_PASSWORD: ${KEYSTONE_PASSWORD}
+    ports:
+      - 8180:8080
+    volumes:
+      - ./repose-config:/etc/repose

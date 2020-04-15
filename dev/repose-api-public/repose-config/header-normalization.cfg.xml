@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- http://wiki.openrepose.org/pages/viewpage.action?pageId=328681 -->
+<header-normalization xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                      xmlns='http://docs.openrepose.org/repose/header-normalization/v1.0'
+                      xsi:schemaLocation='http://docs.openrepose.org/repose/header-normalization/v1.0 ../config/header-normalization-configuration.xsd'>
+    <header-filters>
+        <target http-methods="ALL">
+					<blacklist id="authorization">
+						<header id="X-Authorization"/>
+						<header id="X-Token-Expires"/>
+						<header id="X-Identity-Status"/>
+						<header id="X-Impersonator-Id"/>
+						<header id="X-Impersonator-Name"/>
+						<header id="X-Impersonator-Roles"/>
+						<header id="X-Roles"/>
+						<header id="X-Contact-Id"/>
+						<header id="X-Device-Id"/>
+						<header id="X-User-Id"/>
+						<header id="X-User-Name"/>
+						<header id="X-PP-User"/>
+						<header id="X-PP-Groups"/>
+						<header id="X-Catalog"/>
+						<header id="X-Subject-Token"/>
+						<header id="X-Subject-Name"/>
+						<header id="X-Subject-ID"/>
+						<header id="Requested-Tenant-Id"/>
+					</blacklist>
+				</target>
+    </header-filters>
+
+</header-normalization>

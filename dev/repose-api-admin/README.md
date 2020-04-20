@@ -7,6 +7,14 @@ The `Local Repose` environment in the [Insomnia Workspace](https://github.com/ra
 ## Usage
 
 ### Start Repose
+
+Before starting the Repose services you will need to declare the Keystone/Identity credentials of a service/user account that is authorized to validate authentication tokens:
+
+```bash
+export KEYSTONE_USER=...
+export KEYSTONE_PASSWORD=...
+```
+
 Start the repose container with the command:
 ```
 docker-compose up -d

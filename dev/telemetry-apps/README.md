@@ -16,7 +16,7 @@ where `PROJECT_ID` is replaced with GCP project ID.
 
 **NOTE** the trailing slash is *required*. Use `gcloud auth configure-docker`, [described here](https://cloud.google.com/container-registry/docs/pushing-and-pulling), to configure authentication for pulling those images.
 
-The "VAULT" values are provided during the Vault setup in the previous section.
+The "VAULT" values are provided during the Vault setup in the "Setting up Vault for development usage" in the [main readme](https://github.com/racker/salus-telemetry-bundle/blob/master/README.md).
 
 With those set, you should first pull in the latest images by executing the following in the `dev/telemetry-apps` directory:
 

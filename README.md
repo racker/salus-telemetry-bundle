@@ -197,12 +197,7 @@ docker exec -it telemetry-infra_etcd_1 etcdctl get --prefix /
 
 ### Connecting to MySQL
 
-MySQL can be started within a docker container by running
-```
-docker-compose -f docker-compose-mysql.yml up -d
-```
-
-It will create a database named `default` with username `dev` and password `pass`.
+The MySQL container contains a database named `default` with username `dev` and password `pass`.
 
 Once running, in addition to connecting services to it, you can connect to the instance and query the database manually:
 

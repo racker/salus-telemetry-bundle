@@ -59,6 +59,15 @@ Publish the release and you are done.
 
 ## Running/Developing Locally
 
+There a few different options for running the applications locally.
+
+ * To run all services via docker, optionally including Repose, see [here](/dev/telemetry-apps)
+ * To run Repose in front of the public api see [here](/dev/repose-api-public)
+ * To run Repose in front of the admin api see [here](/dev/repose-api-admin)
+ * To run Repose in front of the auth api see [here](/dev/repose-authserv)
+
+The below information explains the most common dev scenario of running Salus applications locally in an IDE while using docker to start the required 3rd party services.
+
 ### Infrastructure
 
 The supporting infrastructure, such as etcd and kafka, can be started by running
@@ -88,65 +97,9 @@ such as
 docker-compose logs -f kafka
 ```
 
-### Consuming from a kafka topic
-
-To verify topic content is flowing and correct, you can exec into the kafka container and
-run the standard console consumer, such as
-
-```bash
-docker exec -it telemetry-infra_kafka_1 \
-  kafka-console-consumer --bootstrap-server localhost:9093 --topic telemetry.metrics.json
-```
-
-**NOTE** the use of port 9093 instead of 9092
-
-### Querying etcd
-
-The etcd container includes the `etcdctl` command-line tool and is pre-configured to use the v3
-API. You can perform operations with `etcdctl` via `docker exec`, such as:
-
-```bash
-docker exec -it telemetry-infra_etcd_1 etcdctl get --prefix /
-```
-
-### Connecting to MySQL
-
-MySQL can be started within a docker container by running
-```
-docker-compose -f docker-compose-mysql.yml up -d
-```
-
-It will create a database named `default` with username `dev` and password `pass`.
-
-Once running, in addition to connecting services to it, you can connect to the instance and query the database manually:
-
-```
-$ docker ps
-docker CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                               NAMES
-fd12115575bd        mysql:5.7                         "docker-entrypoint.s…"   12 days ago         Up 12 days          0.0.0.0:3306->3306/tcp, 33060/tcp   telemetry-infra_mysql_1
-
-$ docker exec -it telemetry-infra_mysql_1 sh
-
-# mysql -u dev -ppass
-
-mysql> use default;
-
-mysql> show tables;
-+--------------------+
-| Tables_in_default  |
-+--------------------+
-| hibernate_sequence |
-| labels             |
-| resource_labels    |
-| resources          |
-+--------------------+
-
-mysql> select * from resources;
-```
-
 ### Pre-loading monitor translations, etc
 
-Some integration points in the system, especially telegraf's usage of rendered monitor content, assume certain database content is present. In the deployed clusters, the data-loader is integrated with Github webhooks; however, for local development, a fresh database volume needs to be pre-loaded manually using the data-loader. That can be done at any time using the following:
+Some integration points in the system, especially telegraf's usage of rendered monitor content, assume certain database content is present. In the deployed clusters, the data-loader is integrated with Github webhooks; however, for local development, a fresh database volume needs to be pre-loaded manually using the data-loader. Once all salus management and api applications are running, that can be done at any time using the following:
 
 ```
 cd tools/data-loader
@@ -218,70 +171,58 @@ to be used by the Salus applications:
 docker exec -it telemetry-infra_vault_1 setup-app-role
 ```
 
-### Running the Docker application images
+## Interacting with local infrastructure services
+While debugging issues it can be helpful to view what the applications running it docker are doing.
 
-**NOTE** When running with Docker for Desktop, you might need to increase the VM
-settings to 4 vCPUs and 8 GiB of memory. Those settings are located in the "Advanced" tab.
+### Consuming from a kafka topic
 
-The following environment variables will need to be set when running Docker Compose. 
-You can set those without the `export` in a file named `dev/telemetry-apps/.env`, 
-set them in IntelliJ's run config, if running Compose there, or set them via your shell.
-The `.env` approach is best since it works with all the ways of running Compose.
-
-- `IMG_PREFIX`
-- `VAULT_APP_ROLE_ROLE_ID`
-- `VAULT_APP_ROLE_SECRET_ID`
-
-For Google Cloud Builder built images, the `IMG_PREFIX` would be something like the following,
-where `PROJECT_ID` is replaced with GCP project ID.
-
-    gcr.io/PROJECT_ID/
-
-**NOTE** the trailing slash is *required*. Use `gcloud auth configure-docker`,
-[described here](https://cloud.google.com/container-registry/docs/pushing-and-pulling), to 
-configure authentication for pulling those images.
-
-The "VAULT" values are provided during the Vault setup in the previous section.
-
-With those set, you should first pull in the latest images by executing the following in the `dev/telemetry-apps` directory:
+To verify topic content is flowing and correct, you can exec into the kafka container and
+run the standard console consumer, such as
 
 ```bash
-docker-compose pull
+docker exec -it telemetry-infra_kafka_1 \
+  kafka-console-consumer --bootstrap-server localhost:9093 --topic telemetry.metrics.json
 ```
 
-If you already had older images in `docker images` for these application, it is a good idea to remove those.
+**NOTE** the use of port 9093 instead of 9092
 
-Next, run:
+### Querying etcd
+
+The etcd container includes the `etcdctl` command-line tool and is pre-configured to use the v3
+API. You can perform operations with `etcdctl` via `docker exec`, such as:
 
 ```bash
-docker-compose up -d
+docker exec -it telemetry-infra_etcd_1 etcdctl get --prefix /
 ```
 
-Running `docker-compose events` afterwards can help you see what is going on and if any failures occur.  Occasionally kafka can fail to start which leads to app failures.
+### Connecting to MySQL
 
-The Envoy config file `dev/envoy-config-authserv.yml` can be used with this set of
-containers.
+The MySQL container contains a database named `default` with username `dev` and password `pass`.
 
-The `dev/telemetry-apps` also contains a `check-health.sh` script, which you can run
-to query the actuator health endpoints of the apps. The built-in [healthcheck](https://docs.docker.com/compose/compose-file/#healthcheck)
-couldn't be used since it assumes the use of `curl`, but that is purposely not installed
-in the app containers.
+Once running, in addition to connecting services to it, you can connect to the instance and query the database manually:
 
-#### Including Repose to replicate deployment-time authentication
-
-Before starting the Repose services you will need to declare the Keystone/Identity credentials of 
-a service/user account that is authorized to validate authentication tokens:
-
-```bash
-export KEYSTONE_USER=...
-export KEYSTONE_PASSWORD=...
 ```
+$ docker ps
+docker CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                               NAMES
+fd12115575bd        mysql:5.7                         "docker-entrypoint.s…"   12 days ago         Up 12 days          0.0.0.0:3306->3306/tcp, 33060/tcp   telemetry-infra_mysql_1
 
-With that, you can run the following in the `dev/telemetry-apps` directory to start the Repose
-services each for public and admin authentication:
+$ docker exec -it telemetry-infra_mysql_1 sh
 
-```bash
-docker-compose -f docker-compose-repose.yml up -d 
+# mysql -u dev -ppass
+
+mysql> use default;
+
+mysql> show tables;
++--------------------+
+| Tables_in_default  |
++--------------------+
+| hibernate_sequence |
+| labels             |
+| resource_labels    |
+| resources          |
++--------------------+
+
+mysql> select * from resources;
 ```
 
 ### Running Event Engine with simulated metrics

@@ -1,0 +1,17 @@
+# NOTE
+# Purposely omits resource_id since each developer should provide a unique value
+# It is recommended that the --resource-id command line arg be used to specify resourceId.
+
+tls:
+  auth_service:
+    url: https://salus-auth-serv.perf.monplat.rackspace.net
+ambassador:
+  address: salus-ambassador.perf.monplat.rackspace.net:443
+ingest:
+  lumberjack:
+    bind: ""
+  telegraf:
+    json:
+      bind: localhost:8094
+agents:
+  dataPath: data-telemetry-envoy

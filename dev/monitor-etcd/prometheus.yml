@@ -1,0 +1,18 @@
+global:
+  scrape_interval: 10s
+scrape_configs:
+  # Only one of these jobs should be enabled since published dashboards for Grafana, such as
+  # https://grafana.com/grafana/dashboards/3070 assume only a single cluster is being monitored.
+#  - job_name: etcd_local
+#    static_configs:
+#      - targets:
+#          - etcd:2379
+#        labels:
+#          location: local
+  - job_name: etcd_remote
+    static_configs:
+      - targets:
+          # Use kubectl port-forward pod/etcd-0 32379:2379
+          - host.docker.internal:32379
+        labels:
+          location: remote

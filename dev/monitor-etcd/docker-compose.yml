@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.17.1
+    ports:
+      - 9090:9090
+    networks:
+      - infra
+      - grafana
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+  grafana:
+    image: grafana/grafana:${GRAFANA_VERSION:-6.7.2}
+    ports:
+      - 3000:3000
+    networks:
+      - grafana
+    volumes:
+      - ./grafana-config/datasources.yml:/etc/grafana/provisioning/datasources/main.yml:ro
+      - ./grafana-config/dashboards:/dashboards:ro
+      - grafana:/var/lib/grafana
+
+volumes:
+  grafana: {}
+
+networks:
+  infra:
+    external: true
+    name: telemetry-infra_default
+  grafana: {}

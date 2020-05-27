@@ -29,17 +29,9 @@ import org.springframework.stereotype.Component;
 @Data
 public class MetricsGenProperties {
 
-  List<String> tenants = List.of("tenant-00","tenant-01","tenant-02","tenant-03","tenant-04");
-
-  int resourcesPerTenant = 20;
+  Map<String, Tenant> tenants;
 
   Duration emitRate = Duration.ofSeconds(10);
-
-  List<String> metrics = List.of("cpu", "memory", "disk");
-
-  List<String> fields = List.of("free", "used", "current");
-
-  Map<String, String[]> labels = defaultLabels();
 
   String topic = "telemetry.metrics.json";
 
@@ -49,5 +41,17 @@ public class MetricsGenProperties {
     result.put("arch", new String[]{"x64", "x32"});
     result.put("env", new String[]{"prod", "stage", "test"});
     return result;
+  }
+
+  @Data
+  public static class Tenant {
+    List<String> resources = List.of("resource-00");
+    Map<String,Metric> metrics;
+    Map<String, String[]> labels = defaultLabels();
+  }
+
+  @Data
+  public static class Metric {
+    List<String> fields = List.of("value");
   }
 }

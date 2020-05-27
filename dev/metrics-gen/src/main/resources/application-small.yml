@@ -1,6 +1,33 @@
 salus:
   gen:
-    tenants: 2
-    resources-per-tenant: 3
-    fields: used,total
-    metrics: cpu,memory,filesystem
+    tenants:
+      tenant-00:
+        resources:
+          - resource-00-00
+          - resource-00-01
+          - resource-00-02
+        metrics:
+          cpu:
+            fields:
+              - usage_user
+              - usage_system
+              - usage_idle
+      tenant-01:
+        resources:
+          - resource-01-00
+          - resource-01-01
+        metrics:
+          cpu:
+            fields:
+              - usage_user
+              - usage_system
+              - usage_idle
+      tenant-02:
+        resources:
+          - resource-02-00
+          - resource-02-01
+        metrics:
+          system:
+            fields:
+              - load1
+              - n_users

@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Rackspace US, Inc.
+ * Copyright 2020 Rackspace US, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,10 @@ import java.util.Map;
 import lombok.Data;
 
 @Data
-public class Metric {
+public class GeneratedMetric {
+  String name;
+  String tenant;
+  String resource;
+  Map<String,String> labels;
   Map<String, Field> fields = new HashMap<>();
 }

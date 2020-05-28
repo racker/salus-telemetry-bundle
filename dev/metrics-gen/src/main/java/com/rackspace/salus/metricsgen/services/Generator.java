@@ -21,8 +21,7 @@ import com.rackspace.monplat.protocol.ExternalMetric;
 import com.rackspace.monplat.protocol.MonitoringSystem;
 import com.rackspace.salus.metricsgen.config.MetricsGenProperties;
 import com.rackspace.salus.metricsgen.model.Field;
-import com.rackspace.salus.metricsgen.model.Metric;
-import com.rackspace.salus.metricsgen.model.Resource;
+import com.rackspace.salus.metricsgen.model.GeneratedMetric;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -49,8 +48,9 @@ public class Generator implements SmartLifecycle {
   private final MetricsGenProperties properties;
   private final Random rand;
   private final KafkaTemplate<String, ExternalMetric> kafkaTemplate;
+  private final int minPeriod;
   private boolean running;
-  private List<Resource> resources = new ArrayList<>();
+  private List<GeneratedMetric> generatedMetrics = new ArrayList<>();
 
   @Autowired
   public Generator(MetricsGenProperties properties, Random rand,
@@ -58,56 +58,63 @@ public class Generator implements SmartLifecycle {
     this.properties = properties;
     this.rand = rand;
     this.kafkaTemplate = kafkaTemplate;
+    minPeriod = (int) ((properties.getEmitRate().toMillis()/1000) * 2);
 
   }
 
   @Override
   public void start() {
 
-    final int minPeriod = (int) ((properties.getEmitRate().toMillis()/1000) * 2);
-
-    for (String tenant : properties.getTenants()) {
-
-      for (int r = 0; r < properties.getResourcesPerTenant(); r++) {
-        final String resourceId = String.format("resource-%03d", r);
-
-        final Resource resource = new Resource()
-            .setTenant(tenant)
-            .setId(resourceId);
-
-        properties.getLabels()
-            .forEach((key, values) -> resource.getLabels().put(
-                key,
-                values[rand.nextInt(values.length)]
-            ));
-
-        for (String metricName : properties.getMetrics()) {
-          final Metric metric = new Metric();
-
-          for (String fieldName : properties.getFields()) {
-            metric.getFields().put(
-                fieldName,
-                new Field(
-                    rand.nextInt(MAX_OFFSET),
-                    Math.max(minPeriod, rand.nextInt(MAX_PERIOD)),
-                    rand.nextInt(MAX_AMPLITUDE)
-                )
-            );
-          }
-
-          resource.getMetrics().put(metricName, metric);
-        }
-
-        resources.add(resource);
-      }
-    }
+    properties.getTenants().forEach((tenantId, tenant) -> {
+      tenant.getResources().forEach(resourceId -> {
+        tenant.getMetrics().forEach((metricName, metric) -> {
+          generatedMetrics.add(
+              new GeneratedMetric()
+                  .setName(metricName)
+                  .setTenant(tenantId)
+                  .setResource(resourceId)
+                  .setLabels(pickLabels(tenant.getLabels()))
+                  .setFields(pickFields(metric.getFields()))
+          );
+        });
+      });
+    });
 
     log.info("Starting");
-    for (Resource resource : resources) {
-      log.info("{}", resource);
+    for (GeneratedMetric generatedMetric : generatedMetrics) {
+      log.info("{}", generatedMetric);
     }
 
     running = true;
+  }
+
+  private Map<String, Field> pickFields(List<String> fields) {
+    final HashMap<String, Field> picked = new HashMap<>();
+
+    for (String fieldName : fields) {
+      picked.put(
+          fieldName,
+          new Field(
+              rand.nextInt(MAX_OFFSET),
+              Math.max(minPeriod, rand.nextInt(MAX_PERIOD)),
+              rand.nextInt(MAX_AMPLITUDE)
+          )
+      );
+    }
+
+    return picked;
+  }
+
+  private Map<String, String> pickLabels(Map<String, String[]> labels) {
+    final HashMap<String, String> picked = new HashMap<>();
+
+    labels
+        .forEach((key, values) -> picked.put(
+            key,
+            values[rand.nextInt(values.length)]
+        ));
+
+    return picked;
   }
 
   @Override
@@ -123,42 +130,40 @@ public class Generator implements SmartLifecycle {
 
   @Scheduled(fixedRateString = "#{metricsGenProperties.emitRate}")
   public void generate() {
-    log.info("Generating");
+    log.info("Generating {} metrics", generatedMetrics.size());
 
     final Instant now = Instant.now();
     final long epochSecond = now.getEpochSecond();
     final String timestamp = DateTimeFormatter.ISO_INSTANT.format(now);
 
-    for (Resource resource : resources) {
+    for (GeneratedMetric generatedMetric : generatedMetrics) {
 
-      resource.getMetrics().forEach((metricName, metricSpec) -> {
         final ExternalMetric metric = ExternalMetric.newBuilder()
-            .setAccountType(AccountType.RCN)
-            .setAccount(resource.getTenant())
-            .setMonitoringSystem(MonitoringSystem.SALUS)
-            .setCollectionName(metricName)
-            .setCollectionMetadata(Collections.emptyMap())
-            .setDevice(resource.getId())
-            .setDeviceMetadata(Collections.emptyMap())
             .setTimestamp(timestamp)
-            .setSystemMetadata(resource.getLabels())
-            .setIvalues(fillMetricFields(metricSpec, epochSecond))
+            .setAccountType(AccountType.RCN)
+            .setAccount(generatedMetric.getTenant())
+            .setSystemMetadata(Collections.emptyMap())
+            .setMonitoringSystem(MonitoringSystem.SALUS)
+            .setCollectionName(generatedMetric.getName())
+            .setCollectionMetadata(Collections.emptyMap())
+            .setDevice(generatedMetric.getResource())
+            .setDeviceMetadata(generatedMetric.getLabels())
+            .setIvalues(fillMetricFields(generatedMetric, epochSecond))
             .setFvalues(Collections.emptyMap())
             .setSvalues(Collections.emptyMap())
             .setUnits(Collections.emptyMap())
             .build();
 
+        log.trace("Sending {}", metric);
         kafkaTemplate.send(
             properties.getTopic(),
-            String.join(":", resource.getTenant(), resource.getId()),
+            String.join(",", generatedMetric.getTenant(), generatedMetric.getResource()),
             metric
             );
-      });
-
     }
   }
 
-  private Map<String, Long> fillMetricFields(Metric metricSpec, long now) {
+  private Map<String, Long> fillMetricFields(GeneratedMetric metricSpec, long now) {
     final Map<String, Long> fields = new HashMap<>();
 
     metricSpec.getFields().forEach((fieldName, field) -> {

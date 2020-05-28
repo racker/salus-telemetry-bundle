@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-04-01T16:15:37.280Z
+__export_date: 2020-05-27T19:30:24.811Z
 __export_source: insomnia.desktop.app:v7.1.1
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -4325,7 +4325,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552638806915
     method: POST
-    modified: 1585757385371
+    modified: 1590596446278
     name: Allocate token
     parameters: []
     parentId: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
@@ -4812,6 +4812,78 @@ resources:
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/policy-monitors/{% prompt 'Policy Monitor Id',
       'policyMonitorId', '', '', false, false %}"
+    _type: request
+  - _id: req_af0655ae445341038011fcad9796e3a6
+    authentication: {}
+    body: {}
+    created: 1590595632520
+    description: ""
+    headers:
+      - description: ""
+        id: pair_3db19c8b0c1a433a96644668e9531898
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1580315793193
+    method: GET
+    modified: 1590595841802
+    name: Get all tenant metadata
+    parameters: []
+    parentId: fld_9381d0987aa14b3fbe906133f3298719
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/tenant-metadata"
+    _type: request
+  - _id: fld_9381d0987aa14b3fbe906133f3298719
+    created: 1590595606443
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1565098746749.25
+    modified: 1590595617762
+    name: Tenant Metadata
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    _type: request_group
+  - _id: req_aed17dde78e744f89f83b38d47ece149
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "tenantId": "{% prompt 'Tenant ID', '', '', '', false, false %}",
+          "accountType": "{% prompt 'Account type', '', 'cloud', '', false, false %}",
+          "metadata": {
+            "description": "{% prompt 'Description', '', '', '', false, false %}"
+          }
+        }
+    created: 1590596102994
+    description: ""
+    headers:
+      - description: ""
+        id: pair_3db19c8b0c1a433a96644668e9531898
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
+      - id: pair_e6dd95d57d1f41c3a0ea065fb37de6e5
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1580315793180.5
+    method: POST
+    modified: 1590596336407
+    name: Create tenant metadata
+    parameters: []
+    parentId: fld_9381d0987aa14b3fbe906133f3298719
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/tenant-metadata"
     _type: request
   - _id: req_bbd43a3f97f94541af81323aeb301260
     authentication: {}
@@ -5565,5 +5637,21 @@ resources:
     metaSortKey: 2
     modified: 1579794832434
     name: Dev
+    parentId: env_5a5d52bd56ce4760af650078de6aa477
+    _type: environment
+  - _id: env_6253f18ec2f141b0b7e80febaa227bcb
+    color: null
+    created: 1587676959891
+    data:
+      api_admin: http://salus-api-admin.perf.monplat.rackspace.net
+      api_public: http://salus-api.perf.monplat.rackspace.net/v1.0
+    dataPropertyOrder:
+      "&":
+        - api_admin
+        - api_public
+    isPrivate: false
+    metaSortKey: 2.5
+    modified: 1587677007671
+    name: Perf
     parentId: env_5a5d52bd56ce4760af650078de6aa477
     _type: environment

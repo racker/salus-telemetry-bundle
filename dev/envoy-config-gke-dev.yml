@@ -1,18 +1,20 @@
 # NOTE
 # Purposely omits resource_id since each developer should provide a unique value
 # It is recommended that the --resource-id command line arg be used to specify resourceId.
+# Use --zone for specifying a private zone
+# Set envoy auth token in ENVOY_AUTH_TOKEN env var or pass on command line with --auth-token
 
 tls:
   auth_service:
     url: https://salus-auth-serv.dev.monplat.rackspace.net
-    token_provider: keystone_v2
 ambassador:
   address: salus-ambassador.dev.monplat.rackspace.net:443
 ingest:
   lumberjack:
-    bind: localhost:5044
+    # disable lumberjack ingest
+    bind: ""
   telegraf:
     json:
       bind: localhost:8094
 agents:
-  dataPath: data-telemetry-envoy
+  dataPath: data-gke-dev

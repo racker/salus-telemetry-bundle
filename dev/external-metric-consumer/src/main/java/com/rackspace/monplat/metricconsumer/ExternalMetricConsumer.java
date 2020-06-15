@@ -39,6 +39,11 @@ public class ExternalMetricConsumer {
 
   @KafkaListener(topics = "#{__listener.topics}")
   public void consumeExternalMetric(ExternalMetric metric) {
-    log.info("Consumed: {}", metric);
+    log.info("Consumed metric: {}", metric);
+  }
+
+  @KafkaListener(topics = "#{__listener.topics}")
+  public void consumeRawStringMessages(String message) {
+    log.info("Consumed raw message: {}", message);
   }
 }

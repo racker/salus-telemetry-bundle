@@ -1,0 +1,16 @@
+
+spring:
+  kafka:
+    consumer:
+      value-deserializer: com.rackspace.monplat.protocol.ExternalMetricDeserializer
+      # ...or to consume message payload as "raw" string content use the following instead
+      # value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # Use spring application name as the group ID
+      group-id: ${spring.application.name}
+      auto-offset-reset: latest
+      bootstrap-servers: localhost:9092
+  application:
+    name: external-metric-consumer
+app:
+  topics: unified.metrics.json

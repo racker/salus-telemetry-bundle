@@ -1,0 +1,6 @@
+id: kafka-test-event-task
+topic: test-event-task
+kind: kafka
+options:
+  cluster: 'main'
+  topic: 'telemetry.test-event-task-results.json'

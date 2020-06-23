@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-05-27T19:30:24.811Z
+__export_date: 2020-06-23T14:15:42.980Z
 __export_source: insomnia.desktop.app:v7.1.1
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -2101,6 +2101,54 @@ resources:
     settingStoreCookies: true
     url: localhost:8087/api/tenant/{% prompt 'Tenant', '', 'aaaaaa', '', false
       %}/tasks
+    _type: request
+  - _id: req_21951fdfa30c4f4ea87387930b35fbd7
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "task": {
+            "measurement": "mem",
+            "taskParameters": {
+              "info": {
+                "consecutiveCount": 2,
+                "expression": {
+                  "field": "free",
+                  "threshold": 3000,
+                  "comparator": "<"
+                }
+              }
+            }
+          },
+          "metric": {
+            "name": "mem",
+            "ivalues": {
+              "free": 2000
+            }
+          }
+        }
+    created: 1592405975240
+    description: ""
+    headers:
+      - id: pair_0d10845d604943b6856f85560742c746
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1549899284755.5
+    method: POST
+    modified: 1592416821196
+    name: Test-task
+    parameters: []
+    parentId: fld_a3c445b8e50f4c5c96d289de93c41764
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: localhost:8087/api/tenant/{% prompt 'Tenant', '', '', '', false
+      %}/test-task
     _type: request
   - _id: req_4f1de6d84e814b22a8f6ac7f57d9b37b
     authentication: {}

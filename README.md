@@ -59,15 +59,6 @@ Publish the release and you are done.
 
 ## Running/Developing Locally
 
-There a few different options for running the applications locally.
-
- * To run all services via docker, optionally including Repose, see [here](/dev/telemetry-apps)
- * To run Repose in front of the public api see [here](/dev/repose-api-public)
- * To run Repose in front of the admin api see [here](/dev/repose-api-admin)
- * To run Repose in front of the auth api see [here](/dev/repose-authserv)
-
-The below information explains the most common dev scenario of running Salus applications locally in an IDE while using docker to start the required 3rd party services.
-
 ### Infrastructure
 
 The supporting infrastructure, such as etcd and kafka, can be started by running
@@ -109,6 +100,15 @@ go run ./... --debug --admin-url http://localhost:8888 \
 
 ### Applications
 
+At a minimum you need to start the following applications from `apps`:
+- agent-catalog-management
+- ambassador
+- monitor-management
+- policy-management
+- resource-management
+
+Depending on your development task, additional applications can be started as needed.
+
 > The following procedure is IntelliJ specific but the process will be similar for other IDEs.
 
 To open the project in IntelliJ, use the "open" option from the intro window, (or the File->Open dropdown).  Do not use either "Create New Project" or "Import Project" options, as those will misconfigure the project.  Open the root directory of this project, (the same one this readme is located in.)
@@ -148,10 +148,14 @@ most cases since you can add breakpoints on the fly:
 
 ### Maven usage for applications
 
+> OPTIONAL: If you have IntelliJ Ultimate, it is recommended to run the apps via run profiles rather via Maven command-line.
+
 The [app base README](apps/salus-app-base/README.md) contains information about how to build
 and run the application modules with Maven.
 
 ### Setting up Vault for development usage
+
+> OPTIONAL: Vault only needs to be setup if you are making changes to auth-service and need to test its interaction with Vault and ambassador.
 
 The Vault server itself is already included in the Docker "infra" composition.
 
@@ -165,6 +169,17 @@ docker exec -it telemetry-infra_vault_1 setup-app-role
 Using the `vault.app-role.role-id` and `vault.app-role.secret-id` provided by that script, update the run configuration for `apps/auth-service` in the "Override Parameters" section, such as
 
 ![](img/auth-service-props.png)
+
+### Running locally with Repose
+
+> OPTIONAL: Repose only needs to be used locally when working on authentication related changes to the public and admin APIs or investigating Repose configurations.
+
+There are a few options for running Repose depending on how extensive the scenario:
+
+ * To run all services via docker, optionally including Repose, see [here](/dev/telemetry-apps)
+ * To run Repose in front of the public api see [here](/dev/repose-api-public)
+ * To run Repose in front of the admin api see [here](/dev/repose-api-admin)
+ * To run Repose in front of the auth api see [here](/dev/repose-authserv)
 
 ## Interacting with local infrastructure services
 While debugging issues it can be helpful to view what the applications running it docker are doing.
@@ -302,27 +317,4 @@ skip the local Docker build by adding:
 
 ```
 -DskipLocalDockerBuild=true
-```
-
-## Publishing Java artifacts to Bintray
-
-For non-SNAPSHOT builds of the Java applications, a `mvn deploy` can publish the built artifacts
-to Bintray; however, you will need to declare your Bintray access credentials in
-`$HOME/.m2/settings.xml` as shown in the following, but replacing `BINTRAY_USERNAME` and
-`BINTRAY_APIKEY` accordingly.
-
-```xml
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
-
-  <servers>
-    <server>
-      <id>bintray-racker-maven</id>
-      <username>BINTRAY_USERNAME</username>
-      <password>BINTRAY_APIKEY</password>
-    </server>
-  </servers>
-</settings>
 ```

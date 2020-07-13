@@ -122,16 +122,7 @@ IntelliJ, as of at least 2019.3, will auto-create run configurations for each of
 
 ![](img/active-profiles-dev.png)
 
-The run configuration for `apps/auth-service` also needs the following "Override Parameters" set to the values returned by the [setup-app-role.sh script](#setting-up-vault-for-development-usage):
-```
-  vault.app-role.role-id
-  vault.app-role.secret-id
-```
-
 The run configuration for `apps/ambassador` also needs the "Working directory" set to the `dev` directory of this bundle module. That will ensure it can read the development-time certificates from the `certs` directory contained there.
-
-For example:
-![](img/auth-service-props.png)
 
 Go based modules, such as `apps/envoy`, may not be auto-detected as modules initially. If that's the case, then open the Project Structure configuration and perform an "Import Module" operation as shown here:
 
@@ -174,6 +165,10 @@ to be used by the Salus applications:
 ```bash
 docker exec -it telemetry-infra_vault_1 setup-app-role
 ```
+
+Using the `vault.app-role.role-id` and `vault.app-role.secret-id` provided by that script, update the run configuration for `apps/auth-service` in the "Override Parameters" section, such as
+
+![](img/auth-service-props.png)
 
 ### Running locally with Repose
 

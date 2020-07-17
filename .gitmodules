@@ -70,3 +70,6 @@
 [submodule "config/data-loader-content"]
 	path = config/data-loader-content
 	url = https://github.com/Rackspace-Segment-Support/salus-data-loader-content.git
+[submodule "apps/event-handler"]
+	path = apps/event-handler
+	url = git@github.com:racker/salus-event-handler.git

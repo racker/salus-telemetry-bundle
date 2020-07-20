@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2020-06-23T14:15:42.980Z
-__export_source: insomnia.desktop.app:v7.1.1
+__export_date: 2020-07-20T17:47:55.830Z
+__export_source: insomnia.desktop.app:v2020.3.0
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -50,6 +50,7 @@ resources:
     modified: 1543593177069
     name: Salus Telemetry
     parentId: null
+    scope: null
     _type: workspace
   - _id: req_eb0a6187b182455dbaae0fe08ec3487e
     authentication: {}
@@ -643,8 +644,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: http://localhost:8085/api/tenant/{% prompt 'tenantId', 'Tenant Id', '',
-      '', false, true %}/resource-metadata-keys
+    url: http://localhost:8085/api/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
+      false, true %}/resource-metadata-keys
     _type: request
   - _id: req_18a9a92233e94334b94e2c4f595e6394
     authentication: {}
@@ -681,8 +682,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: localhost:8085/api/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/resources
+    url: localhost:8085/api/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resources
     _type: request
   - _id: req_2493bc18d29142f8a365a9fd3f5b7af6
     authentication: {}
@@ -1690,8 +1691,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ monitor_mgmt  }}/api/tenant/aaaaaa/monitors/{% prompt 'Monitor ID',
-      '', '', '', false %}"
+    url: "{{ monitor_mgmt  }}/api/tenant/aaaaaa/monitors/{% prompt 'Monitor ID', '',
+      '', '', false %}"
     _type: request
   - _id: req_872b76e7e3684e939adc64afd9ac0b4e
     authentication: {}
@@ -2742,9 +2743,9 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: http://localhost:8090/api/admin/bound-agent-installs/{% prompt 'Tenant
-      ID', '', '', 'tenantId', false %}/{% prompt 'Resource ID', '', '', '',
-      false %}/{% prompt 'Agent type', 'TELEGRAF | FILEBEAT', '', '', false %}
+    url: http://localhost:8090/api/admin/bound-agent-installs/{% prompt 'Tenant ID',
+      '', '', 'tenantId', false %}/{% prompt 'Resource ID', '', '', '', false
+      %}/{% prompt 'Agent type', 'TELEGRAF | FILEBEAT', '', '', false %}
     _type: request
   - _id: req_3f90cdea1bab41868f8be78f4733359b
     authentication: {}
@@ -2966,8 +2967,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_1e3562f16c534becb8d765f5a68c67b2
     authentication: {}
@@ -2991,8 +2992,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/bound-monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/bound-monitors"
     _type: request
   - _id: req_fcbe7745bd3a409ba570bda1c6df1e17
     authentication: {}
@@ -3016,8 +3017,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/monitor-label-selectors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitor-label-selectors"
     _type: request
   - _id: req_f3b9e4fd80c94a479f039369d52358c5
     authentication: {}
@@ -3156,8 +3157,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_46e3a88ab1064b9fbef61010a7abde9f
     authentication: {}
@@ -3618,9 +3619,9 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/monitors/{% prompt 'Monitor ID', 'monitorId', '', '',
-      false, true %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/monitors/{% prompt 'Monitor ID', 'monitorId', '', '', false, true
+      %}"
     _type: request
   - _id: req_2c8f05653c934cf0a85d6526154cbd95
     authentication: {}
@@ -3652,8 +3653,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/monitors/{% prompt 'Monitor ID', '', '', '', false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors/{% prompt 'Monitor ID', '', '', '', false %}"
     _type: request
   - _id: req_e6c07cfdbeb04c91bf2cc2995887de25
     authentication: {}
@@ -3746,8 +3747,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/resources"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resources"
     _type: request
   - _id: req_8cb39d8dec0c4dda9bfaeccb329839d5
     authentication: {}
@@ -3800,8 +3801,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/resource-labels"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resource-labels"
     _type: request
   - _id: req_5349e0b79a5b48978753d191f332a524
     authentication: {}
@@ -3826,8 +3827,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/resource-metadata-keys"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resource-metadata-keys"
     _type: request
   - _id: req_714bac3a6790412eb532e36d2de1e737
     authentication: {}
@@ -3911,8 +3912,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant Id', 'tenantId', '', '',
-      false, true %}/event-tasks/{% prompt 'Task Id', '', '', '', false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant Id', 'tenantId', '', '', false,
+      true %}/event-tasks/{% prompt 'Task Id', '', '', '', false %}"
     _type: request
   - _id: fld_906f0421bdb54818a4abb19bd58a8d21
     created: 1552841089415
@@ -3952,8 +3953,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/event-tasks"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/event-tasks"
     _type: request
   - _id: req_ff8e3b0f818e4ed8a5c8936292084b96
     authentication: {}
@@ -4002,8 +4003,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/event-tasks"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/event-tasks"
     _type: request
   - _id: req_92fe7c03ce20411d8a69644239f6d26b
     authentication: {}
@@ -4027,8 +4028,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant Id', 'tenantId', '', '',
-      false, true %}/event-tasks/{% prompt 'Task Id', '', '', '', false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant Id', 'tenantId', '', '', false,
+      true %}/event-tasks/{% prompt 'Task Id', '', '', '', false %}"
     _type: request
   - _id: req_a0da3e16e8da4cd3954bd9ea13259f25
     authentication: {}
@@ -4052,8 +4053,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/agent-releases"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/agent-releases"
     _type: request
   - _id: fld_b073af8590104e8b904c2fda7654403b
     created: 1537893080573
@@ -4088,8 +4089,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/agent-installs"
     _type: request
   - _id: req_a0a42d95a1544c6b9888a97e7662b6ae
     authentication: {}
@@ -4125,8 +4126,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/agent-installs"
     _type: request
   - _id: req_424edec546d143e99cf97e73050fa276
     authentication: {}
@@ -4162,8 +4163,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/agent-installs"
     _type: request
   - _id: req_58bd8f171d774346a76211761cda80b4
     authentication: {}
@@ -4199,8 +4200,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/agent-installs"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/agent-installs"
     _type: request
   - _id: req_59edf223a275414887b2bda27a3d9b56
     authentication: {}
@@ -4221,9 +4222,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/agent-installs/{% prompt 'Agent install ID', '', '', '',
-      false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/agent-installs/{% prompt 'Agent install ID', '', '', '', false %}"
     _type: request
   - _id: req_0de992a88708403c802b6e63828d80cd
     authentication: {}
@@ -4247,8 +4247,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/zones"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/zones"
     _type: request
   - _id: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
     created: 1559311403559
@@ -4282,9 +4282,9 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '',
-      false, true %}/zone-assignment-counts/{% prompt 'Zone Name', '', '', '',
-      false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/zone-assignment-counts/{% prompt 'Zone Name', '', '', '', false
+      %}"
     _type: request
   - _id: req_1f8425184cdc49be8162c73a989c94d1
     authentication: {}
@@ -4383,8 +4383,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/envoy-tokens"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/envoy-tokens"
     _type: request
   - _id: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
     created: 1585757326415
@@ -4429,8 +4429,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/envoy-tokens"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/envoy-tokens"
     _type: request
   - _id: req_c315f1c45c68465083afbf18c291656b
     authentication: {}
@@ -4457,8 +4457,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
     _type: request
   - _id: req_17d2a1eeff4e4dfda262e46a3bcf5edf
     authentication: {}
@@ -4493,8 +4493,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
     _type: request
   - _id: req_c66c0968bae5465c8a7cfcb02da762ea
     authentication: {}
@@ -4521,8 +4521,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
     _type: request
   - _id: req_1722c11f078b45ed99f9f4acb3a492f8
     authentication: {}
@@ -5603,6 +5603,14 @@ resources:
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar
+  - _id: spc_92128f267e0f44169da380e91fb7f057
+    contentType: yaml
+    contents: ""
+    created: 1595267232651
+    fileName: Salus Telemetry
+    modified: 1595267232651
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    _type: api_spec
   - _id: env_2953bcf7752f45b6b91078759cd379a2
     color: null
     created: 1533148524042

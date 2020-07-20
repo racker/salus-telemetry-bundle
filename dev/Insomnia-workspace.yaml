@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-07-20T18:04:41.349Z
+__export_date: 2020-07-20T18:25:32.218Z
 __export_source: insomnia.desktop.app:v2020.3.0
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -171,6 +171,37 @@ resources:
     settingStoreCookies: true
     url: http://{{ policy_mgmt  }}/api/admin/policy/monitors/{% prompt 'Monitor
       Policy Id', 'policyId', '', '', false, false %}
+    _type: request
+  - _id: req_ef0b5433331b4013a94609f35a405ddc
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "scope": "TENANT",
+          "subscope": "{% prompt 'Tenant Id', 'Tenant', '', '', false, true %}",
+          "name": "{% prompt 'Policy Name', 'PolicyName', '', '', false, true %}"
+        }
+    created: 1595268494659
+    description: ""
+    headers:
+      - id: pair_7102654e33034c86b3a31b202e66175f
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1565756377259.1562
+    method: POST
+    modified: 1595269381761
+    name: Opt-Out
+    parameters: []
+    parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://{{ policy_mgmt  }}/api
     _type: request
   - _id: req_eeda52ec03e94f838cf8eb28b23d6fff
     authentication: {}
@@ -4859,6 +4890,37 @@ resources:
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/policy-monitors/{% prompt 'Policy Monitor Id',
       'policyMonitorId', '', '', false, false %}"
+    _type: request
+  - _id: req_2ab7a5a0374b4d3b8c51159a1c241773
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "scope": "TENANT",
+          "subscope": "{% prompt 'Tenant Id', 'Tenant', '', '', false, true %}",
+          "name": "{% prompt 'Policy Name', 'PolicyName', '', '', false, true %}"
+        }
+    created: 1595269410995
+    description: ""
+    headers:
+      - id: pair_f6132ee6398b46b693b2da44058db0ec
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1566325762637
+    method: POST
+    modified: 1595269492996
+    name: Opt-Out
+    parameters: []
+    parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/policies/monitors/opt-out"
     _type: request
   - _id: req_af0655ae445341038011fcad9796e3a6
     authentication: {}

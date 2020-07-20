@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-07-20T17:47:55.830Z
+__export_date: 2020-07-20T18:04:41.349Z
 __export_source: insomnia.desktop.app:v2020.3.0
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -2925,7 +2925,7 @@ resources:
     isPrivate: false
     metaSortKey: -1564981571270.5
     method: GET
-    modified: 1570564981622
+    modified: 1595267682274
     name: Get monitor by id
     parameters: []
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
@@ -2935,8 +2935,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors/{% prompt 'Monitor ID', '', '', false,      false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors/{% prompt 'Monitor ID', '', '', false,      false %}"
     _type: request
   - _id: req_ce664bb03fd641088890a6bcc6470f4c
     authentication: {}
@@ -3043,8 +3043,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/schema/monitor-plugins"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/schema/monitor-plugins"
     _type: request
   - _id: req_42f47e1a4e1645bdbbedb5891ef140ab
     authentication: {}
@@ -3069,8 +3069,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/schema/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/schema/monitors"
     _type: request
   - _id: req_388b2c4a4aeb4b9988aa26417b4213ef
     authentication: {}
@@ -3112,8 +3112,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_0ac44373720e45cf9e49a800310526a9
     authentication: {}
@@ -3198,8 +3198,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_934340a540e543f78707a5842ea86d8c
     authentication: {}
@@ -3242,8 +3242,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_20f4815ecac848d2aecb93f222c553e3
     authentication: {}
@@ -3284,8 +3284,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_9a32cc404b84432abd8be6868f31e964
     authentication: {}
@@ -3327,8 +3327,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_db7ef2a210254efbb61e17a89e4a0ecb
     authentication: {}
@@ -3370,8 +3370,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_7c624489cab344e9ae843223a515a701
     authentication: {}
@@ -3414,8 +3414,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_5b7a9a8ba3ca412baaaa225c92dfe561
     authentication: {}
@@ -3459,8 +3459,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_c97b79a2d79c4b55b8f5910676d31c9c
     authentication: {}
@@ -3503,8 +3503,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_45121a7c3e4b4475add793f0069e596e
     authentication: {}
@@ -3546,8 +3546,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors"
     _type: request
   - _id: req_1f7f0f664a704588bc91fe7218b67c41
     authentication: {}
@@ -3678,8 +3678,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/monitors/{% prompt 'Monitor ID', '', '', false,      false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors/{% prompt 'Monitor ID', '', '', false,      false %}"
     _type: request
   - _id: req_97d1a7f4ba5e43538bd14377e8b48f11
     authentication: {}
@@ -3700,9 +3700,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/resources/{% prompt 'resourceId', 'Resource Id', '', '', false
-      %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resources/{% prompt 'resourceId', 'Resource Id', '', '', false %}"
     _type: request
   - _id: fld_0a6a98b5c25d42b2a28631f09356c466
     created: 1552328968587
@@ -3775,8 +3774,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/resources-by-label"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resources-by-label"
     _type: request
   - _id: req_0bf451e67e3540f382cad90292616ea6
     authentication: {}
@@ -3864,8 +3863,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/resources"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resources"
     _type: request
   - _id: req_095d7117448940218ceec966f4049f14
     authentication: {}
@@ -3889,8 +3888,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/resources/{% prompt 'deletedResourceId', 'Deleted Resource Id',
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resources/{% prompt 'deletedResourceId', 'Deleted Resource Id',
       '', '', false %}"
     _type: request
   - _id: req_7b604db998f54a19bcab67504ab7ee33
@@ -4322,8 +4321,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/zones"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/zones"
     _type: request
   - _id: req_51e7462f7510485487cc303dde2c067e
     authentication: {}
@@ -4347,8 +4346,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', 'aaaaaa', '',
-      false %}/rebalance-zone/{% prompt 'Zone Name', '', '', '', false %}"
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/rebalance-zone/{% prompt 'Zone Name', '', '', '', false %}"
     _type: request
   - _id: req_bc344ee5b97e4ebca705453b2c5e5443
     authentication: {}
@@ -5007,7 +5006,7 @@ resources:
     isPrivate: false
     metaSortKey: -1573938682001
     method: GET
-    modified: 1580481808959
+    modified: 1595268259784
     name: Get effective metadata policy by tenant
     parameters: []
     parentId: fld_eb600b387c26452d9deb62946fdef63d
@@ -5018,7 +5017,7 @@ resources:
     settingSendCookies: true
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/policy/metadata/monitor/effective/{% prompt 'Tenant
-      Id', 'tenantId', 'aaaaaa', '', false, true %}"
+      Id', 'tenantId', '', '', false, true %}"
     _type: request
   - _id: req_8afb6e7fa3bb4fc8a2a00dace61fe7be
     authentication: {}
@@ -5033,7 +5032,7 @@ resources:
     isPrivate: false
     metaSortKey: -1567561570834
     method: GET
-    modified: 1580481812617
+    modified: 1595268105993
     name: Get effective policy for tenant and monitor type
     parameters: []
     parentId: fld_eb600b387c26452d9deb62946fdef63d
@@ -5044,9 +5043,9 @@ resources:
     settingSendCookies: true
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/policy/metadata/monitor/effective/{% prompt 'Tenant
-      Id', 'tenantId', 'aaaaaa', '', false, true %}/{% prompt 'Target Class
-      Name', 'className', 'Monitor', '', false, true %}/{% prompt 'Monitor
-      Type', 'monitorType', 'mem', '', false, true %}"
+      Id', 'tenantId', '', '', false, true %}/{% prompt 'Target Class Name',
+      'className', 'Monitor', '', false, true %}/{% prompt 'Monitor Type',
+      'monitorType', 'mem', '', false, true %}"
     _type: request
   - _id: req_0fa69e356a0d45559a4eb20adaf94848
     authentication: {}

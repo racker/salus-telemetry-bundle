@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2020-07-20T18:25:32.218Z
-__export_source: insomnia.desktop.app:v2020.3.0
+__export_date: 2020-07-22T13:49:19.671Z
+__export_source: insomnia.desktop.app:v2020.3.3
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -2153,12 +2153,14 @@ resources:
               }
             }
           },
-          "metric": {
-            "name": "mem",
-            "ivalues": {
-              "free": 2000
+          "metrics": [
+            {
+              "name": "mem",
+              "ivalues": {
+                "free": 2000
+              }
             }
-          }
+          ]
         }
     created: 1592405975240
     description: ""
@@ -2169,7 +2171,7 @@ resources:
     isPrivate: false
     metaSortKey: -1549899284755.5
     method: POST
-    modified: 1592416821196
+    modified: 1595425642173
     name: Test-task
     parameters: []
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
@@ -4035,6 +4037,56 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
       true %}/event-tasks"
+    _type: request
+  - _id: req_2bbb467e41e541fab5526f382ea77093
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "task": {
+            "measurement": "mem",
+            "taskParameters": {
+              "info": {
+                "consecutiveCount": 2,
+                "expression": {
+                  "field": "free",
+                  "threshold": 3000,
+                  "comparator": "<"
+                }
+              }
+            }
+          },
+          "metrics": [
+            {
+              "name": "mem",
+              "ivalues": {
+                "free": 2000
+              }
+            }
+          ]
+        }
+    created: 1595425549147
+    description: ""
+    headers:
+      - id: pair_0d10845d604943b6856f85560742c746
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1551724670894.75
+    method: POST
+    modified: 1595425663309
+    name: Test-task
+    parameters: []
+    parentId: fld_906f0421bdb54818a4abb19bd58a8d21
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/test-event-task"
     _type: request
   - _id: req_92fe7c03ce20411d8a69644239f6d26b
     authentication: {}

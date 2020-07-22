@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2020-07-22T16:50:31.505Z
-__export_source: insomnia.desktop.app:v2020.3.0
+__export_date: 2020-07-22T21:17:12.590Z
+__export_source: insomnia.desktop.app:v2020.3.3
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -3032,6 +3032,50 @@ resources:
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
       true %}/monitors"
     _type: request
+  - _id: req_9721137cdc2b4ce692c76d4f5909cb9e
+    authentication: {}
+    body: {}
+    created: 1593709391470
+    description: ""
+    headers:
+      - id: pair_e8a689561cde4ea18565b6db82932418
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+      - id: pair_32e9eb29f5ed488bb0e5e1c93c82cb5b
+        name: ""
+        value: ""
+      - description: ""
+        id: pair_8b36b28729de400f975e76bec9dd908b
+        name: ""
+        value: ""
+    isPrivate: false
+    metaSortKey: -1563455127461
+    method: GET
+    modified: 1595452194797
+    name: Search Tenant Monitors
+    parameters:
+      - disabled: false
+        id: pair_ae98a8f078be4ca6a30851c919aaa5a1
+        name: size
+        value: "1"
+      - description: ""
+        id: pair_6137df2d8aa842d6ace6f4ec3523d7bc
+        name: q
+        value: mon
+      - description: ""
+        id: pair_6f9e9b58ad56464498655d9164d27373
+        name: page
+        value: "1"
+    parentId: fld_52f2a23df31449f6935c3be8b1a99796
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/monitors-search"
+    _type: request
   - _id: req_1e3562f16c534becb8d765f5a68c67b2
     authentication: {}
     body: {}
@@ -3810,6 +3854,46 @@ resources:
     settingStoreCookies: true
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
       true %}/resources"
+    _type: request
+  - _id: req_b0b3073ba518423bac8b455be7d0247a
+    authentication: {}
+    body: {}
+    created: 1593709722485
+    description: ""
+    headers:
+      - id: pair_dd7dc66e10f04314a98dbdc365d64518
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+      - id: pair_6ef013b138984ea7a2a65452f469ad19
+        name: ""
+        value: ""
+    isPrivate: false
+    metaSortKey: -1552328978745
+    method: GET
+    modified: 1595368180349
+    name: Search Tenant Resources
+    parameters:
+      - disabled: true
+        id: pair_82a565d9f14c42b287c1f221467d3011
+        name: size
+        value: "2"
+      - disabled: true
+        id: pair_5ecd577314434e14917bf313953295c1
+        name: page
+        value: "1"
+      - description: ""
+        id: pair_61ef937294d4443696ce13076b40ca4a
+        name: q
+        value: jjb
+    parentId: fld_0a6a98b5c25d42b2a28631f09356c466
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resources-search/"
     _type: request
   - _id: req_8cb39d8dec0c4dda9bfaeccb329839d5
     authentication: {}
@@ -5759,12 +5843,12 @@ resources:
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar
-  - _id: spc_92128f267e0f44169da380e91fb7f057
+  - _id: spc_2bb0348f423941fcb1cfe5650fc14952
     contentType: yaml
     contents: ""
-    created: 1595267232651
+    created: 1595452523630
     fileName: Salus Telemetry
-    modified: 1595267232651
+    modified: 1595452523630
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: api_spec
   - _id: env_2953bcf7752f45b6b91078759cd379a2

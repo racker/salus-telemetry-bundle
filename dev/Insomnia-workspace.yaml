@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2020-07-22T13:49:19.671Z
-__export_source: insomnia.desktop.app:v2020.3.3
+__export_date: 2020-07-22T16:50:31.505Z
+__export_source: insomnia.desktop.app:v2020.3.0
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -2006,17 +2006,31 @@ resources:
         	"measurement": "mem",
         	"name": "mem",
         	"taskParameters": {
-        		"comparator": ">",
-        		"field": "used_percent",
-        		"threshold": 75,
-        		"info": {
-        			"consecutiveCount": 2,
-        			"expression": {
-        				"field": "free",
-        				"threshold": 3000,
-        				"comparator": "<"
+        		"criticalStateDuration": 2,
+        		"warningStateDuration": null,
+        		"infoStateDuration": null,
+        		"stateExpressions": [
+        			{
+        				"state": "CRITICAL",
+        				"message": "critical threshold was hit",
+        				"expression": {
+        					"type": "comparison",
+        					"comparator": ">",
+        					"metricName": "used_percent",
+        					"comparisonValue": 75
+        				}
+        			},
+        			{
+        				"state": "INFO",
+        				"message": "info threshold was hit",
+        				"expression": {
+        					"type": "comparison",
+        					"comparator": "<",
+        					"metricName": "free",
+        					"comparisonValue": 3000
+        				}
         			}
-        		}
+        		]
         	}
         }
     created: 1558359214893
@@ -2028,7 +2042,7 @@ resources:
     isPrivate: false
     metaSortKey: -1549900063716.5
     method: POST
-    modified: 1561410660951
+    modified: 1595435791690
     name: Create task (mem)
     parameters: []
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
@@ -2049,20 +2063,24 @@ resources:
         	"measurement": "cpu",
         	"name": "cpu",
         	"taskParameters": {
-        		"comparator": ">",
-        		"field": "usage_user",
-        		"threshold": 30,
         		"labelSelector": {
         			"agent_environment": "localdev"
         		},
-        		"critical": {
-        			"consecutiveCount": 2,
-        			"expression": {
-        				"field": "total_cpu",
-        				"threshold": 3,
-        				"comparator": "<"
+        		"criticalStateDuration": 2,
+        		"warningStateDuration": null,
+        		"infoStateDuration": null,
+        		"stateExpressions": [
+        			{
+        				"state": "CRITICAL",
+        				"message": "critical threshold was hit",
+        				"expression": {
+        					"type": "comparison",
+        					"comparator": "<",
+        					"metricName": "total_cpu",
+        					"comparisonValue": 3
+        				}
         			}
-        		}
+        		]
         	}
         }
     created: 1549899284793
@@ -2074,7 +2092,7 @@ resources:
     isPrivate: false
     metaSortKey: -1549899284793
     method: POST
-    modified: 1561410211353
+    modified: 1595435949889
     name: Create task (cpu)
     parameters: []
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
@@ -2084,8 +2102,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: localhost:8087/api/tenant/{% prompt 'Tenant', '', '', 'tenantId', false
-      %}/tasks
+    url: localhost:8087/api/tenant/{% prompt 'Tenant Id', 'tenantId', '', '', false,
+      true %}/tasks
     _type: request
   - _id: req_73430c66b40a4da68957dc5b68669348
     authentication: {}
@@ -2093,23 +2111,27 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"name": "procstat",
         	"measurement": "procstat_lookup",
+        	"name": "procstat",
         	"taskParameters": {
-        		"comparator": "<=",
-        		"field": "pid_count",
-        		"threshold": 0,
         		"labelSelector": {
         			"pattern": "java.*IdleWebServerApplication"
         		},
-        		"critical": {
-        			"consecutiveCount": 2,
-        			"expression": {
-        				"field": "pid_count",
-        				"threshold": 3,
-        				"comparator": "<"
+        		"criticalStateDuration": 4,
+        		"warningStateDuration": null,
+        		"infoStateDuration": null,
+        		"stateExpressions": [
+        			{
+        				"state": "CRITICAL",
+        				"message": "critical threshold was hit",
+        				"expression": {
+        					"type": "comparison",
+        					"comparator": "<",
+        					"metricName": "pid_count",
+        					"comparisonValue": 3
+        				}
         			}
-        		}
+        		]
         	}
         }
     created: 1557930393381
@@ -2121,7 +2143,7 @@ resources:
     isPrivate: false
     metaSortKey: -1549899284768
     method: POST
-    modified: 1561408369202
+    modified: 1595436027087
     name: Create task (procstat, label)
     parameters: []
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
@@ -2140,27 +2162,34 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "task": {
-            "measurement": "mem",
-            "taskParameters": {
-              "info": {
-                "consecutiveCount": 2,
-                "expression": {
-                  "field": "free",
-                  "threshold": 3000,
-                  "comparator": "<"
-                }
-              }
-            }
-          },
-          "metrics": [
-            {
-              "name": "mem",
-              "ivalues": {
-                "free": 2000
-              }
-            }
-          ]
+        	"task": {
+        		"measurement": "mem",
+        		"taskParameters": {
+        			"criticalStateDuration": 2,
+        			"warningStateDuration": 2,
+        			"infoStateDuration": 2,
+        			"stateExpressions": [
+        				{
+        					"state": "INFO",
+        					"message": "info threshold was hit",
+        					"expression": {
+        						"type": "comparison",
+        						"comparator": "<",
+        						"metricName": "free",
+        						"comparisonValue": 3000
+        					}
+        				}
+        			]
+        		}
+        	},
+        	"metrics": [
+        		{
+        			"name": "mem",
+        			"ivalues": {
+        				"free": 2000
+        			}
+        		}
+        	]
         }
     created: 1592405975240
     description: ""
@@ -2171,7 +2200,7 @@ resources:
     isPrivate: false
     metaSortKey: -1549899284755.5
     method: POST
-    modified: 1595425642173
+    modified: 1595436427689
     name: Test-task
     parameters: []
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
@@ -3994,20 +4023,27 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"name": "cpu2",
         	"measurement": "cpu",
+        	"name": "cpu",
         	"taskParameters": {
         		"labelSelector": {
         			"agent_environment": "localdev"
         		},
-        		"critical": {
-        			"consecutiveCount": 2,
-        			"expression": {
-        				"field": "usage_user",
-        				"threshold": 10,
-        				"comparator": ">"
+        		"criticalStateDuration": 2,
+        		"warningStateDuration": null,
+        		"infoStateDuration": null,
+        		"stateExpressions": [
+        			{
+        				"state": "CRITICAL",
+        				"message": "critical threshold was hit",
+        				"expression": {
+        					"type": "comparison",
+        					"comparator": "<",
+        					"metricName": "total_cpu",
+        					"comparisonValue": 3
+        				}
         			}
-        		}
+        		]
         	}
         }
     created: 1552841089420
@@ -4025,7 +4061,7 @@ resources:
     isPrivate: false
     metaSortKey: -1552328978670
     method: POST
-    modified: 1580154728406
+    modified: 1595436489967
     name: Create event task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
@@ -4044,27 +4080,34 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "task": {
-            "measurement": "mem",
-            "taskParameters": {
-              "info": {
-                "consecutiveCount": 2,
-                "expression": {
-                  "field": "free",
-                  "threshold": 3000,
-                  "comparator": "<"
-                }
-              }
-            }
-          },
-          "metrics": [
-            {
-              "name": "mem",
-              "ivalues": {
-                "free": 2000
-              }
-            }
-          ]
+        	"task": {
+        		"measurement": "mem",
+        		"taskParameters": {
+        			"criticalStateDuration": 2,
+        			"warningStateDuration": 2,
+        			"infoStateDuration": 2,
+        			"stateExpressions": [
+        				{
+        					"state": "INFO",
+        					"message": "info threshold was hit",
+        					"expression": {
+        						"type": "comparison",
+        						"comparator": "<",
+        						"metricName": "free",
+        						"comparisonValue": 3000
+        					}
+        				}
+        			]
+        		}
+        	},
+        	"metrics": [
+        		{
+        			"name": "mem",
+        			"ivalues": {
+        				"free": 2000
+        			}
+        		}
+        	]
         }
     created: 1595425549147
     description: ""
@@ -4075,7 +4118,7 @@ resources:
     isPrivate: false
     metaSortKey: -1551724670894.75
     method: POST
-    modified: 1595425663309
+    modified: 1595436508065
     name: Test-task
     parameters: []
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21

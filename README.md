@@ -19,21 +19,21 @@ $ git submodule status
  8d3b86933450af562dc57c1fc2a9bf7005bf65b3 libs/model (heads/master)
 ```
 
-If you wish to update all submodules to the head of their own master branch, you can append `--remote` to that command.
-```
-$ git submodule update --recursive --remote
-...
-...
+For most development activity, the latest revision on `master` should be used for each submodule. The following can be used to ensure all of the submodules and the bundle repo itself are checked out at `master`:
 
-$ git submodule status
-+90b4454c51f1e045a4dd658a1c598ea2b7909391 apps/ambassador (remotes/origin/HEAD)
-+af599bedbedab08c2c99e3700a37ab19ded5b649 apps/api (remotes/origin/HEAD)
-+08fb8a1686addf8ecfe1ca9e212c4e26f0eac99a apps/auth-service (remotes/origin/HEAD)
- c999f7e314c3e267a8a9a343c60b8d7a23523e2e apps/envoy (0.2.0)
-+c670acff016f58734e0dae7d5de815e173003052 apps/salus-app-base (heads/master)
-+35587ab173d6a1d8e55a022233b6c0dcb9a39cda libs/etcd-adapter (remotes/origin/HEAD)
-+9b54cba9ca40b560f333ea63c9644c2e18465c46 libs/model (remotes/origin/HEAD)
+```shell script
+git submodule foreach git checkout master
+git checkout master
 ```
+
+At any point, you can pull the latest changes from Github using:
+
+```shell script
+git submodule foreach git pull
+git pull
+```
+
+> IntelliJ can also be used to pull the latest changes from Github using the "VCS -> Update Project" menu item.
 
 ## Manually creating a new release / version
 

@@ -22,18 +22,10 @@ $ git submodule status
 For most development activity, the latest revision on `master` should be used for each submodule. The following can be used to ensure all of the submodules and the bundle repo itself are checked out at `master`:
 
 ```shell script
-git submodule foreach git checkout master
-git checkout master
-```
-
-At any point, you can pull the latest changes from Github using:
-
-```shell script
-git submodule foreach git pull
 git pull
+git submodule foreach git checkout master
+git submodule foreach git pull
 ```
-
-> IntelliJ can also be used to pull the latest changes from Github using the "VCS -> Update Project" menu item.
 
 ## Manually creating a new release / version
 

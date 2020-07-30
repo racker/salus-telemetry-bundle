@@ -82,13 +82,15 @@ docker-compose logs -f kafka
 
 ### Pre-loading monitor translations, etc
 
-Some integration points in the system, especially telegraf's usage of rendered monitor content, assume certain database content is present. In the deployed clusters, the data-loader is integrated with Github webhooks; however, for local development, a fresh database volume needs to be pre-loaded manually using the data-loader. Once all salus management and api applications are running, that can be done at any time using the following:
+Some integration points in the system, especially telegraf's usage of rendered monitor content, assume certain database content is present. In the deployed clusters, the data-loader is integrated with Github webhooks; however, for local development, a fresh database volume needs to be pre-loaded manually using the data-loader. With all minimum-required apps ([see below](#applications)), admin api, and public api are running, the data loader can be run locally using the following:
 
 ```
 cd tools/data-loader
 go run ./... --debug --admin-url http://localhost:8888 \
   load-from-git https://github.com/Rackspace-Segment-Support/salus-data-loader-content.git
 ```
+
+> NOTE: if you ever need to wipe the MySQL database and/or Docker volume, be sure to re-run the command above since the content will need to be re-loaded.
 
 ### Applications
 

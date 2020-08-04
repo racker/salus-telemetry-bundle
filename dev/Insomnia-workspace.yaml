@@ -2923,7 +2923,7 @@ resources:
         		}
         	},
         	"task":{
-        		"measurement":"available_percent",
+        		"measurement":"mem",
         		"taskParameters":{
         			"criticalStateDuration":2,
         			"warningStateDuration":2,

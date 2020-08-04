@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2020-08-04T16:04:41.508Z
-__export_source: insomnia.desktop.app:v2020.3.3
+__export_date: 2020-08-04T18:16:21.624Z
+__export_source: insomnia.desktop.app:v2020.3.0
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -2966,8 +2966,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/test-monitor-event-task"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/test-monitor-event-task"
     _type: request
   - _id: fld_52f2a23df31449f6935c3be8b1a99796
     created: 1552575315822

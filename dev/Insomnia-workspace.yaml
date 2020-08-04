@@ -2966,7 +2966,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/v1.0/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
       false, true %}/test-monitor-event-task"
     _type: request
   - _id: fld_52f2a23df31449f6935c3be8b1a99796

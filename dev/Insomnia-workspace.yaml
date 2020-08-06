@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-08-04T18:17:37.020Z
+__export_date: 2020-08-06T17:37:48.254Z
 __export_source: insomnia.desktop.app:v2020.3.0
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -5731,7 +5731,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665862259.5
     method: GET
-    modified: 1562944772521
+    modified: 1596735367048
     name: Get Public Zone by ID
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -5741,7 +5741,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_admin  }}/api/zones/public/public/us-central-1"
+    url: "{{ api_admin  }}/api/zones/public/us-central-1"
     _type: request
   - _id: req_f4d71f03f7a7475caaa06b81c4c2371e
     authentication: {}
@@ -5799,7 +5799,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665817901
     method: POST
-    modified: 1580333623769
+    modified: 1596735313825
     name: Create public zone
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -5859,6 +5859,31 @@ resources:
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/zone-assignment-counts/public/australia_east_1"
     _type: request
+  - _id: req_ebd6f98e07bb4c8daba6b79ef397780a
+    authentication: {}
+    body: {}
+    created: 1596735185192
+    description: ""
+    headers:
+      - id: pair_991b7835e63649ae94217f4da31f6668
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1559311421803
+    method: DELETE
+    modified: 1596735336972
+    name: Delete Public Zone
+    parameters: []
+    parentId: fld_27cdcc072284442896025676cae969ea
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/zones/{% prompt 'Zone Id', 'zoneId', '', '', false,
+      true %}"
+    _type: request
   - _id: env_5a5d52bd56ce4760af650078de6aa477
     color: null
     created: 1533129475298
@@ -5871,7 +5896,7 @@ resources:
         - admin_auth_token
     isPrivate: false
     metaSortKey: 1533129475298
-    modified: 1596563200775
+    modified: 1596735386466
     name: New Environment
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: environment
@@ -5881,7 +5906,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "10189738239305313"
+        id: "07944083287157655"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -5891,7 +5916,7 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "5443994821773219"
+        id: "6126385411811641"
         key: JSESSIONID
         lastAccessed: 2020-02-10T21:36:23.806Z
         path: /
@@ -5900,7 +5925,7 @@ resources:
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "26032090977959177"
+        id: "34919281765099996"
         key: JSESSIONID
         lastAccessed: 2019-07-01T21:00:35.436Z
         path: /
@@ -5908,15 +5933,15 @@ resources:
       - creation: 2019-06-26T20:02:47.012Z
         domain: salus-api-admin.dev.monplat.rackspace.net
         hostOnly: true
-        id: "40230414875074616"
+        id: "22788303738865245"
         key: JSESSIONID
-        lastAccessed: 2020-02-04T14:35:23.894Z
+        lastAccessed: 2020-08-06T17:36:08.384Z
         path: /
-        value: node0w1uj8pm37h0e18aqd4ih92x2r2.node0
+        value: node0emloznfflpvf190yaexj9ze7h1.node0
       - creation: 2019-07-11T22:59:08.595Z
         domain: localhost
         hostOnly: true
-        id: "8091008085010953"
+        id: "7305038056340529"
         key: JSESSIONID
         lastAccessed: 2019-07-12T14:48:56.692Z
         path: /v1.0
@@ -5924,7 +5949,7 @@ resources:
       - creation: 2020-01-23T15:55:43.915Z
         domain: salus-api.staging.monplat.rackspace.net
         hostOnly: true
-        id: "8108862149822842"
+        id: "9327114294389358"
         key: JSESSIONID
         lastAccessed: 2020-08-04T18:09:07.727Z
         path: /v1.0
@@ -5932,7 +5957,7 @@ resources:
       - creation: 2020-01-23T16:06:34.734Z
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
-        id: "15864209703116305"
+        id: "26805270619734123"
         key: JSESSIONID
         lastAccessed: 2020-02-05T20:02:02.296Z
         path: /v1.0
@@ -5940,7 +5965,7 @@ resources:
       - creation: 2020-01-23T16:06:41.395Z
         domain: salus-api.prod.monplat.rackspace.net
         hostOnly: true
-        id: "1449879007800241"
+        id: "2742987951092486"
         key: JSESSIONID
         lastAccessed: 2020-01-24T21:24:22.279Z
         path: /v1.0
@@ -5948,7 +5973,7 @@ resources:
       - creation: 2020-01-23T16:55:32.522Z
         domain: salus-api-admin.prod.monplat.rackspace.net
         hostOnly: true
-        id: "36930541840505904"
+        id: "7417099173085064"
         key: JSESSIONID
         lastAccessed: 2020-01-23T16:56:38.072Z
         path: /
@@ -5957,7 +5982,7 @@ resources:
         domain: salus-api-admin.staging.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "0034051276205275816"
+        id: "6513837955994763"
         key: JSESSIONID
         lastAccessed: 2020-08-04T17:47:26.728Z
         path: /
@@ -5966,13 +5991,13 @@ resources:
         domain: salus-api.staging.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "21292882332607244"
+        id: "7077986974245423"
         key: JSESSIONID
         lastAccessed: 2020-08-04T18:09:07.727Z
         path: /
         value: 96E8FED5950F71BB5DD4FA6D0364436E
     created: 1533129475302
-    modified: 1596564547727
+    modified: 1596735368384
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar

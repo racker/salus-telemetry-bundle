@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2020-08-06T17:37:48.254Z
-__export_source: insomnia.desktop.app:v2020.3.0
+__export_date: 2020-08-06T18:50:28.345Z
+__export_source: insomnia.desktop.app:v2020.3.3
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     authentication: {}
@@ -2016,7 +2016,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": ">",
-        					"metricName": "used_percent",
+        					"valueName": "used_percent",
         					"comparisonValue": 75
         				}
         			},
@@ -2026,7 +2026,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": "<",
-        					"metricName": "free",
+        					"valueName": "free",
         					"comparisonValue": 3000
         				}
         			}
@@ -2076,7 +2076,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": "<",
-        					"metricName": "total_cpu",
+        					"valueName": "total_cpu",
         					"comparisonValue": 3
         				}
         			}
@@ -2127,7 +2127,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": "<",
-        					"metricName": "pid_count",
+        					"valueName": "pid_count",
         					"comparisonValue": 3
         				}
         			}
@@ -2175,7 +2175,7 @@ resources:
         					"expression": {
         						"type": "comparison",
         						"comparator": "<",
-        						"metricName": "free",
+        						"valueName": "free",
         						"comparisonValue": 3000
         					}
         				}
@@ -2935,7 +2935,7 @@ resources:
         					"expression":{
         						"type":"comparison",
         						"comparator":"<",
-        						"metricName":"available_percent",
+        						"valueName":"available_percent",
         						"comparisonValue":50
         					}
         				}
@@ -4183,7 +4183,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": "<",
-        					"metricName": "total_cpu",
+        					"valueName": "total_cpu",
         					"comparisonValue": 3
         				}
         			}
@@ -4237,7 +4237,7 @@ resources:
         					"expression": {
         						"type": "comparison",
         						"comparator": "<",
-        						"metricName": "free",
+        						"valueName": "free",
         						"comparisonValue": 3000
         					}
         				}

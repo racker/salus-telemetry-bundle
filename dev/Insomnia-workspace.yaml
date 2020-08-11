@@ -5319,6 +5319,43 @@ resources:
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/tenant-metadata"
     _type: request
+  - _id: req_d2f56b8ce9cc4ebda2ce063e393b3677
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "accountType": "{% prompt 'Account type', '', 'cloud', '', false, false %}",
+          "metadata": {
+            "description": "{% prompt 'Description', '', '', '', false, false %}"
+          }
+        }
+    created: 1597164015625
+    description: ""
+    headers:
+      - description: ""
+        id: pair_3db19c8b0c1a433a96644668e9531898
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
+      - id: pair_e6dd95d57d1f41c3a0ea065fb37de6e5
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1580315793174.25
+    method: PUT
+    modified: 1597164030810
+    name: Put tenant metadata
+    parameters: []
+    parentId: fld_9381d0987aa14b3fbe906133f3298719
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/tenant-metadata/{% prompt 'Tenant ID', '', '', '',
+      false, true %}"
+    _type: request
   - _id: req_bbd43a3f97f94541af81323aeb301260
     authentication: {}
     body: {}

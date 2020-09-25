@@ -4838,7 +4838,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_admin  }}/api/{% prompt 'Tenant Id', '', '', '', false, true %}"
+    url: "{{ api_admin  }}/api/tenant/{% prompt 'Tenant Id', '', '', '', false, true %}"
     _type: request
   - _id: fld_070c36f7fc444b2aa4adcb42aafa8869
     created: 1596642307766

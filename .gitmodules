@@ -73,3 +73,6 @@
 [submodule "apps/event-handler"]
 	path = apps/event-handler
 	url = git@github.com:racker/salus-event-handler.git
+[submodule "apps/event-engine-processor"]
+	path = apps/event-engine-processor
+	url = git@github.com:racker/salus-event-engine-processor.git

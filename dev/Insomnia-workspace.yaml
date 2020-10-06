@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-08-04T16:04:41.508Z
+__export_date: 2020-08-11T18:19:27.642Z
 __export_source: insomnia.desktop.app:v2020.3.3
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -2016,7 +2016,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": ">",
-        					"metricName": "used_percent",
+        					"valueName": "used_percent",
         					"comparisonValue": 75
         				}
         			},
@@ -2026,7 +2026,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": "<",
-        					"metricName": "free",
+        					"valueName": "free",
         					"comparisonValue": 3000
         				}
         			}
@@ -2076,7 +2076,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": "<",
-        					"metricName": "total_cpu",
+        					"valueName": "total_cpu",
         					"comparisonValue": 3
         				}
         			}
@@ -2127,7 +2127,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": "<",
-        					"metricName": "pid_count",
+        					"valueName": "pid_count",
         					"comparisonValue": 3
         				}
         			}
@@ -2175,7 +2175,7 @@ resources:
         					"expression": {
         						"type": "comparison",
         						"comparator": "<",
-        						"metricName": "free",
+        						"valueName": "free",
         						"comparisonValue": 3000
         					}
         				}
@@ -2923,7 +2923,7 @@ resources:
         		}
         	},
         	"task":{
-        		"measurement":"mem",
+        		"measurement":"available_percent",
         		"taskParameters":{
         			"criticalStateDuration":2,
         			"warningStateDuration":2,
@@ -2935,7 +2935,7 @@ resources:
         					"expression":{
         						"type":"comparison",
         						"comparator":"<",
-        						"metricName":"available_percent",
+        						"valueName":"available_percent",
         						"comparisonValue":50
         					}
         				}
@@ -2966,8 +2966,8 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '',
-      false, true %}/test-monitor-event-task"
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
+      true %}/test-monitor-event-task"
     _type: request
   - _id: fld_52f2a23df31449f6935c3be8b1a99796
     created: 1552575315822
@@ -4183,7 +4183,7 @@ resources:
         				"expression": {
         					"type": "comparison",
         					"comparator": "<",
-        					"metricName": "total_cpu",
+        					"valueName": "total_cpu",
         					"comparisonValue": 3
         				}
         			}
@@ -4237,7 +4237,7 @@ resources:
         					"expression": {
         						"type": "comparison",
         						"comparator": "<",
-        						"metricName": "free",
+        						"valueName": "free",
         						"comparisonValue": 3000
         					}
         				}
@@ -4619,6 +4619,32 @@ resources:
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
       true %}/rebalance-zone/{% prompt 'Zone Name', '', '', '', false %}"
     _type: request
+  - _id: req_428a212fe16d4e75888851e719dd4950
+    authentication: {}
+    body: {}
+    created: 1596564406447
+    description: ""
+    headers:
+      - description: ""
+        id: pair_6b05eb8e79cf45b981abceb49b73ec57
+        name: x-auth-token
+        value: "{{ auth_token }}"
+    isPrivate: false
+    metaSortKey: -1559311500787
+    method: DELETE
+    modified: 1596564517730
+    name: Delete Private Zone
+    parameters: []
+    parentId: fld_b1a0cdb8cd1f47e19712886ffa3cdd39
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', '', '', '', false, true
+      %}/zones/{% prompt 'Zone Id', 'zoneId', '', '', false, true %}"
+    _type: request
   - _id: req_bc344ee5b97e4ebca705453b2c5e5443
     authentication: {}
     body:
@@ -4793,6 +4819,82 @@ resources:
     url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
       true %}/envoy-tokens/{% prompt 'Token', '', '', '', false, true %}"
     _type: request
+  - _id: req_dffd0af0fc234ba38cf6d1f44336912b
+    authentication: {}
+    body: {}
+    created: 1596642504678
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1596642504678
+    method: DELETE
+    modified: 1597082583153
+    name: Delete Tenant
+    parameters: []
+    parentId: fld_070c36f7fc444b2aa4adcb42aafa8869
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/tenant/{% prompt 'Tenant Id', '', '', '', false, true %}"
+    _type: request
+  - _id: fld_070c36f7fc444b2aa4adcb42aafa8869
+    created: 1596642307766
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1579205504016
+    modified: 1596666832563
+    name: Cross Service
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    _type: request_group
+  - _id: fld_5e8273952de24b9f8d2298996f937593
+    created: 1548358712950
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1548358712950
+    modified: 1556918976861
+    name: ADMIN
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    _type: request_group
+  - _id: req_28588ff6be1549a2821d47eb5a972202
+    authentication: {}
+    body: {}
+    created: 1596563172947
+    description: ""
+    headers:
+      - description: ""
+        id: pair_dc1719b775d64ea58f51557d67952f4d
+        name: x-auth-token
+        value: "{{ admin_auth_token }}"
+    isPrivate: false
+    metaSortKey: -1552638807140
+    method: GET
+    modified: 1596563221460
+    name: Get monitor translations
+    parameters: []
+    parentId: fld_701d6efdf0e040bcba1f050d995da1ed
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/monitor-translations"
+    _type: request
+  - _id: fld_701d6efdf0e040bcba1f050d995da1ed
+    created: 1579205503966
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1579205503966
+    modified: 1579205503966
+    name: Monitor Translations
+    parentId: fld_5e8273952de24b9f8d2298996f937593
+    _type: request_group
   - _id: req_1722c11f078b45ed99f9f4acb3a492f8
     authentication: {}
     body:
@@ -4815,10 +4917,14 @@ resources:
       - id: pair_4143952d89574b28a572d52a7bea3f58
         name: Content-Type
         value: application/json
+      - description: ""
+        id: pair_b5742a062ef940cb90db02561707f39a
+        name: x-auth-token
+        value: "{{ admin_auth_token }}"
     isPrivate: false
     metaSortKey: -1552638807090
     method: POST
-    modified: 1579205562942
+    modified: 1596563243029
     name: Create monitor translation
     parameters: []
     parentId: fld_701d6efdf0e040bcba1f050d995da1ed
@@ -4830,26 +4936,6 @@ resources:
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/monitor-translations"
     _type: request
-  - _id: fld_701d6efdf0e040bcba1f050d995da1ed
-    created: 1579205503966
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1579205503966
-    modified: 1579205503966
-    name: Monitor Translations
-    parentId: fld_5e8273952de24b9f8d2298996f937593
-    _type: request_group
-  - _id: fld_5e8273952de24b9f8d2298996f937593
-    created: 1548358712950
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1548358712950
-    modified: 1556918976861
-    name: ADMIN
-    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
-    _type: request_group
   - _id: req_1c199d6a35544a3d8c625e20780e1901
     authentication: {}
     body: {}
@@ -5232,6 +5318,43 @@ resources:
     settingSendCookies: true
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/tenant-metadata"
+    _type: request
+  - _id: req_d2f56b8ce9cc4ebda2ce063e393b3677
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "accountType": "{% prompt 'Account type', '', 'cloud', '', false, false %}",
+          "metadata": {
+            "description": "{% prompt 'Description', '', '', '', false, false %}"
+          }
+        }
+    created: 1597164015625
+    description: ""
+    headers:
+      - description: ""
+        id: pair_3db19c8b0c1a433a96644668e9531898
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
+      - id: pair_e6dd95d57d1f41c3a0ea065fb37de6e5
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1580315793174.25
+    method: PUT
+    modified: 1597164030810
+    name: Put tenant metadata
+    parameters: []
+    parentId: fld_9381d0987aa14b3fbe906133f3298719
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/tenant-metadata/{% prompt 'Tenant ID', '', '', '',
+      false, true %}"
     _type: request
   - _id: req_bbd43a3f97f94541af81323aeb301260
     authentication: {}
@@ -5676,7 +5799,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665862259.5
     method: GET
-    modified: 1562944772521
+    modified: 1596735367048
     name: Get Public Zone by ID
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -5686,7 +5809,7 @@ resources:
     settingRebuildPath: true
     settingSendCookies: true
     settingStoreCookies: true
-    url: "{{ api_admin  }}/api/zones/public/public/us-central-1"
+    url: "{{ api_admin  }}/api/zones/public/us-central-1"
     _type: request
   - _id: req_f4d71f03f7a7475caaa06b81c4c2371e
     authentication: {}
@@ -5744,7 +5867,7 @@ resources:
     isPrivate: false
     metaSortKey: -1559665817901
     method: POST
-    modified: 1580333623769
+    modified: 1596735313825
     name: Create public zone
     parameters: []
     parentId: fld_27cdcc072284442896025676cae969ea
@@ -5804,6 +5927,31 @@ resources:
     settingStoreCookies: true
     url: "{{ api_admin  }}/api/zone-assignment-counts/public/australia_east_1"
     _type: request
+  - _id: req_ebd6f98e07bb4c8daba6b79ef397780a
+    authentication: {}
+    body: {}
+    created: 1596735185192
+    description: ""
+    headers:
+      - id: pair_991b7835e63649ae94217f4da31f6668
+        name: x-auth-token
+        value: "{{ admin_auth_token  }}"
+    isPrivate: false
+    metaSortKey: -1559311421803
+    method: DELETE
+    modified: 1596735336972
+    name: Delete Public Zone
+    parameters: []
+    parentId: fld_27cdcc072284442896025676cae969ea
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ api_admin  }}/api/zones/{% prompt 'Zone Id', 'zoneId', '', '', false,
+      true %}"
+    _type: request
   - _id: env_5a5d52bd56ce4760af650078de6aa477
     color: null
     created: 1533129475298
@@ -5816,7 +5964,7 @@ resources:
         - admin_auth_token
     isPrivate: false
     metaSortKey: 1533129475298
-    modified: 1580926465773
+    modified: 1596735386466
     name: New Environment
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: environment
@@ -5826,7 +5974,7 @@ resources:
         domain: sts.rackspace.com
         hostOnly: true
         httpOnly: true
-        id: "33072617800937665"
+        id: "07944083287157655"
         key: JSESSIONID
         lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
@@ -5836,7 +5984,7 @@ resources:
         domain: localhost
         hostOnly: true
         httpOnly: true
-        id: "2000555934130852"
+        id: "6126385411811641"
         key: JSESSIONID
         lastAccessed: 2020-02-10T21:36:23.806Z
         path: /
@@ -5845,7 +5993,7 @@ resources:
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
         httpOnly: true
-        id: "7696175083867698"
+        id: "34919281765099996"
         key: JSESSIONID
         lastAccessed: 2019-07-01T21:00:35.436Z
         path: /
@@ -5853,15 +6001,15 @@ resources:
       - creation: 2019-06-26T20:02:47.012Z
         domain: salus-api-admin.dev.monplat.rackspace.net
         hostOnly: true
-        id: "14483776472821663"
+        id: "22788303738865245"
         key: JSESSIONID
-        lastAccessed: 2020-02-04T14:35:23.894Z
+        lastAccessed: 2020-08-06T17:36:08.384Z
         path: /
-        value: node0w1uj8pm37h0e18aqd4ih92x2r2.node0
+        value: node0emloznfflpvf190yaexj9ze7h1.node0
       - creation: 2019-07-11T22:59:08.595Z
         domain: localhost
         hostOnly: true
-        id: "7959583445271781"
+        id: "7305038056340529"
         key: JSESSIONID
         lastAccessed: 2019-07-12T14:48:56.692Z
         path: /v1.0
@@ -5869,15 +6017,15 @@ resources:
       - creation: 2020-01-23T15:55:43.915Z
         domain: salus-api.staging.monplat.rackspace.net
         hostOnly: true
-        id: "43899729202443716"
+        id: "9327114294389358"
         key: JSESSIONID
-        lastAccessed: 2020-01-23T16:01:08.267Z
+        lastAccessed: 2020-08-04T18:09:07.727Z
         path: /v1.0
-        value: node01cq42cp2v5z054wuk6ekynbl92.node0
+        value: node0xf5wp4ismqxdi0sagdoo3kpz262.node0
       - creation: 2020-01-23T16:06:34.734Z
         domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
-        id: "7665525499992338"
+        id: "26805270619734123"
         key: JSESSIONID
         lastAccessed: 2020-02-05T20:02:02.296Z
         path: /v1.0
@@ -5885,7 +6033,7 @@ resources:
       - creation: 2020-01-23T16:06:41.395Z
         domain: salus-api.prod.monplat.rackspace.net
         hostOnly: true
-        id: "3202233287143561"
+        id: "2742987951092486"
         key: JSESSIONID
         lastAccessed: 2020-01-24T21:24:22.279Z
         path: /v1.0
@@ -5893,13 +6041,31 @@ resources:
       - creation: 2020-01-23T16:55:32.522Z
         domain: salus-api-admin.prod.monplat.rackspace.net
         hostOnly: true
-        id: "9522161608859048"
+        id: "7417099173085064"
         key: JSESSIONID
         lastAccessed: 2020-01-23T16:56:38.072Z
         path: /
         value: node015wqs788p90oo18b1ijpks4vnh0.node0
+      - creation: 2020-08-04T17:47:03.051Z
+        domain: salus-api-admin.staging.monplat.rackspace.net
+        hostOnly: true
+        httpOnly: true
+        id: "6513837955994763"
+        key: JSESSIONID
+        lastAccessed: 2020-08-04T17:47:26.728Z
+        path: /
+        value: C3756631CB04369DD064C5A05B95A836
+      - creation: 2020-08-04T18:08:42.574Z
+        domain: salus-api.staging.monplat.rackspace.net
+        hostOnly: true
+        httpOnly: true
+        id: "7077986974245423"
+        key: JSESSIONID
+        lastAccessed: 2020-08-04T18:09:07.727Z
+        path: /
+        value: 96E8FED5950F71BB5DD4FA6D0364436E
     created: 1533129475302
-    modified: 1581370583807
+    modified: 1596735368384
     name: Default Jar
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     _type: cookie_jar

@@ -41,6 +41,7 @@
         <module>apps/monitor-management</module>
         <module>apps/event-engine-ingest</module>
         <module>apps/event-engine-management</module>
+        <module>apps/event-engine-processor</module>
         <module>apps/zone-watcher</module>
         <module>apps/agent-catalog-management</module>
         <module>apps/policy-management</module>

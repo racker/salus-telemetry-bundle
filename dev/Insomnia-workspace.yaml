@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-10-20T14:09:02.683Z
+__export_date: 2020-10-20T14:10:13.196Z
 __export_source: insomnia.desktop.app:v2020.4.1
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
@@ -4072,6 +4072,42 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
+  - _id: req_97fc326501be4adf8eda7ae9800faac3
+    parentId: fld_0a6a98b5c25d42b2a28631f09356c466
+    modified: 1603202076438
+    created: 1603202052701
+    url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
+      true %}/resources/{% prompt 'Resource ID', '', '', '', false, true %}"
+    name: Update resource
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "presenceMonitoringEnabled": false,
+          "labels": {
+            "env": "ahhhh"
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_3c750e7c1e3a496988bfa0de00b5b857
+        name: Content-Type
+        value: application/json
+      - id: pair_ce35caa3383e4b13a278f1a9efa8ba2f
+        name: x-auth-token
+        value: "{{ auth_token  }}"
+    authentication: {}
+    metaSortKey: -1552253440198.0938
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_095d7117448940218ceec966f4049f14
     parentId: fld_0a6a98b5c25d42b2a28631f09356c466
     modified: 1562944562758
@@ -6074,6 +6110,14 @@ resources:
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
     modified: 1594811206484
     created: 1594811206484
+    fileName: Salus Telemetry
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: spc_92128f267e0f44169da380e91fb7f057
+    parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
+    modified: 1595267232651
+    created: 1595267232651
     fileName: Salus Telemetry
     contents: ""
     contentType: yaml

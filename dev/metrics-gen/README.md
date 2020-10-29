@@ -1,3 +1,7 @@
+NOTE: This application has become outdated due to changes in the metrics format.  It will need to be updated before it is of any use - an issue has been created in our backlog to handle this.
+
+---
+
 This application generates metrics with random sine-wave shapes in order to test parts of the
 system that need metrics that deterministically rise and fall in values, such as the event engine.
 The metrics are sent as JSON encoding of `ExternalMetric`s defined by `umb-protocol`. The metrics

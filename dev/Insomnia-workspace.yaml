@@ -831,29 +831,6 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1549899273935
     _type: request_group
-  - _id: req_88c42ac959534f19be7d580a779a9cd6
-    parentId: fld_7b08fb62d9514da78b462d31edfa8241
-    modified: 1570479303122
-    created: 1566321774279
-    url: "{{ monitor_mgmt  }}/api/tenant/{% prompt 'Tenant Id', 'tenantId',
-      'aaaaaa', '', false, true %}/policy-monitors/{% prompt 'Policy Monitor
-      Id', 'policyMonitorId', '', '', false, true %}"
-    name: Get Policy Monitor for Tenant
-    description: ""
-    method: GET
-    body: {}
-    parameters: []
-    headers: []
-    authentication: {}
-    metaSortKey: -1566321774279
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
   - _id: fld_7b08fb62d9514da78b462d31edfa8241
     parentId: fld_2cd444041994485fa243cdab9f615271
     modified: 1566312574409
@@ -863,35 +840,13 @@ resources:
     environment: {}
     environmentPropertyOrder: null
     metaSortKey: -1566312574409
-    _type: request_group
-  - _id: req_9af134fa2ff04334a35faf36ba8641d6
-    parentId: fld_7b08fb62d9514da78b462d31edfa8241
-    modified: 1570479306333
-    created: 1566321717634
-    url: "{{ monitor_mgmt  }}/api/tenant/{% prompt 'Tenant Id', 'tenantId',
-      'aaaaaa', '', false, true %}/policy-monitors"
-    name: Get Policy Monitors for Tenant
-    description: ""
-    method: GET
-    body: {}
-    parameters: []
-    headers: []
-    authentication: {}
-    metaSortKey: -1566321717634
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
+    _type: request_group  
   - _id: req_d4e3842b9bfc4a088cbe6a109c6931cc
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     modified: 1570479309018
     created: 1566312596095
-    url: "{{ monitor_mgmt  }}/api/admin/policy-monitors"
-    name: Get All Policy Monitors
+    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates"
+    name: Get All Monitor Templates
     description: ""
     method: GET
     body: {}
@@ -911,9 +866,9 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     modified: 1570479311995
     created: 1565632167730
-    url: "{{ monitor_mgmt  }}/api/admin/policy-monitors/{% prompt 'Policy Monitor
+    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates/{% prompt 'Monitor Template
       Id', 'monitorId', '', '', false, true %}"
-    name: Get Policy Monitor
+    name: Get Monitor Template
     description: ""
     method: GET
     body: {}
@@ -933,8 +888,8 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     modified: 1578957727488
     created: 1565631549054
-    url: "{{ monitor_mgmt  }}/api/admin/policy-monitors"
-    name: Create Remote Policy Monitor
+    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates"
+    name: Create Remote Monitor Template
     description: ""
     method: POST
     body:
@@ -975,8 +930,8 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     modified: 1578957740592
     created: 1566318014360
-    url: "{{ monitor_mgmt  }}/api/admin/policy-monitors"
-    name: Create Local Policy Monitor
+    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates"
+    name: Create Local Monitor Template
     description: ""
     method: POST
     body:
@@ -1017,9 +972,9 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     modified: 1570479320231
     created: 1565728827717
-    url: "{{ monitor_mgmt  }}/api/admin/policy-monitors/{% prompt 'Policy Monitor
+    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates/{% prompt 'Monitor Template
       Id', 'monitorId', '', '', false, true %}"
-    name: Update Policy Monitor
+    name: Update Monitor Template
     description: ""
     method: PUT
     body:
@@ -1047,9 +1002,9 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     modified: 1570479325281
     created: 1565731863951
-    url: "{{ monitor_mgmt  }}/api/admin/policy-monitors/{% prompt 'Policy Monitor
+    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates/{% prompt 'Policy Monitor
       Id', 'monitorId', '', '', false, false %}"
-    name: Delete Policy Monitor
+    name: Delete Monitor Template
     description: ""
     method: DELETE
     body: {}
@@ -2961,75 +2916,6 @@ resources:
         value: "{{ auth_token  }}"
     authentication: {}
     metaSortKey: -1596556969502
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
-  - _id: fld_52f2a23df31449f6935c3be8b1a99796
-    parentId: fld_3373074209bc49199beb8e5967f1ae4a
-    modified: 1556919007811
-    created: 1552575315822
-    name: Monitors
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1552638807215
-    _type: request_group
-  - _id: req_712eb034794c468fb843eca6f62fe853
-    parentId: fld_6fefb5ee22c547a59db209a07638355d
-    modified: 1566322708096
-    created: 1566322688748
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant Id', 'tenantId', 'aaaaaa', '',
-      false, true %}/policy-monitors/{% prompt 'Policy Monitor Id',
-      'policyMonitorId', '', '', false, true %}"
-    name: Get Policy Monitor
-    description: ""
-    method: GET
-    body: {}
-    parameters: []
-    headers: []
-    authentication: {}
-    metaSortKey: -1566322688748
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
-  - _id: fld_6fefb5ee22c547a59db209a07638355d
-    parentId: fld_52f2a23df31449f6935c3be8b1a99796
-    modified: 1566322653903
-    created: 1566322653903
-    name: Policy Monitors
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1566322653903
-    _type: request_group
-  - _id: req_9f108bef746e4701bba16a851de00d7b
-    parentId: fld_6fefb5ee22c547a59db209a07638355d
-    modified: 1580500561736
-    created: 1566322663350
-    url: "{{ api_public  }}/tenant/{% prompt 'Tenant Id', 'tenantId', 'aaaaaa', '',
-      false, true %}/policy-monitors"
-    name: Get Policy Monitors
-    description: ""
-    method: GET
-    body: {}
-    parameters: []
-    headers:
-      - description: ""
-        id: pair_2242633dfd704ccc84f4fcacb9c9f52a
-        name: x-auth-token
-        value: "{{ auth_token  }}"
-    authentication: {}
-    metaSortKey: -1566322663350
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
@@ -5048,7 +4934,7 @@ resources:
         {
           "scope": "GLOBAL",
           "name": "PING",
-          "monitorId": ""
+          "monitorTemplateId": ""
         }
     parameters: []
     headers:
@@ -5099,8 +4985,8 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     modified: 1580481506685
     created: 1566325884118
-    url: "{{ api_admin  }}/api/policy-monitors/{% prompt 'Policy Monitor Id',
-      'policyMonitorId', '', '', false, false %}"
+    url: "{{ api_admin  }}/api/monitor-templates/{% prompt 'Monitor Template Id',
+      'monitorTemplateId', '', '', false, false %}"
     name: Get Monitor
     description: ""
     method: GET
@@ -5125,7 +5011,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     modified: 1580481511894
     created: 1566325762737
-    url: "{{ api_admin  }}/api/policy-monitors"
+    url: "{{ api_admin  }}/api/monitor-templates"
     name: Get All Monitors
     description: ""
     method: GET
@@ -5150,7 +5036,7 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     modified: 1580481515643
     created: 1566325769377
-    url: "{{ api_admin  }}/api/policy-monitors"
+    url: "{{ api_admin  }}/api/monitor-templates"
     name: Create Monitor
     description: ""
     method: POST
@@ -5197,8 +5083,8 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     modified: 1580481519903
     created: 1566325774736
-    url: "{{ api_admin  }}/api/policy-monitors/{% prompt 'Policy Monitor Id',
-      'policyMonitorId', '', '', false, false %}"
+    url: "{{ api_admin  }}/api/monitor-templates/{% prompt 'Monitor Template Id',
+      'monitorTemplateId', '', '', false, false %}"
     name: Update Monitor
     description: ""
     method: PUT
@@ -5231,8 +5117,8 @@ resources:
     parentId: fld_b15f6baa7b284d78afa7fe13cdbfd0bc
     modified: 1580481523660
     created: 1566325780369
-    url: "{{ api_admin  }}/api/policy-monitors/{% prompt 'Policy Monitor Id',
-      'policyMonitorId', '', '', false, false %}"
+    url: "{{ api_admin  }}/api/monitor-templates/{% prompt 'Monitor Template Id',
+      'monitorTemplateId', '', '', false, false %}"
     name: Delete Monitor
     description: ""
     method: DELETE

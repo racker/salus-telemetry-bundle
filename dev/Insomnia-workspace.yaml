@@ -568,7 +568,7 @@ resources:
     parentId: fld_b07a28e982c446ca93a8a25c01d86a74
     modified: 1562944267194
     created: 1557161809848
-    url: http://localhost:8085/api/tenant/aaaaaa/resources-by-label?pingable=true
+    url: http://localhost:8085/api/tenant/aaaaaa/resources-by-label/AND?pingable=true
     name: Get resources by labels
     description: ""
     method: GET
@@ -3846,7 +3846,8 @@ resources:
     modified: 1566336205669
     created: 1552486588574
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
-      true %}/resources-by-label"
+      true %}/resources-by-label/{% prompt 'logicalOperator', 'Logical Operator', '', '', false,
+      true %}"
     name: Get resources by label
     description: ""
     method: GET

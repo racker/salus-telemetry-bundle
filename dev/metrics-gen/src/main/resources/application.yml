@@ -1,5 +1,6 @@
 spring:
   kafka:
     producer:
-      value-serializer: com.rackspace.monplat.protocol.ExternalMetricSerializer
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  profiles:
+    include: umf

@@ -11,9 +11,9 @@ ambassador:
   address: localhost:6565
 ingest:
   lumberjack:
-    bind: localhost:0
+    bind: localhost:5044
   telegraf:
     json:
-      bind: localhost:0
+      bind: localhost:8094
 agents:
   dataPath: data-telemetry-envoy

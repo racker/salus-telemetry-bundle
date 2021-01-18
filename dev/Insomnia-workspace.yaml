@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2020-11-05T17:00:33.808Z
-__export_source: insomnia.desktop.app:v2020.4.2
+__export_date: 2020-10-20T14:10:13.196Z
+__export_source: insomnia.desktop.app:v2020.4.1
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
@@ -5434,7 +5434,7 @@ resources:
     _type: request
   - _id: req_85a59f0d9f3241a3baf52117fa240412
     parentId: fld_eb600b387c26452d9deb62946fdef63d
-    modified: 1604595562109
+    modified: 1580481819748
     created: 1580316432058
     url: "{{ api_admin  }}/api/policy/metadata/monitor/{% prompt 'Policy Id',
       'policyId', '', '', false, false %}"
@@ -5445,7 +5445,6 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "valueType": "INT",
           "value": "72"
         }
     parameters: []
@@ -5632,7 +5631,7 @@ resources:
     _type: request
   - _id: req_99e68d9388a34399992dc00e730ab54c
     parentId: fld_5e8273952de24b9f8d2298996f937593
-    modified: 1604592265279
+    modified: 1562944755883
     created: 1560285580667
     url: "{{ api_admin  }}/api/presence-monitor/partitions"
     name: Update presence monitor partitions
@@ -5640,10 +5639,7 @@ resources:
     method: PUT
     body:
       mimeType: application/json
-      text: |-
-        { 
-          "count": 8
-        }
+      text: "8"
     parameters: []
     headers:
       - id: pair_4d878951fdd74432b32a3818b80009fd
@@ -5881,12 +5877,12 @@ resources:
     _type: request
   - _id: env_5a5d52bd56ce4760af650078de6aa477
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
-    modified: 1604593680793
+    modified: 1596735386466
     created: 1533129475298
     name: New Environment
     data:
-      auth_token: AAD5Gmuv_417wvWcvZiRHNerHJsI8iyesRFy4Ttd888T_s866oJTY21nprb3809qQjkG7RYBVMalCjGb540XEPmLgwAJbuRDwUZNtisYHlFRr4a35TLDPwKWiLSFrpbcmNQIIwqytMfR0KxL3QxK4TBuAbF5Bj5rmwA
-      admin_auth_token: AABoRbSBkA5LvtIuHID_YR5h0P9_Ju0pDS39Az9kE8O9EMWOT_bJpxHSjluqTOqLypWcWFFgx-xRvUHSNPLnKyzCLUExlBMhAIZ0OtmkxPblIoGEDXtaWzkbeMk-rOMGd0V9J2GsscsBDAyoi8C5HBMEy-IpnN2OPzY
+      admin_auth_token: ""
+      auth_token: ""
     dataPropertyOrder:
       "&":
         - auth_token
@@ -5897,121 +5893,104 @@ resources:
     _type: environment
   - _id: jar_acd5d53ae0c14f0b97e856cb1914d5da
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75
-    modified: 1604593757517
+    modified: 1596735368384
     created: 1533129475302
     name: Default Jar
     cookies:
-      - key: JSESSIONID
-        value: 0BC0323B13805D74C0579769C5BCEB5A
+      - creation: 2018-12-04T14:57:24.792Z
         domain: sts.rackspace.com
+        hostOnly: true
+        httpOnly: true
+        id: "07944083287157655"
+        key: JSESSIONID
+        lastAccessed: 2018-12-04T14:58:53.296Z
         path: /
         secure: true
-        httpOnly: true
-        hostOnly: true
-        creation: 2018-12-04T14:57:24.792Z
-        lastAccessed: 2018-12-04T14:58:53.296Z
-        id: "758361041890486"
-      - key: JSESSIONID
-        value: 2B75A794373A484B4245EB5DD9E001D5
+        value: 0BC0323B13805D74C0579769C5BCEB5A
+      - creation: 2018-12-04T16:01:03.234Z
         domain: localhost
-        path: /
-        httpOnly: true
         hostOnly: true
-        creation: 2018-12-04T16:01:03.234Z
+        httpOnly: true
+        id: "6126385411811641"
+        key: JSESSIONID
         lastAccessed: 2020-02-10T21:36:23.806Z
-        id: "8789496609925933"
-      - key: JSESSIONID
-        value: 15DA049D8C93CE312D1B796FEE08C52B
-        domain: salus-api.dev.monplat.rackspace.net
         path: /
-        httpOnly: true
+        value: 2B75A794373A484B4245EB5DD9E001D5
+      - creation: 2019-06-17T18:55:28.560Z
+        domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
-        creation: 2019-06-17T18:55:28.560Z
+        httpOnly: true
+        id: "34919281765099996"
+        key: JSESSIONID
         lastAccessed: 2019-07-01T21:00:35.436Z
-        id: "8776318745463063"
-      - key: JSESSIONID
-        value: node0emloznfflpvf190yaexj9ze7h1.node0
+        path: /
+        value: 15DA049D8C93CE312D1B796FEE08C52B
+      - creation: 2019-06-26T20:02:47.012Z
         domain: salus-api-admin.dev.monplat.rackspace.net
-        path: /
         hostOnly: true
-        creation: 2019-06-26T20:02:47.012Z
+        id: "22788303738865245"
+        key: JSESSIONID
         lastAccessed: 2020-08-06T17:36:08.384Z
-        id: "7581741529157904"
-      - key: JSESSIONID
-        value: node02j8tcmeo1izdi4pk9dfef8a10.node0
+        path: /
+        value: node0emloznfflpvf190yaexj9ze7h1.node0
+      - creation: 2019-07-11T22:59:08.595Z
         domain: localhost
-        path: /v1.0
         hostOnly: true
-        creation: 2019-07-11T22:59:08.595Z
+        id: "7305038056340529"
+        key: JSESSIONID
         lastAccessed: 2019-07-12T14:48:56.692Z
-        id: "9243911272483056"
-      - key: JSESSIONID
-        value: node01ac36ok9u2ksyybsrrwx9r6oj5429.node0
+        path: /v1.0
+        value: node02j8tcmeo1izdi4pk9dfef8a10.node0
+      - creation: 2020-01-23T15:55:43.915Z
         domain: salus-api.staging.monplat.rackspace.net
-        path: /v1.0
         hostOnly: true
-        creation: 2020-01-23T15:55:43.915Z
-        lastAccessed: 2020-11-05T16:29:17.517Z
-        id: "8295087790646571"
-      - key: JSESSIONID
-        value: node0151xrzlw25v691vs94fqmw3cm71.node0
-        domain: salus-api.dev.monplat.rackspace.net
-        path: /v1.0
-        hostOnly: true
-        creation: 2020-01-23T16:06:34.734Z
-        lastAccessed: 2020-02-05T20:02:02.296Z
-        id: "5736747580268644"
-      - key: JSESSIONID
-        value: node0n0cf6sxyslspzknshrupcls813.node0
-        domain: salus-api.prod.monplat.rackspace.net
-        path: /v1.0
-        hostOnly: true
-        creation: 2020-01-23T16:06:41.395Z
-        lastAccessed: 2020-01-24T21:24:22.279Z
-        id: "017094524065408123"
-      - key: JSESSIONID
-        value: node015wqs788p90oo18b1ijpks4vnh0.node0
-        domain: salus-api-admin.prod.monplat.rackspace.net
-        path: /
-        hostOnly: true
-        creation: 2020-01-23T16:55:32.522Z
-        lastAccessed: 2020-01-23T16:56:38.072Z
-        id: "9544851048367369"
-      - key: JSESSIONID
-        value: C3756631CB04369DD064C5A05B95A836
-        domain: salus-api-admin.staging.monplat.rackspace.net
-        path: /
-        httpOnly: true
-        hostOnly: true
-        creation: 2020-08-04T17:47:03.051Z
-        lastAccessed: 2020-08-04T17:47:26.728Z
-        id: "3580215776425546"
-      - key: JSESSIONID
-        value: 96E8FED5950F71BB5DD4FA6D0364436E
-        domain: salus-api.staging.monplat.rackspace.net
-        path: /
-        httpOnly: true
-        hostOnly: true
-        creation: 2020-08-04T18:08:42.574Z
+        id: "9327114294389358"
+        key: JSESSIONID
         lastAccessed: 2020-08-04T18:09:07.727Z
-        id: "5998749986453054"
-      - key: JSESSIONID
-        value: EC3143CFC4D57AF92209B3F4015DF901
-        domain: salus-api-admin.perf.monplat.rackspace.net
-        path: /
-        httpOnly: true
-        hostOnly: true
-        creation: 2020-11-05T15:57:34.006Z
-        lastAccessed: 2020-11-05T16:28:45.521Z
-        id: "014127821508093774"
-      - key: JSESSIONID
-        value: node018bi4f9wod3u1wivkdz4uvjoq647.node0
-        domain: salus-api.perf.monplat.rackspace.net
         path: /v1.0
+        value: node0xf5wp4ismqxdi0sagdoo3kpz262.node0
+      - creation: 2020-01-23T16:06:34.734Z
+        domain: salus-api.dev.monplat.rackspace.net
         hostOnly: true
-        creation: 2020-11-05T16:28:19.574Z
-        lastAccessed: 2020-11-05T16:28:19.574Z
-        id: "11798423725295404"
+        id: "26805270619734123"
+        key: JSESSIONID
+        lastAccessed: 2020-02-05T20:02:02.296Z
+        path: /v1.0
+        value: node0151xrzlw25v691vs94fqmw3cm71.node0
+      - creation: 2020-01-23T16:06:41.395Z
+        domain: salus-api.prod.monplat.rackspace.net
+        hostOnly: true
+        id: "2742987951092486"
+        key: JSESSIONID
+        lastAccessed: 2020-01-24T21:24:22.279Z
+        path: /v1.0
+        value: node0n0cf6sxyslspzknshrupcls813.node0
+      - creation: 2020-01-23T16:55:32.522Z
+        domain: salus-api-admin.prod.monplat.rackspace.net
+        hostOnly: true
+        id: "7417099173085064"
+        key: JSESSIONID
+        lastAccessed: 2020-01-23T16:56:38.072Z
+        path: /
+        value: node015wqs788p90oo18b1ijpks4vnh0.node0
+      - creation: 2020-08-04T17:47:03.051Z
+        domain: salus-api-admin.staging.monplat.rackspace.net
+        hostOnly: true
+        httpOnly: true
+        id: "6513837955994763"
+        key: JSESSIONID
+        lastAccessed: 2020-08-04T17:47:26.728Z
+        path: /
+        value: C3756631CB04369DD064C5A05B95A836
+      - creation: 2020-08-04T18:08:42.574Z
+        domain: salus-api.staging.monplat.rackspace.net
+        hostOnly: true
+        httpOnly: true
+        id: "7077986974245423"
+        key: JSESSIONID
+        lastAccessed: 2020-08-04T18:09:07.727Z
+        path: /
+        value: 96E8FED5950F71BB5DD4FA6D0364436E
     _type: cookie_jar
   - _id: spc_d58d6c493e3647c891534dc96d0b4eed
     parentId: wrk_ac0b38d28c244065bf230518f9dd3e75

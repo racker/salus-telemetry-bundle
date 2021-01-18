@@ -15,6 +15,6 @@ ingest:
     bind: ""
   telegraf:
     json:
-      bind: localhost:8094
+      bind: localhost:0
 agents:
   dataPath: data-gke-dev

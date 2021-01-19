@@ -38,6 +38,8 @@ public class UmfMetricBuilder implements
         .setAccountType(UniversalMetricFrame.AccountType.CLOUD)
         .setTenantId(generatedMetric.getTenant())
         .setMonitoringSystem(UniversalMetricFrame.MonitoringSystem.SALUS)
+        .putAllSystemMetadata(generatedMetric.getLabels())
+        .putDeviceMetadata("id", generatedMetric.getResource())
         .addAllMetrics(metricFields.entrySet().stream()
             .map(entry -> Metric.newBuilder()
                 .setTimestamp(Timestamp.newBuilder()

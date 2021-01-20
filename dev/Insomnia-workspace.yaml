@@ -1,7 +1,7 @@
 _type: export
 __export_format: 4
-__export_date: 2020-10-20T14:10:13.196Z
-__export_source: insomnia.desktop.app:v2020.4.1
+__export_date: 2021-01-20T19:54:42.342Z
+__export_source: insomnia.desktop.app:v2020.5.2
 resources:
   - _id: req_e8b1565dab71459983d06f366d58e02b
     parentId: fld_7876677d6cfa4e828deefa45a4aeccf5
@@ -831,16 +831,6 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1549899273935
     _type: request_group
-  - _id: fld_7b08fb62d9514da78b462d31edfa8241
-    parentId: fld_2cd444041994485fa243cdab9f615271
-    modified: 1566312574409
-    created: 1566312574409
-    name: Policy Requests
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1566312574409
-    _type: request_group  
   - _id: req_d4e3842b9bfc4a088cbe6a109c6931cc
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     modified: 1570479309018
@@ -862,12 +852,22 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
+  - _id: fld_7b08fb62d9514da78b462d31edfa8241
+    parentId: fld_2cd444041994485fa243cdab9f615271
+    modified: 1566312574409
+    created: 1566312574409
+    name: Policy Requests
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1566312574409
+    _type: request_group
   - _id: req_262ca9c92c2e48839e0657322ea6ce17
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     modified: 1570479311995
     created: 1565632167730
-    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates/{% prompt 'Monitor Template
-      Id', 'monitorId', '', '', false, true %}"
+    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates/{% prompt 'Monitor
+      Template Id', 'monitorId', '', '', false, true %}"
     name: Get Monitor Template
     description: ""
     method: GET
@@ -972,8 +972,8 @@ resources:
     parentId: fld_7b08fb62d9514da78b462d31edfa8241
     modified: 1570479320231
     created: 1565728827717
-    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates/{% prompt 'Monitor Template
-      Id', 'monitorId', '', '', false, true %}"
+    url: "{{ monitor_mgmt  }}/api/admin/monitor-templates/{% prompt 'Monitor
+      Template Id', 'monitorId', '', '', false, true %}"
     name: Update Monitor Template
     description: ""
     method: PUT
@@ -1964,12 +1964,10 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"measurement": "mem",
         	"name": "mem",
+          "monitoringSystem": "SALUS",
         	"taskParameters": {
-        		"criticalStateDuration": 2,
-        		"warningStateDuration": null,
-        		"infoStateDuration": null,
+            "metricGroup": "mem",
         		"stateExpressions": [
         			{
         				"state": "CRITICAL",
@@ -2011,7 +2009,7 @@ resources:
     _type: request
   - _id: req_d7c8de823d2342ddb2c610a4c94ccc19
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
-    modified: 1595435949889
+    modified: 1611171493327
     created: 1549899284793
     url: localhost:8087/api/tenant/{% prompt 'Tenant Id', 'tenantId', '', '', false,
       true %}/tasks
@@ -2022,24 +2020,33 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"measurement": "cpu",
-        	"name": "cpu",
+        	"name": "cpu from MetricsGen",
+          "monitoringSystem": "salus",
         	"taskParameters": {
+            "metricGroup": "cpu",
         		"labelSelector": {
-        			"agent_environment": "localdev"
+        			"system_env": "test"
         		},
-        		"criticalStateDuration": 2,
-        		"warningStateDuration": null,
-        		"infoStateDuration": null,
+            "groupBy": ["resource_id"],
         		"stateExpressions": [
         			{
         				"state": "CRITICAL",
-        				"message": "critical threshold was hit",
+        				"message": "usage_user of #{usage_user} is critical",
         				"expression": {
         					"type": "comparison",
-        					"comparator": "<",
-        					"valueName": "total_cpu",
-        					"comparisonValue": 3
+        					"comparator": ">",
+        					"input": "usage_user",
+        					"comparisonValue": 50
+        				}
+        			},
+              {
+        				"state": "WARNING",
+        				"message": "usage_user of #{usage_user} is above warning levels",
+        				"expression": {
+        					"type": "comparison",
+        					"comparator": ">",
+        					"input": "usage_user",
+        					"comparisonValue": 20
         				}
         			}
         		]
@@ -2060,9 +2067,69 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
+  - _id: req_911314efd3ba4a309c783912dee7ef7e
+    parentId: fld_a3c445b8e50f4c5c96d289de93c41764
+    modified: 1611170922157
+    created: 1611170859836
+    url: localhost:8087/api/tenant/{% prompt 'Tenant Id', 'tenantId', '', '', false,
+      true %}/tasks/{% prompt 'Task ID', '', '', '', false, true %}
+    name: Update task (cpu)
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "cpu from MetricsGen",
+          "monitoringSystem": "salus",
+        	"taskParameters": {
+            "metricGroup": "cpu",
+        		"labelSelector": {
+        			"system_env": "test"
+        		},
+            "groupBy": ["resource_id"],
+        		"stateExpressions": [
+        			{
+        				"state": "CRITICAL",
+        				"message": "#{usage_user} is critical",
+        				"expression": {
+        					"type": "comparison",
+        					"comparator": ">",
+        					"input": "usage_user",
+        					"comparisonValue": 50
+        				}
+        			},
+              {
+        				"state": "WARNING",
+        				"message": "#{usage_user} is at warning levels",
+        				"expression": {
+        					"type": "comparison",
+        					"comparator": ">",
+        					"input": "usage_user",
+        					"comparisonValue": 20
+        				}
+        			}
+        		]
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_0d10845d604943b6856f85560742c746
+        name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1549899284780.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_73430c66b40a4da68957dc5b68669348
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
-    modified: 1595436027087
+    modified: 1611153000275
     created: 1557930393381
     url: localhost:8087/api/tenant/{% prompt 'Tenant', '', 'aaaaaa', '', false
       %}/tasks
@@ -2073,15 +2140,13 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"measurement": "procstat_lookup",
-        	"name": "procstat",
+        	"name": "procstat pid_count",
+          "monitoringSystem": "SALUS",
         	"taskParameters": {
+            "metricGroup": "procstat_lookup",
         		"labelSelector": {
         			"pattern": "java.*IdleWebServerApplication"
         		},
-        		"criticalStateDuration": 4,
-        		"warningStateDuration": null,
-        		"infoStateDuration": null,
         		"stateExpressions": [
         			{
         				"state": "CRITICAL",
@@ -2170,9 +2235,9 @@ resources:
     _type: request
   - _id: req_4f1de6d84e814b22a8f6ac7f57d9b37b
     parentId: fld_a3c445b8e50f4c5c96d289de93c41764
-    modified: 1561415415452
+    modified: 1611154463974
     created: 1549938842836
-    url: localhost:8087/api/tenant/{% prompt 'Tenant', '', '', 'tenantId', false
+    url: localhost:8087/api/tenant/{% prompt 'Tenant', '', '', '', false, true
       %}/tasks/{% prompt 'Event Task ID', '', '', '', false %}
     name: Delete task
     description: ""
@@ -2933,7 +2998,7 @@ resources:
     environment: {}
     environmentPropertyOrder: null
     metaSortKey: -1552638807215
-    _type: request_group  
+    _type: request_group
   - _id: req_01cf5de9c6b149d3b01670c6adb4895a
     parentId: fld_52f2a23df31449f6935c3be8b1a99796
     modified: 1595267682274
@@ -3856,8 +3921,8 @@ resources:
     modified: 1566336205669
     created: 1552486588574
     url: "{{ api_public  }}/tenant/{% prompt 'tenantId', 'Tenant Id', '', '', false,
-      true %}/resources-by-label/{% prompt 'logicalOperator', 'Logical Operator', '', '', false,
-      true %}"
+      true %}/resources-by-label/{% prompt 'logicalOperator', 'Logical
+      Operator', '', '', false, true %}"
     name: Get resources by label
     description: ""
     method: GET
@@ -4096,7 +4161,7 @@ resources:
     _type: request
   - _id: req_ff8e3b0f818e4ed8a5c8936292084b96
     parentId: fld_906f0421bdb54818a4abb19bd58a8d21
-    modified: 1595436489967
+    modified: 1611172462003
     created: 1552841089420
     url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
       true %}/event-tasks"
@@ -4107,24 +4172,33 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"measurement": "cpu",
-        	"name": "cpu",
+        	"name": "cpu from MetricsGen",
+          "monitoringSystem": "salus",
         	"taskParameters": {
+            "metricGroup": "cpu",
         		"labelSelector": {
-        			"agent_environment": "localdev"
+        			"system_env": "test"
         		},
-        		"criticalStateDuration": 2,
-        		"warningStateDuration": null,
-        		"infoStateDuration": null,
+            "groupBy": ["resource_id"],
         		"stateExpressions": [
         			{
         				"state": "CRITICAL",
-        				"message": "critical threshold was hit",
+        				"message": "usage_user of #{usage_user} is critical",
         				"expression": {
         					"type": "comparison",
-        					"comparator": "<",
-        					"valueName": "total_cpu",
-        					"comparisonValue": 3
+        					"comparator": ">",
+        					"input": "usage_user",
+        					"comparisonValue": 50
+        				}
+        			},
+              {
+        				"state": "WARNING",
+        				"message": "usage_user of #{usage_user} is above warning levels",
+        				"expression": {
+        					"type": "comparison",
+        					"comparator": ">",
+        					"input": "usage_user",
+        					"comparisonValue": 20
         				}
         			}
         		]
@@ -4578,9 +4652,42 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
+  - _id: req_9de800cb0d8748e9bb909ebe99cf7333
+    parentId: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
+    modified: 1607037085394
+    created: 1607036942607
+    url: "{{ _.auth_service }}/cert"
+    name: Get client cert
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% prompt 'Envoy auth token', '', '', '', false, true %}"
+    metaSortKey: -1607036942607
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
+    parentId: fld_3373074209bc49199beb8e5967f1ae4a
+    modified: 1585757332146
+    created: 1585757326415
+    name: Envoy Tokens
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1552638806965
+    _type: request_group
   - _id: req_bc344ee5b97e4ebca705453b2c5e5443
     parentId: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
-    modified: 1590596446278
+    modified: 1610055786473
     created: 1585757349750
     url: "{{ api_public  }}/tenant/{% prompt 'Tenant ID', 'tenantId', '', '', false,
       true %}/envoy-tokens"
@@ -4614,16 +4721,6 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
-    parentId: fld_3373074209bc49199beb8e5967f1ae4a
-    modified: 1585757332146
-    created: 1585757326415
-    name: Envoy Tokens
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1552638806965
-    _type: request_group
   - _id: req_0f972c32caeb4136976c266374c5a804
     parentId: fld_0c4f18cc71474ed4aa981c4cf0e3cc33
     modified: 1585757590638
@@ -6055,10 +6152,12 @@ resources:
     data:
       api_admin: http://salus-api-admin.prod.monplat.rackspace.net
       api_public: http://salus-api.prod.monplat.rackspace.net/v1.0
+      auth_service: salus-auth-serv.prod.monplat.rackspace.net/v1.0
     dataPropertyOrder:
       "&":
         - api_admin
         - api_public
+        - auth_service
     color: null
     isPrivate: false
     metaSortKey: 4
@@ -6087,10 +6186,12 @@ resources:
     data:
       api_admin: http://salus-api-admin.staging.monplat.rackspace.net
       api_public: http://salus-api.staging.monplat.rackspace.net/v1.0
+      auth_service: salus-auth-serv.staging.monplat.rackspace.net/v1.0
     dataPropertyOrder:
       "&":
         - api_admin
         - api_public
+        - auth_service
     color: null
     isPrivate: false
     metaSortKey: 3
@@ -6103,10 +6204,12 @@ resources:
     data:
       api_admin: http://salus-api-admin.dev.monplat.rackspace.net
       api_public: http://salus-api.dev.monplat.rackspace.net/v1.0
+      auth_service: salus-auth-serv.dev.monplat.rackspace.net/v1.0
     dataPropertyOrder:
       "&":
         - api_admin
         - api_public
+        - auth_service
     color: null
     isPrivate: false
     metaSortKey: 2
@@ -6119,10 +6222,12 @@ resources:
     data:
       api_admin: http://salus-api-admin.perf.monplat.rackspace.net
       api_public: http://salus-api.perf.monplat.rackspace.net/v1.0
+      auth_service: salus-auth-serv.perf.monplat.rackspace.net/v1.0
     dataPropertyOrder:
       "&":
         - api_admin
         - api_public
+        - auth_service
     color: null
     isPrivate: false
     metaSortKey: 2.5

@@ -16,9 +16,12 @@
 
 package com.rackspace.salus.metricsgen.services;
 
+import com.google.protobuf.Timestamp;
 import com.rackspace.monplat.protocol.AccountType;
 import com.rackspace.monplat.protocol.ExternalMetric;
+import com.rackspace.monplat.protocol.Metric;
 import com.rackspace.monplat.protocol.MonitoringSystem;
+import com.rackspace.monplat.protocol.UniversalMetricFrame;
 import com.rackspace.salus.metricsgen.config.MetricsGenProperties;
 import com.rackspace.salus.metricsgen.model.Field;
 import com.rackspace.salus.metricsgen.model.GeneratedMetric;
@@ -30,6 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.SmartLifecycle;
@@ -47,19 +51,22 @@ public class Generator implements SmartLifecycle {
 
   private final MetricsGenProperties properties;
   private final Random rand;
-  private final KafkaTemplate<String, ExternalMetric> kafkaTemplate;
+  private final KafkaTemplate<String, Object> kafkaTemplate;
   private final int minPeriod;
+  private final ProducedMetricBuilder metricBuilder;
   private boolean running;
   private List<GeneratedMetric> generatedMetrics = new ArrayList<>();
 
   @Autowired
   public Generator(MetricsGenProperties properties, Random rand,
-                   KafkaTemplate<String, ExternalMetric> kafkaTemplate) {
+                   KafkaTemplate<String, Object> kafkaTemplate,
+                   ProducedMetricBuilder metricBuilder) {
     this.properties = properties;
     this.rand = rand;
     this.kafkaTemplate = kafkaTemplate;
     minPeriod = (int) ((properties.getEmitRate().toMillis()/1000) * 2);
 
+    this.metricBuilder = metricBuilder;
   }
 
   @Override
@@ -130,29 +137,15 @@ public class Generator implements SmartLifecycle {
 
   @Scheduled(fixedRateString = "#{metricsGenProperties.emitRate}")
   public void generate() {
-    log.info("Generating {} metrics", generatedMetrics.size());
+    log.info("Generating count={} metrics to topic={}", generatedMetrics.size(), properties.getTopic());
 
     final Instant now = Instant.now();
-    final long epochSecond = now.getEpochSecond();
-    final String timestamp = DateTimeFormatter.ISO_INSTANT.format(now);
 
     for (GeneratedMetric generatedMetric : generatedMetrics) {
 
-        final ExternalMetric metric = ExternalMetric.newBuilder()
-            .setTimestamp(timestamp)
-            .setAccountType(AccountType.RCN)
-            .setAccount(generatedMetric.getTenant())
-            .setSystemMetadata(Collections.emptyMap())
-            .setMonitoringSystem(MonitoringSystem.SALUS)
-            .setCollectionName(generatedMetric.getName())
-            .setCollectionMetadata(Collections.emptyMap())
-            .setDevice(generatedMetric.getResource())
-            .setDeviceMetadata(generatedMetric.getLabels())
-            .setIvalues(fillMetricFields(generatedMetric, epochSecond))
-            .setFvalues(Collections.emptyMap())
-            .setSvalues(Collections.emptyMap())
-            .setUnits(Collections.emptyMap())
-            .build();
+        final Object metric = metricBuilder.buildMetric(now, generatedMetric,
+            fillMetricFields(generatedMetric, now.getEpochSecond())
+        );
 
         log.trace("Sending {}", metric);
         kafkaTemplate.send(

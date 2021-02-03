@@ -33,7 +33,7 @@ public class MetricsGenProperties {
 
   Duration emitRate = Duration.ofSeconds(10);
 
-  String topic = "telemetry.metrics.json";
+  String topic;
 
   private static Map<String, String[]> defaultLabels() {
     final Map<String, String[]> result = new HashMap<>();

@@ -1,3 +1,5 @@
+## Archived version --> please [click here](https://github.com/racker/salus-telemetry-bundle/wiki) for updated document.
+
 ## Cloning the git submodules
 ```
 git clone --recursive git@github.com:racker/salus-telemetry-bundle.git
